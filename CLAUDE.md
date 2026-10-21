@@ -8,7 +8,7 @@
 
 - 1단계 범위(지금): 양도박사 **관찰**로 신고 기능 전부를 습득 — 데이터 모델·출력 규격(전자신고·인쇄)·계산 검증 케이스 확보. 설치형 → 척추 케이스 C000 1바퀴(`docs/work-plans/2026-10-22-전체구조.md` §2.3) → 화면·케이스 확장. 계산 기준은 양도박사가 아니라 소득세법 §94~§118·시행령·국세청 명세이며, 양도박사 버전의 옛 세법과 현행법 차이는 케이스 `law_date`로 구분해 기록한다.
 - 2단계 이후: 사이트 설계·구현. 저장소 분리 여부는 미정(`docs/decisions.md` ❓).
-- 하지 않는 것: 디컴파일·실행파일 코드 추출·클라우드 자동화/스크래핑(`docs/ANALYSIS_PLAN.md` §0), 다른 프로젝트 코드 참조(taxflow 포함, 사용자 지시 2026-10-22)
+- 하지 않는 것: 디컴파일·실행파일 코드 추출·클라우드 자동화/스크래핑(`docs/ANALYSIS_PLAN.md` §0), taxflow(원천세) 참조(사용자 지시 2026-10-22). 과거 양도세 계산기의 정의서·시나리오는 `docs/reference/` 사본으로만 참조하고 코드는 복사하지 않는다
 
 ## 시작할 때 읽을 문서
 
@@ -24,6 +24,7 @@
 | DB 테이블, 화면↔컬럼 매핑 | `data/schema/tables.md`, `data/schema/mapping.csv` |
 | 전자신고 파일 레이아웃 | `data/efile/layout/` |
 | 케이스, 오라클 비교, 불일치 | `cases/index.csv`, `cases/<group>/C###.yaml` |
+| 세법 해석(비과세·장특공제·세율·중과), 계산기 설계 입력, 케이스 씨앗 | `docs/reference/README.md` → `yangdose-ALG.md`(ALG-2~10), `yangdose-testScenarios.js` |
 | 불편한 점, 업그레이드 후보 | `docs/reports/pain_points.md` |
 
 ## 역할과 모델 (모델명은 이 표에만)
