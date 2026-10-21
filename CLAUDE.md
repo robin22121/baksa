@@ -60,7 +60,7 @@
 
 ## 배포·실행
 
-- git: 있음(원격 `https://github.com/robin22121/baksa`, `main`). Mac은 맨 처음 설계·문서화·기본 개발계획(`docs/work-plans/2026-10-22-전체구조.md`)까지만 했다. **W0부터 모든 작업은 Windows PC의 Claude Code가 한다**(구현·분석·후속 설계·보고). 동기화는 `origin/main`만.
+- git: 있음(원격 `https://github.com/robin22121/baksa`, `main`). Mac은 맨 처음 설계·문서화·기본 개발계획(`docs/work-plans/2026-10-22-전체구조.md`)까지만 했다. **W0부터 모든 작업은 Windows PC의 Claude Code가 한다**(구현·분석·후속 설계·보고). 예외: W0~W1b 뼈대는 Mac에서 먼저 썼다(`docs/decisions.md` "두 PC 역할", 2026-10-22) — Windows는 그 손질부터. 동기화는 `origin/main`만.
 - 양도박사 조작: 설치형은 에이전트가 직접 자동 조작한다(탐색·캡처·케이스 입력, `tools/drive/`). 금지 메뉴는 `docs/env.md`. 클라우드형도 자동화 허용(`tools/cloud/dump-web.mjs` — 사람이 로그인한 Chrome에 CDP 연결, 화면별 HTML·필드 덤프; 2026-10-22 사용자 지시).
 - 배포 대상: 없음. 종료 신호는 STATUS 갱신 + archive 이동 + 커밋.
 - 로컬 실행(Windows): `python tools/check_env.py`, `python tools/compare.py cases/basic/C000.yaml`

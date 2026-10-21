@@ -1,0 +1,21 @@
+case_id: C000
+group: basic            # basic / exempt / multi / holding / acquisition / short / reduction
+law_date: 2025-01-01    # 적용 법령 기준일 = 양도일. 양도박사 버전의 세법 반영일은 env.md
+description: 일반 주택 1채, 보유 3년, 기본세율
+input:                  # field_id 기준 (inventory와 같은 이름)
+  transfer_date: 2025-03-15
+  acquisition_date: 2021-06-01
+  transfer_price: 500000000
+  acquisition_price: 350000000
+  expenses: 5000000
+  # ...
+expected_baksa:         # 양도박사 산출값 (화면 또는 신고서에서 읽은 값, 출처 캡처 번호)
+  gain:
+  holding_deduction:
+  tax_base:
+  tax:
+  source:               # 예: screens/12_계산결과.png
+expected_law:           # calc 결과. compare.py가 채움
+basis:                  # 조문 (소득세법 §95②, §104①1 등)
+status: pending         # match | mismatch | pending
+mismatch_note:          # 다르면 법령 기준으로 판정한 원인 (양도박사 오류 / 숨은 분기 / 내 해석 오류)

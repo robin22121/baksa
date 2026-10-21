@@ -1,0 +1,6 @@
+pyodbc
+dbfread
+pdfplumber
+pyyaml
+pywinauto
+pillow

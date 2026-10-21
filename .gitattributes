@@ -1,0 +1,9 @@
+* text=auto eol=lf
+*.png binary
+*.mdb binary
+*.accdb binary
+*.dbf binary
+*.pdf binary
+# 전자신고 파일 (CP949 고정폭, 줄바꿈 변환 금지)
+data/efile/samples/** binary
+data/efile/spec/** binary
