@@ -59,6 +59,7 @@
 
 ## 배포·실행
 
-- git: 있음(원격 `https://github.com/robin22121/baksa`, `main`). Mac = 설계·문서, Windows = 분석 실행. 동기화는 `origin/main`만.
+- git: 있음(원격 `https://github.com/robin22121/baksa`, `main`). Mac은 맨 처음 설계·문서화·기본 개발계획(`docs/work-plans/2026-10-22-전체구조.md`)까지만 했다. **W0부터 모든 작업은 Windows PC의 Claude Code가 한다**(구현·분석·후속 설계·보고). 동기화는 `origin/main`만.
+- 양도박사 조작: 설치형은 에이전트가 직접 자동 조작한다(탐색·캡처·케이스 입력, `tools/drive/`). 금지 메뉴는 `docs/env.md`. 클라우드형은 자동화 금지.
 - 배포 대상: 없음. 종료 신호는 STATUS 갱신 + archive 이동 + 커밋.
 - 로컬 실행(Windows): `python tools/check_env.py`, `python tools/compare.py cases/basic/C000.yaml`
