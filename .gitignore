@@ -1,0 +1,10 @@
+# 양도박사 원본 데이터·전자신고 파일·화면 기록에는 납세자 개인정보가 들어갈 수 있으므로 커밋하지 않는다
+data/raw/
+data/efile/
+docs/steps/
+docs/screens/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
