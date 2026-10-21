@@ -8,3 +8,6 @@ docs/screens/
 __pycache__/
 *.pyc
 .venv/
+
+# Node (tools/cloud)
+node_modules/

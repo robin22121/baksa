@@ -8,7 +8,7 @@
 
 - 1단계 범위(지금): 양도박사 **관찰**로 신고 기능 전부를 습득 — 데이터 모델·출력 규격(전자신고·인쇄)·계산 검증 케이스 확보. 설치형 → 척추 케이스 C000 1바퀴(`docs/work-plans/2026-10-22-전체구조.md` §2.3) → 화면·케이스 확장. 계산 기준은 양도박사가 아니라 소득세법 §94~§118·시행령·국세청 명세이며, 양도박사 버전의 옛 세법과 현행법 차이는 케이스 `law_date`로 구분해 기록한다.
 - 2단계 이후: 사이트 설계·구현. 저장소 분리 여부는 미정(`docs/decisions.md` ❓).
-- 하지 않는 것: 디컴파일·실행파일 코드 추출·클라우드 자동화/스크래핑(`docs/ANALYSIS_PLAN.md` §0), taxflow(원천세) 참조(사용자 지시 2026-10-22). 과거 양도세 계산기의 정의서·시나리오는 `docs/reference/` 사본으로만 참조하고 코드는 복사하지 않는다
+- 하지 않는 것: 디컴파일·실행파일 코드 추출(`docs/ANALYSIS_PLAN.md` §0), taxflow(원천세) 참조(사용자 지시 2026-10-22). 과거 양도세 계산기의 정의서·시나리오는 `docs/reference/` 사본으로만 참조하고 코드는 복사하지 않는다
 
 ## 시작할 때 읽을 문서
 
@@ -40,7 +40,7 @@
 
 - 데이터: 가상 납세자가 아닌 **실제 자료**를 쓰게 되는 경우, `.gitignore` 제외 폴더를 커밋 대상으로 바꾸는 경우
 - 돈·계정: 새 Python 패키지 설치(`tools/requirements.txt` 밖), 유료 도구
-- 외부: `git push`, 클라우드형 양도박사 계정으로 하는 모든 조작(사람이 직접만)
+- 외부: `git push`, 클라우드형에서 **저장·제출·결제**가 일어나는 조작(읽기·덤프는 기본값으로 진행)
 - 프로젝트 고유: `docs/ANALYSIS_PLAN.md` 본문 수정(사용자 문서), DB 분석 2시간 중단 기준을 넘겨 더 파는 것
 
 ## 검증 원칙 (이 프로젝트에서 "완료"의 뜻)
@@ -56,11 +56,11 @@
 - 양도박사에 입력하는 납세자는 전부 가상(이름·주민번호·주소). 주민번호는 `tools/fake_rrn.py`로 만든다.
 - `data/raw/`·`data/efile/spec,samples/`·`data/schema/dump/`·`docs/steps/`·`docs/screens/`는 커밋하지 않는다(`.gitignore`). 분석 산출물(표)만 커밋한다.
 - 외부 서비스 없음. 국세청 명세는 공개 자료를 사람이 내려받아 `data/efile/spec/`에 둔다(출처 URL은 `docs/env.md`).
-- 클라우드형은 본인 계정으로 사람이 관찰만. HAR는 토큰이 들어가므로 `data/raw/cloud/`(gitignore).
+- 클라우드형은 본인 계정으로 사람이 로그인한 Chrome에 CDP로 붙어 덤프한다. HAR·덤프 HTML은 토큰·개인정보가 들어가므로 `data/raw/cloud/`(gitignore).
 
 ## 배포·실행
 
 - git: 있음(원격 `https://github.com/robin22121/baksa`, `main`). Mac은 맨 처음 설계·문서화·기본 개발계획(`docs/work-plans/2026-10-22-전체구조.md`)까지만 했다. **W0부터 모든 작업은 Windows PC의 Claude Code가 한다**(구현·분석·후속 설계·보고). 동기화는 `origin/main`만.
-- 양도박사 조작: 설치형은 에이전트가 직접 자동 조작한다(탐색·캡처·케이스 입력, `tools/drive/`). 금지 메뉴는 `docs/env.md`. 클라우드형은 자동화 금지.
+- 양도박사 조작: 설치형은 에이전트가 직접 자동 조작한다(탐색·캡처·케이스 입력, `tools/drive/`). 금지 메뉴는 `docs/env.md`. 클라우드형도 자동화 허용(`tools/cloud/dump-web.mjs` — 사람이 로그인한 Chrome에 CDP 연결, 화면별 HTML·필드 덤프; 2026-10-22 사용자 지시).
 - 배포 대상: 없음. 종료 신호는 STATUS 갱신 + archive 이동 + 커밋.
 - 로컬 실행(Windows): `python tools/check_env.py`, `python tools/compare.py cases/basic/C000.yaml`
