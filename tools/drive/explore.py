@@ -246,14 +246,26 @@ class Run:
             self.check_limits()
             self.step(hwnd, btn, path + [btn], seq)
 
+    def cur_key(self, hwnd):
+        """화면 키(buttons()가 uia→win32 대체를 처리). 창이 없으면 빈 문자열."""
+        info = next((w for w in self.a.screens_info() if w.hwnd == hwnd), None)
+        return screen_key(clean_title(info.title), info.cls, self.a.buttons(hwnd)) if info else ""
+
     def step(self, parent_hwnd, btn, path, parent_seq):
         """부모 화면에서 버튼 하나를 눌러 간선을 판정하고 처리한다."""
         before = self.snapshot()
+        key0 = self.cur_key(parent_hwnd)
         self.presses += 1
         try:
             if not self.a.press(parent_hwnd, btn):
                 raise RuntimeError(f"press 실패: {btn}")
             new_s, new_m, new_e = self.after_press(before)
+            if not (new_s or new_m or new_e):
+                # 화면 전환이 느릴 수 있어, 부모 화면 키가 바뀌거나 새 창이 뜰 때까지 최대 8초 기다린 뒤 판정
+                appmod.wait_for(lambda: self.cur_key(parent_hwnd) != key0 or any(
+                    x - y for x, y in zip(self.snapshot(), before)), 8.0, 0.5)
+                time.sleep(0.6)
+                new_s, new_m, new_e = (x - y for x, y in zip(self.snapshot(), before))
             if new_e:
                 self.note_external(new_e, path, parent_seq)
             if new_m:
@@ -266,7 +278,8 @@ class Run:
                 if parent_hwnd not in self.a.screens():
                     raise Abort("자식을 닫은 뒤 부모 창이 보이지 않음")
             elif not new_e:
-                self.record(parent_hwnd, path, parent_seq, "inplace")
+                changed = self.cur_key(parent_hwnd) != key0
+                self.record(parent_hwnd, path, parent_seq, "inplace" if changed else "inplace_same")
         except Abort:
             raise
         except Exception as e:  # noqa: BLE001
