@@ -1,0 +1,85 @@
+# C000 자산 입력(실제 저장): 리허설(C000.asset.rehearsal.steps.yaml 2026-10-22 13:42 성공)과 같은 단계 + 폼 저장.
+# 값 근거: docs/work-plans/2026-10-22-C000-2단계.md §0, cases/basic/C000.yaml
+window: 양도소득세
+steps:
+  - press: 2. 자 산 등 록
+  - press: 주택외건물(토지포함)
+    modals: {"*|*2회이상*": 아니오}
+    opens: 자산내역등록
+  - radio_id: rgJasanBU2          # 부동산계약서구분: 토지,건물 각각
+  - radio_id: rgCHK1              # 취득가액 유형: 취득실가를 아는 경우
+  # 소재지: 주소 검색 창에서 공공기관 주소(마포구청)를 검색 → 결과 창에서 첫 결과가 자동 선택 → 저장 (사용자 결정 2026-10-22, 메인 수동 확인)
+  - click_id: CC02
+    opens: 주소검색
+  - text: {id: emSearch, value: 월드컵로 212}
+  - press_id: btnSearch
+    opens: 주소검색
+  - read: [txtResultJuso]
+  - press_id: btnOk
+  - window: 자산내역등록
+  - read: [CC02]
+  - text: {id: CC06, value: "2025-06-30", type: Pane}   # 양도일자
+  - text: {id: CC11, value: "2020-03-16", type: Pane}   # 토지취득일자
+  - text: {id: GN11, value: "2020-03-16", type: Pane}   # 건물취득일자
+  - text: {id: CC04, value: "330"}                      # 토지면적
+  - text: {id: E06, value: "200"}                       # 건물면적
+  - capture: basic_filled
+  # 양도가액 먼저(Tab으로 다음 금액 칸에 들어가면 하위 창이 자동으로 뜬다 → 바로 닫는다. 리허설 1차 확인)
+  - text: {id: S01, value: "600000000"}
+    screens: {취득실가: "@close", 필요경비: "@close"}
+  - text: {id: G01, value: "200000000"}
+    screens: {취득실가: "@close", 필요경비: "@close"}
+  # 토지 취득실가 (수정 버튼으로 연다)
+  - press_id: btnS02
+    opens: 취득실가
+  - text: {id: S11, value: "400000000"}                 # 매입가격
+  - text: {id: S12, value: "18400000"}                  # 취득세(농특·교육 포함)
+  - read: [ST]
+  - capture: land_acq
+  - press_id: btnOK
+  - window: 자산내역등록
+  # 건물 취득실가
+  - press_id: btnG02
+    opens: 취득실가
+  - text: {id: S11, value: "150000000"}
+  - text: {id: S12, value: "6900000"}
+  - read: [ST]
+  - capture: bldg_acq
+  - press_id: btnOK
+  - window: 자산내역등록
+  # 토지 필요경비(양도비)
+  - press_id: btnS03
+    opens: 필요경비
+  - click_id: S41                                        # ⑩은 읽기 전용 → 클릭하면 아래 세부내역 그리드가 ⑩ 항목으로 바뀐다(메인 수동 확인)
+  - grid_cell: {grid: cxGrid1, row: 거래처, value: 가상중개사무소, record: 0}
+  - grid_cell: {grid: cxGrid1, row: 지급일자, value: "2025-06-30", record: 0}
+  - grid_cell: {grid: cxGrid1, row: 지급금액, value: "5400000", record: 0}
+  - read: [S41]
+  - read: [S4T, S1234T]
+  - capture: land_exp
+  - press_id: btnOK
+  - window: 자산내역등록
+  # 건물 필요경비(양도비)
+  - press_id: btnG03
+    opens: 필요경비
+  - click_id: S41                                        # ⑩은 읽기 전용 → 클릭하면 아래 세부내역 그리드가 ⑩ 항목으로 바뀐다(메인 수동 확인)
+  - grid_cell: {grid: cxGrid1, row: 거래처, value: 가상중개사무소, record: 0}
+  - grid_cell: {grid: cxGrid1, row: 지급일자, value: "2025-06-30", record: 0}
+  - grid_cell: {grid: cxGrid1, row: 지급금액, value: "1800000", record: 0}
+  - read: [S41]
+  - read: [S4T, S1234T]
+  - capture: bldg_exp
+  - press_id: btnOK
+  - window: 자산내역등록
+  - read: [S01, S02, S03, G01, G02, G03]
+  - press_id: btnCal
+  - read: [CC10, dd10, CC17, dd17, CC19, dd19, CC20, dd20, CC21, dd21, CC22, dd22]
+  - capture: calculated
+  - press_id: btnSave
+    modals: {}                    # 처음 보는 모달이면 멈춘다(문구 확인 후 추가)
+  - capture: saved
+  - close: 자산내역등록
+    modals: {"*|*저장하시겠습니까*": 아니오}
+  - window: 양도소득세
+  - verify_grid: {id: cxGrid1, column: 소재지, contains: 월드컵로, count: 1}
+  - capture: asset_grid
