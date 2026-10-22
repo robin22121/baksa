@@ -208,12 +208,26 @@ class Run:
     def close_child(self, hwnd, parent_seq, path, retry=True):
         """자식 화면 닫기. 닫으며 모달이 뜨면 모달 규칙 적용. retry=False면 모달 처리 뒤 다시 닫지 않는다(세목 창: 종료 확인에 아니오)."""
         before = self.snapshot()
-        self.a.close_screen(hwnd, timeout=1.5)
-        new_m = set(self.a.modals()) - before[1]
-        if new_m:
-            self.handle_modals(new_m, parent_seq, path + ["[닫기]"])
-            if retry and hwnd in self.a.screens():
-                self.a.close_screen(hwnd)
+
+        def gone_or_modal():
+            return hwnd not in self.a.screens() or bool(set(self.a.modals()) - before[1])
+
+        for attempt in (1, 2):  # WM_CLOSE 후 5초 대기, 안 닫히고 모달도 없으면 1회 더
+            self.a.close_screen(hwnd, timeout=0.1)
+            appmod.wait_for(gone_or_modal, 5.0)
+            new_m = set(self.a.modals()) - before[1]
+            if new_m:
+                self.handle_modals(new_m, parent_seq, path + ["[닫기]"])
+                if retry and hwnd in self.a.screens():
+                    self.a.close_screen(hwnd)
+                return
+            if hwnd not in self.a.screens():
+                return
+        self.errors += 1
+        self.flow({"seq": self.seq, "path": path, "title": "", "key": "", "parent_seq": parent_seq,
+                   "edge": "error", "counts": {}, "error": "자식 창 닫기 실패"})
+        self.seq += 1
+        raise Abort("자식 창 닫기 실패")
 
     def visit(self, hwnd, path, parent_seq, edge):
         self.check_limits()

@@ -1,0 +1,697 @@
+{
+ "seq": 49,
+ "path": [
+  "종합부동산세",
+  "3. 세 액 계 산"
+ ],
+ "title": "종합부동산세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ",
+ "key": "a1f3cf31",
+ "rect": [
+  1031,
+  383,
+  2809,
+  1690
+ ],
+ "edge": "inplace",
+ "capture": "ok",
+ "source": "uia",
+ "controls": [
+  {
+   "type": "Button",
+   "name": "자료 복원",
+   "auto_id": "btnRestore",
+   "rect": [
+    1055,
+    1563,
+    1284,
+    1652
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "자료 백업",
+   "auto_id": "btnBackUp",
+   "rect": [
+    1054,
+    1470,
+    1290,
+    1558
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "환경 설정",
+   "auto_id": "dxNavBar3Item2",
+   "rect": [
+    1055,
+    1334,
+    1284,
+    1422
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "기준시가 조회",
+   "auto_id": "dxNavBar3Item1",
+   "rect": [
+    1054,
+    1241,
+    1290,
+    1329
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "원격지원",
+   "auto_id": "simpleButton1",
+   "rect": [
+    1061,
+    914,
+    1289,
+    967
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "공서식 인쇄·작성",
+   "auto_id": "dxNavBar2Item2",
+   "rect": [
+    1057,
+    1089,
+    1285,
+    1182
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "도움말·법령 보기",
+   "auto_id": "dxNavBar2Item1",
+   "rect": [
+    1057,
+    984,
+    1279,
+    1075
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "3. 세 액 계 산",
+   "auto_id": "nBar14",
+   "rect": [
+    1052,
+    681,
+    1295,
+    776
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "2. 재 산 등 록",
+   "auto_id": "nBar12",
+   "rect": [
+    1054,
+    579,
+    1292,
+    670
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "1. 납세자 등록",
+   "auto_id": "nBar11",
+   "rect": [
+    1054,
+    480,
+    1294,
+    573
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Tab",
+   "name": "",
+   "auto_id": "Faqtab",
+   "rect": [
+    1306,
+    445,
+    2794,
+    1609
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "화면인쇄",
+   "auto_id": "btnScreen",
+   "rect": [
+    2623,
+    450,
+    2763,
+    489
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "자주 하는 질문 (종합부동산세 FAQ)",
+   "auto_id": "labelControl1",
+   "rect": [
+    1321,
+    459,
+    1692,
+    485
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "임대사업자의 경우 법적 요건을 충족한 임대주택에 대한 재산세를 감면받을 수 있으니 참고하시기 바랍니다.",
+   "auto_id": "labelControl47",
+   "rect": [
+    1719,
+    737,
+    2636,
+    762
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "공시가격 3억원(수도권 6억원) 초과 공동주택과 시가표준액 2억원(수도권 4억원) 초과 오피스텔은 감면되지 않습니다.",
+   "auto_id": "labelControl46",
+   "rect": [
+    1719,
+    765,
+    2734,
+    790
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": ": 공동주택 2세대 이상·오피스텔 2세대 이상·다가구주택 임대",
+   "auto_id": "labelControl45",
+   "rect": [
+    2174,
+    828,
+    2697,
+    853
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": ": 공동주택 또는 오피스텔 2세대 이상 임대",
+   "auto_id": "labelControl24",
+   "rect": [
+    1745,
+    828,
+    2104,
+    853
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "(지방세특례제한법 제31조의3)",
+   "auto_id": "labelControl44",
+   "rect": [
+    2296,
+    802,
+    2541,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "(지방세특례제한법 제31조④)",
+   "auto_id": "labelControl43",
+   "rect": [
+    1867,
+    802,
+    2102,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "② 장기임대주택",
+   "auto_id": "labelControl42",
+   "rect": [
+    2151,
+    800,
+    2291,
+    825
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "① 단기임대주택",
+   "auto_id": "labelControl41",
+   "rect": [
+    1720,
+    800,
+    1860,
+    825
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "60㎡ 초과 85㎡ 이하",
+   "auto_id": "labelControl25",
+   "rect": [
+    2228,
+    957,
+    2386,
+    978
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "40㎡ 초과 60㎡ 이하",
+   "auto_id": "labelControl29",
+   "rect": [
+    2228,
+    928,
+    2386,
+    949
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "40㎡ 이하",
+   "auto_id": "labelControl33",
+   "rect": [
+    2268,
+    898,
+    2345,
+    919
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "50%",
+   "auto_id": "labelControl34",
+   "rect": [
+    2483,
+    957,
+    2522,
+    978
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "75%",
+   "auto_id": "labelControl35",
+   "rect": [
+    2483,
+    928,
+    2522,
+    949
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "면제",
+   "auto_id": "labelControl36",
+   "rect": [
+    2485,
+    898,
+    2520,
+    919
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "감면율",
+   "auto_id": "labelControl37",
+   "rect": [
+    2476,
+    868,
+    2529,
+    889
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "전용면적",
+   "auto_id": "labelControl40",
+   "rect": [
+    2272,
+    868,
+    2342,
+    889
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "60㎡ 초과 85㎡ 이하",
+   "auto_id": "labelControl26",
+   "rect": [
+    1797,
+    928,
+    1955,
+    949
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "60㎡ 이하",
+   "auto_id": "labelControl27",
+   "rect": [
+    1838,
+    898,
+    1915,
+    919
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "25%",
+   "auto_id": "labelControl30",
+   "rect": [
+    2053,
+    928,
+    2092,
+    949
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "50%",
+   "auto_id": "labelControl31",
+   "rect": [
+    2053,
+    898,
+    2092,
+    919
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "감면율",
+   "auto_id": "labelControl38",
+   "rect": [
+    2046,
+    868,
+    2099,
+    889
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "전용면적",
+   "auto_id": "labelControl39",
+   "rect": [
+    1841,
+    868,
+    1911,
+    889
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl20",
+   "rect": [
+    1685,
+    627,
+    1711,
+    667
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "발부된 납세고지서를 통해 매년 12월 1일~12월 15일에 납부합니다.",
+   "auto_id": "labelControl21",
+   "rect": [
+    1719,
+    635,
+    2305,
+    660
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl16",
+   "rect": [
+    1685,
+    700,
+    1711,
+    740
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "재산세 감면은 지방자치단체의 조례를 통해 상이하게 적용될 수 있으므로 계산이 지원되지 않습니다.",
+   "auto_id": "labelControl17",
+   "rect": [
+    1719,
+    709,
+    2573,
+    734
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl12",
+   "rect": [
+    1685,
+    513,
+    1711,
+    553
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "종합부동산세는 과세기준일(매년 6월 1일) 현재 국내에 소재한 재산세 과세대상인 주택 및 토지를 유형별로 구분하여\r\n인별로 합산한 결과 그 공시가격 합계액이 각 유형별로 공제금액(주택 9억원(1세대 1주택자 12억원, 법인 제외), \r\n종합합산과세토지 5억원, 별도합산과세토지 80억원)을초과하는 경우 초과분에 대하여 과세됩니다.",
+   "auto_id": "labelControl13",
+   "rect": [
+    1719,
+    522,
+    2715,
+    596
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl18",
+   "rect": [
+    1327,
+    627,
+    1355,
+    667
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "종합부동산세 납부기간",
+   "auto_id": "labelControl19",
+   "rect": [
+    1362,
+    635,
+    1579,
+    660
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl14",
+   "rect": [
+    1327,
+    700,
+    1355,
+    740
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "재산세 감면",
+   "auto_id": "labelControl15",
+   "rect": [
+    1362,
+    709,
+    1474,
+    734
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl10",
+   "rect": [
+    1327,
+    513,
+    1355,
+    553
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "종합부동산세 과세대상",
+   "auto_id": "labelControl11",
+   "rect": [
+    1362,
+    522,
+    1579,
+    547
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "1",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "  neoic.com",
+   "auto_id": "simpleButton1",
+   "rect": [
+    1318,
+    1619,
+    1637,
+    1659
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "CopyRightⓒ (주)네오아이시 All Rights Reserved",
+   "auto_id": "simpleButton4",
+   "rect": [
+    2256,
+    1619,
+    2779,
+    1659
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "  02-472-4710",
+   "auto_id": "simpleButton2",
+   "rect": [
+    1638,
+    1619,
+    1934,
+    1659
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "  neoic@neoic.com",
+   "auto_id": "simpleButton3",
+   "rect": [
+    1936,
+    1619,
+    2255,
+    1659
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "최소화",
+   "auto_id": "",
+   "rect": [
+    2678,
+    396,
+    2720,
+    438
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "최대화",
+   "auto_id": "",
+   "rect": [
+    2716,
+    396,
+    2758,
+    438
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "닫기",
+   "auto_id": "",
+   "rect": [
+    2755,
+    396,
+    2797,
+    438
+   ],
+   "enabled": true
+  }
+ ],
+ "unreviewed": [
+  "자료 백업",
+  "환경 설정",
+  "공서식 인쇄·작성",
+  "화면인쇄",
+  "  neoic.com",
+  "CopyRightⓒ (주)네오아이시 All Rights Reserved",
+  "  02-472-4710",
+  "  neoic@neoic.com",
+  "최소화",
+  "최대화",
+  "닫기"
+ ],
+ "blocked": [
+  "자료 복원",
+  "원격지원"
+ ]
+}

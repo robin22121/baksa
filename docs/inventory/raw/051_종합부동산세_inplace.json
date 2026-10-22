@@ -1,0 +1,2393 @@
+{
+ "seq": 51,
+ "path": [
+  "종합부동산세",
+  "1. 납세자 등록"
+ ],
+ "title": "종합부동산세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ",
+ "key": "b92da9b7",
+ "rect": [
+  1031,
+  383,
+  2809,
+  1690
+ ],
+ "edge": "inplace",
+ "capture": "ok",
+ "source": "uia",
+ "controls": [
+  {
+   "type": "Button",
+   "name": "자료 복원",
+   "auto_id": "btnRestore",
+   "rect": [
+    1055,
+    1563,
+    1284,
+    1652
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "자료 백업",
+   "auto_id": "btnBackUp",
+   "rect": [
+    1054,
+    1470,
+    1290,
+    1558
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "환경 설정",
+   "auto_id": "dxNavBar3Item2",
+   "rect": [
+    1055,
+    1334,
+    1284,
+    1422
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "기준시가 조회",
+   "auto_id": "dxNavBar3Item1",
+   "rect": [
+    1054,
+    1241,
+    1290,
+    1329
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "원격지원",
+   "auto_id": "simpleButton1",
+   "rect": [
+    1061,
+    914,
+    1289,
+    967
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "공서식 인쇄·작성",
+   "auto_id": "dxNavBar2Item2",
+   "rect": [
+    1057,
+    1089,
+    1285,
+    1182
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "도움말·법령 보기",
+   "auto_id": "dxNavBar2Item1",
+   "rect": [
+    1057,
+    984,
+    1279,
+    1075
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "3. 세 액 계 산",
+   "auto_id": "nBar14",
+   "rect": [
+    1052,
+    681,
+    1295,
+    776
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "2. 재 산 등 록",
+   "auto_id": "nBar12",
+   "rect": [
+    1054,
+    579,
+    1292,
+    670
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "1. 납세자 등록",
+   "auto_id": "nBar11",
+   "rect": [
+    1054,
+    480,
+    1294,
+    573
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "납세자 복사",
+   "auto_id": "btnCopyNPaste",
+   "rect": [
+    1834,
+    1615,
+    2044,
+    1659
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "편집허용",
+   "auto_id": "btnUnLock",
+   "rect": [
+    1467,
+    487,
+    1607,
+    531
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Text",
+   "name": "■ 「편집제한」된 자료(수정불가)",
+   "auto_id": "labelControl2",
+   "rect": [
+    1325,
+    1636,
+    1647,
+    1657
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "편집제한",
+   "auto_id": "btnLock",
+   "rect": [
+    1316,
+    487,
+    1456,
+    531
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "다음단계",
+   "auto_id": "cxNext",
+   "rect": [
+    2583,
+    1615,
+    2776,
+    1659
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "화면인쇄",
+   "auto_id": "btnScreen",
+   "rect": [
+    2510,
+    481,
+    2650,
+    525
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "닫기",
+   "auto_id": "cxClose",
+   "rect": [
+    2658,
+    481,
+    2781,
+    525
+   ],
+   "enabled": true
+  },
+  {
+   "type": "ComboBox",
+   "name": "전체",
+   "auto_id": "cbMen500Year",
+   "rect": [
+    1412,
+    537,
+    1556,
+    579
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "전체",
+   "auto_id": "",
+   "rect": [
+    1419,
+    548,
+    1519,
+    569
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Open",
+   "auto_id": "",
+   "rect": [
+    1524,
+    539,
+    1554,
+    578
+   ],
+   "enabled": true
+  },
+  {
+   "type": "List",
+   "name": "전체",
+   "auto_id": "",
+   "rect": [
+    1412,
+    537,
+    1556,
+    579
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "과세년도",
+   "auto_id": "textEdit1",
+   "rect": [
+    1320,
+    537,
+    1415,
+    579
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "과세년도",
+   "auto_id": "201072",
+   "rect": [
+    1327,
+    548,
+    1408,
+    569
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "과세년도",
+   "auto_id": "",
+   "rect": [
+    1327,
+    548,
+    1408,
+    569
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "자산미리보기",
+   "auto_id": "btnJasanPreview",
+   "rect": [
+    1320,
+    586,
+    1478,
+    621
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "선택한 납세자 모두 삭제",
+   "auto_id": "btnALLDEL",
+   "rect": [
+    1493,
+    586,
+    1782,
+    625
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "검색",
+   "auto_id": "btnSearch",
+   "rect": [
+    1691,
+    537,
+    1782,
+    581
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emSearch",
+   "rect": [
+    1561,
+    537,
+    1691,
+    579
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "135508",
+   "rect": [
+    1568,
+    548,
+    1684,
+    569
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    1568,
+    548,
+    1684,
+    569
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Table",
+   "name": "신고자리스트",
+   "auto_id": "cxGrid1",
+   "rect": [
+    1314,
+    632,
+    1792,
+    1586
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Column Left",
+   "auto_id": "",
+   "rect": [
+    1561,
+    1554,
+    1591,
+    1584
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Left",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Right",
+   "auto_id": "",
+   "rect": [
+    1726,
+    1554,
+    1733,
+    1584
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Column Right",
+   "auto_id": "",
+   "rect": [
+    1733,
+    1554,
+    1763,
+    1584
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "First",
+   "auto_id": "",
+   "rect": [
+    1314,
+    1554,
+    1342,
+    1586
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Previous Page",
+   "auto_id": "",
+   "rect": [
+    1342,
+    1554,
+    1370,
+    1586
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Next Page",
+   "auto_id": "",
+   "rect": [
+    1509,
+    1554,
+    1535,
+    1586
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Last",
+   "auto_id": "",
+   "rect": [
+    1535,
+    1554,
+    1561,
+    1586
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Line Up",
+   "auto_id": "",
+   "rect": [
+    1762,
+    669,
+    1792,
+    699
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Up",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Down",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Line Down",
+   "auto_id": "",
+   "rect": [
+    1762,
+    1524,
+    1792,
+    1554
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "수정신고 · 경정청구",
+   "auto_id": "btnEditProc",
+   "rect": [
+    2268,
+    543,
+    2501,
+    587
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Tab",
+   "name": "",
+   "auto_id": "xtraTabControl1",
+   "rect": [
+    1857,
+    1015,
+    2774,
+    1311
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "별도합산토지 공제금액",
+   "auto_id": "emGONG_TOJI2",
+   "rect": [
+    2518,
+    1136,
+    2751,
+    1171
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "별도합산토지 공제금액",
+   "auto_id": "201024",
+   "rect": [
+    2525,
+    1143,
+    2744,
+    1164
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "별도합산토지 공제금액",
+   "auto_id": "",
+   "rect": [
+    2525,
+    1143,
+    2744,
+    1164
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "별도합산토지",
+   "auto_id": "emGONG_TOJI2_1",
+   "rect": [
+    2303,
+    1136,
+    2515,
+    1171
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "종합합산토지",
+   "auto_id": "emGONG_TOJI1_1",
+   "rect": [
+    1869,
+    1136,
+    2048,
+    1171
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "종합합산토지 공제금액",
+   "auto_id": "emGONG_TOJI1",
+   "rect": [
+    2051,
+    1136,
+    2298,
+    1171
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "종합합산토지 공제금액",
+   "auto_id": "70004",
+   "rect": [
+    2058,
+    1143,
+    2291,
+    1164
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "종합합산토지 공제금액",
+   "auto_id": "",
+   "rect": [
+    2058,
+    1143,
+    2291,
+    1164
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "주택 공제금액",
+   "auto_id": "emGONG2",
+   "rect": [
+    2518,
+    1097,
+    2751,
+    1132
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "주택 공제금액",
+   "auto_id": "70008",
+   "rect": [
+    2525,
+    1104,
+    2744,
+    1125
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "주택 공제금액",
+   "auto_id": "",
+   "rect": [
+    2525,
+    1104,
+    2744,
+    1125
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "1주택외",
+   "auto_id": "emGONG2_1",
+   "rect": [
+    2303,
+    1097,
+    2515,
+    1132
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "1주택",
+   "auto_id": "emGONG_1",
+   "rect": [
+    1869,
+    1097,
+    2048,
+    1132
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "1주택 공제금액",
+   "auto_id": "emGONG",
+   "rect": [
+    2051,
+    1097,
+    2298,
+    1132
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "1주택 공제금액",
+   "auto_id": "70016",
+   "rect": [
+    2058,
+    1104,
+    2291,
+    1125
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "1주택 공제금액",
+   "auto_id": "",
+   "rect": [
+    2058,
+    1104,
+    2291,
+    1125
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "공정시장가액비율_종부세 토지",
+   "auto_id": "emGONGRATE_TOJI",
+   "rect": [
+    2518,
+    1216,
+    2751,
+    1251
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "공정시장가액비율_종부세 토지",
+   "auto_id": "70022",
+   "rect": [
+    2525,
+    1223,
+    2744,
+    1244
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "공정시장가액비율_종부세 토지",
+   "auto_id": "",
+   "rect": [
+    2525,
+    1223,
+    2744,
+    1244
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "종부세 토지(%)",
+   "auto_id": "labelControl7",
+   "rect": [
+    2303,
+    1216,
+    2515,
+    1251
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "공정시장가액비율_재산세 토지",
+   "auto_id": "emGONGRATE2_TOJI",
+   "rect": [
+    2518,
+    1255,
+    2751,
+    1290
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "공정시장가액비율_재산세 토지",
+   "auto_id": "70028",
+   "rect": [
+    2525,
+    1262,
+    2744,
+    1283
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "공정시장가액비율_재산세 토지",
+   "auto_id": "",
+   "rect": [
+    2525,
+    1262,
+    2744,
+    1283
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "재산세 토지(%)",
+   "auto_id": "labelControl5",
+   "rect": [
+    2303,
+    1255,
+    2515,
+    1290
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "공정시장가액비율_재산세 주택",
+   "auto_id": "emGONGRATE2",
+   "rect": [
+    2051,
+    1255,
+    2298,
+    1290
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "공정시장가액비율_재산세 주택",
+   "auto_id": "70034",
+   "rect": [
+    2058,
+    1262,
+    2291,
+    1283
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "공정시장가액비율_재산세 주택",
+   "auto_id": "",
+   "rect": [
+    2058,
+    1262,
+    2291,
+    1283
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "재산세 주택(%)",
+   "auto_id": "emGONGRATE2_1",
+   "rect": [
+    1869,
+    1255,
+    2048,
+    1290
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "공정시장가액비율_종부세 주택",
+   "auto_id": "emGONGRATE",
+   "rect": [
+    2051,
+    1216,
+    2298,
+    1251
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "공정시장가액비율_종부세 주택",
+   "auto_id": "70040",
+   "rect": [
+    2058,
+    1223,
+    2291,
+    1244
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "공정시장가액비율_종부세 주택",
+   "auto_id": "",
+   "rect": [
+    2058,
+    1223,
+    2291,
+    1244
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "종부세 주택(%)",
+   "auto_id": "emGONGRATE_1",
+   "rect": [
+    1869,
+    1216,
+    2048,
+    1251
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "년",
+   "auto_id": "",
+   "rect": [
+    1864,
+    1017,
+    1913,
+    1054
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "1년",
+   "auto_id": "",
+   "rect": [
+    1913,
+    1019,
+    1973,
+    1051
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "기\r\n\r\n준\r\n\r\n정\r\n\r\n보",
+   "auto_id": "labelControl4",
+   "rect": [
+    1804,
+    1015,
+    1853,
+    1311
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "취소",
+   "auto_id": "btnCancel",
+   "rect": [
+    2651,
+    543,
+    2774,
+    587
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "저장",
+   "auto_id": "btnSave",
+   "rect": [
+    2522,
+    543,
+    2645,
+    587
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "삭제",
+   "auto_id": "btnDel",
+   "rect": [
+    2118,
+    543,
+    2241,
+    587
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "수정",
+   "auto_id": "btnEdit",
+   "rect": [
+    1988,
+    543,
+    2111,
+    587
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "등록",
+   "auto_id": "btnReg",
+   "rect": [
+    1859,
+    543,
+    1982,
+    587
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "메모",
+   "auto_id": "emMemo",
+   "rect": [
+    1853,
+    1313,
+    2781,
+    1390
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Line Up",
+   "auto_id": "",
+   "rect": [
+    2749,
+    1314,
+    2779,
+    1344
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Page Up",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Page Down",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Line Down",
+   "auto_id": "",
+   "rect": [
+    2749,
+    1358,
+    2779,
+    1388
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Edit",
+   "name": "메모",
+   "auto_id": "70060",
+   "rect": [
+    1860,
+    1314,
+    2779,
+    1388
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "위쪽 스크롤 화살표",
+   "auto_id": "UpButton",
+   "rect": [
+    2749,
+    1314,
+    2802,
+    1335
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "아래쪽 스크롤 화살표",
+   "auto_id": "DownButton",
+   "rect": [
+    2749,
+    1367,
+    2802,
+    1388
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Edit",
+   "name": "메모",
+   "auto_id": "",
+   "rect": [
+    1860,
+    1314,
+    2779,
+    1388
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "메\r\n\r\n모",
+   "auto_id": "emMEMO_1",
+   "rect": [
+    1804,
+    1313,
+    1853,
+    1390
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "납부기한",
+   "auto_id": "labelControl11",
+   "rect": [
+    2303,
+    938,
+    2515,
+    973
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "신고일자",
+   "auto_id": "labelControl10",
+   "rect": [
+    1857,
+    938,
+    2036,
+    973
+   ],
+   "enabled": true
+  },
+  {
+   "type": "List",
+   "name": "1세대1주택 여부",
+   "auto_id": "emSINGOGU",
+   "rect": [
+    2039,
+    593,
+    2295,
+    628
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "정기",
+   "auto_id": "",
+   "rect": [
+    2048,
+    602,
+    2127,
+    620
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "수정",
+   "auto_id": "",
+   "rect": [
+    2126,
+    602,
+    2205,
+    620
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "경정",
+   "auto_id": "",
+   "rect": [
+    2205,
+    602,
+    2284,
+    620
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "신고구분",
+   "auto_id": "labelControl9",
+   "rect": [
+    1857,
+    593,
+    2036,
+    628
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "주민등록번호",
+   "auto_id": "emCompanyNo",
+   "rect": [
+    2039,
+    670,
+    2295,
+    705
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "주민등록번호",
+   "auto_id": "70092",
+   "rect": [
+    2046,
+    677,
+    2288,
+    698
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "주민등록번호",
+   "auto_id": "",
+   "rect": [
+    2046,
+    677,
+    2288,
+    698
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "주민등록번호",
+   "auto_id": "emCompanyNo_1",
+   "rect": [
+    1857,
+    670,
+    2036,
+    705
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "1세대1주택 여부",
+   "auto_id": "emONEHOUSE_1",
+   "rect": [
+    1857,
+    824,
+    2036,
+    859
+   ],
+   "enabled": true
+  },
+  {
+   "type": "List",
+   "name": "1세대1주택 여부",
+   "auto_id": "emONEHOUSE",
+   "rect": [
+    2039,
+    824,
+    2254,
+    859
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "예",
+   "auto_id": "",
+   "rect": [
+    2048,
+    833,
+    2146,
+    851
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "아니오",
+   "auto_id": "",
+   "rect": [
+    2146,
+    833,
+    2244,
+    851
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "btn_taxrate",
+   "rect": [
+    2258,
+    824,
+    2293,
+    859
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    2258,
+    824,
+    2293,
+    859
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "고객번호",
+   "auto_id": "emCODE",
+   "rect": [
+    2518,
+    977,
+    2774,
+    1012
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "고객번호",
+   "auto_id": "70152",
+   "rect": [
+    2525,
+    984,
+    2767,
+    1005
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "고객번호",
+   "auto_id": "",
+   "rect": [
+    2525,
+    984,
+    2767,
+    1005
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "고객번호",
+   "auto_id": "emCODE_1",
+   "rect": [
+    2303,
+    977,
+    2515,
+    1012
+   ],
+   "enabled": true
+  },
+  {
+   "type": "List",
+   "name": "납세자 구분",
+   "auto_id": "emTYPE",
+   "rect": [
+    2518,
+    593,
+    2774,
+    628
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "개인",
+   "auto_id": "",
+   "rect": [
+    2527,
+    602,
+    2646,
+    620
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "법인",
+   "auto_id": "",
+   "rect": [
+    2646,
+    602,
+    2765,
+    620
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "납세자 구분",
+   "auto_id": "labelControl3",
+   "rect": [
+    2303,
+    593,
+    2515,
+    628
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "휴대전화",
+   "auto_id": "emHP",
+   "rect": [
+    2518,
+    709,
+    2774,
+    744
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "휴대전화",
+   "auto_id": "70162",
+   "rect": [
+    2525,
+    716,
+    2767,
+    737
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "휴대전화",
+   "auto_id": "",
+   "rect": [
+    2525,
+    716,
+    2767,
+    737
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "휴대전화",
+   "auto_id": "emHP_1",
+   "rect": [
+    2303,
+    709,
+    2515,
+    744
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "등록일자",
+   "auto_id": "emRegDate_1",
+   "rect": [
+    1857,
+    977,
+    2036,
+    1012
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "전화번호",
+   "auto_id": "emTEL",
+   "rect": [
+    2039,
+    709,
+    2295,
+    744
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "전화번호",
+   "auto_id": "70172",
+   "rect": [
+    2046,
+    716,
+    2288,
+    737
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "전화번호",
+   "auto_id": "",
+   "rect": [
+    2046,
+    716,
+    2288,
+    737
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "이메일",
+   "auto_id": "emEMAIL",
+   "rect": [
+    2039,
+    786,
+    2295,
+    821
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "이메일",
+   "auto_id": "70176",
+   "rect": [
+    2046,
+    793,
+    2288,
+    814
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "이메일",
+   "auto_id": "",
+   "rect": [
+    2046,
+    793,
+    2288,
+    814
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "이메일",
+   "auto_id": "emEMAIL_1",
+   "rect": [
+    1857,
+    786,
+    2036,
+    821
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "과세연도",
+   "auto_id": "emSINYEAR_1",
+   "rect": [
+    2303,
+    632,
+    2515,
+    667
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "전화번호",
+   "auto_id": "emTEL_1",
+   "rect": [
+    1857,
+    709,
+    2036,
+    744
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "주소",
+   "auto_id": "emADDR",
+   "rect": [
+    2039,
+    747,
+    2774,
+    782
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "주소",
+   "auto_id": "70186",
+   "rect": [
+    2046,
+    754,
+    2767,
+    775
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "주소",
+   "auto_id": "",
+   "rect": [
+    2046,
+    754,
+    2767,
+    775
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "납세자",
+   "auto_id": "emNAME",
+   "rect": [
+    2039,
+    632,
+    2295,
+    667
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "납세자",
+   "auto_id": "70190",
+   "rect": [
+    2046,
+    639,
+    2288,
+    660
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "납세자",
+   "auto_id": "",
+   "rect": [
+    2046,
+    639,
+    2288,
+    660
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "주 소",
+   "auto_id": "emADDR_1",
+   "rect": [
+    1857,
+    747,
+    2036,
+    782
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "성명",
+   "auto_id": "emNAME_1",
+   "rect": [
+    1857,
+    632,
+    2036,
+    667
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "납\r\n\r\n세\r\n\r\n자\r\n\r\n정\r\n\r\n보\r\n",
+   "auto_id": "labelControl1",
+   "rect": [
+    1804,
+    593,
+    1853,
+    1011
+   ],
+   "enabled": true
+  },
+  {
+   "type": "ComboBox",
+   "name": "과세연도",
+   "auto_id": "emSINYEAR",
+   "rect": [
+    2518,
+    632,
+    2774,
+    667
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "과세연도",
+   "auto_id": "70200",
+   "rect": [
+    2525,
+    639,
+    2737,
+    660
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "과세연도",
+   "auto_id": "",
+   "rect": [
+    2525,
+    639,
+    2737,
+    660
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Open",
+   "auto_id": "",
+   "rect": [
+    2742,
+    634,
+    2772,
+    666
+   ],
+   "enabled": false
+  },
+  {
+   "type": "List",
+   "name": "과세연도",
+   "auto_id": "",
+   "rect": [
+    2518,
+    632,
+    2774,
+    667
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Tab",
+   "name": "",
+   "auto_id": "Faqtab",
+   "rect": [
+    -182,
+    -788,
+    1306,
+    376
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "화면인쇄",
+   "auto_id": "btnScreen",
+   "rect": [
+    1136,
+    -782,
+    1276,
+    -743
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "자주 하는 질문 (종합부동산세 FAQ)",
+   "auto_id": "labelControl1",
+   "rect": [
+    -166,
+    -774,
+    205,
+    -748
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "임대사업자의 경우 법적 요건을 충족한 임대주택에 대한 재산세를 감면받을 수 있으니 참고하시기 바랍니다.",
+   "auto_id": "labelControl47",
+   "rect": [
+    231,
+    -495,
+    1148,
+    -470
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "공시가격 3억원(수도권 6억원) 초과 공동주택과 시가표준액 2억원(수도권 4억원) 초과 오피스텔은 감면되지 않습니다.",
+   "auto_id": "labelControl46",
+   "rect": [
+    231,
+    -467,
+    1246,
+    -442
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": ": 공동주택 2세대 이상·오피스텔 2세대 이상·다가구주택 임대",
+   "auto_id": "labelControl45",
+   "rect": [
+    686,
+    -404,
+    1209,
+    -379
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": ": 공동주택 또는 오피스텔 2세대 이상 임대",
+   "auto_id": "labelControl24",
+   "rect": [
+    257,
+    -404,
+    616,
+    -379
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "(지방세특례제한법 제31조의3)",
+   "auto_id": "labelControl44",
+   "rect": [
+    809,
+    -431,
+    1054,
+    -410
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "(지방세특례제한법 제31조④)",
+   "auto_id": "labelControl43",
+   "rect": [
+    380,
+    -431,
+    615,
+    -410
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "② 장기임대주택",
+   "auto_id": "labelControl42",
+   "rect": [
+    663,
+    -432,
+    803,
+    -407
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "① 단기임대주택",
+   "auto_id": "labelControl41",
+   "rect": [
+    233,
+    -432,
+    373,
+    -407
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "60㎡ 초과 85㎡ 이하",
+   "auto_id": "labelControl25",
+   "rect": [
+    740,
+    -275,
+    898,
+    -254
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "40㎡ 초과 60㎡ 이하",
+   "auto_id": "labelControl29",
+   "rect": [
+    740,
+    -305,
+    898,
+    -284
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "40㎡ 이하",
+   "auto_id": "labelControl33",
+   "rect": [
+    781,
+    -334,
+    858,
+    -313
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "50%",
+   "auto_id": "labelControl34",
+   "rect": [
+    996,
+    -275,
+    1035,
+    -254
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "75%",
+   "auto_id": "labelControl35",
+   "rect": [
+    996,
+    -305,
+    1035,
+    -284
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "면제",
+   "auto_id": "labelControl36",
+   "rect": [
+    998,
+    -334,
+    1033,
+    -313
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "감면율",
+   "auto_id": "labelControl37",
+   "rect": [
+    989,
+    -364,
+    1042,
+    -343
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "전용면적",
+   "auto_id": "labelControl40",
+   "rect": [
+    784,
+    -364,
+    854,
+    -343
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "60㎡ 초과 85㎡ 이하",
+   "auto_id": "labelControl26",
+   "rect": [
+    310,
+    -305,
+    468,
+    -284
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "60㎡ 이하",
+   "auto_id": "labelControl27",
+   "rect": [
+    350,
+    -334,
+    427,
+    -313
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "25%",
+   "auto_id": "labelControl30",
+   "rect": [
+    565,
+    -305,
+    604,
+    -284
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "50%",
+   "auto_id": "labelControl31",
+   "rect": [
+    565,
+    -334,
+    604,
+    -313
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "감면율",
+   "auto_id": "labelControl38",
+   "rect": [
+    558,
+    -364,
+    611,
+    -343
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "전용면적",
+   "auto_id": "labelControl39",
+   "rect": [
+    354,
+    -364,
+    424,
+    -343
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl20",
+   "rect": [
+    198,
+    -606,
+    224,
+    -566
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "발부된 납세고지서를 통해 매년 12월 1일~12월 15일에 납부합니다.",
+   "auto_id": "labelControl21",
+   "rect": [
+    231,
+    -597,
+    817,
+    -572
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl16",
+   "rect": [
+    198,
+    -532,
+    224,
+    -492
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "재산세 감면은 지방자치단체의 조례를 통해 상이하게 적용될 수 있으므로 계산이 지원되지 않습니다.",
+   "auto_id": "labelControl17",
+   "rect": [
+    231,
+    -523,
+    1085,
+    -498
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl12",
+   "rect": [
+    198,
+    -719,
+    224,
+    -679
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "종합부동산세는 과세기준일(매년 6월 1일) 현재 국내에 소재한 재산세 과세대상인 주택 및 토지를 유형별로 구분하여\r\n인별로 합산한 결과 그 공시가격 합계액이 각 유형별로 공제금액(주택 9억원(1세대 1주택자 12억원, 법인 제외), \r\n종합합산과세토지 5억원, 별도합산과세토지 80억원)을초과하는 경우 초과분에 대하여 과세됩니다.",
+   "auto_id": "labelControl13",
+   "rect": [
+    231,
+    -711,
+    1227,
+    -637
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl18",
+   "rect": [
+    -161,
+    -606,
+    -133,
+    -566
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "종합부동산세 납부기간",
+   "auto_id": "labelControl19",
+   "rect": [
+    -126,
+    -597,
+    91,
+    -572
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl14",
+   "rect": [
+    -161,
+    -532,
+    -133,
+    -492
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "재산세 감면",
+   "auto_id": "labelControl15",
+   "rect": [
+    -126,
+    -523,
+    -14,
+    -498
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl10",
+   "rect": [
+    -161,
+    -719,
+    -133,
+    -679
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "종합부동산세 과세대상",
+   "auto_id": "labelControl11",
+   "rect": [
+    -126,
+    -711,
+    91,
+    -686
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "1",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "  neoic.com",
+   "auto_id": "simpleButton1",
+   "rect": [
+    -170,
+    387,
+    149,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "CopyRightⓒ (주)네오아이시 All Rights Reserved",
+   "auto_id": "simpleButton4",
+   "rect": [
+    768,
+    387,
+    1291,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "  02-472-4710",
+   "auto_id": "simpleButton2",
+   "rect": [
+    151,
+    387,
+    447,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "  neoic@neoic.com",
+   "auto_id": "simpleButton3",
+   "rect": [
+    448,
+    387,
+    767,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "최소화",
+   "auto_id": "",
+   "rect": [
+    2678,
+    396,
+    2720,
+    438
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "최대화",
+   "auto_id": "",
+   "rect": [
+    2716,
+    396,
+    2758,
+    438
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "닫기",
+   "auto_id": "",
+   "rect": [
+    2755,
+    396,
+    2797,
+    438
+   ],
+   "enabled": true
+  }
+ ],
+ "unreviewed": [
+  "자료 백업",
+  "환경 설정",
+  "공서식 인쇄·작성",
+  "납세자 복사",
+  "편집허용",
+  "편집제한",
+  "다음단계",
+  "화면인쇄",
+  "닫기",
+  "Open",
+  "자산미리보기",
+  "검색",
+  "Column Left",
+  "Page Left",
+  "Page Right",
+  "Column Right",
+  "First",
+  "Previous Page",
+  "Next Page",
+  "Last",
+  "Line Up",
+  "Page Up",
+  "Page Down",
+  "Line Down",
+  "수정신고 · 경정청구",
+  "취소",
+  "저장",
+  "수정",
+  "등록",
+  "위쪽 스크롤 화살표",
+  "아래쪽 스크롤 화살표",
+  "  neoic.com",
+  "CopyRightⓒ (주)네오아이시 All Rights Reserved",
+  "  02-472-4710",
+  "  neoic@neoic.com",
+  "최소화",
+  "최대화"
+ ],
+ "blocked": [
+  "자료 복원",
+  "원격지원",
+  "선택한 납세자 모두 삭제",
+  "삭제"
+ ]
+}

@@ -1,0 +1,2438 @@
+{
+ "seq": 33,
+ "path": [
+  "상속세",
+  "1. 납세자 등록"
+ ],
+ "title": "상속세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ",
+ "key": "77cbc5cc",
+ "rect": [
+  1031,
+  383,
+  2809,
+  1690
+ ],
+ "edge": "inplace",
+ "capture": "ok",
+ "source": "uia",
+ "controls": [
+  {
+   "type": "Button",
+   "name": "자료 복원",
+   "auto_id": "btnRestore",
+   "rect": [
+    1057,
+    1563,
+    1286,
+    1652
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "자료 백업",
+   "auto_id": "btnBackUp",
+   "rect": [
+    1057,
+    1470,
+    1293,
+    1558
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "환경 설정",
+   "auto_id": "dxNavBar3Item2",
+   "rect": [
+    1057,
+    1334,
+    1286,
+    1422
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "기준시가 조회",
+   "auto_id": "dxNavBar3Item1",
+   "rect": [
+    1057,
+    1241,
+    1293,
+    1329
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "원격지원",
+   "auto_id": "simpleButton1",
+   "rect": [
+    1061,
+    914,
+    1289,
+    967
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "공서식 인쇄·작성",
+   "auto_id": "dxNavBar2Item2",
+   "rect": [
+    1057,
+    1089,
+    1285,
+    1182
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "도움말·법령 보기",
+   "auto_id": "dxNavBar2Item1",
+   "rect": [
+    1057,
+    984,
+    1285,
+    1072
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "3. 세 액 계 산",
+   "auto_id": "nBar14",
+   "rect": [
+    1052,
+    681,
+    1295,
+    776
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "2. 재 산 등 록",
+   "auto_id": "nBar12",
+   "rect": [
+    1054,
+    579,
+    1292,
+    670
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "1. 납세자 등록",
+   "auto_id": "nBar11",
+   "rect": [
+    1054,
+    480,
+    1294,
+    573
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "피상속인리스트 저장",
+   "auto_id": "btnExport",
+   "rect": [
+    2293,
+    1615,
+    2549,
+    1659
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "편집허용",
+   "auto_id": "btnUnLock",
+   "rect": [
+    1467,
+    487,
+    1607,
+    531
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Text",
+   "name": "■ 「편집제한」된 자료(수정불가)",
+   "auto_id": "labelControl2",
+   "rect": [
+    1325,
+    1642,
+    1647,
+    1663
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "상속인 복사",
+   "auto_id": "btnCopyNPaste",
+   "rect": [
+    1719,
+    1615,
+    1912,
+    1659
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "편집제한",
+   "auto_id": "btnLock",
+   "rect": [
+    1316,
+    487,
+    1456,
+    531
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "다음단계",
+   "auto_id": "cxNext",
+   "rect": [
+    2553,
+    1615,
+    2746,
+    1659
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "화면인쇄",
+   "auto_id": "btnScreen",
+   "rect": [
+    2483,
+    487,
+    2623,
+    531
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "닫기",
+   "auto_id": "cxClose",
+   "rect": [
+    2630,
+    487,
+    2753,
+    531
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "피상속인·상속인",
+   "auto_id": "textEdit24",
+   "rect": [
+    1323,
+    546,
+    1488,
+    585
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "피상속인·상속인",
+   "auto_id": "200410",
+   "rect": [
+    1330,
+    555,
+    1481,
+    576
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "피상속인·상속인",
+   "auto_id": "",
+   "rect": [
+    1330,
+    555,
+    1481,
+    576
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emSearch",
+   "rect": [
+    1486,
+    546,
+    1598,
+    585
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "200412",
+   "rect": [
+    1493,
+    555,
+    1591,
+    576
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    1493,
+    555,
+    1591,
+    576
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "자산미리보기",
+   "auto_id": "btnJasanPreview",
+   "rect": [
+    1318,
+    637,
+    1476,
+    672
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "전체 조회",
+   "auto_id": "btnFilterReset",
+   "rect": [
+    1533,
+    592,
+    1698,
+    631
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "데이터 상세검색",
+   "auto_id": "btnFilterSearch",
+   "rect": [
+    1318,
+    592,
+    1525,
+    631
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "선택 신고인 삭제",
+   "auto_id": "btnALLDEL",
+   "rect": [
+    1486,
+    637,
+    1698,
+    676
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "검색",
+   "auto_id": "btnSearch",
+   "rect": [
+    1605,
+    546,
+    1698,
+    585
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Table",
+   "name": "신고자리스트",
+   "auto_id": "cxGrid1",
+   "rect": [
+    1314,
+    681,
+    1706,
+    1609
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Column Left",
+   "auto_id": "",
+   "rect": [
+    1561,
+    1577,
+    1591,
+    1607
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Left",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Right",
+   "auto_id": "",
+   "rect": [
+    1631,
+    1577,
+    1647,
+    1607
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Column Right",
+   "auto_id": "",
+   "rect": [
+    1647,
+    1577,
+    1677,
+    1607
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "First",
+   "auto_id": "",
+   "rect": [
+    1314,
+    1577,
+    1342,
+    1609
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Previous Page",
+   "auto_id": "",
+   "rect": [
+    1342,
+    1577,
+    1370,
+    1609
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Next Page",
+   "auto_id": "",
+   "rect": [
+    1509,
+    1577,
+    1535,
+    1609
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Last",
+   "auto_id": "",
+   "rect": [
+    1535,
+    1577,
+    1561,
+    1609
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Line Up",
+   "auto_id": "",
+   "rect": [
+    1677,
+    718,
+    1707,
+    748
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Up",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Down",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Line Down",
+   "auto_id": "",
+   "rect": [
+    1677,
+    1547,
+    1707,
+    1577
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Table",
+   "name": "",
+   "auto_id": "cxGrid4",
+   "rect": [
+    1374,
+    859,
+    1661,
+    1101
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Column Left",
+   "auto_id": "",
+   "rect": [
+    1376,
+    1068,
+    1406,
+    1098
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Page Left",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Page Right",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Column Right",
+   "auto_id": "",
+   "rect": [
+    1629,
+    1068,
+    1659,
+    1098
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "수정신고",
+   "auto_id": "btnEditProc",
+   "rect": [
+    2119,
+    543,
+    2259,
+    587
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "수정신고방법",
+   "auto_id": "btn_Url",
+   "rect": [
+    2571,
+    548,
+    2746,
+    583
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "취소",
+   "auto_id": "btnCancel",
+   "rect": [
+    2419,
+    543,
+    2542,
+    587
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "저장",
+   "auto_id": "btnSave",
+   "rect": [
+    2289,
+    543,
+    2412,
+    587
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "삭제",
+   "auto_id": "btnDel",
+   "rect": [
+    1990,
+    543,
+    2113,
+    587
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "수정",
+   "auto_id": "btnEdit",
+   "rect": [
+    1860,
+    543,
+    1983,
+    587
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "등록",
+   "auto_id": "btnReg",
+   "rect": [
+    1731,
+    543,
+    1854,
+    587
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Table",
+   "name": "",
+   "auto_id": "cxGrid3",
+   "rect": [
+    1766,
+    1229,
+    2751,
+    1376
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "부\r\n양\r\n동\r\n거\r\n가\r\n족\r\n",
+   "auto_id": "labelControl14",
+   "rect": [
+    1717,
+    1229,
+    1766,
+    1376
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "메모",
+   "auto_id": "emMemo",
+   "rect": [
+    1766,
+    1379,
+    2751,
+    1446
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Line Up",
+   "auto_id": "",
+   "rect": [
+    2720,
+    1381,
+    2750,
+    1411
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Page Up",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Page Down",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Line Down",
+   "auto_id": "",
+   "rect": [
+    2720,
+    1414,
+    2750,
+    1444
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Edit",
+   "name": "메모",
+   "auto_id": "69370",
+   "rect": [
+    1773,
+    1381,
+    2750,
+    1444
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "위쪽 스크롤 화살표",
+   "auto_id": "UpButton",
+   "rect": [
+    2720,
+    1381,
+    2773,
+    1399
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "아래쪽 스크롤 화살표",
+   "auto_id": "DownButton",
+   "rect": [
+    2720,
+    1426,
+    2773,
+    1444
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Edit",
+   "name": "메모",
+   "auto_id": "",
+   "rect": [
+    1773,
+    1381,
+    2750,
+    1444
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "메\r\n모",
+   "auto_id": "labelControl15",
+   "rect": [
+    1717,
+    1379,
+    1766,
+    1446
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "",
+   "auto_id": "btnVicariousCalc",
+   "rect": [
+    2695,
+    912,
+    2735,
+    949
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Table",
+   "name": "",
+   "auto_id": "cxGrid2",
+   "rect": [
+    1766,
+    954,
+    2751,
+    1225
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Column Left",
+   "auto_id": "",
+   "rect": [
+    1766,
+    1195,
+    1796,
+    1225
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Left",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Right",
+   "auto_id": "",
+   "rect": [
+    2368,
+    1195,
+    2722,
+    1225
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Column Right",
+   "auto_id": "",
+   "rect": [
+    2721,
+    1195,
+    2751,
+    1225
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "신고인휴대전화",
+   "auto_id": "emHP",
+   "rect": [
+    2254,
+    852,
+    2429,
+    887
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "신고인휴대전화",
+   "auto_id": "69388",
+   "rect": [
+    2261,
+    859,
+    2422,
+    880
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "신고인휴대전화",
+   "auto_id": "",
+   "rect": [
+    2261,
+    859,
+    2422,
+    880
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "신고인휴대전화",
+   "auto_id": "labelControl4",
+   "rect": [
+    2091,
+    852,
+    2252,
+    887
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "상\r\n\r\n속\r\n\r\n인\r\n",
+   "auto_id": "labelControl13",
+   "rect": [
+    1717,
+    852,
+    1766,
+    1225
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "신고인전화번호",
+   "auto_id": "emTEL_1",
+   "rect": [
+    1769,
+    852,
+    1932,
+    887
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "신고인전화번호",
+   "auto_id": "emTEL",
+   "rect": [
+    1934,
+    852,
+    2088,
+    887
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "신고인전화번호",
+   "auto_id": "69398",
+   "rect": [
+    1941,
+    859,
+    2081,
+    880
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "신고인전화번호",
+   "auto_id": "",
+   "rect": [
+    1941,
+    859,
+    2081,
+    880
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "신고인이메일",
+   "auto_id": "emEMAIL",
+   "rect": [
+    2569,
+    852,
+    2746,
+    887
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "신고인이메일",
+   "auto_id": "69402",
+   "rect": [
+    2576,
+    859,
+    2739,
+    880
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "신고인이메일",
+   "auto_id": "",
+   "rect": [
+    2576,
+    859,
+    2739,
+    880
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "신고인이메일",
+   "auto_id": "emEMAIL_1",
+   "rect": [
+    2433,
+    852,
+    2568,
+    887
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "▷ 피대습상속인별로 대습상속인이 여러 명인 경우 각 대습상속인의 법정지분을 수정합니다.",
+   "auto_id": "labelControl5",
+   "rect": [
+    1776,
+    926,
+    2644,
+    947
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "▷ 상속인 외 사전증여재산이 있는 경우 수증자를 등록하고「상속인외」로 관계를 선택합니다.",
+   "auto_id": "Label3",
+   "rect": [
+    1776,
+    896,
+    2665,
+    917
+   ],
+   "enabled": true
+  },
+  {
+   "type": "List",
+   "name": "0",
+   "auto_id": "emELEC",
+   "rect": [
+    2434,
+    812,
+    2746,
+    847
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "예",
+   "auto_id": "",
+   "rect": [
+    2443,
+    821,
+    2590,
+    839
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "아니오",
+   "auto_id": "",
+   "rect": [
+    2590,
+    821,
+    2737,
+    839
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "전자신고여부",
+   "auto_id": "emELEC_1",
+   "rect": [
+    2256,
+    812,
+    2429,
+    847
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Edit",
+   "name": "전자신고여부",
+   "auto_id": "",
+   "rect": [
+    2265,
+    819,
+    2421,
+    840
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Text",
+   "name": "납부기한",
+   "auto_id": "labelControl8",
+   "rect": [
+    2256,
+    774,
+    2429,
+    809
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "신고일자",
+   "auto_id": "labelControl6",
+   "rect": [
+    1769,
+    774,
+    1902,
+    809
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "등록일자",
+   "auto_id": "emRegDate_1",
+   "rect": [
+    1769,
+    810,
+    1902,
+    845
+   ],
+   "enabled": true
+  },
+  {
+   "type": "List",
+   "name": "5",
+   "auto_id": "emGU",
+   "rect": [
+    1904,
+    590,
+    2746,
+    625
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "기한 내     ",
+   "auto_id": "",
+   "rect": [
+    1913,
+    599,
+    2188,
+    617
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "수정     ",
+   "auto_id": "",
+   "rect": [
+    2188,
+    599,
+    2463,
+    617
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "기한 후",
+   "auto_id": "",
+   "rect": [
+    2462,
+    599,
+    2737,
+    617
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "신고구분",
+   "auto_id": "labelControl3",
+   "rect": [
+    1769,
+    590,
+    1902,
+    625
+   ],
+   "enabled": true
+  },
+  {
+   "type": "List",
+   "name": "",
+   "auto_id": "emJReg",
+   "rect": [
+    2119,
+    627,
+    2429,
+    662
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "거주자",
+   "auto_id": "",
+   "rect": [
+    2128,
+    635,
+    2273,
+    653
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "비거주자",
+   "auto_id": "",
+   "rect": [
+    2273,
+    635,
+    2418,
+    653
+   ],
+   "enabled": true
+  },
+  {
+   "type": "ComboBox",
+   "name": "상속원인",
+   "auto_id": "emSGU",
+   "rect": [
+    2594,
+    700,
+    2748,
+    735
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "상속원인",
+   "auto_id": "69442",
+   "rect": [
+    2601,
+    707,
+    2711,
+    728
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "상속원인",
+   "auto_id": "",
+   "rect": [
+    2601,
+    707,
+    2711,
+    728
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Open",
+   "auto_id": "",
+   "rect": [
+    2716,
+    702,
+    2746,
+    734
+   ],
+   "enabled": false
+  },
+  {
+   "type": "List",
+   "name": "상속원인",
+   "auto_id": "",
+   "rect": [
+    2594,
+    700,
+    2748,
+    735
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "계좌번호",
+   "auto_id": "emSEOBANKNO",
+   "rect": [
+    2256,
+    737,
+    2429,
+    772
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "계좌번호",
+   "auto_id": "69446",
+   "rect": [
+    2263,
+    744,
+    2422,
+    765
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "계좌번호",
+   "auto_id": "",
+   "rect": [
+    2263,
+    744,
+    2422,
+    765
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "계좌번호",
+   "auto_id": "emSEOBANKNO_1",
+   "rect": [
+    2119,
+    737,
+    2254,
+    772
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "상속개시일",
+   "auto_id": "emSDATE_1",
+   "rect": [
+    2119,
+    700,
+    2254,
+    735
+   ],
+   "enabled": true
+  },
+  {
+   "type": "ComboBox",
+   "name": "관할세무서",
+   "auto_id": "emSEONAME",
+   "rect": [
+    1904,
+    737,
+    2116,
+    772
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "관할세무서",
+   "auto_id": "69454",
+   "rect": [
+    1911,
+    744,
+    2079,
+    765
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "관할세무서",
+   "auto_id": "",
+   "rect": [
+    1911,
+    744,
+    2079,
+    765
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Open",
+   "auto_id": "",
+   "rect": [
+    2084,
+    739,
+    2114,
+    771
+   ],
+   "enabled": false
+  },
+  {
+   "type": "List",
+   "name": "관할세무서",
+   "auto_id": "",
+   "rect": [
+    1904,
+    737,
+    2116,
+    772
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "상속원인",
+   "auto_id": "emSGU_1",
+   "rect": [
+    2434,
+    700,
+    2592,
+    735
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "세무서코드",
+   "auto_id": "emSEOCODE",
+   "rect": [
+    2594,
+    737,
+    2746,
+    772
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "세무서코드",
+   "auto_id": "69460",
+   "rect": [
+    2601,
+    744,
+    2739,
+    765
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "세무서코드",
+   "auto_id": "",
+   "rect": [
+    2601,
+    744,
+    2739,
+    765
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "주민번호",
+   "auto_id": "emJUMIN",
+   "rect": [
+    1904,
+    700,
+    2116,
+    735
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "주민번호",
+   "auto_id": "69464",
+   "rect": [
+    1911,
+    707,
+    2109,
+    728
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "주민번호",
+   "auto_id": "",
+   "rect": [
+    1911,
+    707,
+    2109,
+    728
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "주소",
+   "auto_id": "emADDR",
+   "rect": [
+    1904,
+    663,
+    2748,
+    698
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "주소",
+   "auto_id": "69468",
+   "rect": [
+    1911,
+    670,
+    2741,
+    691
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "주소",
+   "auto_id": "",
+   "rect": [
+    1911,
+    670,
+    2741,
+    691
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emCode",
+   "rect": [
+    2594,
+    627,
+    2748,
+    662
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "69472",
+   "rect": [
+    2601,
+    634,
+    2741,
+    655
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    2601,
+    634,
+    2741,
+    655
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "고객번호",
+   "auto_id": "labelControl7",
+   "rect": [
+    2434,
+    627,
+    2592,
+    662
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "피상속인",
+   "auto_id": "emNAME",
+   "rect": [
+    1904,
+    627,
+    2116,
+    662
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "피상속인",
+   "auto_id": "69478",
+   "rect": [
+    1911,
+    634,
+    2109,
+    655
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "피상속인",
+   "auto_id": "",
+   "rect": [
+    1911,
+    634,
+    2109,
+    655
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "관할세무서",
+   "auto_id": "emSEONAME_1",
+   "rect": [
+    1769,
+    737,
+    1902,
+    772
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "세무서코드",
+   "auto_id": "emSEOCODE_1",
+   "rect": [
+    2434,
+    737,
+    2592,
+    772
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "주민번호",
+   "auto_id": "emJUMIN_1",
+   "rect": [
+    1769,
+    700,
+    1902,
+    735
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "주 소",
+   "auto_id": "emADDR_1",
+   "rect": [
+    1769,
+    663,
+    1902,
+    698
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "피상속인",
+   "auto_id": "emNAME_1",
+   "rect": [
+    1769,
+    627,
+    1902,
+    662
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "피\r\n\r\n상\r\n\r\n속\r\n\r\n인\r\n",
+   "auto_id": "labelControl1",
+   "rect": [
+    1717,
+    588,
+    1766,
+    851
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "〉신고인 리스트",
+   "auto_id": "",
+   "rect": [
+    1731,
+    1465,
+    1871,
+    1500
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "새로운 피상속인을 등록하려면 「등록」버튼을 누르신 후 자료를 입력하고 저장하시기 바랍니다.",
+   "auto_id": "",
+   "rect": [
+    1731,
+    1465,
+    2597,
+    1535
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "등록된 신고인을 선택하고 「다음단계」버튼을 누르시면 상속재산 등록화면으로 이동합니다.",
+   "auto_id": "",
+   "rect": [
+    1731,
+    1500,
+    2597,
+    1570
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "화면인쇄",
+   "auto_id": "btnScreen",
+   "rect": [
+    1152,
+    -781,
+    1292,
+    -742
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "자주 하는 질문 (상속세 FAQ )",
+   "auto_id": "labelControl1",
+   "rect": [
+    -156,
+    -772,
+    154,
+    -746
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "상속지분 입력방법",
+   "auto_id": "btn_Url4",
+   "rect": [
+    238,
+    -233,
+    457,
+    -201
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "증여세 메뉴에 이미 등록되어 있는 경우 재산등록화면에서 「사전증여재산 가져오기」버튼을 클릭하여 입력 가능합니다.",
+   "auto_id": "labelControl2",
+   "rect": [
+    240,
+    33,
+    1246,
+    58
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "홈택스 전자신고방법",
+   "auto_id": "btn_Url3",
+   "rect": [
+    238,
+    -429,
+    457,
+    -397
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "세무대리인의 경우 「환경 설정」에서 세무대리인 필수정보를 입력하고, 「세액 계산」화면에서 세액 계산 후 \r\n「상속세 전자신고」메뉴를 선택하여 전자신고를 진행합니다.",
+   "auto_id": "labelControl48",
+   "rect": [
+    238,
+    -483,
+    1132,
+    -434
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl46",
+   "rect": [
+    205,
+    84,
+    231,
+    124
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "각 상속재산 입력 화면에서 「금융재산」를 선택하면 금융재산상속공제가 자동 반영됩니다.\r\n금융재산 및 채무 내역을 수정 입력한 경우 세액 계산 화면에서 「금융재산가액」 버튼을 선택하고, 하단의\r\n「금융재산 및 금융채무 가져오기」를 클릭하면 수정된 금융재산 및 채무 내역이 반영됩니다.",
+   "auto_id": "labelControl47",
+   "rect": [
+    238,
+    93,
+    1120,
+    167
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl18",
+   "rect": [
+    205,
+    -4,
+    231,
+    36
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "「각 수증자별」로 사전증여재산의 과세가액을 입력하되 합산 기준의 증여세 과세표준·산출세액을 입력합니다.",
+   "auto_id": "labelControl19",
+   "rect": [
+    238,
+    5,
+    1166,
+    30
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl44",
+   "rect": [
+    207,
+    -375,
+    233,
+    -335
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "상속세 일부 자료만 선택하여 백업하는 경우 「납세자등록」화면에서 백업할 상속인을 선택합니다.\r\n「자료 백업」메뉴로 선택한 자료를 백업하고, 이 후 「자료 복원」메뉴에서 백업파일을 열면 복원됩니다.",
+   "auto_id": "labelControl45",
+   "rect": [
+    240,
+    -366,
+    1098,
+    -317
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl40",
+   "rect": [
+    207,
+    -492,
+    233,
+    -452
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl36",
+   "rect": [
+    205,
+    -597,
+    231,
+    -557
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "경정청구할 상속인을 선택하여 「상속인 복사」를 하고, 복사된 상속인 자료에서 내용을 수정합니다.\r\n「세액 계산」화면 중 상속세 서식인쇄에서 「과세표준 및 세액의 결정(경정)청구서 작성 후 인쇄」메뉴를\r\n선택하여 작성합니다.",
+   "auto_id": "labelControl37",
+   "rect": [
+    238,
+    -588,
+    1099,
+    -514
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl31",
+   "rect": [
+    205,
+    -91,
+    231,
+    -51
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "상속인의 상속 포기로 차순위자가 상속한 경우 「세액 계산」화면에서 「상속포기로차순위자상속가액」란에\r\n해당 상속가액을 입력해 주시면 상속공제한도에서 차감됩니다.",
+   "auto_id": "labelControl32",
+   "rect": [
+    238,
+    -82,
+    1124,
+    -33
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl26",
+   "rect": [
+    207,
+    -177,
+    233,
+    -137
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "「배우자 재산 분할신고」가 \"예\"로 선택되어야 30억원을 한도로 배우자 상속공제가 반영됩니다.\r\n※ 배우자 재산 분할신고: 배우자상속재산분할기한까지 배우자의 상속재산을 분할·신고 (상증법 제19조제2항)",
+   "auto_id": "labelControl27",
+   "rect": [
+    240,
+    -168,
+    1185,
+    -119
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl22",
+   "rect": [
+    207,
+    -296,
+    233,
+    -256
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "「자산 등록」화면에서 「상속재산별 지분율 입력」메뉴를 선택하여 상속재산별로 지분 정보를 입력합니다.\r\n모든 상속재산 또는 일부 상속재산에 대하여 법정지분을 적용하는 것도 가능합니다.",
+   "auto_id": "labelControl23",
+   "rect": [
+    240,
+    -287,
+    1119,
+    -238
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "수정신고방법",
+   "auto_id": "btn_Url",
+   "rect": [
+    238,
+    -649,
+    457,
+    -617
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl12",
+   "rect": [
+    207,
+    -712,
+    233,
+    -672
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "수정신고할 상속인(납세자)를 선택하여 「상속인 복사」를 하고, 복사된 자료에서 내용을 수정합니다.\r\n신고구분을 「수정」으로 바꾼 후 과세표준 수정신고서를 작성합니다.",
+   "auto_id": "labelControl13",
+   "rect": [
+    240,
+    -704,
+    1087,
+    -655
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl28",
+   "rect": [
+    -149,
+    84,
+    -121,
+    124
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "금융재산상속공제 반영",
+   "auto_id": "labelControl33",
+   "rect": [
+    -114,
+    93,
+    103,
+    118
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl16",
+   "rect": [
+    -149,
+    -4,
+    -121,
+    36
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "사전증여재산 입력방법",
+   "auto_id": "labelControl17",
+   "rect": [
+    -114,
+    5,
+    103,
+    30
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl42",
+   "rect": [
+    -149,
+    -375,
+    -121,
+    -335
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "상속세 자료 선택 백업",
+   "auto_id": "labelControl43",
+   "rect": [
+    -114,
+    -366,
+    96,
+    -341
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl38",
+   "rect": [
+    -149,
+    -492,
+    -121,
+    -452
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "상속세 전자신고 여부",
+   "auto_id": "labelControl39",
+   "rect": [
+    -114,
+    -483,
+    89,
+    -458
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl34",
+   "rect": [
+    -149,
+    -597,
+    -121,
+    -557
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "상속세 경정청구방법",
+   "auto_id": "labelControl35",
+   "rect": [
+    -114,
+    -588,
+    82,
+    -563
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl29",
+   "rect": [
+    -149,
+    -91,
+    -121,
+    -51
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "상속 포기로 차순위자가\r\n상속한 경우 상속공제 배제",
+   "auto_id": "labelControl30",
+   "rect": [
+    -114,
+    -82,
+    138,
+    -33
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl24",
+   "rect": [
+    -149,
+    -177,
+    -121,
+    -137
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "배우자 상속공제",
+   "auto_id": "labelControl25",
+   "rect": [
+    -114,
+    -168,
+    40,
+    -143
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl20",
+   "rect": [
+    -149,
+    -296,
+    -121,
+    -256
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "상속재산 지분 입력",
+   "auto_id": "labelControl21",
+   "rect": [
+    -114,
+    -287,
+    68,
+    -262
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl10",
+   "rect": [
+    -149,
+    -712,
+    -121,
+    -672
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "상속세 수정신고방법",
+   "auto_id": "labelControl11",
+   "rect": [
+    -114,
+    -704,
+    82,
+    -679
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "  neoic.com",
+   "auto_id": "simpleButton5",
+   "rect": [
+    -170,
+    387,
+    149,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "CopyRightⓒ (주)네오아이시 All Rights Reserved",
+   "auto_id": "simpleButton6",
+   "rect": [
+    768,
+    387,
+    1291,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "  02-472-4710",
+   "auto_id": "simpleButton7",
+   "rect": [
+    151,
+    387,
+    447,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "  neoic@neoic.com",
+   "auto_id": "simpleButton8",
+   "rect": [
+    448,
+    387,
+    767,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "홈페이지 https://neoic.com",
+   "auto_id": "simpleButton1",
+   "rect": [
+    -170,
+    387,
+    149,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "CopyRightⓒ (주)네오아이시 All Rights Reserved",
+   "auto_id": "simpleButton4",
+   "rect": [
+    772,
+    387,
+    1295,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "고객센터 02-472-4710",
+   "auto_id": "simpleButton2",
+   "rect": [
+    151,
+    387,
+    447,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "이메일 neoic@neoic.com",
+   "auto_id": "simpleButton3",
+   "rect": [
+    450,
+    387,
+    769,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "최소화",
+   "auto_id": "",
+   "rect": [
+    2678,
+    396,
+    2720,
+    438
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "최대화",
+   "auto_id": "",
+   "rect": [
+    2716,
+    396,
+    2758,
+    438
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "닫기",
+   "auto_id": "",
+   "rect": [
+    2755,
+    396,
+    2797,
+    438
+   ],
+   "enabled": true
+  }
+ ],
+ "unreviewed": [
+  "자료 백업",
+  "환경 설정",
+  "공서식 인쇄·작성",
+  "피상속인리스트 저장",
+  "편집허용",
+  "상속인 복사",
+  "편집제한",
+  "다음단계",
+  "화면인쇄",
+  "닫기",
+  "자산미리보기",
+  "전체 조회",
+  "데이터 상세검색",
+  "검색",
+  "Column Left",
+  "Page Left",
+  "Page Right",
+  "Column Right",
+  "First",
+  "Previous Page",
+  "Next Page",
+  "Last",
+  "Line Up",
+  "Page Up",
+  "Page Down",
+  "Line Down",
+  "수정신고",
+  "수정신고방법",
+  "취소",
+  "저장",
+  "수정",
+  "등록",
+  "위쪽 스크롤 화살표",
+  "아래쪽 스크롤 화살표",
+  "Open",
+  "상속지분 입력방법",
+  "홈택스 전자신고방법",
+  "  neoic.com",
+  "CopyRightⓒ (주)네오아이시 All Rights Reserved",
+  "  02-472-4710",
+  "  neoic@neoic.com",
+  "홈페이지 https://neoic.com",
+  "고객센터 02-472-4710",
+  "이메일 neoic@neoic.com",
+  "최소화",
+  "최대화"
+ ],
+ "blocked": [
+  "자료 복원",
+  "원격지원",
+  "선택 신고인 삭제",
+  "삭제"
+ ]
+}

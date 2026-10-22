@@ -1,0 +1,336 @@
+{
+ "seq": 41,
+ "path": [
+  "주식평가",
+  "기준시가 조회"
+ ],
+ "title": "기준시가 조회",
+ "key": "538d7535",
+ "rect": [
+  1087,
+  494,
+  2753,
+  1581
+ ],
+ "edge": "window",
+ "capture": "ok",
+ "source": "uia",
+ "controls": [
+  {
+   "type": "Tab",
+   "name": "",
+   "auto_id": "pc",
+   "rect": [
+    1101,
+    550,
+    2739,
+    1567
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 토지등급 가격표",
+   "auto_id": "RzPanel8",
+   "rect": [
+    2102,
+    695,
+    2256,
+    720
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 토지이용계획 조회 (토지이음)",
+   "auto_id": "RzPanel10",
+   "rect": [
+    2102,
+    634,
+    2375,
+    659
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 개별공시지가 고시일",
+   "auto_id": "RzPanel7",
+   "rect": [
+    1517,
+    695,
+    1710,
+    720
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 개별공시지가 조회 (국토교통부)",
+   "auto_id": "RzPanel6",
+   "rect": [
+    1517,
+    634,
+    1809,
+    659
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 개별주택가격 공시가격 공시일",
+   "auto_id": "RzPanel31",
+   "rect": [
+    1517,
+    866,
+    1792,
+    891
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 실거래가 조회 (국토교통부)",
+   "auto_id": "RzPanel27",
+   "rect": [
+    2102,
+    814,
+    2356,
+    839
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 개별단독주택 공시가격 조회 (국토교통부)",
+   "auto_id": "RzPanel14",
+   "rect": [
+    1517,
+    814,
+    1892,
+    839
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 아파트 기준시가 고시일",
+   "auto_id": "RzPanel18",
+   "rect": [
+    1517,
+    1057,
+    1734,
+    1082
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 아파트 실거래가 조회 (국토교통부)",
+   "auto_id": "RzPanel22",
+   "rect": [
+    1517,
+    1003,
+    1834,
+    1028
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 공동주택 기준시가 조회 (국세청, '05년 이전)",
+   "auto_id": "RzPanel21",
+   "rect": [
+    2102,
+    947,
+    2506,
+    972
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 공동주택 공시가격 조회 (국토교통부, '06년 이후)",
+   "auto_id": "RzPanel19",
+   "rect": [
+    1517,
+    947,
+    1960,
+    972
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 상속·증여시 건물기준시가 계산하기 (국세청)",
+   "auto_id": "RzPanel30",
+   "rect": [
+    2102,
+    1311,
+    2505,
+    1336
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 양도시 건물기준시가 계산하기 (국세청)",
+   "auto_id": "RzPanel29",
+   "rect": [
+    1517,
+    1311,
+    1872,
+    1336
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 생산자 물가지수 조회 (한국은행 경제통계시스템)",
+   "auto_id": "RzPanel9",
+   "rect": [
+    2102,
+    1257,
+    2540,
+    1282
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 상업용건물·오피스텔 기준시가 조회 (국세청)",
+   "auto_id": "RzPanel13",
+   "rect": [
+    1517,
+    1148,
+    1920,
+    1173
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 1세대 1주택 비과세·감면농지·비사업용토지·조정지역 중과세 여부 확인 (국세청)",
+   "auto_id": "RzPanel28",
+   "rect": [
+    1517,
+    1365,
+    2228,
+    1390
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 토지대장·건축물대장 등 열람 (정부24)",
+   "auto_id": "RzPanel25",
+   "rect": [
+    2102,
+    1202,
+    2452,
+    1227
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 건축물·회원권 시가표준액 조회 (위택스)",
+   "auto_id": "RzPanel15",
+   "rect": [
+    1517,
+    1257,
+    1881,
+    1282
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 부동산 등기부등본 열람 (인터넷등기소)",
+   "auto_id": "RzPanel24",
+   "rect": [
+    2102,
+    1148,
+    2457,
+    1173
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "> 골프회원권 기준시가 조회 (국세청, '09년 2월 이전)",
+   "auto_id": "RzPanel23",
+   "rect": [
+    1517,
+    1202,
+    1977,
+    1227
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "아파트연립",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "아파트연립(2006년 이후)",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "상업용건물",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "기준시가 조회",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "닫기",
+   "auto_id": "",
+   "rect": [
+    2699,
+    506,
+    2741,
+    548
+   ],
+   "enabled": true
+  }
+ ],
+ "unreviewed": [
+  "닫기"
+ ],
+ "blocked": []
+}

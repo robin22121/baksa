@@ -1,0 +1,1360 @@
+{
+ "seq": 45,
+ "path": [
+  "주식평가",
+  "1. 평가그룹 등록"
+ ],
+ "title": "주식평가      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ",
+ "key": "05af25a7",
+ "rect": [
+  1031,
+  383,
+  2809,
+  1690
+ ],
+ "edge": "inplace",
+ "capture": "ok",
+ "source": "uia",
+ "controls": [
+  {
+   "type": "Button",
+   "name": "자료 복원",
+   "auto_id": "btnRestore",
+   "rect": [
+    1055,
+    1563,
+    1291,
+    1651
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "자료 백업",
+   "auto_id": "btnBackUp",
+   "rect": [
+    1054,
+    1470,
+    1290,
+    1558
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "환경 설정",
+   "auto_id": "dxNavBar3Item2",
+   "rect": [
+    1054,
+    1327,
+    1290,
+    1415
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "기준시가 조회",
+   "auto_id": "dxNavBar3Item1",
+   "rect": [
+    1054,
+    1241,
+    1290,
+    1329
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "원격지원",
+   "auto_id": "simpleButton1",
+   "rect": [
+    1061,
+    861,
+    1289,
+    914
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "영업권 평가",
+   "auto_id": "dxNavBar2Item3",
+   "rect": [
+    1054,
+    917,
+    1290,
+    1005
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "공서식 인쇄·작성",
+   "auto_id": "dxNavBar2Item2",
+   "rect": [
+    1054,
+    1111,
+    1290,
+    1199
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "도움말·법령 보기",
+   "auto_id": "dxNavBar2Item1",
+   "rect": [
+    1054,
+    1013,
+    1290,
+    1101
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "2. 주 식 등 록",
+   "auto_id": "nBar12",
+   "rect": [
+    1054,
+    579,
+    1292,
+    670
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "1. 평가그룹 등록",
+   "auto_id": "nBar11",
+   "rect": [
+    1054,
+    480,
+    1294,
+    573
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "편집허용",
+   "auto_id": "btnUnLock",
+   "rect": [
+    1465,
+    480,
+    1605,
+    524
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "편집제한",
+   "auto_id": "btnLock",
+   "rect": [
+    1314,
+    480,
+    1454,
+    524
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "화면인쇄",
+   "auto_id": "btnScreen",
+   "rect": [
+    2485,
+    480,
+    2625,
+    524
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "닫기",
+   "auto_id": "cxClose",
+   "rect": [
+    2630,
+    480,
+    2753,
+    524
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "평가그룹",
+   "auto_id": "textEdit24",
+   "rect": [
+    1320,
+    530,
+    1478,
+    569
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "평가그룹",
+   "auto_id": "266438",
+   "rect": [
+    1327,
+    539,
+    1471,
+    560
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "평가그룹",
+   "auto_id": "",
+   "rect": [
+    1327,
+    539,
+    1471,
+    560
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "자산미리보기",
+   "auto_id": "btnJasanPreview",
+   "rect": [
+    1320,
+    576,
+    1478,
+    611
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "검색",
+   "auto_id": "btnSearch",
+   "rect": [
+    1708,
+    529,
+    1813,
+    573
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emSearch",
+   "rect": [
+    1475,
+    530,
+    1703,
+    569
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "266432",
+   "rect": [
+    1482,
+    539,
+    1696,
+    560
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    1482,
+    539,
+    1696,
+    560
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "선택한 평가그룹 모두 삭제",
+   "auto_id": "btnALLDEL",
+   "rect": [
+    1516,
+    576,
+    1814,
+    615
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Table",
+   "name": "수증자리스트",
+   "auto_id": "cxGrid1",
+   "rect": [
+    1314,
+    621,
+    1811,
+    1542
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Column Left",
+   "auto_id": "",
+   "rect": [
+    1561,
+    1510,
+    1591,
+    1540
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Page Left",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Page Right",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Column Right",
+   "auto_id": "",
+   "rect": [
+    1752,
+    1510,
+    1782,
+    1540
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "First",
+   "auto_id": "",
+   "rect": [
+    1314,
+    1510,
+    1342,
+    1542
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Previous Page",
+   "auto_id": "",
+   "rect": [
+    1342,
+    1510,
+    1370,
+    1542
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Next Page",
+   "auto_id": "",
+   "rect": [
+    1509,
+    1510,
+    1535,
+    1542
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Last",
+   "auto_id": "",
+   "rect": [
+    1535,
+    1510,
+    1561,
+    1542
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Line Up",
+   "auto_id": "",
+   "rect": [
+    1782,
+    658,
+    1812,
+    688
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Up",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Down",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Line Down",
+   "auto_id": "",
+   "rect": [
+    1782,
+    1481,
+    1812,
+    1511
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "메\r\n\r\n모",
+   "auto_id": "labelControl2",
+   "rect": [
+    1822,
+    1342,
+    1871,
+    1589
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "취소",
+   "auto_id": "btnCancel",
+   "rect": [
+    2616,
+    532,
+    2739,
+    576
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Edit",
+   "name": "메모",
+   "auto_id": "emMemo",
+   "rect": [
+    1874,
+    1341,
+    2739,
+    1590
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Line Up",
+   "auto_id": "",
+   "rect": [
+    2707,
+    1342,
+    2737,
+    1372
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Page Up",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Page Down",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Line Down",
+   "auto_id": "",
+   "rect": [
+    2707,
+    1558,
+    2737,
+    1588
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Edit",
+   "name": "메모",
+   "auto_id": "200914",
+   "rect": [
+    1881,
+    1342,
+    2737,
+    1587
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "위쪽 스크롤 화살표",
+   "auto_id": "UpButton",
+   "rect": [
+    2707,
+    1342,
+    2760,
+    1372
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "아래쪽 스크롤 화살표",
+   "auto_id": "DownButton",
+   "rect": [
+    2707,
+    1557,
+    2760,
+    1587
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Edit",
+   "name": "메모",
+   "auto_id": "",
+   "rect": [
+    1881,
+    1342,
+    2737,
+    1587
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "저장",
+   "auto_id": "btnSave",
+   "rect": [
+    2487,
+    532,
+    2610,
+    576
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "평가그룹삭제",
+   "auto_id": "btnDel",
+   "rect": [
+    2233,
+    532,
+    2426,
+    576
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "평가그룹수정",
+   "auto_id": "btnEdit",
+   "rect": [
+    2030,
+    532,
+    2223,
+    576
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "평가그룹등록",
+   "auto_id": "btnReg",
+   "rect": [
+    1827,
+    532,
+    2020,
+    576
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Table",
+   "name": "",
+   "auto_id": "cxGrid3",
+   "rect": [
+    1874,
+    704,
+    2739,
+    1336
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Line Up",
+   "auto_id": "",
+   "rect": [
+    2706,
+    744,
+    2736,
+    774
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Up",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Down",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Line Down",
+   "auto_id": "",
+   "rect": [
+    2706,
+    1302,
+    2736,
+    1332
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emSearch2",
+   "rect": [
+    2041,
+    663,
+    2302,
+    698
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "266428",
+   "rect": [
+    2048,
+    670,
+    2295,
+    691
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    2048,
+    670,
+    2295,
+    691
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "검색",
+   "auto_id": "btnSearch2",
+   "rect": [
+    2305,
+    662,
+    2410,
+    701
+   ],
+   "enabled": true
+  },
+  {
+   "type": "ComboBox",
+   "name": "법인명검색",
+   "auto_id": "cbSearch2",
+   "rect": [
+    1874,
+    663,
+    2035,
+    698
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "법인명검색",
+   "auto_id": "",
+   "rect": [
+    1881,
+    670,
+    1998,
+    691
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Open",
+   "auto_id": "",
+   "rect": [
+    2004,
+    665,
+    2034,
+    697
+   ],
+   "enabled": true
+  },
+  {
+   "type": "List",
+   "name": "법인명검색",
+   "auto_id": "",
+   "rect": [
+    1874,
+    663,
+    2035,
+    698
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "등록일자",
+   "auto_id": "emRegDate_1",
+   "rect": [
+    2305,
+    586,
+    2435,
+    621
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "고객번호",
+   "auto_id": "emCode",
+   "rect": [
+    2007,
+    586,
+    2301,
+    621
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "고객번호",
+   "auto_id": "135372",
+   "rect": [
+    2014,
+    593,
+    2294,
+    614
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "고객번호",
+   "auto_id": "",
+   "rect": [
+    2014,
+    593,
+    2294,
+    614
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "그룹번호",
+   "auto_id": "emCode_1",
+   "rect": [
+    1874,
+    586,
+    2004,
+    621
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "수증자",
+   "auto_id": "emNAME",
+   "rect": [
+    2007,
+    625,
+    2301,
+    660
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "수증자",
+   "auto_id": "135392",
+   "rect": [
+    2014,
+    632,
+    2294,
+    653
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "수증자",
+   "auto_id": "",
+   "rect": [
+    2014,
+    632,
+    2294,
+    653
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "평가그룹",
+   "auto_id": "emNAME_1",
+   "rect": [
+    1874,
+    625,
+    2004,
+    660
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "평\r\n\r\n가\r\n\r\n그\r\n\r\n룹",
+   "auto_id": "labelControl1",
+   "rect": [
+    1822,
+    583,
+    1871,
+    1339
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "평가그룹 복사",
+   "auto_id": "btnCopyNPaste",
+   "rect": [
+    1827,
+    1605,
+    2030,
+    1649
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "「편집제한」된 자료(수정불가)  ",
+   "auto_id": "labelControl20",
+   "rect": [
+    1355,
+    1619,
+    1667,
+    1640
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "",
+   "auto_id": "labelControl21",
+   "rect": [
+    1334,
+    1619,
+    1353,
+    1640
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "다음단계",
+   "auto_id": "btnNext",
+   "rect": [
+    2553,
+    1605,
+    2746,
+    1649
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "화면인쇄",
+   "auto_id": "btnScreen",
+   "rect": [
+    1152,
+    -781,
+    1292,
+    -742
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "※ 순자산가치 평가 특정법인 (상증법 제54조제4항): 사업개시 전 법인 및 사업개시 후 3년 미만 법인 등",
+   "auto_id": "labelControl22",
+   "rect": [
+    240,
+    -378,
+    1124,
+    -353
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl20",
+   "rect": [
+    207,
+    -492,
+    233,
+    -452
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "평가 대상 주식 발행법인의 종류를 선택하면 다음의 평가방법으로 1주당 가액이 계산됩니다.\r\n① 일반 법인 : Max{(순손익가치×3+순자산가치×2)÷5, 순자산가치×80%)\r\n② 부동산 과다 보유 법인 : Max{(순손익가치×2+순자산가치×3)÷5, 순자산가치×80%)\r\n③ 순자산가치 평가 특정법인: 순자산가치\r\n",
+   "auto_id": "labelControl21",
+   "rect": [
+    240,
+    -483,
+    1024,
+    -385
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl40",
+   "rect": [
+    207,
+    -222,
+    233,
+    -182
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "주식 목록에서 복사하려는 주식을 선택하고, 「상속·증여재산으로 복사」버튼을 클릭한 후 신고인(상속인) 또는 \r\n수증자를 선택하여 해당 주식을 상속재산 또는 증여재산으로 복사합니다.",
+   "auto_id": "labelControl41",
+   "rect": [
+    240,
+    -214,
+    1176,
+    -165
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl36",
+   "rect": [
+    205,
+    -600,
+    231,
+    -560
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "「평가차액계산」메뉴를 선택하여 상증법상 평가액 및 재무상태표상 금액을 입력하되,\r\n상증법상 평가액이 장부가액보다 적은 경우 정당한 사유가 있는 때에만 (-)평가차액을 반영 가능하므로\r\n해당 계정과목 차액 옆의 「정당한 사유」를 선택합니다. (상증법 시행령 제55조제1항)",
+   "auto_id": "labelControl37",
+   "rect": [
+    238,
+    -592,
+    1115,
+    -518
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl17",
+   "rect": [
+    207,
+    -313,
+    233,
+    -273
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "순자산가액계산서 및 순손익액계산서를 입력하면 영업권 평가액이 자동으로 계산됩니다.\r\n영업권 계산내역은 「영업권평가」메뉴에서 확인 가능하며, 순자산가액에 자동 합산됩니다.",
+   "auto_id": "labelControl18",
+   "rect": [
+    240,
+    -305,
+    1001,
+    -256
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl12",
+   "rect": [
+    207,
+    -712,
+    233,
+    -672
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "「종가평균액」버튼을 클릭하면 평가기준일 이전·이후 각 2개월의 일자가 자동으로 생성됩니다.\r\n상단의 「일자별 시세 조회(KRX)」을 선택하여 해당 기간의 종가를 조회한 후 엑셀 파일로 저장하고,\r\n「종가자료(Excel) 가져오기」버튼을 클릭하여 저장한 파일을 불러오면 일자별 종가가 반영됩니다.",
+   "auto_id": "labelControl13",
+   "rect": [
+    240,
+    -704,
+    1077,
+    -630
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl14",
+   "rect": [
+    -149,
+    -492,
+    -121,
+    -452
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "법인 종류에 따른 비상장주식\r\n평가방법",
+   "auto_id": "labelControl19",
+   "rect": [
+    -114,
+    -483,
+    159,
+    -434
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl38",
+   "rect": [
+    -149,
+    -222,
+    -121,
+    -182
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "상속·증여재산으로 복사",
+   "auto_id": "labelControl39",
+   "rect": [
+    -114,
+    -214,
+    114,
+    -189
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl34",
+   "rect": [
+    -149,
+    -600,
+    -121,
+    -560
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "순자산가액 (-)평가차액 반영",
+   "auto_id": "labelControl35",
+   "rect": [
+    -114,
+    -592,
+    166,
+    -567
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl15",
+   "rect": [
+    -149,
+    -313,
+    -121,
+    -273
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "영업권 평가",
+   "auto_id": "labelControl16",
+   "rect": [
+    -114,
+    -305,
+    -2,
+    -280
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl10",
+   "rect": [
+    -149,
+    -712,
+    -121,
+    -672
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "상장주식 종가평균액 계산",
+   "auto_id": "labelControl11",
+   "rect": [
+    -114,
+    -704,
+    131,
+    -679
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "자주 하는 질문 (주식평가 FAQ )",
+   "auto_id": "labelControl1",
+   "rect": [
+    -156,
+    -772,
+    177,
+    -746
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "  neoic.com",
+   "auto_id": "simpleButton1",
+   "rect": [
+    -170,
+    387,
+    149,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "CopyRightⓒ (주)네오아이시 All Rights Reserved",
+   "auto_id": "simpleButton4",
+   "rect": [
+    772,
+    387,
+    1295,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "  02-472-4710",
+   "auto_id": "simpleButton2",
+   "rect": [
+    151,
+    387,
+    447,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "  neoic@neoic.com",
+   "auto_id": "simpleButton3",
+   "rect": [
+    450,
+    387,
+    769,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "최소화",
+   "auto_id": "",
+   "rect": [
+    2678,
+    396,
+    2720,
+    438
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "최대화",
+   "auto_id": "",
+   "rect": [
+    2716,
+    396,
+    2758,
+    438
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "닫기",
+   "auto_id": "",
+   "rect": [
+    2755,
+    396,
+    2797,
+    438
+   ],
+   "enabled": true
+  }
+ ],
+ "unreviewed": [
+  "자료 백업",
+  "환경 설정",
+  "공서식 인쇄·작성",
+  "편집허용",
+  "편집제한",
+  "화면인쇄",
+  "닫기",
+  "자산미리보기",
+  "검색",
+  "Column Left",
+  "Page Left",
+  "Page Right",
+  "Column Right",
+  "First",
+  "Previous Page",
+  "Next Page",
+  "Last",
+  "Line Up",
+  "Page Up",
+  "Page Down",
+  "Line Down",
+  "취소",
+  "위쪽 스크롤 화살표",
+  "아래쪽 스크롤 화살표",
+  "저장",
+  "평가그룹수정",
+  "평가그룹등록",
+  "Open",
+  "평가그룹 복사",
+  "다음단계",
+  "  neoic.com",
+  "CopyRightⓒ (주)네오아이시 All Rights Reserved",
+  "  02-472-4710",
+  "  neoic@neoic.com",
+  "최소화",
+  "최대화"
+ ],
+ "blocked": [
+  "자료 복원",
+  "원격지원",
+  "선택한 평가그룹 모두 삭제",
+  "평가그룹삭제"
+ ]
+}

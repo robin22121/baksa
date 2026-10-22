@@ -1,0 +1,190 @@
+{
+ "seq": 30,
+ "path": [
+  "상속세",
+  "도움말·법령 보기"
+ ],
+ "title": "도움말·법령 보기",
+ "key": "be43aa7d",
+ "rect": [
+  1596,
+  723,
+  2242,
+  1350
+ ],
+ "edge": "window",
+ "capture": "ok",
+ "source": "uia",
+ "controls": [
+  {
+   "type": "Text",
+   "name": "전자신고방법\r\n",
+   "auto_id": "labelControl3",
+   "rect": [
+    1657,
+    1041,
+    1773,
+    1060
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "위택스(지방세)",
+   "auto_id": "simpleButton1",
+   "rect": [
+    1993,
+    1027,
+    2186,
+    1080
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "주식평가",
+   "auto_id": "Faq4",
+   "rect": [
+    1993,
+    935,
+    2186,
+    988
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "증여세",
+   "auto_id": "Faq3",
+   "rect": [
+    1790,
+    935,
+    1983,
+    988
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "상속세",
+   "auto_id": "Faq2",
+   "rect": [
+    1993,
+    872,
+    2186,
+    925
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "양도소득세",
+   "auto_id": "Faq1",
+   "rect": [
+    1790,
+    872,
+    1983,
+    925
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "양도소득세 비과세·감면 확인 (국세청 홈택스)",
+   "auto_id": "RzBitBtn1",
+   "rect": [
+    1647,
+    1115,
+    2186,
+    1168
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "조세법령 조회 (국세법령정보시스템)",
+   "auto_id": "btnTaxinfo",
+   "rect": [
+    1647,
+    1185,
+    2186,
+    1238
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "지방세 미리 계산해보기 (위택스)",
+   "auto_id": "btnWetax",
+   "rect": [
+    1647,
+    1255,
+    2186,
+    1308
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "홈택스(국세)",
+   "auto_id": "btnEHelp",
+   "rect": [
+    1790,
+    1027,
+    1983,
+    1080
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "양도박사 매뉴얼",
+   "auto_id": "btnHelp",
+   "rect": [
+    1647,
+    800,
+    2186,
+    853
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "자주 묻는\r\n질문들\r\n(FAQ)",
+   "auto_id": "labelControl2",
+   "rect": [
+    1675,
+    900,
+    1759,
+    958
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "닫기",
+   "auto_id": "",
+   "rect": [
+    2188,
+    735,
+    2230,
+    777
+   ],
+   "enabled": true
+  }
+ ],
+ "unreviewed": [
+  "위택스(지방세)",
+  "주식평가",
+  "증여세",
+  "상속세",
+  "양도소득세",
+  "양도소득세 비과세·감면 확인 (국세청 홈택스)",
+  "조세법령 조회 (국세법령정보시스템)",
+  "지방세 미리 계산해보기 (위택스)",
+  "홈택스(국세)",
+  "양도박사 매뉴얼",
+  "닫기"
+ ],
+ "blocked": []
+}

@@ -18,3 +18,27 @@
 {"seq": 25, "path": ["증여세", "[닫기]", "[모달]"], "title": "확인", "key": "0112b076", "parent_seq": 0, "edge": "modal", "counts": {"Button": 3, "Text": 1}}
 {"seq": 26, "path": ["주식평가", "[닫기]", "[모달]"], "title": "확인", "key": "0112b076", "parent_seq": 0, "edge": "modal", "counts": {"Button": 3, "Text": 1}}
 {"seq": 27, "path": ["종합부동산세", "[닫기]", "[모달]"], "title": "확인", "key": "0112b076", "parent_seq": 0, "edge": "modal", "counts": {"Button": 3, "Text": 1}}
+{"seq": 28, "path": ["상속세"], "title": "상속세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "7119d25b", "parent_seq": 0, "edge": "window", "counts": {"Button": 25, "Text": 38}}
+{"seq": 29, "path": ["상속세", "기준시가 조회"], "title": "기준시가 조회", "key": "538d7535", "parent_seq": 28, "edge": "window", "counts": {"Tab": 1, "Text": 20, "TabItem": 4, "Button": 1}}
+{"seq": 30, "path": ["상속세", "도움말·법령 보기"], "title": "도움말·법령 보기", "key": "be43aa7d", "parent_seq": 28, "edge": "window", "counts": {"Text": 2, "Button": 11}}
+{"seq": 31, "path": ["상속세", "3. 세 액 계 산"], "title": "상속세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "7119d25b", "parent_seq": 28, "edge": "inplace", "counts": {"Button": 25, "Text": 38}}
+{"seq": 32, "path": ["상속세", "2. 재 산 등 록"], "title": "상속세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "7119d25b", "parent_seq": 28, "edge": "inplace", "counts": {"Button": 25, "Text": 38}}
+{"seq": 33, "path": ["상속세", "1. 납세자 등록"], "title": "상속세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "77cbc5cc", "parent_seq": 28, "edge": "inplace", "counts": {"Button": 73, "Text": 68, "Edit": 38, "Table": 4, "List": 5, "RadioButton": 7, "ComboBox": 2}}
+{"seq": 34, "path": ["증여세"], "title": "증여세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "4a6ca136", "parent_seq": 0, "edge": "window", "counts": {"Button": 22, "Text": 31}}
+{"seq": 35, "path": ["증여세", "기준시가 조회"], "title": "기준시가 조회", "key": "538d7535", "parent_seq": 34, "edge": "window", "counts": {"Tab": 1, "Text": 20, "TabItem": 4, "Button": 1}}
+{"seq": 36, "path": ["증여세", "도움말·법령 보기"], "title": "도움말·법령 보기", "key": "be43aa7d", "parent_seq": 34, "edge": "window", "counts": {"Text": 2, "Button": 11}}
+{"seq": 37, "path": ["증여세", "3. 세 액 계 산"], "title": "증여세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "e4941f14", "parent_seq": 34, "edge": "inplace", "counts": {"Text": 33, "Button": 33}}
+{"seq": 38, "path": ["증여세", "2. 재 산 등 록"], "title": "증여세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "e4941f14", "parent_seq": 34, "edge": "inplace", "counts": {"Text": 33, "Button": 33}}
+{"seq": 39, "path": ["증여세", "1. 수증자 등록"], "title": "증여세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "9e13d311", "parent_seq": 34, "edge": "inplace", "counts": {"Text": 69, "Button": 81, "Edit": 60, "Table": 2, "List": 7, "RadioButton": 17, "ComboBox": 1}}
+{"seq": 40, "path": ["주식평가"], "title": "주식평가      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "bd14063d", "parent_seq": 0, "edge": "window", "counts": {"Button": 18, "Text": 22}}
+{"seq": 41, "path": ["주식평가", "기준시가 조회"], "title": "기준시가 조회", "key": "538d7535", "parent_seq": 40, "edge": "window", "counts": {"Tab": 1, "Text": 20, "TabItem": 4, "Button": 1}}
+{"seq": 42, "path": ["주식평가", "영업권 평가"], "title": "주식평가      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "d75a8648", "parent_seq": 40, "edge": "inplace", "counts": {"Button": 34, "Table": 1, "Text": 22}}
+{"seq": 43, "path": ["주식평가", "도움말·법령 보기"], "title": "도움말·법령 보기", "key": "be43aa7d", "parent_seq": 40, "edge": "window", "counts": {"Text": 2, "Button": 11}}
+{"seq": 44, "path": ["주식평가", "2. 주 식 등 록"], "title": "주식평가      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "d75a8648", "parent_seq": 40, "edge": "inplace", "counts": {"Button": 34, "Table": 1, "Text": 22}}
+{"seq": 45, "path": ["주식평가", "1. 평가그룹 등록"], "title": "주식평가      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "05af25a7", "parent_seq": 40, "edge": "inplace", "counts": {"Button": 56, "Edit": 18, "Table": 2, "Text": 30, "ComboBox": 1, "List": 1}}
+{"seq": 46, "path": ["종합부동산세"], "title": "종합부동산세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "a1f3cf31", "parent_seq": 0, "edge": "window", "counts": {"Button": 18, "Tab": 1, "Text": 35, "TabItem": 1}}
+{"seq": 47, "path": ["종합부동산세", "기준시가 조회"], "title": "기준시가 조회", "key": "538d7535", "parent_seq": 46, "edge": "window", "counts": {"Tab": 1, "Text": 20, "TabItem": 4, "Button": 1}}
+{"seq": 48, "path": ["종합부동산세", "도움말·법령 보기"], "title": "도움말·법령 보기", "key": "be43aa7d", "parent_seq": 46, "edge": "window", "counts": {"Text": 2, "Button": 11}}
+{"seq": 49, "path": ["종합부동산세", "3. 세 액 계 산"], "title": "종합부동산세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "a1f3cf31", "parent_seq": 46, "edge": "inplace", "counts": {"Button": 18, "Tab": 1, "Text": 35, "TabItem": 1}}
+{"seq": 50, "path": ["종합부동산세", "2. 재 산 등 록"], "title": "종합부동산세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "a1f3cf31", "parent_seq": 46, "edge": "inplace", "counts": {"Button": 18, "Tab": 1, "Text": 35, "TabItem": 1}}
+{"seq": 51, "path": ["종합부동산세", "1. 납세자 등록"], "title": "종합부동산세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "b92da9b7", "parent_seq": 46, "edge": "inplace", "counts": {"Button": 54, "Text": 64, "ComboBox": 2, "List": 5, "Edit": 56, "Table": 1, "Tab": 2, "TabItem": 3, "RadioButton": 7}}
