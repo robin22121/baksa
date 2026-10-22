@@ -43,7 +43,10 @@ MAIN_MIN_BUTTONS = 26
 PRESS_TIMEOUT = 5.0
 BIG_FILE = 200 * 1024 * 1024  # 이 크기를 넘는 파일은 앞·뒤 1MB 표본 해시
 
-Win = namedtuple("Win", "hwnd pid title cls owner")
+Win = namedtuple("Win", "hwnd pid title cls owner msg", defaults=("",))
+
+# 이 이름의 버튼만 있는 창(+짧은 문구)은 모달(메시지 상자), 아니면 화면
+MODAL_BUTTONS = {"예", "아니오", "확인", "취소", "닫기"}
 
 if platform.system() == "Windows":
     _u32 = ctypes.windll.user32
@@ -197,6 +200,35 @@ def wait_for(pred, timeout, interval=0.25):
         time.sleep(interval)
 
 
+def win32_descendants(hwnd):
+    return Desktop(backend="win32").window(handle=hwnd).descendants()
+
+
+def call_with_timeout(fn, sec):
+    """fn을 별도 스레드에서 실행해 결과를 돌려준다. 예외는 다시 던지고, sec초 넘으면 TimeoutError."""
+    box = {}
+
+    def work():
+        try:
+            try:
+                import comtypes
+                comtypes.CoInitializeEx()
+            except Exception:  # noqa: BLE001
+                pass
+            box["v"] = fn()
+        except Exception as e:  # noqa: BLE001
+            box["e"] = e
+
+    th = threading.Thread(target=work, daemon=True)
+    th.start()
+    th.join(sec)
+    if th.is_alive():
+        raise TimeoutError(f"{sec}초 초과")
+    if "e" in box:
+        raise box["e"]
+    return box["v"]
+
+
 def _hwnd_of(win):
     return win if isinstance(win, int) else win.handle
 
@@ -244,12 +276,40 @@ class App:
         pids = set(self.pids)
         return [w for w in top_windows() if w.pid in pids]
 
+    def _split(self):
+        """제목 있는 양도박사 보이는 최상위 창을 (화면, 모달)로 나눈다. 제목 없는 창은 둘 다 아님.
+        #32770은 모달. 그 밖에는 win32 descendants 중 글자가 있는 컨트롤의 텍스트를 보고,
+        {예,아니오,확인,취소,닫기}에 속하는 버튼 텍스트가 있고 그 밖의 문구가 2개 이하면 모달(msg=문구), 아니면 화면.
+        (win32 클래스로는 버튼을 구분할 수 없어 텍스트로 판단한다. owner 유무는 보지 않는다.)"""
+        screens, modals = [], []
+        for w in self._yd_windows():
+            if not w.title:
+                continue
+            if w.cls == "#32770":
+                modals.append(w)
+                continue
+            try:
+                texts = [t for t in (d.window_text().strip() for d in win32_descendants(w.hwnd)) if t]
+            except Exception:  # noqa: BLE001
+                texts = []
+            btn = [t for t in texts if norm(t) in MODAL_BUTTONS]
+            other = [t for t in texts if norm(t) not in MODAL_BUTTONS]
+            if btn and len(other) <= 2:
+                modals.append(w._replace(msg=" ".join(other)))
+            else:
+                screens.append(w)
+        return screens, modals
+
     def screens_info(self):
-        return [w for w in self._yd_windows() if w.title and not w.owner and w.cls != "#32770"]
+        return self._split()[0]
 
     def modals_info(self):
-        # 제목 없는 owned 창은 WinForms 보조 창(툴팁 등)이라 모달로 보지 않는다 (§2와 다른 점)
-        return [w for w in self._yd_windows() if w.cls == "#32770" or (w.owner and w.title)]
+        return self._split()[1]
+
+    @staticmethod
+    def modal_key(w):
+        """모달 키: 제목|문구 (공백 제거)."""
+        return norm(w.title) + "|" + norm(w.msg)
 
     def screens(self):
         """화면 hwnd 목록 (제목 있고 owner 없고 #32770 아님)."""
@@ -267,56 +327,41 @@ class App:
     # ---- 버튼 ----
 
     def buttons(self, win):
-        """창 안의 Button 이름 목록(원문, 순서 유지, 빈 이름 제외)."""
-        w = wrap(win) if isinstance(win, int) else win
-        names = []
-        for b in w.descendants(control_type="Button"):
-            t = b.element_info.name or ""
-            if t.strip():
-                names.append(t)
-        return names
+        """창 안의 Button 이름 목록(원문, 순서 유지, 빈 이름 제외). uia가 실패하거나 10초 넘으면 win32 텍스트로 대체."""
+        hwnd = _hwnd_of(win)
+        try:
+            bs = call_with_timeout(lambda: wrap(hwnd).descendants(control_type="Button"), 10)
+            names = [b.element_info.name or "" for b in bs]
+        except Exception as e:  # noqa: BLE001
+            log("buttons", f"uia 실패 → win32 {e}")
+            names = [d.window_text() for d in win32_descendants(hwnd)]
+        return [n for n in names if n.strip()]
 
     def is_forbidden(self, name):
         n = norm(name)
         return any(f and f in n for f in self.forbidden)
 
     def press(self, win, name):
-        """금지 목록에 걸리면 누르지 않고 False. 아니면 별도 스레드에서 invoke(), 5초 타임아웃.
-        타임아웃도 True로 돌려준다(창 변화는 호출자가 관찰). 버튼을 못 찾으면 False."""
+        """금지 목록에 걸리면 누르지 않고 False. 아니면 win32로 이름이 같은 컨트롤을 찾아
+        클라이언트 중앙에 WM_LBUTTONDOWN/UP을 PostMessage(비동기, ShowDialog에 막히지 않음). 못 찾으면 False."""
         if self.is_forbidden(name):
             log("press", f"차단 {name!r}")
             return False
-        hwnd = _hwnd_of(win)
         target = norm(name)
-        result = {}
-
-        def work():
-            try:
-                try:
-                    import comtypes
-                    comtypes.CoInitializeEx()
-                except Exception:  # noqa: BLE001
-                    pass
-                w = wrap(hwnd)
-                for b in w.descendants(control_type="Button"):
-                    if norm(b.element_info.name) == target:
-                        b.invoke()
-                        result["ok"] = True
-                        return
-                result["ok"] = False
-                result["err"] = "버튼 없음"
-            except Exception as e:  # noqa: BLE001
-                result["ok"] = False
-                result["err"] = str(e)
-
-        th = threading.Thread(target=work, daemon=True)
-        th.start()
-        th.join(PRESS_TIMEOUT)
-        if th.is_alive():
-            log("press", f"타임아웃 {name!r} (누른 것으로 간주)")
-            return True
-        log("press", f"{'ok' if result.get('ok') else '실패'} {name!r} {result.get('err', '')}")
-        return bool(result.get("ok"))
+        try:
+            for d in win32_descendants(_hwnd_of(win)):
+                if norm(d.window_text()) == target:
+                    r = d.client_rect()
+                    lp = ((r.height() // 2) << 16) | (r.width() // 2)
+                    _u32.PostMessageW(d.handle, 0x201, 1, lp)
+                    _u32.PostMessageW(d.handle, 0x202, 0, lp)
+                    log("press", f"ok {name!r}")
+                    return True
+        except Exception as e:  # noqa: BLE001
+            log("press", f"실패 {name!r} {e}")
+            return False
+        log("press", f"버튼 없음 {name!r}")
+        return False
 
     def close_screen(self, win, timeout=5.0):
         """WM_CLOSE로 닫는다. 창이 사라지면 True. 모달 처리는 호출자가 이어서 한다."""
@@ -416,7 +461,7 @@ class App:
         """Data\\neoTax.fdb 와 설치 루트의 *.ini 를 data/raw/backup/<시각>/ 에 복사. 복사 실패는 목록으로 돌려준다."""
         dst = BACKUP_ROOT / datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         dst.mkdir(parents=True, exist_ok=True)
-        srcs = [self.root / "Data" / "neoTax.fdb"] + sorted(self.root.glob("*.ini"))
+        srcs = [self.root / "Data" / "neoTax.fdb", self.root / "Data" / "neoPost.fdb"] + sorted(self.root.glob("*.ini"))
         failed = []
         for s in srcs:
             try:

@@ -1,0 +1,25 @@
+{
+ "screens": 1,
+ "presses": 7,
+ "unreviewed": 17,
+ "errors": 7,
+ "abort": null,
+ "exit_code": 0,
+ "externals": [],
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb"
+  ],
+  "mtime_only": []
+ },
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261022_095929",
+ "backup_failed": [],
+ "elapsed_sec": 541.3,
+ "remaining_screens": [
+  1182386,
+  460136,
+  5965548
+ ]
+}

@@ -80,15 +80,27 @@ def classify(a, allow, title, names):
     return ok, banned, unrev
 
 
-def controls_of(win):
-    out = []
-    for c in win.descendants():
-        e = c.element_info
-        if e.control_type in KEEP_TYPES:
-            r = e.rectangle
-            out.append({"type": e.control_type, "name": e.name, "auto_id": e.automation_id,
-                        "rect": [r.left, r.top, r.right, r.bottom], "enabled": bool(e.enabled)})
-    return out
+def controls_of(hwnd):
+    """컨트롤 덤프. uia가 예외이거나 10초 넘으면 win32 descendants로 대체(source 표시). (목록, source)"""
+    def uia():
+        out = []
+        for c in appmod.wrap(hwnd).descendants():
+            e = c.element_info
+            if e.control_type in KEEP_TYPES:
+                r = e.rectangle
+                out.append({"type": e.control_type, "name": e.name, "auto_id": e.automation_id,
+                            "rect": [r.left, r.top, r.right, r.bottom], "enabled": bool(e.enabled)})
+        return out
+    try:
+        return appmod.call_with_timeout(uia, 10), "uia"
+    except Exception as e:  # noqa: BLE001
+        appmod.log("controls_of", f"uia 실패 → win32 {e}")
+        out = []
+        for d in appmod.win32_descendants(hwnd):
+            r = d.rectangle()
+            out.append({"type": d.class_name(), "name": d.window_text(),
+                        "rect": [r.left, r.top, r.right, r.bottom]})
+        return out, "win32"
 
 
 def screen_key(title, cls, names):
@@ -115,6 +127,7 @@ class Run:
         self.errors = 0
         self.externals = []
         self.unknown_modal = False
+        self.start_screens = set(a.screens())  # 실행 전부터 열려 있던 화면은 닫지 않는다
 
     def check_limits(self):
         if self.nscreens >= MAX_SCREENS:
@@ -136,20 +149,19 @@ class Run:
         info = next((w for w in self.a.screens_info() + self.a.modals_info() if w.hwnd == hwnd), None)
         title = info.title if info else ""
         cls = info.cls if info else ""
-        win = appmod.wrap(hwnd)
-        names = self.a.buttons(win)
+        names = self.a.buttons(hwnd)
         key = screen_key(clean_title(title), cls, names)
         ok, banned, unrev = classify(self.a, self.allow, title, names)
         name = f"{seq:03d}_{slug(clean_title(title) or kind)}_{slug(edge)}"
         cap = self.a.capture(hwnd, SCREENS / f"{name}.png")
-        ctrls = controls_of(win)
+        ctrls, source = controls_of(hwnd)
         counts = {}
         for c in ctrls:
             counts[c["type"]] = counts.get(c["type"], 0) + 1
         RAW.mkdir(parents=True, exist_ok=True)
         (RAW / f"{name}.json").write_text(json.dumps(
             {"seq": seq, "path": path, "title": title, "key": key, "rect": list(appmod.window_rect(hwnd)),
-             "edge": edge, "capture": cap, "controls": ctrls, "unreviewed": unrev, "blocked": banned},
+             "edge": edge, "capture": cap, "source": source, "controls": ctrls, "unreviewed": unrev, "blocked": banned},
             ensure_ascii=False, indent=1), encoding="utf-8")
         self.flow({"seq": seq, "path": path, "title": title, "key": key, "parent_seq": parent_seq,
                    "edge": edge, "counts": counts})
@@ -162,8 +174,7 @@ class Run:
         """새 모달 처리. 알려진 모달이면 지정 버튼을 누르고, 처음 보는 모달이면 캡처하고 Abort."""
         for m in new_modals:
             w = next((x for x in self.a.modals_info() if x.hwnd == m), None)
-            title = appmod.norm(w.title if w else "")
-            known = self.allow["modals"].get(title)
+            known = self.allow["modals"].get(self.a.modal_key(w)) if w else None
             seq, _, _ = self.record(m, path + ["[모달]"], parent_seq, "modal", kind="modal")
             if known is None:
                 self.unknown_modal = True
@@ -207,7 +218,7 @@ class Run:
     def visit(self, hwnd, path, parent_seq, edge):
         self.check_limits()
         info = next((w for w in self.a.screens_info() if w.hwnd == hwnd), None)
-        names = self.a.buttons(appmod.wrap(hwnd))
+        names = self.a.buttons(hwnd)
         key = screen_key(clean_title(info.title), info.cls, names) if info else ""
         if key in self.visited:
             self.flow({"seq": self.seq, "path": path, "title": info.title, "key": key, "parent_seq": parent_seq,
@@ -287,6 +298,25 @@ def dry_run(a, allow):
     return 0
 
 
+def fdb_blocks(root, bdir, changed, page=4096, limit=50):
+    """content 변경된 .fdb마다 백업본과 바이트 비교해 달라진 4096바이트 블록 번호(최대 50개). 백업에 없으면 생략."""
+    out = {}
+    for rel in changed:
+        if not rel.lower().endswith(".fdb") or not (bdir / rel).exists():
+            continue
+        diff, i = [], 0
+        with open(root / rel, "rb") as f1, open(bdir / rel, "rb") as f2:
+            while len(diff) < limit:
+                x, y = f1.read(page), f2.read(page)
+                if not x and not y:
+                    break
+                if x != y:
+                    diff.append(i)
+                i += 1
+        out[rel] = diff
+    return out
+
+
 def explore(a, allow):
     run = Run(a, allow)
     bdir, bfail = a.backup_before_run()
@@ -307,12 +337,13 @@ def explore(a, allow):
     # 정리: 처음 보는 모달이 떠 있으면 그대로 둔다
     if not run.unknown_modal:
         for h in a.screens():
-            if h != a.main_hwnd:
+            if h != a.main_hwnd and h not in run.start_screens:
                 a.close_screen(h)
     diff = a.diff_fingerprint(fp_before, a.fingerprint())
+    blocks = fdb_blocks(a.root, bdir, diff["content"])
     summary = {"screens": run.nscreens, "presses": run.presses, "unreviewed": run.unreviewed,
                "errors": run.errors, "abort": reason, "exit_code": code, "externals": run.externals,
-               "fingerprint_diff": diff, "backup": str(bdir), "backup_failed": bfail,
+               "fingerprint_diff": diff, "fdb_changed_blocks": blocks, "backup": str(bdir), "backup_failed": bfail,
                "elapsed_sec": round(time.time() - run.t0, 1), "remaining_screens": a.screens()}
     RAW.mkdir(parents=True, exist_ok=True)
     out = RAW / f"run_{time.strftime('%Y%m%d_%H%M%S')}.json"

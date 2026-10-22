@@ -1,0 +1,8 @@
+{"seq": 1, "path": ["양도소득세"], "title": "양도소득세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "2d5cc879", "parent_seq": 0, "edge": "window", "counts": {"Button": 26, "Tab": 1, "Text": 37, "TabItem": 2}}
+{"seq": 3, "path": ["양도소득세", "기준시가 조회"], "title": "", "key": "", "parent_seq": 1, "edge": "error", "counts": {}, "error": "(-2146233083, None, (None, None, None, 0, None))"}
+{"seq": 5, "path": ["양도소득세", "양도·취득가액 안분계산"], "title": "", "key": "", "parent_seq": 1, "edge": "error", "counts": {}, "error": "(-2146233083, None, (None, None, None, 0, None))"}
+{"seq": 7, "path": ["양도소득세", "도움말·법령 보기"], "title": "", "key": "", "parent_seq": 1, "edge": "error", "counts": {}, "error": "(-2146233083, None, (None, None, None, 0, None))"}
+{"seq": 9, "path": ["양도소득세", "4. 세 액 계 산"], "title": "", "key": "", "parent_seq": 1, "edge": "error", "counts": {}, "error": "(-2146233083, None, (None, None, None, 0, None))"}
+{"seq": 11, "path": ["양도소득세", "3. 양수인 등록"], "title": "", "key": "", "parent_seq": 1, "edge": "error", "counts": {}, "error": "(-2146233083, None, (None, None, None, 0, None))"}
+{"seq": 13, "path": ["양도소득세", "2. 자 산 등 록"], "title": "", "key": "", "parent_seq": 1, "edge": "error", "counts": {}, "error": "(-2146233083, None, (None, None, None, 0, None))"}
+{"seq": 15, "path": ["양도소득세", "1. 양도인 등록"], "title": "", "key": "", "parent_seq": 1, "edge": "error", "counts": {}, "error": "(-2146233083, None, (None, None, None, 0, None))"}
