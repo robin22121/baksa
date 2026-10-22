@@ -14,7 +14,7 @@ steps:
   - radio: {group: emOUTJUSO, value: 거주자}
   - text: {id: emNAME, value: 가상양도인}
   - text: {id: emJUMIN, value: "{rrn}"}
-  - text: {id: emJUSO, value: 서울특별시 마포구 가상로 1}
+  # 주소(emJUSO)는 칸을 누르면 "주소 검색" 창(실주소 검색·선택)이 떠서 가상 주소를 넣을 수 없다 — 이번엔 비워 둔다 (리허설 3차)
   - combo: {id: emSEONAME, value: 마포}
   - read: [emSEOCD]
   - capture: rehearsal_filled
