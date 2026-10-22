@@ -1,0 +1,611 @@
+{
+ "steps_file": "cases\\basic\\C000.asset.rehearsal.steps.yaml",
+ "case": "C000",
+ "started": "2026-10-22T12:32:13",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 2,
+ "hwnd": 5965548,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261022_123213",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록"
+   },
+   "t": "2026-10-22T12:32:14",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "press",
+   "spec": {
+    "press": "주택외건물(토지포함)",
+    "modals": {
+     "*|*2회이상*": "아니오"
+    },
+    "opens": "자산내역등록"
+   },
+   "t": "2026-10-22T12:32:20",
+   "how": "postmessage",
+   "modals": [
+    {
+     "key": "확인|2회이상지분으로취득한자산등록방법2회이상에걸쳐지분으로취득한주택외건물(토지포함)을양도하였습니까?",
+     "title": "확인",
+     "msg": "2회 이상 지분으로 취득한 자산 등록방법 2회 이상에 걸쳐 지분으로 취득한 주택외건물(토지포함)을 양도하였습니까?",
+     "pressed": [
+      "아니오"
+     ],
+     "handled": true
+    }
+   ],
+   "opened": {
+    "title": "자산내역등록",
+    "hwnd": 1119318,
+    "capture": "docs/screens/C000_02_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "radio_id",
+   "spec": {
+    "radio_id": "rgJasanBU2"
+   },
+   "t": "2026-10-22T12:32:29",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "name": "토지,건물 각각",
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "radio_id",
+   "spec": {
+    "radio_id": "rgCHK1"
+   },
+   "t": "2026-10-22T12:32:35",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "name": "취득실가유형",
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC06",
+     "value": "2025-06-30",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-22T12:32:42",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "양도일자",
+       "2025년 6월 30일 월요일",
+       "양도일자"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       1119318
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       1119318
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "양도일자",
+     "양도일자"
+    ],
+    "method": "type",
+    "read": [
+     "양도일자",
+     "2025년 6월 30일 월요일",
+     "양도일자"
+    ]
+   },
+   "want": "2025-06-30",
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC11",
+     "value": "2020-03-16",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-22T12:32:51",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "취득일자",
+       "2020년 3월 16일 월요일",
+       "취득일자"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       1119318
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       1119318
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "취득일자",
+     "0001년 1월 1일 월요일",
+     "취득일자"
+    ],
+    "method": "type",
+    "read": [
+     "취득일자",
+     "2020년 3월 16일 월요일",
+     "취득일자"
+    ]
+   },
+   "want": "2020-03-16",
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "GN11",
+     "value": "2020-03-16",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-22T12:33:00",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "2020년 3월 16일 월요일",
+       "2020년 3월 16일 월요일",
+       "2020년 3월 16일 월요일"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       1119318
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       1119318
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "2020년 3월 16일 월요일",
+     "2020년 3월 16일 월요일",
+     "2020년 3월 16일 월요일"
+    ],
+    "method": "type",
+    "read": [
+     "2020년 3월 16일 월요일",
+     "2020년 3월 16일 월요일",
+     "2020년 3월 16일 월요일"
+    ]
+   },
+   "want": "2020-03-16",
+   "status": "ok"
+  },
+  {
+   "i": 8,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC04",
+     "value": "330"
+    }
+   },
+   "t": "2026-10-22T12:33:09",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "330",
+       "토지면적",
+       "330"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       1119318
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "토지면적"
+    ],
+    "method": "set_value",
+    "read": [
+     "330",
+     "토지면적",
+     "330"
+    ]
+   },
+   "want": "330",
+   "status": "ok"
+  },
+  {
+   "i": 9,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "E06",
+     "value": "200"
+    }
+   },
+   "t": "2026-10-22T12:33:17",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "200",
+       "200",
+       "200"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       1119318
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "330",
+     "330",
+     "330"
+    ],
+    "method": "set_value",
+    "read": [
+     "200",
+     "200",
+     "200"
+    ]
+   },
+   "want": "200",
+   "status": "ok"
+  },
+  {
+   "i": 10,
+   "action": "capture",
+   "spec": {
+    "capture": "basic_filled"
+   },
+   "t": "2026-10-22T12:33:25",
+   "capture": "docs/screens/C000_10_basic_filled.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 11,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "S01",
+     "value": "600000000"
+    },
+    "screens": {
+     "취득실가": "@close",
+     "필요경비": "@close"
+    }
+   },
+   "t": "2026-10-22T12:33:25",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "600,000,000",
+       "양도실가",
+       "600,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       1119318
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "0",
+     "양도실가",
+     "0"
+    ],
+    "method": "set_value",
+    "read": [
+     "600,000,000",
+     "양도실가",
+     "600,000,000"
+    ]
+   },
+   "want": "600000000",
+   "handled_screens": [
+    {
+     "title": "취득실가",
+     "hwnd": 1119330,
+     "pressed": "@close",
+     "capture_method": "ok",
+     "capture": "docs/screens/C000_11_screen_1.png"
+    }
+   ],
+   "status": "ok"
+  },
+  {
+   "i": 12,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "G01",
+     "value": "200000000"
+    },
+    "screens": {
+     "취득실가": "@close",
+     "필요경비": "@close"
+    }
+   },
+   "t": "2026-10-22T12:33:35",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "200,000,000",
+       "200,000,000",
+       "200,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       1119318
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "0",
+     "0",
+     "0"
+    ],
+    "method": "set_value",
+    "read": [
+     "200,000,000",
+     "200,000,000",
+     "200,000,000"
+    ]
+   },
+   "want": "200000000",
+   "handled_screens": [
+    {
+     "title": "취득실가",
+     "hwnd": 1120030,
+     "pressed": "@close",
+     "capture_method": "printwindow",
+     "capture": "docs/screens/C000_12_screen_1.png"
+    }
+   ],
+   "new_externals": [
+    [
+     "Windows 보안",
+     "PickerHost.exe"
+    ]
+   ],
+   "status": "abort",
+   "detail": "외부 창이 떴다 [['Windows 보안', 'PickerHost.exe']]"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 0,
+   "by_type": {},
+   "first_pages": {},
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 6,
+   "by_type": {
+    "header": 1,
+    "PIP": 1,
+    "gen": 1,
+    "pointer": 1,
+    "TIP": 1,
+    "data": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "PIP": [
+     1
+    ],
+    "gen": [
+     136
+    ],
+    "pointer": [
+     171
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     306
+    ]
+   },
+   "data_type_changed": 2
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 0,
+    "by_type": {},
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 6,
+    "by_type": {
+     "header": 1,
+     "PIP": 1,
+     "gen": 1,
+     "pointer": 1,
+     "TIP": 1,
+     "data": 1
+    },
+    "only_header_tip": false,
+    "data_type_changed": 2,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 12 text abort: 외부 창이 떴다 [['Windows 보안', 'PickerHost.exe']]",
+ "exit_code": 2,
+ "finished": "2026-10-22T12:33:45",
+ "remaining_screens": [
+  1119318,
+  5965548,
+  199966,
+  2623152,
+  200110,
+  1707054,
+  460136
+ ],
+ "remaining_modals": []
+}

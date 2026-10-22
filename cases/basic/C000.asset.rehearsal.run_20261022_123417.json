@@ -1,0 +1,1698 @@
+{
+ "steps_file": "cases\\basic\\C000.asset.rehearsal.steps.yaml",
+ "case": "C000",
+ "started": "2026-10-22T12:34:17",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 3,
+ "hwnd": 5965548,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261022_123417",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록"
+   },
+   "t": "2026-10-22T12:34:19",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "press",
+   "spec": {
+    "press": "주택외건물(토지포함)",
+    "modals": {
+     "*|*2회이상*": "아니오"
+    },
+    "opens": "자산내역등록"
+   },
+   "t": "2026-10-22T12:34:24",
+   "how": "postmessage",
+   "modals": [
+    {
+     "key": "확인|2회이상지분으로취득한자산등록방법2회이상에걸쳐지분으로취득한주택외건물(토지포함)을양도하였습니까?",
+     "title": "확인",
+     "msg": "2회 이상 지분으로 취득한 자산 등록방법 2회 이상에 걸쳐 지분으로 취득한 주택외건물(토지포함)을 양도하였습니까?",
+     "pressed": [
+      "아니오"
+     ],
+     "handled": true
+    }
+   ],
+   "opened": {
+    "title": "자산내역등록",
+    "hwnd": 3148402,
+    "capture": "docs/screens/C000_02_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "radio_id",
+   "spec": {
+    "radio_id": "rgJasanBU2"
+   },
+   "t": "2026-10-22T12:34:34",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "name": "토지,건물 각각",
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "radio_id",
+   "spec": {
+    "radio_id": "rgCHK1"
+   },
+   "t": "2026-10-22T12:34:40",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "name": "취득실가유형",
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC06",
+     "value": "2025-06-30",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-22T12:34:47",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "양도일자",
+       "2025년 6월 30일 월요일",
+       "양도일자"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3148402
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       3148402
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "양도일자",
+     "양도일자"
+    ],
+    "method": "type",
+    "read": [
+     "양도일자",
+     "2025년 6월 30일 월요일",
+     "양도일자"
+    ]
+   },
+   "want": "2025-06-30",
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC11",
+     "value": "2020-03-16",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-22T12:34:56",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "취득일자",
+       "2020년 3월 16일 월요일",
+       "취득일자"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3148402
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       3148402
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "취득일자",
+     "0001년 1월 1일 월요일",
+     "취득일자"
+    ],
+    "method": "type",
+    "read": [
+     "취득일자",
+     "2020년 3월 16일 월요일",
+     "취득일자"
+    ]
+   },
+   "want": "2020-03-16",
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "GN11",
+     "value": "2020-03-16",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-22T12:35:05",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "2020년 3월 16일 월요일",
+       "2020년 3월 16일 월요일",
+       "2020년 3월 16일 월요일"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3148402
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       3148402
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "2020년 3월 16일 월요일",
+     "2020년 3월 16일 월요일",
+     "2020년 3월 16일 월요일"
+    ],
+    "method": "type",
+    "read": [
+     "2020년 3월 16일 월요일",
+     "2020년 3월 16일 월요일",
+     "2020년 3월 16일 월요일"
+    ]
+   },
+   "want": "2020-03-16",
+   "status": "ok"
+  },
+  {
+   "i": 8,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC04",
+     "value": "330"
+    }
+   },
+   "t": "2026-10-22T12:35:14",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "330",
+       "토지면적",
+       "330"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3148402
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "토지면적"
+    ],
+    "method": "set_value",
+    "read": [
+     "330",
+     "토지면적",
+     "330"
+    ]
+   },
+   "want": "330",
+   "status": "ok"
+  },
+  {
+   "i": 9,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "E06",
+     "value": "200"
+    }
+   },
+   "t": "2026-10-22T12:35:21",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "200",
+       "200",
+       "200"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3148402
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "330",
+     "330",
+     "330"
+    ],
+    "method": "set_value",
+    "read": [
+     "200",
+     "200",
+     "200"
+    ]
+   },
+   "want": "200",
+   "status": "ok"
+  },
+  {
+   "i": 10,
+   "action": "capture",
+   "spec": {
+    "capture": "basic_filled"
+   },
+   "t": "2026-10-22T12:35:29",
+   "capture": "docs/screens/C000_10_basic_filled.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 11,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "S01",
+     "value": "600000000"
+    },
+    "screens": {
+     "취득실가": "@close",
+     "필요경비": "@close"
+    }
+   },
+   "t": "2026-10-22T12:35:29",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "600,000,000",
+       "양도실가",
+       "600,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3148402
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "0",
+     "양도실가",
+     "0"
+    ],
+    "method": "set_value",
+    "read": [
+     "600,000,000",
+     "양도실가",
+     "600,000,000"
+    ]
+   },
+   "want": "600000000",
+   "handled_screens": [
+    {
+     "title": "취득실가",
+     "hwnd": 2692982,
+     "pressed": "@close",
+     "capture_method": "ok",
+     "capture": "docs/screens/C000_11_screen_1.png"
+    }
+   ],
+   "status": "ok"
+  },
+  {
+   "i": 12,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "G01",
+     "value": "200000000"
+    },
+    "screens": {
+     "취득실가": "@close",
+     "필요경비": "@close"
+    }
+   },
+   "t": "2026-10-22T12:35:39",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "200,000,000",
+       "200,000,000",
+       "200,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3148402
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "0",
+     "0",
+     "0"
+    ],
+    "method": "set_value",
+    "read": [
+     "200,000,000",
+     "200,000,000",
+     "200,000,000"
+    ]
+   },
+   "want": "200000000",
+   "handled_screens": [
+    {
+     "title": "취득실가",
+     "hwnd": 2824054,
+     "pressed": "@close",
+     "capture_method": "ok",
+     "capture": "docs/screens/C000_12_screen_1.png"
+    }
+   ],
+   "status": "ok"
+  },
+  {
+   "i": 13,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnS02",
+    "opens": "취득실가"
+   },
+   "t": "2026-10-22T12:35:47",
+   "button": {
+    "id": "btnS02",
+    "name": "수정",
+    "click_hwnd": 4196220
+   },
+   "opened": {
+    "title": "취득실가",
+    "hwnd": 2955126,
+    "capture": "docs/screens/C000_13_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 14,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "S11",
+     "value": "400000000"
+    }
+   },
+   "t": "2026-10-22T12:35:55",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "400,000,000",
+       "400,000,000",
+       "400,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       2955126
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "400,000,000",
+     "400,000,000",
+     "400,000,000"
+    ]
+   },
+   "want": "400000000",
+   "status": "ok"
+  },
+  {
+   "i": 15,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "S12",
+     "value": "18400000"
+    }
+   },
+   "t": "2026-10-22T12:36:01",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "18,400,000",
+       "18,400,000",
+       "18,400,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       2955126
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "18,400,000",
+     "18,400,000",
+     "18,400,000"
+    ]
+   },
+   "want": "18400000",
+   "status": "ok"
+  },
+  {
+   "i": 16,
+   "action": "read",
+   "spec": {
+    "read": [
+     "ST"
+    ]
+   },
+   "t": "2026-10-22T12:36:07",
+   "values": {
+    "ST": [
+     "418,400,000",
+     "418,400,000",
+     "418,400,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 17,
+   "action": "capture",
+   "spec": {
+    "capture": "land_acq"
+   },
+   "t": "2026-10-22T12:36:08",
+   "capture": "docs/screens/C000_17_land_acq.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 18,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOK"
+   },
+   "t": "2026-10-22T12:36:08",
+   "button": {
+    "id": "btnOK",
+    "name": "저장",
+    "click_hwnd": 923416
+   },
+   "status": "ok"
+  },
+  {
+   "i": 19,
+   "action": "window",
+   "spec": {
+    "window": "자산내역등록"
+   },
+   "t": "2026-10-22T12:36:14",
+   "hwnd": 3148402,
+   "status": "ok"
+  },
+  {
+   "i": 20,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnG02",
+    "opens": "취득실가"
+   },
+   "t": "2026-10-22T12:36:14",
+   "button": {
+    "id": "btnG02",
+    "name": "수정",
+    "click_hwnd": 1250432
+   },
+   "opened": {
+    "title": "취득실가",
+    "hwnd": 3086198,
+    "capture": "docs/screens/C000_20_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 21,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "S11",
+     "value": "150000000"
+    }
+   },
+   "t": "2026-10-22T12:36:22",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "150,000,000",
+       "150,000,000",
+       "150,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3086198
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "150,000,000",
+     "150,000,000",
+     "150,000,000"
+    ]
+   },
+   "want": "150000000",
+   "status": "ok"
+  },
+  {
+   "i": 22,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "S12",
+     "value": "6900000"
+    }
+   },
+   "t": "2026-10-22T12:36:28",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "6,900,000",
+       "6,900,000",
+       "6,900,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3086198
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "6,900,000",
+     "6,900,000",
+     "6,900,000"
+    ]
+   },
+   "want": "6900000",
+   "status": "ok"
+  },
+  {
+   "i": 23,
+   "action": "read",
+   "spec": {
+    "read": [
+     "ST"
+    ]
+   },
+   "t": "2026-10-22T12:36:34",
+   "values": {
+    "ST": [
+     "156,900,000",
+     "156,900,000",
+     "156,900,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 24,
+   "action": "capture",
+   "spec": {
+    "capture": "bldg_acq"
+   },
+   "t": "2026-10-22T12:36:35",
+   "capture": "docs/screens/C000_24_bldg_acq.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 25,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOK"
+   },
+   "t": "2026-10-22T12:36:35",
+   "button": {
+    "id": "btnOK",
+    "name": "저장",
+    "click_hwnd": 1447496
+   },
+   "status": "ok"
+  },
+  {
+   "i": 26,
+   "action": "window",
+   "spec": {
+    "window": "자산내역등록"
+   },
+   "t": "2026-10-22T12:36:41",
+   "hwnd": 3148402,
+   "status": "ok"
+  },
+  {
+   "i": 27,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnS03",
+    "opens": "필요경비"
+   },
+   "t": "2026-10-22T12:36:41",
+   "button": {
+    "id": "btnS03",
+    "name": "수정",
+    "click_hwnd": 4394888
+   },
+   "opened": {
+    "title": "필요경비",
+    "hwnd": 3217270,
+    "capture": "docs/screens/C000_27_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 28,
+   "action": "click_id",
+   "spec": {
+    "click_id": "S41"
+   },
+   "t": "2026-10-22T12:36:49",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     1542,
+     481,
+     1745,
+     555
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3217270
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 29,
+   "action": "grid_cell",
+   "spec": {
+    "grid_cell": {
+     "grid": "cxGrid1",
+     "row": "거래처",
+     "value": "가상중개사무소",
+     "record": 0
+    }
+   },
+   "t": "2026-10-22T12:36:55",
+   "result": {
+    "found": true,
+    "rows": [
+     "삭제",
+     "거래처",
+     "사업자등록번호",
+     "지급일자",
+     "지급금액",
+     "증빙종류"
+    ],
+    "attempts": [
+     {
+      "method": "set_value",
+      "already_equal": false,
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "mouse+paste",
+      "read": [
+       "가상중개사무소"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3217270
+      ]
+     },
+     {
+      "before": "input",
+      "ok": true,
+      "hwnds": [
+       3217270
+      ]
+     }
+    ],
+    "ok": true,
+    "enabled": true,
+    "before": "",
+    "method": "mouse+paste",
+    "read": [
+     "가상중개사무소"
+    ]
+   },
+   "want": "가상중개사무소",
+   "status": "ok"
+  },
+  {
+   "i": 30,
+   "action": "grid_cell",
+   "spec": {
+    "grid_cell": {
+     "grid": "cxGrid1",
+     "row": "지급일자",
+     "value": "2025-06-30",
+     "record": 0
+    }
+   },
+   "t": "2026-10-22T12:37:07",
+   "result": {
+    "found": true,
+    "rows": [
+     "삭제",
+     "거래처",
+     "사업자등록번호",
+     "지급일자",
+     "지급금액",
+     "증빙종류"
+    ],
+    "attempts": [
+     {
+      "method": "set_value",
+      "already_equal": false,
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "mouse+type",
+      "read": [
+       "2025-06-30"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3217270
+      ]
+     },
+     {
+      "before": "input",
+      "ok": true,
+      "hwnds": [
+       3217270
+      ]
+     }
+    ],
+    "ok": true,
+    "enabled": true,
+    "before": "",
+    "method": "mouse+type",
+    "read": [
+     "2025-06-30"
+    ]
+   },
+   "want": "2025-06-30",
+   "status": "ok"
+  },
+  {
+   "i": 31,
+   "action": "grid_cell",
+   "spec": {
+    "grid_cell": {
+     "grid": "cxGrid1",
+     "row": "지급금액",
+     "value": "5400000",
+     "record": 0
+    }
+   },
+   "t": "2026-10-22T12:37:19",
+   "result": {
+    "found": true,
+    "rows": [
+     "삭제",
+     "거래처",
+     "사업자등록번호",
+     "지급일자",
+     "지급금액",
+     "증빙종류"
+    ],
+    "attempts": [
+     {
+      "method": "set_value",
+      "already_equal": false,
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "mouse+paste",
+      "read": [
+       "5,400,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3217270
+      ]
+     },
+     {
+      "before": "input",
+      "ok": true,
+      "hwnds": [
+       3217270
+      ]
+     }
+    ],
+    "ok": true,
+    "enabled": true,
+    "before": "",
+    "method": "mouse+paste",
+    "read": [
+     "5,400,000"
+    ]
+   },
+   "want": "5400000",
+   "status": "ok"
+  },
+  {
+   "i": 32,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S41"
+    ]
+   },
+   "t": "2026-10-22T12:37:30",
+   "values": {
+    "S41": [
+     "5,400,000",
+     "10_1",
+     "5,400,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 33,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S4T",
+     "S1234T"
+    ]
+   },
+   "t": "2026-10-22T12:37:32",
+   "values": {
+    "S4T": [
+     "5,400,000",
+     "5,400,000",
+     "5,400,000"
+    ],
+    "S1234T": [
+     "5,400,000",
+     "5,400,000",
+     "5,400,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 34,
+   "action": "capture",
+   "spec": {
+    "capture": "land_exp"
+   },
+   "t": "2026-10-22T12:37:35",
+   "capture": "docs/screens/C000_34_land_exp.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 35,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOK"
+   },
+   "t": "2026-10-22T12:37:36",
+   "button": {
+    "id": "btnOK",
+    "name": "저장",
+    "click_hwnd": 1577826
+   },
+   "status": "ok"
+  },
+  {
+   "i": 36,
+   "action": "window",
+   "spec": {
+    "window": "자산내역등록"
+   },
+   "t": "2026-10-22T12:37:41",
+   "hwnd": 3148402,
+   "status": "ok"
+  },
+  {
+   "i": 37,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnG03",
+    "opens": "필요경비"
+   },
+   "t": "2026-10-22T12:37:41",
+   "button": {
+    "id": "btnG03",
+    "name": "수정",
+    "click_hwnd": 1053606
+   },
+   "opened": {
+    "title": "필요경비",
+    "hwnd": 3348342,
+    "capture": "docs/screens/C000_37_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 38,
+   "action": "click_id",
+   "spec": {
+    "click_id": "S41"
+   },
+   "t": "2026-10-22T12:37:49",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     1542,
+     481,
+     1745,
+     555
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3348342
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 39,
+   "action": "grid_cell",
+   "spec": {
+    "grid_cell": {
+     "grid": "cxGrid1",
+     "row": "거래처",
+     "value": "가상중개사무소",
+     "record": 0
+    }
+   },
+   "t": "2026-10-22T12:37:55",
+   "result": {
+    "found": true,
+    "rows": [
+     "삭제",
+     "거래처",
+     "사업자등록번호",
+     "지급일자",
+     "지급금액",
+     "증빙종류"
+    ],
+    "attempts": [
+     {
+      "method": "set_value",
+      "already_equal": false,
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "mouse+paste",
+      "read": [
+       "가상중개사무소"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3348342
+      ]
+     },
+     {
+      "before": "input",
+      "ok": true,
+      "hwnds": [
+       3348342
+      ]
+     }
+    ],
+    "ok": true,
+    "enabled": true,
+    "before": "",
+    "method": "mouse+paste",
+    "read": [
+     "가상중개사무소"
+    ]
+   },
+   "want": "가상중개사무소",
+   "status": "ok"
+  },
+  {
+   "i": 40,
+   "action": "grid_cell",
+   "spec": {
+    "grid_cell": {
+     "grid": "cxGrid1",
+     "row": "지급일자",
+     "value": "2025-06-30",
+     "record": 0
+    }
+   },
+   "t": "2026-10-22T12:38:07",
+   "result": {
+    "found": true,
+    "rows": [
+     "삭제",
+     "거래처",
+     "사업자등록번호",
+     "지급일자",
+     "지급금액",
+     "증빙종류"
+    ],
+    "attempts": [
+     {
+      "method": "set_value",
+      "already_equal": false,
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "mouse+type",
+      "read": [
+       "2025-06-30"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3348342
+      ]
+     },
+     {
+      "before": "input",
+      "ok": true,
+      "hwnds": [
+       3348342
+      ]
+     }
+    ],
+    "ok": true,
+    "enabled": true,
+    "before": "",
+    "method": "mouse+type",
+    "read": [
+     "2025-06-30"
+    ]
+   },
+   "want": "2025-06-30",
+   "status": "ok"
+  },
+  {
+   "i": 41,
+   "action": "grid_cell",
+   "spec": {
+    "grid_cell": {
+     "grid": "cxGrid1",
+     "row": "지급금액",
+     "value": "1800000",
+     "record": 0
+    }
+   },
+   "t": "2026-10-22T12:38:19",
+   "result": {
+    "found": true,
+    "rows": [
+     "삭제",
+     "거래처",
+     "사업자등록번호",
+     "지급일자",
+     "지급금액",
+     "증빙종류"
+    ],
+    "attempts": [
+     {
+      "method": "set_value",
+      "already_equal": false,
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "mouse+paste",
+      "read": [
+       "1,800,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3348342
+      ]
+     },
+     {
+      "before": "input",
+      "ok": true,
+      "hwnds": [
+       3348342
+      ]
+     }
+    ],
+    "ok": true,
+    "enabled": true,
+    "before": "",
+    "method": "mouse+paste",
+    "read": [
+     "1,800,000"
+    ]
+   },
+   "want": "1800000",
+   "status": "ok"
+  },
+  {
+   "i": 42,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S41"
+    ]
+   },
+   "t": "2026-10-22T12:38:31",
+   "values": {
+    "S41": [
+     "1,800,000",
+     "10_1",
+     "1,800,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 43,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S4T",
+     "S1234T"
+    ]
+   },
+   "t": "2026-10-22T12:38:32",
+   "values": {
+    "S4T": [
+     "1,800,000",
+     "1,800,000",
+     "1,800,000"
+    ],
+    "S1234T": [
+     "1,800,000",
+     "1,800,000",
+     "1,800,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 44,
+   "action": "capture",
+   "spec": {
+    "capture": "bldg_exp"
+   },
+   "t": "2026-10-22T12:38:35",
+   "capture": "docs/screens/C000_44_bldg_exp.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 45,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOK"
+   },
+   "t": "2026-10-22T12:38:36",
+   "button": {
+    "id": "btnOK",
+    "name": "저장",
+    "click_hwnd": 268196
+   },
+   "status": "ok"
+  },
+  {
+   "i": 46,
+   "action": "window",
+   "spec": {
+    "window": "자산내역등록"
+   },
+   "t": "2026-10-22T12:38:42",
+   "hwnd": 3148402,
+   "status": "ok"
+  },
+  {
+   "i": 47,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S01",
+     "S02",
+     "S03",
+     "G01",
+     "G02",
+     "G03"
+    ]
+   },
+   "t": "2026-10-22T12:38:42",
+   "values": {
+    "S01": [
+     "600,000,000",
+     "양도실가",
+     "600,000,000"
+    ],
+    "S02": [
+     "418,400,000",
+     "취득실가",
+     "418,400,000"
+    ],
+    "S03": [
+     "5,400,000",
+     "필요경비(합)",
+     "5,400,000"
+    ],
+    "G01": [
+     "200,000,000",
+     "200,000,000",
+     "200,000,000"
+    ],
+    "G02": [
+     "156,900,000",
+     "156,900,000",
+     "156,900,000"
+    ],
+    "G03": [
+     "1,800,000",
+     "1,800,000",
+     "1,800,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 48,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnCal"
+   },
+   "t": "2026-10-22T12:38:57",
+   "button": {
+    "id": "btnCal",
+    "name": "계산",
+    "click_hwnd": 923048
+   },
+   "modals": [
+    {
+     "key": "확인|소재지를입력하십시오.",
+     "title": "확인",
+     "msg": "소재지를 입력하십시오.",
+     "handled": false,
+     "capture": [
+      "ok",
+      "docs/screens/C000_48_modal_unknown.png"
+     ]
+    }
+   ],
+   "status": "abort",
+   "detail": "처음 보는 모달 '확인|소재지를입력하십시오.' — 아무것도 누르지 않음. 단계 파일 modals에 추가 필요"
+  }
+ ],
+ "reads": {
+  "ST": [
+   "156,900,000",
+   "156,900,000",
+   "156,900,000"
+  ],
+  "S41": [
+   "1,800,000",
+   "10_1",
+   "1,800,000"
+  ],
+  "S4T": [
+   "1,800,000",
+   "1,800,000",
+   "1,800,000"
+  ],
+  "S1234T": [
+   "1,800,000",
+   "1,800,000",
+   "1,800,000"
+  ],
+  "S01": [
+   "600,000,000",
+   "양도실가",
+   "600,000,000"
+  ],
+  "S02": [
+   "418,400,000",
+   "취득실가",
+   "418,400,000"
+  ],
+  "S03": [
+   "5,400,000",
+   "필요경비(합)",
+   "5,400,000"
+  ],
+  "G01": [
+   "200,000,000",
+   "200,000,000",
+   "200,000,000"
+  ],
+  "G02": [
+   "156,900,000",
+   "156,900,000",
+   "156,900,000"
+  ],
+  "G03": [
+   "1,800,000",
+   "1,800,000",
+   "1,800,000"
+  ]
+ },
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 0,
+   "by_type": {},
+   "first_pages": {},
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 6,
+   "by_type": {
+    "header": 1,
+    "PIP": 1,
+    "gen": 1,
+    "pointer": 1,
+    "TIP": 1,
+    "data": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "PIP": [
+     1
+    ],
+    "gen": [
+     136
+    ],
+    "pointer": [
+     171
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     306
+    ]
+   },
+   "data_type_changed": 2
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 0,
+    "by_type": {},
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 6,
+    "by_type": {
+     "header": 1,
+     "PIP": 1,
+     "gen": 1,
+     "pointer": 1,
+     "TIP": 1,
+     "data": 1
+    },
+    "only_header_tip": false,
+    "data_type_changed": 2,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 48 press_id abort: 처음 보는 모달 '확인|소재지를입력하십시오.' — 아무것도 누르지 않음. 단계 파일 modals에 추가 필요",
+ "exit_code": 2,
+ "finished": "2026-10-22T12:39:04",
+ "remaining_screens": [
+  3148402,
+  5965548,
+  199966,
+  2623152,
+  200110,
+  1707054,
+  460136
+ ],
+ "remaining_modals": [
+  3479414
+ ]
+}
