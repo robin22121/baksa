@@ -1,0 +1,151 @@
+{
+ "steps_file": "cases\\basic\\C000.asset.verify.steps.yaml",
+ "case": "C000",
+ "started": "2026-10-22T15:43:45",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 5965548,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261022_154345",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록"
+   },
+   "t": "2026-10-22T15:43:47",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "verify_grid",
+   "spec": {
+    "verify_grid": {
+     "id": "cxGrid1",
+     "column": "소재지",
+     "contains": "월드컵로",
+     "count": 1
+    }
+   },
+   "t": "2026-10-22T15:43:52",
+   "result": {
+    "found": true,
+    "rows": 2,
+    "matched": 2,
+    "row_values": [
+     {
+      "계산반영": "Checked",
+      "No.": "1",
+      "세율구분": "일반세율",
+      "자산종류": "기타건물",
+      "소재지": "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+      "양도일자": "20250630",
+      "취득일자": "20200316",
+      "양도가액": "200000000"
+     },
+     {
+      "계산반영": "Checked",
+      "No.": "2",
+      "세율구분": "일반세율",
+      "자산종류": "기타건물",
+      "소재지": "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+      "양도일자": "20250630",
+      "취득일자": "20200316",
+      "양도가액": "200000000"
+     }
+    ],
+    "column": "소재지"
+   },
+   "status": "fail",
+   "detail": "일치 행 수 2 != 1 (contains='월드컵로', 전체 행 2) [{'계산반영': 'Checked', 'No.': '1', '세율구분': '일반세율', '자산종류': '기타건물', '소재지': '서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)', '양도일자': '20250630', '취득일자': '20200316', '양도가액': '200000000'}, {'계산반영': 'Checked', 'No.': '2', '세율구분': '일반세율', '자산종류': '기타건물', '소재지': '서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)', '양도일자': '20250630', '취득일자': '20200316', '양도가액': '200000000'}]"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 0,
+   "by_type": {},
+   "first_pages": {},
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 4,
+   "by_type": {
+    "header": 1,
+    "TIP": 1,
+    "data": 2
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     305,
+     306
+    ]
+   },
+   "data_type_changed": 2
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 0,
+    "by_type": {},
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 4,
+    "by_type": {
+     "header": 1,
+     "TIP": 1,
+     "data": 2
+    },
+    "only_header_tip": false,
+    "data_type_changed": 2,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 2 verify_grid fail: 일치 행 수 2 != 1 (contains='월드컵로', 전체 행 2) [{'계산반영': 'Checked', 'No.': '1', '세율구분': '일반세율', '자산종류': '기타건물', '소재지': '서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)', '양도일자': '20250630', '취득일자': '20200316', '양도가액': '200000000'}, {'계산반영': 'Checked', 'No.': '2', '세율구분': '일반세율', '자산종류': '기타건물', '소재지': '서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)', '양도일자': '20250630', '취득일자': '20200316', '양도가액': '200000000'}]",
+ "exit_code": 2,
+ "finished": "2026-10-22T15:44:03",
+ "remaining_screens": [
+  5965548,
+  199966,
+  2623152,
+  200110,
+  1707054,
+  460136
+ ],
+ "remaining_modals": []
+}
