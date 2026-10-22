@@ -1,0 +1,161 @@
+{
+ "steps_file": "cases\\basic\\C000.rehearsal.steps.yaml",
+ "case": "C000",
+ "started": "2026-10-22T11:30:25",
+ "window": "양도소득세",
+ "vars": {
+  "rrn": "8505051695140"
+ },
+ "prior_runs_same_steps": 0,
+ "hwnd": 5965548,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261022_113025",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "1.양도인등록"
+   },
+   "t": "2026-10-22T11:30:27",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "check_combo",
+   "spec": {
+    "check_combo": {
+     "id": "cbMen100Year",
+     "value": "전체"
+    }
+   },
+   "t": "2026-10-22T11:30:34",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "values": [
+     "전체",
+     "전체",
+     "전체",
+     "전체"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "press",
+   "spec": {
+    "press": "등록",
+    "expect_enabled": [
+     "저장",
+     "취소"
+    ]
+   },
+   "t": "2026-10-22T11:30:36",
+   "how": "postmessage",
+   "new_screens": [
+    3737268
+   ],
+   "status": "abort",
+   "detail": "새 화면이 떴다 [3737268] — 단계 파일에 반영 필요"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": [
+   "backup.ini"
+  ]
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     200
+    ]
+   },
+   "data_type_changed": 0
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": false,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 3 press abort: 새 화면이 떴다 [3737268] — 단계 파일에 반영 필요",
+ "exit_code": 2,
+ "finished": "2026-10-22T11:30:43",
+ "remaining_screens": [
+  3737268,
+  5965548,
+  199966,
+  2623152,
+  200110,
+  1707054,
+  460136
+ ],
+ "remaining_modals": []
+}

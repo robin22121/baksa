@@ -514,6 +514,23 @@ class Runner:
                 self.handle_modal(w, step, rec)
             time.sleep(0.6)
         new_s = set(self.a.screens()) - before[0]
+        smap = {norm(k): norm(v) for k, v in (step.get("screens") or {}).items()}
+        for h in sorted(new_s):
+            w = next((x for x in self.a.screens_info() if x.hwnd == h), None)
+            tk = norm(clean_title(w.title)) if w else ""
+            if tk not in smap:
+                continue
+            item = {"title": w.title, "hwnd": h, "pressed": smap[tk]}
+            rec.setdefault("handled_screens", []).append(item)
+            cp = SCREENS / f"{self.case}_{self.i:02d}_screen_{len(rec['handled_screens'])}.png"
+            item["capture_method"] = self.a.capture(h, cp)
+            item["capture"] = str(cp.relative_to(ROOT)).replace("\\", "/")
+            if not self.a.press(h, smap[tk]):
+                raise Stop("abort", f"화면 {w.title!r}에서 버튼 {smap[tk]!r}을 누를 수 없음")
+            if not appmod.wait_for(lambda h=h: h not in self.a.screens(), 5.0):
+                raise Stop("fail", f"화면 {w.title!r}이(가) 5초 안에 닫히지 않음")
+            time.sleep(0.5)
+            new_s.discard(h)
         if new_s:
             rec["new_screens"] = sorted(new_s)
             self.shot("new_screen")
