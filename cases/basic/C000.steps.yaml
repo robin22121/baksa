@@ -1,0 +1,26 @@
+# C000 1단계: 가상 양도인 등록 (실제 저장). 규칙은 docs/work-plans/2026-10-22-C000-양도인등록.md §2
+# 모달 키는 "제목|문구"(공백 제거). 첫 실행에서 처음 보는 모달이 나오면 메인이 여기에 추가한다.
+window: 양도소득세
+vars:
+  rrn: {fake_rrn: {birth: 1985-05-05, sex: M}}
+steps:
+  - press: 1.양도인등록
+  - check_combo: {id: cbMen100Year, value: 전체}
+  - press: 등록
+    expect_enabled: [저장, 취소]
+  - radio: {group: emJASANGU, value: 부동산}
+  - radio: {group: emSINGOGU, value: 예정}
+  - radio: {group: emBORN, value: 내국인}
+  - radio: {group: emOUTJUSO, value: 거주자}
+  - text: {id: emNAME, value: 가상양도인}
+  - text: {id: emJUMIN, value: "{rrn}"}
+  - text: {id: emJUSO, value: 서울특별시 마포구 가상로 1}
+  - combo: {id: emSEONAME, value: 마포}
+  - read: [emSEOCD]
+  - capture: before_save
+  - press: 저장
+    expect_disabled: [저장, 취소]
+    modals: {}
+  - capture: after_save
+  - press: 1.양도인등록
+  - verify_grid: {id: cxGrid1, contains: 가상양도인, count: 1}

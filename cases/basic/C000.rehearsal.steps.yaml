@@ -1,0 +1,24 @@
+# C000 입력 리허설: 실제 저장 없이 모든 칸을 입력·다시 읽은 뒤 취소한다. fdb는 헤더·TIP만 바뀌어야 한다.
+window: 양도소득세
+vars:
+  rrn: {fake_rrn: {birth: 1985-05-05, sex: M}}
+steps:
+  - press: 1.양도인등록
+  - check_combo: {id: cbMen100Year, value: 전체}
+  - press: 등록
+    expect_enabled: [저장, 취소]
+  - radio: {group: emJASANGU, value: 부동산}
+  - radio: {group: emSINGOGU, value: 예정}
+  - radio: {group: emBORN, value: 내국인}
+  - radio: {group: emOUTJUSO, value: 거주자}
+  - text: {id: emNAME, value: 가상양도인}
+  - text: {id: emJUMIN, value: "{rrn}"}
+  - text: {id: emJUSO, value: 서울특별시 마포구 가상로 1}
+  - combo: {id: emSEONAME, value: 마포}
+  - read: [emSEOCD]
+  - capture: rehearsal_filled
+  - press: 취소
+    expect_disabled: [저장, 취소]
+    modals: {}
+  - capture: rehearsal_cancelled
+  - verify_grid: {id: cxGrid1, contains: 가상양도인, count: 0}

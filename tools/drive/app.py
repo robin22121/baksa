@@ -64,6 +64,9 @@ if platform.system() == "Windows":
     _u32.GetWindowThreadProcessId.argtypes = [wt.HWND, ctypes.POINTER(wt.DWORD)]
     _u32.GetWindowRect.argtypes = [wt.HWND, ctypes.POINTER(wt.RECT)]
     _u32.PrintWindow.argtypes = [wt.HWND, wt.HDC, wt.UINT]
+    _u32.ScreenToClient.argtypes = [wt.HWND, ctypes.POINTER(wt.POINT)]
+    _u32.ChildWindowFromPointEx.restype = wt.HWND
+    _u32.ChildWindowFromPointEx.argtypes = [wt.HWND, wt.POINT, wt.UINT]
     _k32.OpenProcess.restype = wt.HANDLE
     _k32.OpenProcess.argtypes = [wt.DWORD, wt.BOOL, wt.DWORD]
     _k32.CloseHandle.argtypes = [wt.HANDLE]
@@ -231,6 +234,72 @@ def call_with_timeout(fn, sec):
 
 def _hwnd_of(win):
     return win if isinstance(win, int) else win.handle
+
+
+def foreground_hwnd():
+    """지금 전경 창의 hwnd."""
+    return int(_u32.GetForegroundWindow() or 0)
+
+
+def post_click_at(top_hwnd, x, y):
+    """화면 좌표 (x, y)에서 top_hwnd 안의 가장 깊은 자식 창을 찾아 PostMessage로 왼쪽 클릭을 보낸다.
+    (자체 hwnd가 없는 컨트롤은 그 위치를 가진 가장 가까운 부모 창이 받는다.) 클릭을 받은 hwnd 반환."""
+    h = top_hwnd
+    for _ in range(16):
+        pt = wt.POINT(int(x), int(y))
+        _u32.ScreenToClient(h, ctypes.byref(pt))
+        c = _u32.ChildWindowFromPointEx(h, pt, 0)  # CWP_ALL
+        if not c or int(c) == h:
+            break
+        h = int(c)
+    pt = wt.POINT(int(x), int(y))
+    _u32.ScreenToClient(h, ctypes.byref(pt))
+    lp = ((pt.y & 0xFFFF) << 16) | (pt.x & 0xFFFF)
+    _u32.PostMessageW(h, 0x201, 1, lp)
+    _u32.PostMessageW(h, 0x202, 0, lp)
+    return h
+
+
+# ---- Firebird 페이지 비교 (.scratch/fdbpages.py 정식화) ----
+
+FDB_PAGE_TYPES = {1: "header", 2: "PIP", 3: "TIP", 4: "pointer", 5: "data", 6: "IRT", 7: "btree",
+                  8: "blob", 9: "gen", 10: "SCN"}
+FDB_DATA_TYPES = {4, 5, 6, 7}  # pointer·data·index root·index: 데이터가 바뀐 흔적
+
+
+def fdb_header(path):
+    """(페이지 크기, 페이지 수, 파일 크기). 페이지 크기는 헤더 오프셋 0x10의 uint16."""
+    import struct
+    size = os.path.getsize(path)
+    with open(path, "rb") as f:
+        head = f.read(32)
+    psize = struct.unpack_from("<H", head, 0x10)[0]
+    return psize, (size // psize if psize else 0), size
+
+
+def fdb_compare(old, new, keep=12):
+    """두 .fdb를 페이지 단위로 비교. 반환: page_size, pages_old/new, size_same, changed_total,
+    by_type{타입명: 바뀐 페이지 수}, first_pages{타입명: 앞쪽 페이지 번호 keep개}, data_type_changed(타입 4~7 변경 수)."""
+    psize = fdb_header(new)[0]
+    by_type, first, total, p = {}, {}, 0, 0
+    with open(old, "rb") as fo, open(new, "rb") as fn:
+        while True:
+            a, b = fo.read(psize), fn.read(psize)
+            if not a and not b:
+                break
+            if a != b:
+                t = (b or a)[0]
+                name = FDB_PAGE_TYPES.get(t, f"type{t}")
+                by_type[name] = by_type.get(name, 0) + 1
+                first.setdefault(name, [])
+                if len(first[name]) < keep:
+                    first[name].append(p)
+                total += 1
+            p += 1
+    dt = sum(n for name, n in by_type.items() if name in {FDB_PAGE_TYPES[k] for k in FDB_DATA_TYPES})
+    so, sn = os.path.getsize(old), os.path.getsize(new)
+    return {"page_size": psize, "pages_old": so // psize, "pages_new": sn // psize, "size_same": so == sn,
+            "changed_total": total, "by_type": by_type, "first_pages": first, "data_type_changed": dt}
 
 
 class App:
@@ -472,3 +541,27 @@ class App:
                 failed.append(f"{s.name}: {e}")
         log("backup_before_run", f"{dst} 실패={failed}")
         return dst, failed
+
+    def check_backup(self, bdir):
+        """백업본 .fdb 헤더(페이지 크기·페이지 수·파일 크기)가 원본과 같은지 확인. 다르면 문제 목록."""
+        problems = []
+        for b in sorted(Path(bdir).rglob("*.fdb")):
+            rel = b.relative_to(bdir)
+            try:
+                hb, ho = fdb_header(b), fdb_header(self.root / rel)
+            except OSError as e:
+                problems.append(f"{rel}: {e}")
+                continue
+            if hb != ho:
+                problems.append(f"{rel}: 백업 {hb} != 원본 {ho} (페이지 크기, 페이지 수, 파일 크기)")
+        return problems
+
+    def fdb_compare_all(self, bdir):
+        """백업본의 .fdb마다 현재 파일과 페이지 비교. {상대경로: fdb_compare 결과}."""
+        out = {}
+        for b in sorted(Path(bdir).rglob("*.fdb")):
+            rel = b.relative_to(bdir)
+            cur = self.root / rel
+            if cur.exists():
+                out[str(rel).replace("\\", "/")] = fdb_compare(b, cur)
+        return out
