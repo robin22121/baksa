@@ -1,0 +1,75 @@
+{
+ "seq": 24,
+ "path": [
+  "상속세",
+  "[닫기]",
+  "[모달]"
+ ],
+ "title": "확인",
+ "key": "0112b076",
+ "rect": [
+  1547,
+  907,
+  2293,
+  1166
+ ],
+ "edge": "modal",
+ "capture": "ok",
+ "source": "uia",
+ "controls": [
+  {
+   "type": "Button",
+   "name": "예",
+   "auto_id": "btn1",
+   "rect": [
+    1778,
+    1089,
+    1923,
+    1133
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "아니오",
+   "auto_id": "btn2",
+   "rect": [
+    1944,
+    1089,
+    2089,
+    1133
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "프로그램을 종료하시겠습니까?",
+   "auto_id": "lbMain",
+   "rect": [
+    1584,
+    1001,
+    1875,
+    1022
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "닫기",
+   "auto_id": "",
+   "rect": [
+    2238,
+    919,
+    2280,
+    961
+   ],
+   "enabled": true
+  }
+ ],
+ "unreviewed": [
+  "예",
+  "아니오",
+  "닫기"
+ ],
+ "blocked": []
+}

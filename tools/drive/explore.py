@@ -205,14 +205,14 @@ class Run:
             self.seq += 1
             print(f"    external: {t!r} ({p}) — 닫지 않음, 보고 필요")
 
-    def close_child(self, hwnd, parent_seq, path):
-        """자식 화면 닫기. 닫으며 모달이 뜨면 모달 규칙 적용."""
+    def close_child(self, hwnd, parent_seq, path, retry=True):
+        """자식 화면 닫기. 닫으며 모달이 뜨면 모달 규칙 적용. retry=False면 모달 처리 뒤 다시 닫지 않는다(세목 창: 종료 확인에 아니오)."""
         before = self.snapshot()
         self.a.close_screen(hwnd, timeout=1.5)
         new_m = set(self.a.modals()) - before[1]
         if new_m:
             self.handle_modals(new_m, parent_seq, path + ["[닫기]"])
-            if hwnd in self.a.screens():
+            if retry and hwnd in self.a.screens():
                 self.a.close_screen(hwnd)
 
     def visit(self, hwnd, path, parent_seq, edge):
@@ -264,7 +264,8 @@ class Run:
 
 
 def open_root(a, allow):
-    """루트 화면이 이미 열려 있으면 그 창을 쓰고, 아니면 메인에서 루트 버튼을 1회 누른다. (Win, 우리가 열었는지)"""
+    """루트 화면이 이미 열려 있으면 그 창을 쓰고, 아니면 메인에서 루트 버튼을 1회 누른다. (Win, 우리가 열었는지)
+    제목 일치로 못 찾으면 누른 뒤 새로 생긴 화면이 1개일 때 그 창을 루트로 쓴다."""
     w = find_root_screen(a, allow["root"])
     if w:
         return w, False
@@ -275,12 +276,20 @@ def open_root(a, allow):
     time.sleep(0.8)
     w = find_root_screen(a, allow["root"])
     if not w:
-        raise RuntimeError("루트 화면이 열리지 않음")
+        new = [x for x in a.screens_info() if x.hwnd not in before]
+        if len(new) != 1:
+            raise RuntimeError(f"루트 화면이 열리지 않음 (새 화면 {len(new)}개)")
+        w = new[0]
     return w, True
 
 
 def dry_run(a, allow):
-    w, opened = open_root(a, allow)
+    run = Run(a, allow)
+    try:
+        w, opened = open_root(a, allow)
+    except Exception as e:  # noqa: BLE001
+        print(f"오류: {e}")
+        return 1
     names = a.buttons(w.hwnd)
     ok, banned, unrev = classify(a, allow, w.title, names)
     print(f"화면: {clean_title(w.title)!r} (hwnd={w.hwnd}, {'이번에 연 창' if opened else '이미 열려 있던 창 — 누르지 않음'})")
@@ -292,10 +301,15 @@ def dry_run(a, allow):
     miss = want - {appmod.norm(n) for n in ok}
     if miss:
         print("허용 목록에는 있으나 화면에 없음/금지됨:", sorted(miss))
+    code = 0
     if opened:
-        a.close_screen(w.hwnd)
-        print("연 화면을 닫음. 남은 화면:", a.screens(), "모달:", a.modals())
-    return 0
+        try:
+            run.close_child(w.hwnd, 0, [allow["root"]], retry=False)
+        except Abort as e:
+            print(f"중단: {e}")
+            code = 2
+        print("연 화면 닫기 시도 후. 남은 화면:", a.screens(), "모달:", a.modals())
+    return code
 
 
 def fdb_blocks(root, bdir, changed, page=4096, limit=50):
@@ -356,6 +370,7 @@ def explore(a, allow):
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--root", help="allow.yaml root 대신 쓸 세목 버튼 이름")
     ap.add_argument("--dry-run", action="store_true", help="루트 화면 버튼 분류만 출력")
     args = ap.parse_args()
 
@@ -366,6 +381,8 @@ def main():
     a = appmod.App()
     a.attach()
     allow = load_allow()
+    if args.root:
+        allow["root"] = appmod.norm(args.root)
     try:
         return dry_run(a, allow) if args.dry_run else explore(a, allow)
     except Exception:  # noqa: BLE001
