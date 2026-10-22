@@ -8,6 +8,6 @@
 - 데모버전이라 출력 분석(3단계·W2b) 보류. 정품으로 바꾸면 재개 (`docs/decisions.md` "라이선스·출력 분석")
 
 ## 다음 할 일 (Windows 에이전트)
-1. `git pull` → `pip install -r tools/requirements.txt` → 양도박사 실행 후 `python tools/check_env.py` 출력을 `docs/env.md`에 붙이고 조작 방식(uia/win32/좌표+OCR) 결정
-2. 설계서 "구현 결과 > 남은 것"의 손질 지점 반영 → `python tools/drive/explore.py --dry-run` → 실탐색 → `docs/inventory/flow.md`·`screen_NN.md` 초안
-3. W3 척추 케이스 C000 정의(`docs/reference/yangdose-testScenarios.js`에서 후보 선정) → W2·W2b·W4 1바퀴
+1. 탐색기 §4 결정 반영 → 종료 처리, 나머지 4세목 dry-run·허용 목록
+2. W3 척추 케이스 C000 정의 + 가상 양도인 1건 등록 → `2.`~`4.` 화면 탐색 (U1)
+3. 양도인 등록 화면부터 `docs/inventory/flow.md`·`screen_NN.md` 초안 (W2)
