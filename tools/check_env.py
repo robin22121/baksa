@@ -6,6 +6,9 @@ import shutil
 import struct
 import sys
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+
 SKIP = "(Windows 아님 — 건너뜀)"
 IS_WIN = platform.system() == "Windows"
 
@@ -58,13 +61,13 @@ def check_tools():
         print(f"  {name}: {found if found else '없음'}")
 
 
-def _count_controls(dump_text):
+def _count_controls(wrapper, backend):
+    """descendants()를 control_type(uia) 또는 클래스(win32)별로 센다."""
     counts = {}
-    for key in ("Edit", "Button", "Grid", "DataGrid", "Table", "DataItem", "MenuItem", "ComboBox", "Pane"):
-        n = dump_text.count(f"- {key}")
-        if n:
-            counts[key] = n
-    return counts
+    for c in wrapper.descendants():
+        key = c.element_info.control_type if backend == "uia" else c.friendly_class_name()
+        counts[key] = counts.get(key, 0) + 1
+    return dict(sorted(counts.items(), key=lambda kv: -kv[1]))
 
 
 def check_window(title):
@@ -72,38 +75,42 @@ def check_window(title):
     if not IS_WIN:
         print(f"  {SKIP}")
         return
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "drive"))
     try:
-        from pywinauto import Desktop
-    except ImportError:
-        print("  pywinauto 미설치")
+        import app as appmod  # DPI 인식을 pywinauto import 전에 켠다
+    except ImportError as e:
+        print(f"  app.py import 실패: {e}")
+        return
+    ok, why = appmod.available()
+    if not ok:
+        print(f"  {why}")
         return
     import contextlib
     import io
 
-    found_any = False
+    pids = appmod.yd_pids()
+    wins = [w for w in appmod.top_windows() if w.pid in pids and w.title and not w.owner and w.cls != "#32770"]
+    if not wins:
+        print("  양도박사를 먼저 실행하세요 (YDdoctor.exe 보이는 창 없음)")
+        return
+    w = next((x for x in wins if title in x.title), wins[0])
+    if appmod.is_elevated(w.pid):
+        print("  경고: 관리자 권한 실행 — RunAsInvoker로 다시 띄우세요 (일반 권한 Python은 읽기·캡처가 막힙니다)")
+    from pywinauto import Desktop
+
     for backend in ("uia", "win32"):
         try:
-            wins = Desktop(backend=backend).windows(title_re=f".*{title}.*")
-        except Exception as e:  # noqa: BLE001
-            print(f"  [{backend}] 창 검색 실패: {e}")
-            continue
-        if not wins:
-            continue
-        found_any = True
-        w = wins[0]
-        try:
+            spec = Desktop(backend=backend).window(handle=w.hwnd)
             buf = io.StringIO()
             with contextlib.redirect_stdout(buf):
-                w.print_control_identifiers(depth=2)
-            text = buf.getvalue()
-            print(f"  [{backend}] 창: {w.window_text()!r}")
-            print(f"  [{backend}] 컨트롤 요약: {_count_controls(text) or '식별된 컨트롤 없음'}")
-            print(text)
+                spec.print_control_identifiers(depth=3)
+            summary = _count_controls(spec.wrapper_object(), backend)
+            print(f"  [{backend}] 창: {w.title!r} (hwnd={w.hwnd})")
+            print(f"  [{backend}] 컨트롤 요약: {summary or '식별된 컨트롤 없음'}")
+            print(buf.getvalue())
             return
         except Exception as e:  # noqa: BLE001
-            print(f"  [{backend}] print_control_identifiers 실패: {e}")
-    if not found_any:
-        print("  양도박사를 먼저 실행하세요")
+            print(f"  [{backend}] 실패: {e}")
 
 
 def main():
