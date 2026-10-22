@@ -1,0 +1,1089 @@
+{
+ "seq": 21,
+ "path": [
+  "양도소득세",
+  "3. 양수인 등록"
+ ],
+ "title": "양도소득세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ",
+ "key": "b7392723",
+ "rect": [
+  1031,
+  383,
+  2809,
+  1690
+ ],
+ "edge": "inplace",
+ "capture": "ok",
+ "source": "uia",
+ "controls": [
+  {
+   "type": "Button",
+   "name": "자료 복원",
+   "auto_id": "btnRestore",
+   "rect": [
+    1054,
+    1563,
+    1290,
+    1651
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "자료 백업",
+   "auto_id": "btnBackUp",
+   "rect": [
+    1054,
+    1470,
+    1290,
+    1558
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "환경 설정",
+   "auto_id": "dxNavBar3Item2",
+   "rect": [
+    1054,
+    1330,
+    1290,
+    1418
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "기준시가 조회",
+   "auto_id": "dxNavBar3Item1",
+   "rect": [
+    1054,
+    1237,
+    1290,
+    1325
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "양도·취득가액 안분계산",
+   "auto_id": "dxNavBar2Item3",
+   "rect": [
+    1055,
+    915,
+    1291,
+    1003
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "원격지원",
+   "auto_id": "btnRemote",
+   "rect": [
+    1061,
+    861,
+    1289,
+    914
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "공서식 인쇄·작성",
+   "auto_id": "dxNavBar2Item2",
+   "rect": [
+    1054,
+    1111,
+    1290,
+    1199
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "도움말·법령 보기",
+   "auto_id": "dxNavBar2Item1",
+   "rect": [
+    1054,
+    1013,
+    1290,
+    1101
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "4. 세 액 계 산",
+   "auto_id": "nBar14",
+   "rect": [
+    1052,
+    758,
+    1295,
+    849
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "3. 양수인 등록",
+   "auto_id": "nBar13",
+   "rect": [
+    1054,
+    663,
+    1292,
+    754
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "2. 자 산 등 록",
+   "auto_id": "nBar12",
+   "rect": [
+    1054,
+    571,
+    1292,
+    662
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "1. 양도인 등록",
+   "auto_id": "nBar11",
+   "rect": [
+    1054,
+    480,
+    1294,
+    571
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "안분계산기 사용방법 ",
+   "auto_id": "PlayButton1",
+   "rect": [
+    2233,
+    494,
+    2483,
+    526
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "화면인쇄",
+   "auto_id": "btnScreen",
+   "rect": [
+    2494,
+    488,
+    2634,
+    532
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "조세법령 조회",
+   "auto_id": "btnTaxinfo",
+   "rect": [
+    1918,
+    1621,
+    2111,
+    1665
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "기준시가 조회",
+   "auto_id": "btnSiga2",
+   "rect": [
+    1719,
+    1621,
+    1912,
+    1665
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "비과세·감면·비사업용토지 여부 확인",
+   "auto_id": "btnSiga1",
+   "rect": [
+    1321,
+    1621,
+    1715,
+    1665
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "닫기",
+   "auto_id": "btnClose",
+   "rect": [
+    2644,
+    488,
+    2767,
+    532
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "",
+   "auto_id": "btnDOWN",
+   "rect": [
+    1369,
+    656,
+    1413,
+    700
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "",
+   "auto_id": "btnUP",
+   "rect": [
+    1323,
+    656,
+    1367,
+    700
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "자산 수정",
+   "auto_id": "btnEdit",
+   "rect": [
+    2599,
+    656,
+    2774,
+    700
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "자산 삭제",
+   "auto_id": "btnDel",
+   "rect": [
+    2413,
+    656,
+    2588,
+    700
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "자산 복사본 만들기",
+   "auto_id": "btnCopyNPaste",
+   "rect": [
+    1439,
+    656,
+    1667,
+    700
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Table",
+   "name": "자산선택",
+   "auto_id": "cxGrid1",
+   "rect": [
+    1321,
+    707,
+    2779,
+    1589
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Line Up",
+   "auto_id": "",
+   "rect": [
+    2749,
+    744,
+    2779,
+    774
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Up",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Down",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Line Down",
+   "auto_id": "",
+   "rect": [
+    2749,
+    1559,
+    2779,
+    1589
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "토    지",
+   "auto_id": "btnS1",
+   "rect": [
+    1318,
+    546,
+    1462,
+    651
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "주택외건물\r\n\r\n(토지 제외)",
+   "auto_id": "btnS2",
+   "rect": [
+    1472,
+    546,
+    1616,
+    651
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "단독주택\r\n\r\n상가주택\r\n",
+   "auto_id": "btnS3",
+   "rect": [
+    1780,
+    546,
+    1924,
+    651
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "주택외건물\r\n\r\n(토지 포함)\r\n",
+   "auto_id": "btnS4",
+   "rect": [
+    1626,
+    546,
+    1770,
+    651
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Tab",
+   "name": "",
+   "auto_id": "Faqtab",
+   "rect": [
+    -182,
+    -788,
+    1306,
+    376
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "화면인쇄",
+   "auto_id": "simpleButton11",
+   "rect": [
+    1136,
+    -782,
+    1276,
+    -743
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Page",
+   "auto_id": "labelControl15",
+   "rect": [
+    999,
+    -775,
+    1038,
+    -747
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "2",
+   "auto_id": "simpleButton8",
+   "rect": [
+    1085,
+    -781,
+    1120,
+    -746
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "1",
+   "auto_id": "simpleButton9",
+   "rect": [
+    1045,
+    -781,
+    1080,
+    -746
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "자주 하는 질문 (양도소득세 FAQ)",
+   "auto_id": "labelControl48",
+   "rect": [
+    -166,
+    -774,
+    182,
+    -748
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "부담부증여 입력방법",
+   "auto_id": "simpleButton13",
+   "rect": [
+    229,
+    -149,
+    446,
+    -117
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "홈택스 전자신고방법",
+   "auto_id": "simpleButton5",
+   "rect": [
+    228,
+    -385,
+    447,
+    -353
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "※ 증축건물은 바닥면적 합계가 85㎡를 초과되는 경우에만 가산세가 반영됩니다.",
+   "auto_id": "labelControl50",
+   "rect": [
+    228,
+    -40,
+    918,
+    -15
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl51",
+   "rect": [
+    196,
+    -334,
+    222,
+    -294
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "양도소득세 일부 자료만 선택하여 백업하는 경우 「양도인등록」화면에서 백업할 양도인을 선택합니다.\r\n「자료 백업」메뉴로 선택한 자료를 백업하고, 이 후 「자료 복원」메뉴에서 백업파일을 열면 복원됩니다.",
+   "auto_id": "labelControl52",
+   "rect": [
+    229,
+    -326,
+    1090,
+    -277
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl53",
+   "rect": [
+    196,
+    -448,
+    222,
+    -408
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "세무대리인의 경우 「환경 설정」에서 세무대리인 필수정보를 입력하고, 「세액 계산」화면에서 세액 계산 후\r\n「양도세 전자신고」메뉴를 선택하여 전자신고를 진행합니다.",
+   "auto_id": "labelControl54",
+   "rect": [
+    229,
+    -439,
+    1118,
+    -390
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl55",
+   "rect": [
+    194,
+    -613,
+    220,
+    -573
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "경정청구할 양도인을 선택하여 「양도인 복사」를 하고, 복사된 양도인 자료에서 내용을 수정합니다.\r\n「세액 계산」화면에서 「과세표준 및 세액의 결정(경정)청구서」메뉴를 선택하여 작성합니다.",
+   "auto_id": "labelControl56",
+   "rect": [
+    228,
+    -604,
+    1063,
+    -555
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "※ 주택이 최초고시일 이후 2회 이상 증축된 경우는 계산이 지원되지 않습니다.",
+   "auto_id": "labelControl57",
+   "rect": [
+    228,
+    75,
+    897,
+    100
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl58",
+   "rect": [
+    194,
+    12,
+    220,
+    52
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "「건물입력 및 수정」화면에서 건물을 추가하여 취득일자 옆 「거래원인」을 증축으로 선택하고, \r\n주택인 경우 증축일 이후 최초고시일 및 개별주택가격을 입력합니다.",
+   "auto_id": "labelControl59",
+   "rect": [
+    228,
+    21,
+    1016,
+    70
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "※「부담부증여후 양도(이월과세)」는 부담부증여로 취득한 자산을 10년 이내 양도(이월과세)하는 경우에만 선택합니다.",
+   "auto_id": "labelControl60",
+   "rect": [
+    229,
+    -180,
+    1246,
+    -155
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl61",
+   "rect": [
+    196,
+    -105,
+    222,
+    -65
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "「건물입력 및 수정」화면에서 취득일자 옆 「거래원인」을 신축 또는 증축으로, 「취득가액 종류」는 환산취득가액 \r\n또는 감정가액을 선택하면 취득일부터 5년 이내 양도인 경우 가산세가 자동 반영됩니다.",
+   "auto_id": "labelControl62",
+   "rect": [
+    229,
+    -96,
+    1160,
+    -47
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl63",
+   "rect": [
+    196,
+    -243,
+    222,
+    -203
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "「자산 등록」화면에서 해당 재산유형 (예: 토지)을 선택한 후 「양도유형」를 부담부증여로 선택합니다.\r\n부담부증여 관련 증여세는 증여세 메뉴에서 별도로 계산합니다.\r\n",
+   "auto_id": "labelControl64",
+   "rect": [
+    229,
+    -235,
+    1080,
+    -186
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "합산신고방법",
+   "auto_id": "simpleButton6",
+   "rect": [
+    228,
+    -495,
+    447,
+    -463
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl66",
+   "rect": [
+    196,
+    -536,
+    222,
+    -496
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "「세액 계산」화면에서 「합산」버튼 을 클릭하여 합산할 신고자료를 불러옵니다.",
+   "auto_id": "labelControl67",
+   "rect": [
+    229,
+    -527,
+    885,
+    -502
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "수정신고방법",
+   "auto_id": "simpleButton7",
+   "rect": [
+    228,
+    -653,
+    447,
+    -621
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl68",
+   "rect": [
+    196,
+    -716,
+    222,
+    -676
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "수정신고할 양도인을 선택하여 「양도인 복사」를 하고, 복사된 양도인 자료에서 내용을 수정합니다.\r\n신고구분을 「수정」으로 바꾼 후 과세표준 수정신고서를 작성합니다.",
+   "auto_id": "labelControl69",
+   "rect": [
+    229,
+    -707,
+    1064,
+    -658
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl75",
+   "rect": [
+    -161,
+    -333,
+    -133,
+    -293
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "양도소득세 자료 선택 백업",
+   "auto_id": "labelControl76",
+   "rect": [
+    -126,
+    -326,
+    126,
+    -301
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl77",
+   "rect": [
+    -161,
+    -448,
+    -133,
+    -408
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "양도소득세 전자신고방법",
+   "auto_id": "labelControl78",
+   "rect": [
+    -126,
+    -439,
+    112,
+    -414
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl79",
+   "rect": [
+    -161,
+    -613,
+    -133,
+    -573
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "양도소득세 경정청구방법",
+   "auto_id": "labelControl80",
+   "rect": [
+    -126,
+    -604,
+    112,
+    -579
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl81",
+   "rect": [
+    -161,
+    14,
+    -133,
+    54
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "증축건물 입력",
+   "auto_id": "labelControl82",
+   "rect": [
+    -126,
+    21,
+    7,
+    46
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl83",
+   "rect": [
+    -161,
+    -103,
+    -133,
+    -63
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "신축·증축 5% 가산세 반영",
+   "auto_id": "labelControl84",
+   "rect": [
+    -126,
+    -96,
+    130,
+    -71
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl85",
+   "rect": [
+    -161,
+    -242,
+    -133,
+    -202
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "부담부증여 입력",
+   "auto_id": "labelControl86",
+   "rect": [
+    -126,
+    -235,
+    28,
+    -210
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl87",
+   "rect": [
+    -161,
+    -536,
+    -133,
+    -496
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "양도소득세 합산신고방법",
+   "auto_id": "labelControl88",
+   "rect": [
+    -126,
+    -527,
+    112,
+    -502
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Q.",
+   "auto_id": "labelControl89",
+   "rect": [
+    -161,
+    -716,
+    -133,
+    -676
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "양도소득세 수정신고방법",
+   "auto_id": "labelControl90",
+   "rect": [
+    -126,
+    -707,
+    112,
+    -682
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "1",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "2",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "  neoic.com",
+   "auto_id": "simpleButton1",
+   "rect": [
+    -170,
+    387,
+    149,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "CopyRightⓒ (주)네오아이시 All Rights Reserved",
+   "auto_id": "simpleButton4",
+   "rect": [
+    768,
+    387,
+    1291,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "  02-472-4710",
+   "auto_id": "simpleButton2",
+   "rect": [
+    151,
+    387,
+    447,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "  neoic@neoic.com",
+   "auto_id": "simpleButton3",
+   "rect": [
+    448,
+    387,
+    767,
+    427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "최소화",
+   "auto_id": "",
+   "rect": [
+    2678,
+    396,
+    2720,
+    438
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "최대화",
+   "auto_id": "",
+   "rect": [
+    2716,
+    396,
+    2758,
+    438
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "닫기",
+   "auto_id": "",
+   "rect": [
+    2755,
+    396,
+    2797,
+    438
+   ],
+   "enabled": true
+  }
+ ],
+ "unreviewed": [
+  "자료 백업",
+  "환경 설정",
+  "공서식 인쇄·작성",
+  "안분계산기 사용방법 ",
+  "화면인쇄",
+  "조세법령 조회",
+  "비과세·감면·비사업용토지 여부 확인",
+  "닫기",
+  "자산 수정",
+  "자산 복사본 만들기",
+  "Line Up",
+  "Page Up",
+  "Page Down",
+  "Line Down",
+  "토    지",
+  "주택외건물\r\n\r\n(토지 제외)",
+  "단독주택\r\n\r\n상가주택\r\n",
+  "주택외건물\r\n\r\n(토지 포함)\r\n",
+  "2",
+  "1",
+  "부담부증여 입력방법",
+  "홈택스 전자신고방법",
+  "합산신고방법",
+  "수정신고방법",
+  "  neoic.com",
+  "CopyRightⓒ (주)네오아이시 All Rights Reserved",
+  "  02-472-4710",
+  "  neoic@neoic.com",
+  "최소화",
+  "최대화"
+ ],
+ "blocked": [
+  "자료 복원",
+  "원격지원",
+  "자산 삭제"
+ ]
+}

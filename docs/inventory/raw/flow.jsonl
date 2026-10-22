@@ -6,3 +6,11 @@
 {"seq": 11, "path": ["양도소득세", "3. 양수인 등록"], "title": "", "key": "", "parent_seq": 1, "edge": "error", "counts": {}, "error": "(-2146233083, None, (None, None, None, 0, None))"}
 {"seq": 13, "path": ["양도소득세", "2. 자 산 등 록"], "title": "", "key": "", "parent_seq": 1, "edge": "error", "counts": {}, "error": "(-2146233083, None, (None, None, None, 0, None))"}
 {"seq": 15, "path": ["양도소득세", "1. 양도인 등록"], "title": "", "key": "", "parent_seq": 1, "edge": "error", "counts": {}, "error": "(-2146233083, None, (None, None, None, 0, None))"}
+{"seq": 16, "path": ["양도소득세"], "title": "양도소득세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "2d5cc879", "parent_seq": 0, "edge": "window", "counts": {"Button": 26, "Tab": 1, "Text": 37, "TabItem": 2}}
+{"seq": 17, "path": ["양도소득세", "기준시가 조회"], "title": "기준시가 조회", "key": "538d7535", "parent_seq": 16, "edge": "window", "counts": {"Tab": 1, "Text": 20, "TabItem": 4, "Button": 1}}
+{"seq": 18, "path": ["양도소득세", "양도·취득가액 안분계산"], "title": "양도소득세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "b7392723", "parent_seq": 16, "edge": "inplace", "counts": {"Button": 45, "Table": 1, "Tab": 1, "Text": 37, "TabItem": 2}}
+{"seq": 19, "path": ["양도소득세", "도움말·법령 보기"], "title": "도움말·법령 보기", "key": "be43aa7d", "parent_seq": 16, "edge": "window", "counts": {"Text": 2, "Button": 11}}
+{"seq": 20, "path": ["양도소득세", "4. 세 액 계 산"], "title": "양도소득세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "b7392723", "parent_seq": 16, "edge": "inplace", "counts": {"Button": 45, "Table": 1, "Tab": 1, "Text": 37, "TabItem": 2}}
+{"seq": 21, "path": ["양도소득세", "3. 양수인 등록"], "title": "양도소득세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "b7392723", "parent_seq": 16, "edge": "inplace", "counts": {"Button": 45, "Table": 1, "Tab": 1, "Text": 37, "TabItem": 2}}
+{"seq": 22, "path": ["양도소득세", "2. 자 산 등 록"], "title": "양도소득세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "b7392723", "parent_seq": 16, "edge": "inplace", "counts": {"Button": 45, "Table": 1, "Tab": 1, "Text": 37, "TabItem": 2}}
+{"seq": 23, "path": ["양도소득세", "1. 양도인 등록"], "title": "양도소득세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "bd56806b", "parent_seq": 16, "edge": "inplace", "counts": {"Button": 80, "Text": 46, "ComboBox": 2, "List": 6, "Edit": 105, "Table": 2, "RadioButton": 13, "Tab": 1, "TabItem": 2}}

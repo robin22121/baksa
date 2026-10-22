@@ -1,0 +1,36 @@
+{
+ "screens": 8,
+ "presses": 7,
+ "unreviewed": 201,
+ "errors": 0,
+ "abort": null,
+ "exit_code": 0,
+ "externals": [],
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb",
+   "backup.ini"
+  ],
+  "mtime_only": []
+ },
+ "fdb_changed_blocks": {
+  "Data\\neoPost.fdb": [
+   0,
+   1472
+  ],
+  "Data\\neoTax.fdb": [
+   0,
+   200
+  ]
+ },
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261022_101351",
+ "backup_failed": [],
+ "elapsed_sec": 59.6,
+ "remaining_screens": [
+  5965548,
+  460136
+ ]
+}
