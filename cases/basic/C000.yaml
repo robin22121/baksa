@@ -1,0 +1,107 @@
+case_id: C000
+group: basic
+law_date: 2025-06-30    # 적용 법령 기준일 = 양도일. 양도박사 버전의 세법 반영일은 docs/env.md
+description: 상가건물(주택 외 건물 + 부속토지) 1동 양도, 거주자, 보유 5년 3개월, 기본세율, 장특 10%
+# 계획서: docs/work-plans/2026-10-22-C000-2단계.md §0 (입력값·입력 전제 ①~⑦은 Fable 검산으로 확정)
+input:
+  residency: 거주자
+  report_type: 예정            # 양도인 레코드 신고구분. 기한후 여부·가산세는 범위 밖(산출세액까지 대조)
+  prior_basic_deduction_used: 0  # 같은 해 부동산 등 그룹의 다른 양도 없음
+  baksa_asset_type: 주택외건물(토지 포함)   # 폼이 토지·건물을 따로 받지 않으면 토지 + 주택외건물(토지 제외) 2건으로 분기
+  assets:
+    - id: L1
+      kind: 토지
+      transfer_date: 2025-06-30      # 잔금청산일(§98, 시행령 §162①)
+      acquisition_date: 2020-03-16   # 기존 건물 일괄 취득 → 토지·건물 취득일 동일(전제 ④)
+      transfer_price: 600000000
+      acquisition_price: 400000000
+      expenses:                      # 전제 ① 자산별 분해, ② 그 밖의 필요경비 없음
+        acquisition_tax: 18400000    # 취득세 등 4.6%(취득세 4% + 농특세 0.2% + 지방교육세 0.4%)
+        transfer_brokerage: 5400000  # 양도 중개수수료 0.9%
+      depreciation: 0                # 전제 ⑤ 감가상각비 0(§97③)
+      area_m2: 330
+      zoning: 상업지역
+      registered: true
+      house: false
+      non_business_land: false       # 전제 ⑥ 부속토지 330㎡ ≤ 바닥면적 200㎡ × 배율 3 → 전부 사업용
+      surcharge: false
+      reduction: null
+      price_basis: 구분가액           # 전제 ⑦ 구분가액 인정(기준시가 안분 대비 30% 미만 차이)
+    - id: B1
+      kind: 건물                     # 주택 외 건물(상가)
+      transfer_date: 2025-06-30
+      acquisition_date: 2020-03-16
+      transfer_price: 200000000      # 전제 ③ 부가가치세 제외 공급가액, 포괄양수도 아님
+      acquisition_price: 150000000   # 전제 ③ 취득 시 매입세액 공제 → VAT 불포함
+      expenses:
+        acquisition_tax: 6900000
+        transfer_brokerage: 1800000
+      depreciation: 0
+      floor_area_m2: 200
+      use: 상가(주택 외)
+      vat_excluded: true
+      registered: true
+      house: false
+      surcharge: false
+      reduction: null
+      price_basis: 구분가액
+expected_baksa:         # 양도박사 산출값 (W5에서 화면에서 읽어 채움, 출처 캡처 번호)
+  gain:
+  holding_deduction:
+  income_amount:
+  basic_deduction:
+  tax_base:
+  rate:
+  tax:
+  local_tax:
+  source:
+expected_law:  # calc 결과. compare.py가 채움
+  amounts:
+    gain: 217500000
+    holding_deduction: 21750000
+    income_amount: 195750000
+    basic_deduction: 2500000
+    tax_base: 193250000
+    rate: 38
+    progressive_deduction: 19940000
+    tax: 53495000
+    local_tax: 5349500
+  assets:
+  - id: L1
+    kind: 토지
+    necessary_expenses: 423800000
+    gain: 176200000
+    holding_years: 5
+    holding_rate_pct: 10
+    holding_deduction: 17620000
+    income_amount: 158580000
+  - id: B1
+    kind: 건물
+    necessary_expenses: 158700000
+    gain: 41300000
+    holding_years: 5
+    holding_rate_pct: 10
+    holding_deduction: 4130000
+    income_amount: 37170000
+  basis:
+    gain: 소득세법 §95①, §96①, §97①·③, §100①, 시행령 §163
+    holding_deduction: 소득세법 §95② 표1, §95④(보유기간), 국세기본법 §4·민법 §157·§160
+    income_amount: 소득세법 §95①, §102
+    basic_deduction: 소득세법 §103①1·②
+    tax_base: 소득세법 §92②
+    rate: 소득세법 §104①1, §55①(2023.1.1 이후)
+    progressive_deduction: 소득세법 §55①
+    tax: 소득세법 §104①1, §55① (원 미만 절사)
+    local_tax: 지방세법 §103의2, §103의3①, §92① (원 미만 절사)
+basis:
+  - "양도차익: 소득세법 §95①, §96①, §97①·③, §100①, 시행령 §163"
+  - "취득·양도시기: 소득세법 §98, 시행령 §162①(잔금청산일)"
+  - "장기보유특별공제: 소득세법 §95② 표1(5년 10%), §95④ 보유기간, 국세기본법 §4·민법 §157·§160"
+  - "양도소득금액: 소득세법 §95①, §102"
+  - "기본공제: 소득세법 §103①1"
+  - "세율: 소득세법 §104①1, §55①(2023.1.1 이후 표) — 과세표준 3억 이하 구간 38%, 누진공제 19,940,000"
+  - "지방소득세: 지방세법 §103의2, §103의3①, §92①"
+  - "비사업용토지 아님: 소득세법 §104의3①, 시행령 §168의11 (상업지역 부속토지 배율 3배)"
+  - "구분가액 인정: 소득세법 §100③, 시행령 §166⑥ (기준시가 안분액과 30% 이상 차이 시 재안분 — 해당 없음 전제)"
+status: pending  # match | mismatch | pending
+mismatch_note:

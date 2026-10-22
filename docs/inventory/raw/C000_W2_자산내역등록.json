@@ -1,0 +1,1913 @@
+{
+ "form": 2886804,
+ "controls": [
+  {
+   "type": "Button",
+   "name": "조정대상지역 조회",
+   "auto_id": "btn_URL",
+   "rect": [
+    1295,
+    268,
+    1545,
+    312
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "계산근거보기",
+   "auto_id": "btnPrint",
+   "rect": [
+    1302,
+    1383,
+    1477,
+    1427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "자산삭제",
+   "auto_id": "btnDel",
+   "rect": [
+    1124,
+    1383,
+    1299,
+    1427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "다음단계",
+   "auto_id": "btnNext",
+   "rect": [
+    1617,
+    1383,
+    1810,
+    1427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "『일반주택』전환",
+   "auto_id": "btnChangeJasan",
+   "rect": [
+    368,
+    1383,
+    585,
+    1427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "계산",
+   "auto_id": "btnCal",
+   "rect": [
+    219,
+    1383,
+    342,
+    1427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "저장",
+   "auto_id": "btnSave",
+   "rect": [
+    91,
+    1383,
+    214,
+    1427
+   ],
+   "enabled": true
+  },
+  {
+   "type": "List",
+   "name": "3",
+   "auto_id": "rgKind",
+   "rect": [
+    1899,
+    777,
+    2230,
+    870
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "토지",
+   "auto_id": "",
+   "rect": [
+    1909,
+    793,
+    2063,
+    818
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "건물",
+   "auto_id": "",
+   "rect": [
+    1909,
+    828,
+    2063,
+    853
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "일반주택",
+   "auto_id": "",
+   "rect": [
+    2063,
+    793,
+    2217,
+    818
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "기타건물",
+   "auto_id": "",
+   "rect": [
+    2063,
+    828,
+    2217,
+    853
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "원격지원",
+   "auto_id": "btnRemote",
+   "rect": [
+    1521,
+    217,
+    1661,
+    261
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "화면인쇄",
+   "auto_id": "btnScreen",
+   "rect": [
+    1670,
+    217,
+    1810,
+    261
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "dd23",
+   "rect": [
+    1636,
+    1335,
+    1811,
+    1374
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "4457132",
+   "rect": [
+    1643,
+    1344,
+    1804,
+    1365
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1643,
+    1344,
+    1804,
+    1365
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "CC23",
+   "rect": [
+    1463,
+    1335,
+    1638,
+    1374
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "2492396",
+   "rect": [
+    1470,
+    1344,
+    1631,
+    1365
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1470,
+    1344,
+    1631,
+    1365
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "감면소득금액",
+   "auto_id": "CC23_1",
+   "rect": [
+    1285,
+    1335,
+    1465,
+    1374
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "감면소득금액",
+   "auto_id": "1184400",
+   "rect": [
+    1292,
+    1344,
+    1458,
+    1365
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "감면소득금액",
+   "auto_id": "",
+   "rect": [
+    1292,
+    1344,
+    1458,
+    1365
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "dd22",
+   "rect": [
+    1636,
+    1295,
+    1811,
+    1334
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1247752",
+   "rect": [
+    1643,
+    1304,
+    1804,
+    1325
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1643,
+    1304,
+    1804,
+    1325
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "CC22",
+   "rect": [
+    1463,
+    1295,
+    1638,
+    1334
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1051196",
+   "rect": [
+    1470,
+    1304,
+    1631,
+    1325
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1470,
+    1304,
+    1631,
+    1325
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도소득금액",
+   "auto_id": "CC22_1",
+   "rect": [
+    1285,
+    1295,
+    1465,
+    1334
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도소득금액",
+   "auto_id": "4982552",
+   "rect": [
+    1292,
+    1304,
+    1458,
+    1325
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도소득금액",
+   "auto_id": "",
+   "rect": [
+    1292,
+    1304,
+    1458,
+    1325
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "dd21",
+   "rect": [
+    1636,
+    1255,
+    1811,
+    1294
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1837678",
+   "rect": [
+    1643,
+    1264,
+    1804,
+    1285
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1643,
+    1264,
+    1804,
+    1285
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "CC21",
+   "rect": [
+    1463,
+    1255,
+    1638,
+    1294
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1968506",
+   "rect": [
+    1470,
+    1264,
+    1631,
+    1285
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1470,
+    1264,
+    1631,
+    1285
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "장기보유특별공제",
+   "auto_id": "CC21_1",
+   "rect": [
+    1285,
+    1255,
+    1465,
+    1294
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "장기보유특별공제",
+   "auto_id": "1182362",
+   "rect": [
+    1292,
+    1264,
+    1458,
+    1285
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "장기보유특별공제",
+   "auto_id": "",
+   "rect": [
+    1292,
+    1264,
+    1458,
+    1285
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "dd20",
+   "rect": [
+    1636,
+    1215,
+    1811,
+    1254
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1182266",
+   "rect": [
+    1643,
+    1223,
+    1804,
+    1244
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1643,
+    1223,
+    1804,
+    1244
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "CC20",
+   "rect": [
+    1463,
+    1215,
+    1638,
+    1254
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "4000604",
+   "rect": [
+    1470,
+    1223,
+    1631,
+    1244
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1470,
+    1223,
+    1631,
+    1244
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도차익",
+   "auto_id": "CC20_1",
+   "rect": [
+    1285,
+    1215,
+    1465,
+    1254
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도차익",
+   "auto_id": "2100130",
+   "rect": [
+    1292,
+    1223,
+    1458,
+    1244
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도차익",
+   "auto_id": "",
+   "rect": [
+    1292,
+    1223,
+    1458,
+    1244
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "dd19",
+   "rect": [
+    1636,
+    1174,
+    1811,
+    1213
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1051164",
+   "rect": [
+    1643,
+    1183,
+    1804,
+    1204
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1643,
+    1183,
+    1804,
+    1204
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "CC19",
+   "rect": [
+    1463,
+    1174,
+    1638,
+    1213
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1051172",
+   "rect": [
+    1470,
+    1183,
+    1631,
+    1204
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1470,
+    1183,
+    1631,
+    1204
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "필요경비",
+   "auto_id": "CC19_1",
+   "rect": [
+    1285,
+    1174,
+    1465,
+    1213
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "필요경비",
+   "auto_id": "1773208",
+   "rect": [
+    1292,
+    1183,
+    1458,
+    1204
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "필요경비",
+   "auto_id": "",
+   "rect": [
+    1292,
+    1183,
+    1458,
+    1204
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "dd17",
+   "rect": [
+    1636,
+    1134,
+    1811,
+    1173
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1051220",
+   "rect": [
+    1643,
+    1143,
+    1804,
+    1164
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1643,
+    1143,
+    1804,
+    1164
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "CC17",
+   "rect": [
+    1463,
+    1134,
+    1638,
+    1173
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1247726",
+   "rect": [
+    1470,
+    1143,
+    1631,
+    1164
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1470,
+    1143,
+    1631,
+    1164
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "취득가액",
+   "auto_id": "CC17_1",
+   "rect": [
+    1285,
+    1134,
+    1465,
+    1173
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "취득가액",
+   "auto_id": "3999220",
+   "rect": [
+    1292,
+    1143,
+    1458,
+    1164
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "취득가액",
+   "auto_id": "",
+   "rect": [
+    1292,
+    1143,
+    1458,
+    1164
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "dd10",
+   "rect": [
+    1636,
+    1094,
+    1811,
+    1133
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "2558642",
+   "rect": [
+    1643,
+    1103,
+    1804,
+    1124
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1643,
+    1103,
+    1804,
+    1124
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "CC10",
+   "rect": [
+    1463,
+    1094,
+    1638,
+    1133
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "985682",
+   "rect": [
+    1470,
+    1103,
+    1631,
+    1124
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1470,
+    1103,
+    1631,
+    1124
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도가액",
+   "auto_id": "CC10_1",
+   "rect": [
+    1285,
+    1094,
+    1465,
+    1133
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도가액",
+   "auto_id": "1051156",
+   "rect": [
+    1292,
+    1103,
+    1458,
+    1124
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도가액",
+   "auto_id": "",
+   "rect": [
+    1292,
+    1103,
+    1458,
+    1124
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "lbGUN",
+   "rect": [
+    1636,
+    1054,
+    1811,
+    1093
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "1182180",
+   "rect": [
+    1643,
+    1062,
+    1804,
+    1083
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "부 동 산",
+   "auto_id": "lbTOJI",
+   "rect": [
+    1463,
+    1054,
+    1638,
+    1093
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "부 동 산",
+   "auto_id": "1051200",
+   "rect": [
+    1470,
+    1062,
+    1631,
+    1083
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "부 동 산",
+   "auto_id": "",
+   "rect": [
+    1470,
+    1062,
+    1631,
+    1083
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "개별주택가격 조회",
+   "auto_id": "btnCalPrint",
+   "rect": [
+    1561,
+    268,
+    1811,
+    312
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "비과세등 확인\r\n(국세청)",
+   "auto_id": "btnFTaxinfo2URL",
+   "rect": [
+    1551,
+    971,
+    1808,
+    1041
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "실거래가 조회\r\n(국토부)",
+   "auto_id": "btnFMolitURL",
+   "rect": [
+    1290,
+    971,
+    1547,
+    1041
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "조세법령조회\r\n(국세청)",
+   "auto_id": "btnFWetaxGunPrice",
+   "rect": [
+    1551,
+    898,
+    1808,
+    968
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "기준시가 조회\r\n(국토부)",
+   "auto_id": "btnFRealtyPrice",
+   "rect": [
+    1290,
+    898,
+    1547,
+    968
+   ],
+   "enabled": true
+  },
+  {
+   "type": "CheckBox",
+   "name": "고가주택",
+   "auto_id": "eMULTICHK",
+   "rect": [
+    1355,
+    341,
+    1532,
+    374
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "btnHelpCType",
+   "rect": [
+    289,
+    303,
+    324,
+    338
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도계약일자",
+   "auto_id": "emMae_",
+   "rect": [
+    95,
+    490,
+    324,
+    529
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도계약일자",
+   "auto_id": "201604",
+   "rect": [
+    102,
+    499,
+    317,
+    520
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도계약일자",
+   "auto_id": "",
+   "rect": [
+    102,
+    499,
+    317,
+    520
+   ],
+   "enabled": true
+  },
+  {
+   "type": "CheckBox",
+   "name": "고가주택",
+   "auto_id": "ckMae",
+   "rect": [
+    683,
+    494,
+    998,
+    529
+   ],
+   "enabled": true
+  },
+  {
+   "type": "List",
+   "name": "0",
+   "auto_id": "yCalc",
+   "rect": [
+    1008,
+    252,
+    1265,
+    301
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "일반",
+   "auto_id": "",
+   "rect": [
+    1017,
+    264,
+    1094,
+    287
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "부담부증여",
+   "auto_id": "",
+   "rect": [
+    1094,
+    264,
+    1234,
+    287
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도유형",
+   "auto_id": "yCalc_1",
+   "rect": [
+    907,
+    252,
+    1005,
+    301
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도유형",
+   "auto_id": "332892",
+   "rect": [
+    914,
+    266,
+    998,
+    287
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도유형",
+   "auto_id": "",
+   "rect": [
+    914,
+    266,
+    998,
+    287
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "토지필지수",
+   "auto_id": "lbTCnt",
+   "rect": [
+    95,
+    530,
+    324,
+    569
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "토지필지수",
+   "auto_id": "2560230",
+   "rect": [
+    102,
+    539,
+    317,
+    560
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "토지필지수",
+   "auto_id": "",
+   "rect": [
+    102,
+    539,
+    317,
+    560
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "1",
+   "auto_id": "GCnt",
+   "rect": [
+    912,
+    530,
+    1260,
+    569
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "1",
+   "auto_id": "1512058",
+   "rect": [
+    919,
+    539,
+    1224,
+    560
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "1",
+   "auto_id": "",
+   "rect": [
+    919,
+    539,
+    1224,
+    560
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Up",
+   "auto_id": "",
+   "rect": [
+    1229,
+    532,
+    1259,
+    550
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Down",
+   "auto_id": "",
+   "rect": [
+    1229,
+    550,
+    1259,
+    568
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "건물(증축포함)수",
+   "auto_id": "lbGCnt",
+   "rect": [
+    679,
+    530,
+    908,
+    569
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "건물(증축포함)수",
+   "auto_id": "5375592",
+   "rect": [
+    686,
+    539,
+    901,
+    560
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "건물(증축포함)수",
+   "auto_id": "",
+   "rect": [
+    686,
+    539,
+    901,
+    560
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "1",
+   "auto_id": "TCnt",
+   "rect": [
+    327,
+    530,
+    675,
+    569
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "1",
+   "auto_id": "529068",
+   "rect": [
+    334,
+    539,
+    639,
+    560
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "1",
+   "auto_id": "",
+   "rect": [
+    334,
+    539,
+    639,
+    560
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Up",
+   "auto_id": "",
+   "rect": [
+    644,
+    532,
+    674,
+    550
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Down",
+   "auto_id": "",
+   "rect": [
+    644,
+    550,
+    674,
+    568
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "감가상각비",
+   "auto_id": "eG",
+   "rect": [
+    978,
+    823,
+    1241,
+    862
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "감가상각비",
+   "auto_id": "201618",
+   "rect": [
+    985,
+    831,
+    1234,
+    852
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "감가상각비",
+   "auto_id": "",
+   "rect": [
+    985,
+    831,
+    1234,
+    852
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "소재지",
+   "auto_id": "CC02",
+   "rect": [
+    327,
+    252,
+    903,
+    301
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Line Up",
+   "auto_id": "",
+   "rect": [
+    872,
+    254,
+    902,
+    277
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Page Up",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Page Down",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "Line Down",
+   "auto_id": "",
+   "rect": [
+    872,
+    277,
+    902,
+    300
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Edit",
+   "name": "소재지",
+   "auto_id": "201412",
+   "rect": [
+    334,
+    254,
+    901,
+    300
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "위쪽 스크롤 화살표",
+   "auto_id": "UpButton",
+   "rect": [
+    872,
+    254,
+    925,
+    267
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "아래쪽 스크롤 화살표",
+   "auto_id": "DownButton",
+   "rect": [
+    872,
+    287,
+    925,
+    300
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Edit",
+   "name": "소재지",
+   "auto_id": "",
+   "rect": [
+    334,
+    254,
+    901,
+    300
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도일자",
+   "auto_id": "CC06_1",
+   "rect": [
+    95,
+    450,
+    324,
+    489
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도일자",
+   "auto_id": "201474",
+   "rect": [
+    102,
+    459,
+    317,
+    480
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도일자",
+   "auto_id": "",
+   "rect": [
+    102,
+    459,
+    317,
+    480
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "건물만",
+   "auto_id": "rgJasanBU4",
+   "rect": [
+    917,
+    415,
+    1019,
+    443
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "토지만",
+   "auto_id": "rgJasanBU3",
+   "rect": [
+    805,
+    415,
+    907,
+    443
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "토지,건물 각각",
+   "auto_id": "rgJasanBU2",
+   "rect": [
+    572,
+    415,
+    751,
+    443
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "토지+건물",
+   "auto_id": "rgJasanBU1",
+   "rect": [
+    336,
+    415,
+    469,
+    443
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "부동산계약서구분",
+   "auto_id": "lbBU",
+   "rect": [
+    95,
+    410,
+    324,
+    449
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "부동산계약서구분",
+   "auto_id": "201490",
+   "rect": [
+    102,
+    418,
+    317,
+    439
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "부동산계약서구분",
+   "auto_id": "",
+   "rect": [
+    102,
+    418,
+    317,
+    439
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "취득실가유형",
+   "auto_id": "rgCHK4",
+   "rect": [
+    595,
+    340,
+    1005,
+    368
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "취득실가유형",
+   "auto_id": "rgCHK3",
+   "rect": [
+    333,
+    340,
+    596,
+    368
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "취득실가유형",
+   "auto_id": "rgCHK2",
+   "rect": [
+    595,
+    310,
+    928,
+    338
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "취득실가유형",
+   "auto_id": "rgCHK1",
+   "rect": [
+    333,
+    310,
+    575,
+    338
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "취득가액 유형",
+   "auto_id": "lbCHK",
+   "rect": [
+    95,
+    303,
+    324,
+    378
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "취득가액 유형",
+   "auto_id": "201504",
+   "rect": [
+    102,
+    329,
+    317,
+    350
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "취득가액 유형",
+   "auto_id": "",
+   "rect": [
+    102,
+    329,
+    317,
+    350
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "소재지",
+   "auto_id": "lbCC02",
+   "rect": [
+    95,
+    252,
+    324,
+    301
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "소재지",
+   "auto_id": "201508",
+   "rect": [
+    102,
+    266,
+    317,
+    287
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "소재지",
+   "auto_id": "",
+   "rect": [
+    102,
+    266,
+    317,
+    287
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도실가",
+   "auto_id": "S01",
+   "rect": [
+    326,
+    681,
+    674,
+    720
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도실가",
+   "auto_id": "201526",
+   "rect": [
+    333,
+    690,
+    667,
+    711
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "양도실가",
+   "auto_id": "",
+   "rect": [
+    333,
+    690,
+    667,
+    711
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "부동산양도가액",
+   "auto_id": "S01_1",
+   "rect": [
+    93,
+    681,
+    322,
+    720
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "부동산양도가액",
+   "auto_id": "201586",
+   "rect": [
+    100,
+    690,
+    315,
+    711
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "부동산양도가액",
+   "auto_id": "",
+   "rect": [
+    100,
+    690,
+    315,
+    711
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "기초입력 및 수정",
+   "auto_id": "",
+   "rect": [
+    82,
+    203,
+    380,
+    249
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "토지입력 및 수정",
+   "auto_id": "",
+   "rect": [
+    380,
+    203,
+    678,
+    249
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "건물입력 및 수정",
+   "auto_id": "",
+   "rect": [
+    677,
+    203,
+    975,
+    249
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "최소화",
+   "auto_id": "",
+   "rect": [
+    1710,
+    159,
+    1752,
+    201
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "최대화",
+   "auto_id": "",
+   "rect": [
+    1748,
+    159,
+    1790,
+    201
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "닫기",
+   "auto_id": "",
+   "rect": [
+    1787,
+    159,
+    1829,
+    201
+   ],
+   "enabled": true
+  }
+ ]
+}
