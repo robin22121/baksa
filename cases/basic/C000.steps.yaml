@@ -7,7 +7,7 @@ steps:
   - press: 1.양도인등록
   - check_combo: {id: cbMen100Year, value: 전체}
   - press: 등록
-    screens: {양도구분선택: 부동산부동산권리특정주식등}   # 등록을 누르면 뜨는 양도구분 선택 창 (리허설 1차 확인)
+    screens: {양도구분선택: 부동산권리}   # 등록을 누르면 뜨는 양도구분 선택 창. 버튼 btn1 이름은 "부동산권리"(부 동 산·특정주식등은 겹친 라벨)
     expect_enabled: [저장, 취소]
   - radio: {group: emJASANGU, value: 부동산}
   - radio: {group: emSINGOGU, value: 예정}
