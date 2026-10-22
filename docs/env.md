@@ -9,7 +9,9 @@
 - 라이선스: **데모버전 — 인쇄·전자신고 미지원** (첫 화면 문구). 데모로 진행하고 출력 분석은 보류 (`docs/decisions.md` "라이선스·출력 분석")
 - EULA 자동화 조항: 없음 (사용자 확인 2026-10-22)
 - 첫 화면 세목 버튼: 양도소득세 · 상속세 · 증여세 · 주식평가 · 종합부동산세 (모두 분석 대상)
-- 화면 캡처: DPI 인식을 켠 화면 복사(`CopyFromScreen`/`ImageGrab`)는 됨. `PrintWindow`는 0 반환(검은 화면). 디스플레이 보호(affinity) 0. 배율 약 175%라 좌표는 물리 픽셀 기준
+- 실행 권한: 기본 실행은 **관리자 권한** → 일반 권한 분석 코드에서 컨트롤 읽기 접근 거부, `PrintWindow` 실패(UIPI). **`__COMPAT_LAYER=RunAsInvoker`로 일반 권한 실행**하면 정상 동작하고 로그인도 됨(2026-10-22 확인). 설치 폴더는 일반 권한으로 쓰기 가능
+- 조작 방식: pywinauto **uia** (메인 화면 Button 26개 이름·좌표 노출. 메뉴바 없음, 버튼으로 화면 이동). 하위 화면은 DevExpress WinForms
+- 화면 캡처: 창을 맨 앞으로 가져온 뒤 DPI 인식을 켠 화면 복사(`ImageGrab`/`CopyFromScreen`). 가려진 창은 위에 있는 창이 찍힘. 배율 약 175%. 디스플레이 보호(affinity) 0
 
 ## Windows / Python
 - Windows 버전:
@@ -18,7 +20,7 @@
 - ODBC 드라이버 목록:
 
 ## 데이터 폴더 위치
--
+- 후보: `C:\Neoic\Tax2019\Data` (설치 폴더 하위: BACKUP, Base, Data, form, ko, pdf, Rep, Rep200, Rep300, Rep500, SKIN). W4 ProcMon으로 확정 전까지 탐색 전후 해시 비교 대상으로만 쓴다
 
 ## 금지 메뉴
 <!-- 불릿 한 줄 = 메뉴 텍스트 하나 (부분일치로 차단). 기본값은 전체구조 §5-6, 사람이 확정 -->
