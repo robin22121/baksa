@@ -1,0 +1,530 @@
+{
+ "steps_file": "cases\\basic\\C000.steps.yaml",
+ "case": "C000",
+ "started": "2026-10-22T11:37:03",
+ "window": "양도소득세",
+ "vars": {
+  "rrn": "8505051695140"
+ },
+ "prior_runs_same_steps": 0,
+ "hwnd": 5965548,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261022_113703",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "1.양도인등록"
+   },
+   "t": "2026-10-22T11:37:05",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "check_combo",
+   "spec": {
+    "check_combo": {
+     "id": "cbMen100Year",
+     "value": "전체"
+    }
+   },
+   "t": "2026-10-22T11:37:11",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "values": [
+     "전체",
+     "전체",
+     "전체",
+     "전체"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "press",
+   "spec": {
+    "press": "등록",
+    "screens": {
+     "양도구분선택": "부동산권리"
+    },
+    "expect_enabled": [
+     "저장",
+     "취소"
+    ]
+   },
+   "t": "2026-10-22T11:37:14",
+   "how": "postmessage",
+   "handled_screens": [
+    {
+     "title": "양도구분 선택",
+     "hwnd": 789048,
+     "pressed": "부동산권리",
+     "capture_method": "ok",
+     "capture": "docs/screens/C000_03_screen_1.png"
+    }
+   ],
+   "states": {
+    "저장": [
+     true
+    ],
+    "취소": [
+     true
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "emJASANGU",
+     "value": "부동산"
+    }
+   },
+   "t": "2026-10-22T11:37:24",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "부동산",
+     "국외자산",
+     "주식(국내)",
+     "토지등 매매차익",
+     "파생상품"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "emSINGOGU",
+     "value": "예정"
+    }
+   },
+   "t": "2026-10-22T11:37:30",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "예정",
+     "확정",
+     "수정",
+     "기한후"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "emBORN",
+     "value": "내국인"
+    }
+   },
+   "t": "2026-10-22T11:37:37",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "내국인",
+     "외국인"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "emOUTJUSO",
+     "value": "거주자"
+    }
+   },
+   "t": "2026-10-22T11:37:43",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "거주자",
+     "비거주자"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 8,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "emNAME",
+     "value": "가상양도인"
+    }
+   },
+   "t": "2026-10-22T11:37:49",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "가상양도인",
+       "양도인"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       5965548
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "양도인"
+    ],
+    "method": "set_value",
+    "read": [
+     "가상양도인",
+     "양도인"
+    ]
+   },
+   "want": "가상양도인",
+   "status": "ok"
+  },
+  {
+   "i": 9,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "emJUMIN",
+     "value": "8505051695140"
+    }
+   },
+   "t": "2026-10-22T11:37:56",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "850505-1695140",
+       "주민등록번호(양도인)"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       5965548
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "주민등록번호(양도인)"
+    ],
+    "method": "set_value",
+    "read": [
+     "850505-1695140",
+     "주민등록번호(양도인)"
+    ]
+   },
+   "want": "8505051695140",
+   "status": "ok"
+  },
+  {
+   "i": 10,
+   "action": "combo",
+   "spec": {
+    "combo": {
+     "id": "emSEONAME",
+     "value": "마포"
+    }
+   },
+   "t": "2026-10-22T11:38:03",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "마포",
+       "관할세무서",
+       "관할세무서",
+       "마포"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       5965548
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "관할세무서",
+     "관할세무서"
+    ],
+    "method": "set_value",
+    "read": [
+     "마포",
+     "관할세무서",
+     "관할세무서",
+     "마포"
+    ]
+   },
+   "want": "마포",
+   "title_same": true,
+   "save_same": true,
+   "status": "ok"
+  },
+  {
+   "i": 11,
+   "action": "read",
+   "spec": {
+    "read": [
+     "emSEOCD"
+    ]
+   },
+   "t": "2026-10-22T11:38:16",
+   "values": {
+    "emSEOCD": [
+     "세무서코드"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 12,
+   "action": "capture",
+   "spec": {
+    "capture": "before_save"
+   },
+   "t": "2026-10-22T11:38:19",
+   "capture": "docs/screens/C000_12_before_save.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 13,
+   "action": "press",
+   "spec": {
+    "press": "저장",
+    "expect_disabled": [
+     "저장",
+     "취소"
+    ],
+    "modals": {}
+   },
+   "t": "2026-10-22T11:38:19",
+   "how": "postmessage",
+   "states": {
+    "저장": [
+     false
+    ],
+    "취소": [
+     false
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 14,
+   "action": "capture",
+   "spec": {
+    "capture": "after_save"
+   },
+   "t": "2026-10-22T11:38:29",
+   "capture": "docs/screens/C000_14_after_save.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 15,
+   "action": "press",
+   "spec": {
+    "press": "1.양도인등록"
+   },
+   "t": "2026-10-22T11:38:30",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 16,
+   "action": "verify_grid",
+   "spec": {
+    "verify_grid": {
+     "id": "cxGrid1",
+     "contains": "가상양도인",
+     "count": 1
+    }
+   },
+   "t": "2026-10-22T11:38:37",
+   "result": {
+    "found": true,
+    "by_type": {},
+    "rows": 0,
+    "sample": []
+   },
+   "status": "fail",
+   "detail": "그리드 행 수 0 != 1 (contains='가상양도인') {}"
+  }
+ ],
+ "reads": {
+  "emSEOCD": [
+   "세무서코드"
+  ]
+ },
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": [
+   "backup.ini"
+  ]
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 6,
+   "by_type": {
+    "header": 1,
+    "PIP": 1,
+    "gen": 1,
+    "pointer": 1,
+    "TIP": 1,
+    "data": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "PIP": [
+     1
+    ],
+    "gen": [
+     136
+    ],
+    "pointer": [
+     169
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     305
+    ]
+   },
+   "data_type_changed": 2
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 6,
+    "by_type": {
+     "header": 1,
+     "PIP": 1,
+     "gen": 1,
+     "pointer": 1,
+     "TIP": 1,
+     "data": 1
+    },
+    "only_header_tip": false,
+    "data_type_changed": 2,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 16 verify_grid fail: 그리드 행 수 0 != 1 (contains='가상양도인') {}",
+ "exit_code": 2,
+ "finished": "2026-10-22T11:38:47",
+ "remaining_screens": [
+  5965548,
+  199966,
+  2623152,
+  200110,
+  1707054,
+  460136
+ ],
+ "remaining_modals": []
+}

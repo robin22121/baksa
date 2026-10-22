@@ -1,0 +1,6 @@
+# C000 양도인 등록 확인 전용(쓰기 없음): 재조회 후 그리드에 가상양도인 1행
+window: 양도소득세
+steps:
+  - press: 1.양도인등록
+  - verify_grid: {id: cxGrid1, column: 성명, contains: 가상양도인, count: 1}
+  - capture: verify_grid

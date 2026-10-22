@@ -296,20 +296,35 @@ def op_click_button(hwnd, name):
     return 0
 
 
-def op_grid(hwnd, auto_id, contains):
+def _cell_value(c):
+    try:
+        return str(c.iface_value.CurrentValue or "")
+    except Exception:  # noqa: BLE001
+        pass
+    try:
+        return str(c.legacy_properties().get("Value") or "")
+    except Exception:  # noqa: BLE001
+        return ""
+
+
+def op_grid(hwnd, auto_id, contains, column=None):
+    """DevExpress 그리드: Table > Custom 'Row n' > DataItem '<열> row n'. 셀 값은 ValuePattern.
+    contains를 값에 포함한 행 수(matched)와 전체 행 수(rows), 행별 {열: 값}(최대 20행)을 돌려준다."""
     g = find_el(appmod.wrap(hwnd), auto_id)
     if g is None:
         return {"found": False}
-    by_type, sample = {}, []
-    for c in g.descendants():
-        e = c.element_info
-        n = e.name or ""
-        if norm(contains) in norm(n):
-            by_type[e.control_type] = by_type.get(e.control_type, 0) + 1
-            if len(sample) < 8:
-                sample.append(f"{e.control_type}:{n[:40]}")
-    # 같은 행이 여러 종류 요소(행·셀)로 중복 노출될 수 있어 종류별 개수의 최댓값을 행 수로 본다
-    return {"found": True, "by_type": by_type, "rows": max(by_type.values()) if by_type else 0, "sample": sample}
+    rows = []
+    for r in g.descendants(control_type="Custom"):
+        if not re.fullmatch(r"Row \d+", (r.element_info.name or "").strip()):
+            continue
+        cells = {}
+        for c in r.descendants(control_type="DataItem"):
+            col = re.sub(r"\s+row\s+\d+\s*$", "", c.element_info.name or "")
+            cells[col] = _cell_value(c)
+        rows.append(cells)
+    w = norm(contains)
+    hit = [r for r in rows if any(w in norm(v) for k, v in r.items() if column is None or norm(k) == norm(column))]
+    return {"found": True, "rows": len(rows), "matched": len(hit), "row_values": rows[:20], "column": column}
 
 
 # ---------------------------------------------------------------- 단계 파일
@@ -651,15 +666,15 @@ class Runner:
 
         def ok():
             last.clear()
-            last.update(guard(lambda: op_grid(self.hwnd, sp["id"], sp["contains"])))
-            return last["found"] and (last["rows"] == want if want is not None else last["rows"] >= 1)
+            last.update(guard(lambda: op_grid(self.hwnd, sp["id"], sp["contains"], sp.get("column"))))
+            return last["found"] and (last["matched"] == want if want is not None else last["matched"] >= 1)
 
         appmod.wait_for(ok, 5.0, 1.0)
         rec["result"] = dict(last)
         if not last.get("found"):
             raise Stop("fail", f"그리드를 못 찾음 {sp['id']}")
         if not ok():
-            raise Stop("fail", f"그리드 행 수 {last.get('rows')} != {want} (contains={sp['contains']!r}) {last.get('by_type')}")
+            raise Stop("fail", f"일치 행 수 {last.get('matched')} != {want} (contains={sp['contains']!r}, 전체 행 {last.get('rows')}) {last.get('row_values')}")
 
     def run(self, steps):
         """단계를 순서대로 실행. fail/abort는 즉시 멈추고, 그 이유(문자열)를 돌려준다. 예외는 기록 후 다시 던진다."""
