@@ -15,3 +15,6 @@
 {"seq": 22, "path": ["양도소득세", "2. 자 산 등 록"], "title": "양도소득세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "b7392723", "parent_seq": 16, "edge": "inplace", "counts": {"Button": 45, "Table": 1, "Tab": 1, "Text": 37, "TabItem": 2}}
 {"seq": 23, "path": ["양도소득세", "1. 양도인 등록"], "title": "양도소득세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ", "key": "bd56806b", "parent_seq": 16, "edge": "inplace", "counts": {"Button": 80, "Text": 46, "ComboBox": 2, "List": 6, "Edit": 105, "Table": 2, "RadioButton": 13, "Tab": 1, "TabItem": 2}}
 {"seq": 24, "path": ["상속세", "[닫기]", "[모달]"], "title": "확인", "key": "0112b076", "parent_seq": 0, "edge": "modal", "counts": {"Button": 3, "Text": 1}}
+{"seq": 25, "path": ["증여세", "[닫기]", "[모달]"], "title": "확인", "key": "0112b076", "parent_seq": 0, "edge": "modal", "counts": {"Button": 3, "Text": 1}}
+{"seq": 26, "path": ["주식평가", "[닫기]", "[모달]"], "title": "확인", "key": "0112b076", "parent_seq": 0, "edge": "modal", "counts": {"Button": 3, "Text": 1}}
+{"seq": 27, "path": ["종합부동산세", "[닫기]", "[모달]"], "title": "확인", "key": "0112b076", "parent_seq": 0, "edge": "modal", "counts": {"Button": 3, "Text": 1}}

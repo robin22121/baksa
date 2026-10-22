@@ -1,0 +1,75 @@
+{
+ "seq": 27,
+ "path": [
+  "종합부동산세",
+  "[닫기]",
+  "[모달]"
+ ],
+ "title": "확인",
+ "key": "0112b076",
+ "rect": [
+  1547,
+  908,
+  2293,
+  1167
+ ],
+ "edge": "modal",
+ "capture": "ok",
+ "source": "uia",
+ "controls": [
+  {
+   "type": "Button",
+   "name": "예",
+   "auto_id": "btn1",
+   "rect": [
+    1778,
+    1090,
+    1923,
+    1134
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "아니오",
+   "auto_id": "btn2",
+   "rect": [
+    1944,
+    1090,
+    2089,
+    1134
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "프로그램을 종료하시겠습니까?",
+   "auto_id": "lbMain",
+   "rect": [
+    1584,
+    1003,
+    1875,
+    1024
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "닫기",
+   "auto_id": "",
+   "rect": [
+    2238,
+    921,
+    2280,
+    963
+   ],
+   "enabled": true
+  }
+ ],
+ "unreviewed": [
+  "예",
+  "아니오",
+  "닫기"
+ ],
+ "blocked": []
+}
