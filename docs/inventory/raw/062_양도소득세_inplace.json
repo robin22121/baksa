@@ -1,0 +1,7846 @@
+{
+ "seq": 62,
+ "path": [
+  "양도소득세",
+  "4. 세 액 계 산"
+ ],
+ "title": "양도소득세      ▶ 본 프로그램은 데모버전이며, 인쇄·전자신고가 지원되지 않습니다. ",
+ "key": "e819ab58",
+ "rect": [
+  1031,
+  383,
+  2809,
+  1690
+ ],
+ "edge": "inplace",
+ "capture": "ok",
+ "source": "uia",
+ "controls": [
+  {
+   "type": "Button",
+   "name": "자료 복원",
+   "auto_id": "btnRestore",
+   "rect": [
+    1054,
+    1563,
+    1290,
+    1651
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "자료 백업",
+   "auto_id": "btnBackUp",
+   "rect": [
+    1054,
+    1470,
+    1290,
+    1558
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "환경 설정",
+   "auto_id": "dxNavBar3Item2",
+   "rect": [
+    1054,
+    1330,
+    1290,
+    1418
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "기준시가 조회",
+   "auto_id": "dxNavBar3Item1",
+   "rect": [
+    1054,
+    1237,
+    1290,
+    1325
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "양도·취득가액 안분계산",
+   "auto_id": "dxNavBar2Item3",
+   "rect": [
+    1055,
+    915,
+    1291,
+    1003
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "원격지원",
+   "auto_id": "btnRemote",
+   "rect": [
+    1061,
+    861,
+    1289,
+    914
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "공서식 인쇄·작성",
+   "auto_id": "dxNavBar2Item2",
+   "rect": [
+    1054,
+    1111,
+    1290,
+    1199
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "도움말·법령 보기",
+   "auto_id": "dxNavBar2Item1",
+   "rect": [
+    1054,
+    1013,
+    1290,
+    1101
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "4. 세 액 계 산",
+   "auto_id": "nBar14",
+   "rect": [
+    1052,
+    758,
+    1295,
+    849
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "3. 양수인 등록",
+   "auto_id": "nBar13",
+   "rect": [
+    1054,
+    663,
+    1292,
+    754
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "2. 자 산 등 록",
+   "auto_id": "nBar12",
+   "rect": [
+    1054,
+    571,
+    1292,
+    662
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "1. 양도인 등록",
+   "auto_id": "nBar11",
+   "rect": [
+    1054,
+    480,
+    1294,
+    571
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Tab",
+   "name": "",
+   "auto_id": "pc",
+   "rect": [
+    1307,
+    539,
+    2460,
+    1586
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "14.연금계좌세액공제",
+   "auto_id": "labelControl159",
+   "rect": [
+    1320,
+    975,
+    1563,
+    1007
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emCC03_6",
+   "rect": [
+    2615,
+    588,
+    2781,
+    620
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "1641160",
+   "rect": [
+    2622,
+    593,
+    2774,
+    614
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    2622,
+    593,
+    2774,
+    614
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emCC03_5",
+   "rect": [
+    2447,
+    588,
+    2613,
+    620
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "1117238",
+   "rect": [
+    2454,
+    593,
+    2606,
+    614
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    2454,
+    593,
+    2606,
+    614
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX5_6",
+   "rect": [
+    2615,
+    975,
+    2781,
+    1007
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1706786",
+   "rect": [
+    2622,
+    980,
+    2774,
+    1001
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    980,
+    2774,
+    1001
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX5_5",
+   "rect": [
+    2447,
+    975,
+    2613,
+    1007
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1707096",
+   "rect": [
+    2454,
+    980,
+    2606,
+    1001
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    980,
+    2606,
+    1001
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX5_1",
+   "rect": [
+    1775,
+    975,
+    1941,
+    1007
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "789050",
+   "rect": [
+    1782,
+    980,
+    1934,
+    1001
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    980,
+    1934,
+    1001
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX5_2",
+   "rect": [
+    1943,
+    975,
+    2109,
+    1007
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1051182",
+   "rect": [
+    1950,
+    980,
+    2102,
+    1001
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    980,
+    2102,
+    1001
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX5_3",
+   "rect": [
+    2111,
+    975,
+    2277,
+    1007
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "397994",
+   "rect": [
+    2118,
+    980,
+    2270,
+    1001
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    980,
+    2270,
+    1001
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX5_4",
+   "rect": [
+    2279,
+    975,
+    2445,
+    1007
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "788984",
+   "rect": [
+    2286,
+    980,
+    2438,
+    1001
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    980,
+    2438,
+    1001
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX4_6",
+   "rect": [
+    2615,
+    1005,
+    2781,
+    1037
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "920236",
+   "rect": [
+    2622,
+    1010,
+    2774,
+    1031
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    1010,
+    2774,
+    1031
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX4_5",
+   "rect": [
+    2447,
+    1005,
+    2613,
+    1037
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "724078",
+   "rect": [
+    2454,
+    1010,
+    2606,
+    1031
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    1010,
+    2606,
+    1031
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX4_1",
+   "rect": [
+    1775,
+    1005,
+    1941,
+    1037
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1247760",
+   "rect": [
+    1782,
+    1010,
+    1934,
+    1031
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    1010,
+    1934,
+    1031
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX4_2",
+   "rect": [
+    1943,
+    1005,
+    2109,
+    1037
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1116652",
+   "rect": [
+    1950,
+    1010,
+    2102,
+    1031
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    1010,
+    2102,
+    1031
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX4_3",
+   "rect": [
+    2111,
+    1005,
+    2277,
+    1037
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "6358856",
+   "rect": [
+    2118,
+    1010,
+    2270,
+    1031
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    1010,
+    2270,
+    1031
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX4_4",
+   "rect": [
+    2279,
+    1005,
+    2445,
+    1037
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "2164716",
+   "rect": [
+    2286,
+    1010,
+    2438,
+    1031
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    1010,
+    2438,
+    1031
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC04X05_6",
+   "rect": [
+    2615,
+    677,
+    2781,
+    709
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1772450",
+   "rect": [
+    2622,
+    683,
+    2774,
+    704
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    683,
+    2774,
+    704
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCN3_6",
+   "rect": [
+    2615,
+    1064,
+    2781,
+    1096
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "3934704",
+   "rect": [
+    2622,
+    1069,
+    2774,
+    1090
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    1069,
+    2774,
+    1090
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC13_6",
+   "rect": [
+    2615,
+    1034,
+    2781,
+    1066
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "985688",
+   "rect": [
+    2622,
+    1040,
+    2774,
+    1061
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    1040,
+    2774,
+    1061
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC04_6",
+   "rect": [
+    2615,
+    618,
+    2781,
+    650
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1968652",
+   "rect": [
+    2622,
+    623,
+    2774,
+    644
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    623,
+    2774,
+    644
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC05_6",
+   "rect": [
+    2615,
+    648,
+    2781,
+    680
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "2230962",
+   "rect": [
+    2622,
+    653,
+    2774,
+    674
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    653,
+    2774,
+    674
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCG3_6",
+   "rect": [
+    2615,
+    1094,
+    2781,
+    1126
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "723480",
+   "rect": [
+    2622,
+    1099,
+    2774,
+    1120
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    1099,
+    2774,
+    1120
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC06_6",
+   "rect": [
+    2615,
+    737,
+    2781,
+    769
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1707000",
+   "rect": [
+    2622,
+    742,
+    2774,
+    763
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    742,
+    2774,
+    763
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emCC1H_6",
+   "rect": [
+    2615,
+    1124,
+    2781,
+    1156
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "4719852",
+   "rect": [
+    2622,
+    1129,
+    2774,
+    1150
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    2622,
+    1129,
+    2774,
+    1150
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC07_6",
+   "rect": [
+    2615,
+    767,
+    2781,
+    799
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1707172",
+   "rect": [
+    2622,
+    772,
+    2774,
+    793
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    772,
+    2774,
+    793
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC15_6",
+   "rect": [
+    2615,
+    1183,
+    2781,
+    1215
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "723536",
+   "rect": [
+    2622,
+    1188,
+    2774,
+    1209
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    1188,
+    2774,
+    1209
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC14_6",
+   "rect": [
+    2615,
+    1153,
+    2781,
+    1185
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "723508",
+   "rect": [
+    2622,
+    1159,
+    2774,
+    1180
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    1159,
+    2774,
+    1180
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "emCC08_6",
+   "rect": [
+    2615,
+    796,
+    2781,
+    828
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "723552",
+   "rect": [
+    2622,
+    802,
+    2774,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "",
+   "rect": [
+    2622,
+    802,
+    2774,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC08N6",
+   "rect": [
+    2615,
+    826,
+    2781,
+    858
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "723504",
+   "rect": [
+    2622,
+    831,
+    2774,
+    852
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    831,
+    2774,
+    852
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC09_6",
+   "rect": [
+    2615,
+    856,
+    2781,
+    888
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "723542",
+   "rect": [
+    2622,
+    861,
+    2774,
+    882
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    861,
+    2774,
+    882
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX1_6",
+   "rect": [
+    2615,
+    707,
+    2781,
+    739
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1248220",
+   "rect": [
+    2622,
+    712,
+    2774,
+    733
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    712,
+    2774,
+    733
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC10_6",
+   "rect": [
+    2615,
+    886,
+    2781,
+    918
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "723484",
+   "rect": [
+    2622,
+    891,
+    2774,
+    912
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    891,
+    2774,
+    912
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC11_6",
+   "rect": [
+    2615,
+    915,
+    2781,
+    947
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "4654872",
+   "rect": [
+    2622,
+    921,
+    2774,
+    942
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    921,
+    2774,
+    942
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX3_6",
+   "rect": [
+    2615,
+    945,
+    2781,
+    977
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "985472",
+   "rect": [
+    2622,
+    950,
+    2774,
+    971
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2622,
+    950,
+    2774,
+    971
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC04X05_5",
+   "rect": [
+    2447,
+    677,
+    2613,
+    709
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "985480",
+   "rect": [
+    2454,
+    683,
+    2606,
+    704
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    683,
+    2606,
+    704
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCN3_5",
+   "rect": [
+    2447,
+    1064,
+    2613,
+    1096
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "854682",
+   "rect": [
+    2454,
+    1069,
+    2606,
+    1090
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    1069,
+    2606,
+    1090
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC13_5",
+   "rect": [
+    2447,
+    1034,
+    2613,
+    1066
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1051140",
+   "rect": [
+    2454,
+    1040,
+    2606,
+    1061
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    1040,
+    2606,
+    1061
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC04_5",
+   "rect": [
+    2447,
+    618,
+    2613,
+    650
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "723516",
+   "rect": [
+    2454,
+    623,
+    2606,
+    644
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    623,
+    2606,
+    644
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC05_5",
+   "rect": [
+    2447,
+    648,
+    2613,
+    680
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "789084",
+   "rect": [
+    2454,
+    653,
+    2606,
+    674
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    653,
+    2606,
+    674
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCG3_5",
+   "rect": [
+    2447,
+    1094,
+    2613,
+    1126
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "2427852",
+   "rect": [
+    2454,
+    1099,
+    2606,
+    1120
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    1099,
+    2606,
+    1120
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC06_5",
+   "rect": [
+    2447,
+    737,
+    2613,
+    769
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "4133506",
+   "rect": [
+    2454,
+    742,
+    2606,
+    763
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    742,
+    2606,
+    763
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emCC1H_5",
+   "rect": [
+    2447,
+    1124,
+    2613,
+    1156
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "1247480",
+   "rect": [
+    2454,
+    1129,
+    2606,
+    1150
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    2454,
+    1129,
+    2606,
+    1150
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC07_5",
+   "rect": [
+    2447,
+    767,
+    2613,
+    799
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "2362528",
+   "rect": [
+    2454,
+    772,
+    2606,
+    793
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    772,
+    2606,
+    793
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC15_5",
+   "rect": [
+    2447,
+    1183,
+    2613,
+    1215
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "723612",
+   "rect": [
+    2454,
+    1188,
+    2606,
+    1209
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    1188,
+    2606,
+    1209
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC14_5",
+   "rect": [
+    2447,
+    1153,
+    2613,
+    1185
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "723526",
+   "rect": [
+    2454,
+    1159,
+    2606,
+    1180
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    1159,
+    2606,
+    1180
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "emCC08_5",
+   "rect": [
+    2447,
+    796,
+    2613,
+    828
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "2296902",
+   "rect": [
+    2454,
+    802,
+    2606,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "",
+   "rect": [
+    2454,
+    802,
+    2606,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC08N5",
+   "rect": [
+    2447,
+    826,
+    2613,
+    858
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "920038",
+   "rect": [
+    2454,
+    831,
+    2606,
+    852
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    831,
+    2606,
+    852
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC09_5",
+   "rect": [
+    2447,
+    856,
+    2613,
+    888
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "723538",
+   "rect": [
+    2454,
+    861,
+    2606,
+    882
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    861,
+    2606,
+    882
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX1_5",
+   "rect": [
+    2447,
+    707,
+    2613,
+    739
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1443952",
+   "rect": [
+    2454,
+    712,
+    2606,
+    733
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    712,
+    2606,
+    733
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC10_5",
+   "rect": [
+    2447,
+    886,
+    2613,
+    918
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1967740",
+   "rect": [
+    2454,
+    891,
+    2606,
+    912
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    891,
+    2606,
+    912
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC11_5",
+   "rect": [
+    2447,
+    915,
+    2613,
+    947
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "920052",
+   "rect": [
+    2454,
+    921,
+    2606,
+    942
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    921,
+    2606,
+    942
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX3_5",
+   "rect": [
+    2447,
+    945,
+    2613,
+    977
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "723520",
+   "rect": [
+    2454,
+    950,
+    2606,
+    971
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2454,
+    950,
+    2606,
+    971
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emCC03_1",
+   "rect": [
+    1775,
+    588,
+    1941,
+    620
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "724058",
+   "rect": [
+    1782,
+    593,
+    1934,
+    614
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    1782,
+    593,
+    1934,
+    614
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emCC03_2",
+   "rect": [
+    1943,
+    588,
+    2109,
+    620
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "723560",
+   "rect": [
+    1950,
+    593,
+    2102,
+    614
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    1950,
+    593,
+    2102,
+    614
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emCC03_3",
+   "rect": [
+    2111,
+    588,
+    2277,
+    620
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "4261982",
+   "rect": [
+    2118,
+    593,
+    2270,
+    614
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    2118,
+    593,
+    2270,
+    614
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emCC03_4",
+   "rect": [
+    2279,
+    588,
+    2445,
+    620
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "1313230",
+   "rect": [
+    2286,
+    593,
+    2438,
+    614
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    2286,
+    593,
+    2438,
+    614
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC04_1",
+   "rect": [
+    1775,
+    618,
+    1941,
+    650
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "5113746",
+   "rect": [
+    1782,
+    623,
+    1934,
+    644
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    623,
+    1934,
+    644
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC05_1",
+   "rect": [
+    1775,
+    648,
+    1941,
+    680
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "2820476",
+   "rect": [
+    1782,
+    653,
+    1934,
+    674
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    653,
+    1934,
+    674
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC04X05_4",
+   "rect": [
+    2279,
+    677,
+    2445,
+    709
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1771834",
+   "rect": [
+    2286,
+    683,
+    2438,
+    704
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    683,
+    2438,
+    704
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC1H_1",
+   "rect": [
+    1775,
+    1124,
+    1941,
+    1156
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "6620720",
+   "rect": [
+    1782,
+    1129,
+    1934,
+    1150
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    1129,
+    1934,
+    1150
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC04X05_3",
+   "rect": [
+    2111,
+    677,
+    2277,
+    709
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "3344412",
+   "rect": [
+    2118,
+    683,
+    2270,
+    704
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    683,
+    2270,
+    704
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC06_1",
+   "rect": [
+    1775,
+    737,
+    1941,
+    769
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "724028",
+   "rect": [
+    1782,
+    742,
+    1934,
+    763
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    742,
+    1934,
+    763
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC04X05_2",
+   "rect": [
+    1943,
+    677,
+    2109,
+    709
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1379022",
+   "rect": [
+    1950,
+    683,
+    2102,
+    704
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    683,
+    2102,
+    704
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCN3_4",
+   "rect": [
+    2279,
+    1064,
+    2445,
+    1096
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "724032",
+   "rect": [
+    2286,
+    1069,
+    2438,
+    1090
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    1069,
+    2438,
+    1090
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC07_1",
+   "rect": [
+    1775,
+    767,
+    1941,
+    799
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1182210",
+   "rect": [
+    1782,
+    772,
+    1934,
+    793
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    772,
+    1934,
+    793
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC13_4",
+   "rect": [
+    2279,
+    1034,
+    2445,
+    1066
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "723506",
+   "rect": [
+    2286,
+    1040,
+    2438,
+    1061
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    1040,
+    2438,
+    1061
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC04X05_1",
+   "rect": [
+    1775,
+    677,
+    1941,
+    709
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "7275712",
+   "rect": [
+    1782,
+    683,
+    1934,
+    704
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    683,
+    1934,
+    704
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "emCC08_1",
+   "rect": [
+    1775,
+    796,
+    1941,
+    828
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "723524",
+   "rect": [
+    1782,
+    802,
+    1934,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "",
+   "rect": [
+    1782,
+    802,
+    1934,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCN3_3",
+   "rect": [
+    2111,
+    1064,
+    2277,
+    1096
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1444358",
+   "rect": [
+    2118,
+    1069,
+    2270,
+    1090
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    1069,
+    2270,
+    1090
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC09_1",
+   "rect": [
+    1775,
+    856,
+    1941,
+    888
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "3803996",
+   "rect": [
+    1782,
+    861,
+    1934,
+    882
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    861,
+    1934,
+    882
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC15_1",
+   "rect": [
+    1775,
+    1183,
+    1941,
+    1215
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1641070",
+   "rect": [
+    1782,
+    1188,
+    1934,
+    1209
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    1188,
+    1934,
+    1209
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC13_3",
+   "rect": [
+    2111,
+    1034,
+    2277,
+    1066
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "789024",
+   "rect": [
+    2118,
+    1040,
+    2270,
+    1061
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    1040,
+    2270,
+    1061
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC10_1",
+   "rect": [
+    1775,
+    886,
+    1941,
+    918
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "985630",
+   "rect": [
+    1782,
+    891,
+    1934,
+    912
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    891,
+    1934,
+    912
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCN3_2",
+   "rect": [
+    1943,
+    1064,
+    2109,
+    1096
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "2690196",
+   "rect": [
+    1950,
+    1069,
+    2102,
+    1090
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    1069,
+    2102,
+    1090
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC08N1",
+   "rect": [
+    1775,
+    826,
+    1941,
+    858
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1051752",
+   "rect": [
+    1782,
+    831,
+    1934,
+    852
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    831,
+    1934,
+    852
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC11_1",
+   "rect": [
+    1775,
+    915,
+    1941,
+    947
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "789070",
+   "rect": [
+    1782,
+    921,
+    1934,
+    942
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    921,
+    1934,
+    942
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX1_1",
+   "rect": [
+    1775,
+    707,
+    1941,
+    739
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1313166",
+   "rect": [
+    1782,
+    712,
+    1934,
+    733
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    712,
+    1934,
+    733
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC13_2",
+   "rect": [
+    1943,
+    1034,
+    2109,
+    1066
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1444854",
+   "rect": [
+    1950,
+    1040,
+    2102,
+    1061
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    1040,
+    2102,
+    1061
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCN3_1",
+   "rect": [
+    1775,
+    1064,
+    1941,
+    1096
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "4788912",
+   "rect": [
+    1782,
+    1069,
+    1934,
+    1090
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    1069,
+    1934,
+    1090
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX3_1",
+   "rect": [
+    1775,
+    945,
+    1941,
+    977
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "2951698",
+   "rect": [
+    1782,
+    950,
+    1934,
+    971
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    950,
+    1934,
+    971
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC14_1",
+   "rect": [
+    1775,
+    1153,
+    1941,
+    1185
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1444716",
+   "rect": [
+    1782,
+    1159,
+    1934,
+    1180
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    1159,
+    1934,
+    1180
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCG3_1",
+   "rect": [
+    1775,
+    1094,
+    1941,
+    1126
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "854568",
+   "rect": [
+    1782,
+    1099,
+    1934,
+    1120
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    1099,
+    1934,
+    1120
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC13_1",
+   "rect": [
+    1775,
+    1034,
+    1941,
+    1066
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "4785234",
+   "rect": [
+    1782,
+    1040,
+    1934,
+    1061
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1782,
+    1040,
+    1934,
+    1061
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC04_2",
+   "rect": [
+    1943,
+    618,
+    2109,
+    650
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "397942",
+   "rect": [
+    1950,
+    623,
+    2102,
+    644
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    623,
+    2102,
+    644
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC05_2",
+   "rect": [
+    1943,
+    648,
+    2109,
+    680
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "529056",
+   "rect": [
+    1950,
+    653,
+    2102,
+    674
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    653,
+    2102,
+    674
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC06_2",
+   "rect": [
+    1943,
+    737,
+    2109,
+    769
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "725236",
+   "rect": [
+    1950,
+    742,
+    2102,
+    763
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    742,
+    2102,
+    763
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC07_2",
+   "rect": [
+    1943,
+    767,
+    2109,
+    799
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1643154",
+   "rect": [
+    1950,
+    772,
+    2102,
+    793
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    772,
+    2102,
+    793
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emCC1H_2",
+   "rect": [
+    1943,
+    1124,
+    2109,
+    1156
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "3803192",
+   "rect": [
+    1950,
+    1129,
+    2102,
+    1150
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    1950,
+    1129,
+    2102,
+    1150
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "emCC08_2",
+   "rect": [
+    1943,
+    796,
+    2109,
+    828
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "2429158",
+   "rect": [
+    1950,
+    802,
+    2102,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "",
+   "rect": [
+    1950,
+    802,
+    2102,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC15_2",
+   "rect": [
+    1943,
+    1183,
+    2109,
+    1215
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1118464",
+   "rect": [
+    1950,
+    1188,
+    2102,
+    1209
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    1188,
+    2102,
+    1209
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC09_2",
+   "rect": [
+    1943,
+    856,
+    2109,
+    888
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1117836",
+   "rect": [
+    1950,
+    861,
+    2102,
+    882
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    861,
+    2102,
+    882
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC08N2",
+   "rect": [
+    1943,
+    826,
+    2109,
+    858
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "2364032",
+   "rect": [
+    1950,
+    831,
+    2102,
+    852
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    831,
+    2102,
+    852
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC10_2",
+   "rect": [
+    1943,
+    886,
+    2109,
+    918
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "2032362",
+   "rect": [
+    1950,
+    891,
+    2102,
+    912
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    891,
+    2102,
+    912
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX1_2",
+   "rect": [
+    1943,
+    707,
+    2109,
+    739
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "2493630",
+   "rect": [
+    1950,
+    712,
+    2102,
+    733
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    712,
+    2102,
+    733
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC11_2",
+   "rect": [
+    1943,
+    915,
+    2109,
+    947
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "397938",
+   "rect": [
+    1950,
+    921,
+    2102,
+    942
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    921,
+    2102,
+    942
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX3_2",
+   "rect": [
+    1943,
+    945,
+    2109,
+    977
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "3868404",
+   "rect": [
+    1950,
+    950,
+    2102,
+    971
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    950,
+    2102,
+    971
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC14_2",
+   "rect": [
+    1943,
+    1153,
+    2109,
+    1185
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1575870",
+   "rect": [
+    1950,
+    1159,
+    2102,
+    1180
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    1159,
+    2102,
+    1180
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCG3_2",
+   "rect": [
+    1943,
+    1094,
+    2109,
+    1126
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "1378806",
+   "rect": [
+    1950,
+    1099,
+    2102,
+    1120
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1950,
+    1099,
+    2102,
+    1120
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC04_3",
+   "rect": [
+    2111,
+    618,
+    2277,
+    650
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70322",
+   "rect": [
+    2118,
+    623,
+    2270,
+    644
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    623,
+    2270,
+    644
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC05_3",
+   "rect": [
+    2111,
+    648,
+    2277,
+    680
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70326",
+   "rect": [
+    2118,
+    653,
+    2270,
+    674
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    653,
+    2270,
+    674
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC06_3",
+   "rect": [
+    2111,
+    737,
+    2277,
+    769
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70330",
+   "rect": [
+    2118,
+    742,
+    2270,
+    763
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    742,
+    2270,
+    763
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC07_3",
+   "rect": [
+    2111,
+    767,
+    2277,
+    799
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70334",
+   "rect": [
+    2118,
+    772,
+    2270,
+    793
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    772,
+    2270,
+    793
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emCC1H_3",
+   "rect": [
+    2111,
+    1124,
+    2277,
+    1156
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "70338",
+   "rect": [
+    2118,
+    1129,
+    2270,
+    1150
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    2118,
+    1129,
+    2270,
+    1150
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "emCC08_3",
+   "rect": [
+    2111,
+    796,
+    2277,
+    828
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "70342",
+   "rect": [
+    2118,
+    802,
+    2270,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "",
+   "rect": [
+    2118,
+    802,
+    2270,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC15_3",
+   "rect": [
+    2111,
+    1183,
+    2277,
+    1215
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70346",
+   "rect": [
+    2118,
+    1188,
+    2270,
+    1209
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    1188,
+    2270,
+    1209
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC09_3",
+   "rect": [
+    2111,
+    856,
+    2277,
+    888
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70350",
+   "rect": [
+    2118,
+    861,
+    2270,
+    882
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    861,
+    2270,
+    882
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC08N3",
+   "rect": [
+    2111,
+    826,
+    2277,
+    858
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70354",
+   "rect": [
+    2118,
+    831,
+    2270,
+    852
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    831,
+    2270,
+    852
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC10_3",
+   "rect": [
+    2111,
+    886,
+    2277,
+    918
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70358",
+   "rect": [
+    2118,
+    891,
+    2270,
+    912
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    891,
+    2270,
+    912
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX1_3",
+   "rect": [
+    2111,
+    707,
+    2277,
+    739
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70362",
+   "rect": [
+    2118,
+    712,
+    2270,
+    733
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    712,
+    2270,
+    733
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC11_3",
+   "rect": [
+    2111,
+    915,
+    2277,
+    947
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70366",
+   "rect": [
+    2118,
+    921,
+    2270,
+    942
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    921,
+    2270,
+    942
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX3_3",
+   "rect": [
+    2111,
+    945,
+    2277,
+    977
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70370",
+   "rect": [
+    2118,
+    950,
+    2270,
+    971
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    950,
+    2270,
+    971
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC14_3",
+   "rect": [
+    2111,
+    1153,
+    2277,
+    1185
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70374",
+   "rect": [
+    2118,
+    1159,
+    2270,
+    1180
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    1159,
+    2270,
+    1180
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCG3_3",
+   "rect": [
+    2111,
+    1094,
+    2277,
+    1126
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70378",
+   "rect": [
+    2118,
+    1099,
+    2270,
+    1120
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2118,
+    1099,
+    2270,
+    1120
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC04_4",
+   "rect": [
+    2279,
+    618,
+    2445,
+    650
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70382",
+   "rect": [
+    2286,
+    623,
+    2438,
+    644
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    623,
+    2438,
+    644
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC05_4",
+   "rect": [
+    2279,
+    648,
+    2445,
+    680
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70386",
+   "rect": [
+    2286,
+    653,
+    2438,
+    674
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    653,
+    2438,
+    674
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCG3_4",
+   "rect": [
+    2279,
+    1094,
+    2445,
+    1126
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70390",
+   "rect": [
+    2286,
+    1099,
+    2438,
+    1120
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    1099,
+    2438,
+    1120
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC06_4",
+   "rect": [
+    2279,
+    737,
+    2445,
+    769
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70394",
+   "rect": [
+    2286,
+    742,
+    2438,
+    763
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    742,
+    2438,
+    763
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emCC1H_4",
+   "rect": [
+    2279,
+    1124,
+    2445,
+    1156
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "70398",
+   "rect": [
+    2286,
+    1129,
+    2438,
+    1150
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    2286,
+    1129,
+    2438,
+    1150
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC07_4",
+   "rect": [
+    2279,
+    767,
+    2445,
+    799
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70402",
+   "rect": [
+    2286,
+    772,
+    2438,
+    793
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    772,
+    2438,
+    793
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC15_4",
+   "rect": [
+    2279,
+    1183,
+    2445,
+    1215
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70406",
+   "rect": [
+    2286,
+    1188,
+    2438,
+    1209
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    1188,
+    2438,
+    1209
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC14_4",
+   "rect": [
+    2279,
+    1153,
+    2445,
+    1185
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70410",
+   "rect": [
+    2286,
+    1159,
+    2438,
+    1180
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    1159,
+    2438,
+    1180
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "emCC08_4",
+   "rect": [
+    2279,
+    796,
+    2445,
+    828
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "70414",
+   "rect": [
+    2286,
+    802,
+    2438,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "",
+   "rect": [
+    2286,
+    802,
+    2438,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC08N4",
+   "rect": [
+    2279,
+    826,
+    2445,
+    858
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70418",
+   "rect": [
+    2286,
+    831,
+    2438,
+    852
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    831,
+    2438,
+    852
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC09_4",
+   "rect": [
+    2279,
+    856,
+    2445,
+    888
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70422",
+   "rect": [
+    2286,
+    861,
+    2438,
+    882
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    861,
+    2438,
+    882
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX1_4",
+   "rect": [
+    2279,
+    707,
+    2445,
+    739
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70426",
+   "rect": [
+    2286,
+    712,
+    2438,
+    733
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    712,
+    2438,
+    733
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC10_4",
+   "rect": [
+    2279,
+    886,
+    2445,
+    918
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70430",
+   "rect": [
+    2286,
+    891,
+    2438,
+    912
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    891,
+    2438,
+    912
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC11_4",
+   "rect": [
+    2279,
+    915,
+    2445,
+    947
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70434",
+   "rect": [
+    2286,
+    921,
+    2438,
+    942
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    921,
+    2438,
+    942
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX3_4",
+   "rect": [
+    2279,
+    945,
+    2445,
+    977
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70438",
+   "rect": [
+    2286,
+    950,
+    2438,
+    971
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2286,
+    950,
+    2438,
+    971
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Column Left",
+   "auto_id": "",
+   "rect": [
+    1775,
+    1216,
+    1805,
+    1246
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Left",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Position",
+   "auto_id": "",
+   "rect": [
+    1804,
+    1216,
+    2210,
+    1246
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Page Right",
+   "auto_id": "",
+   "rect": [
+    2210,
+    1216,
+    2415,
+    1246
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "Column Right",
+   "auto_id": "",
+   "rect": [
+    2415,
+    1216,
+    2445,
+    1246
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX5",
+   "rect": [
+    1561,
+    975,
+    1773,
+    1007
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70442",
+   "rect": [
+    1568,
+    980,
+    1766,
+    1001
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    980,
+    1766,
+    1001
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "btnHando",
+   "rect": [
+    1528,
+    886,
+    1563,
+    918
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    1528,
+    886,
+    1563,
+    918
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "btnOldBase",
+   "rect": [
+    1528,
+    737,
+    1563,
+    769
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    1528,
+    737,
+    1563,
+    769
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "15.전자신고세액공제",
+   "auto_id": "labelControl51",
+   "rect": [
+    1320,
+    1005,
+    1563,
+    1037
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX4",
+   "rect": [
+    1561,
+    1005,
+    1773,
+    1037
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70452",
+   "rect": [
+    1568,
+    1010,
+    1766,
+    1031
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    1010,
+    1766,
+    1031
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "btn_taxrate",
+   "rect": [
+    1528,
+    796,
+    1563,
+    828
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    1528,
+    796,
+    1563,
+    828
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "※ 지방소득세 가산세 및 세액공제는\r\n   「과세표준신고서(지방소득세)」에서\r\n    입력하시면 됩니다.",
+   "auto_id": "labelControl49",
+   "rect": [
+    1327,
+    1430,
+    1702,
+    1493
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "양도차손통산후소득금액",
+   "auto_id": "labelControl104",
+   "rect": [
+    1320,
+    677,
+    1563,
+    709
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC04X05",
+   "rect": [
+    1561,
+    677,
+    1773,
+    709
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70462",
+   "rect": [
+    1568,
+    683,
+    1766,
+    704
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    683,
+    1766,
+    704
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "지방소득세 납부(환급)세액",
+   "auto_id": "labelControl36",
+   "rect": [
+    1320,
+    1332,
+    1773,
+    1364
+   ],
+   "enabled": true
+  },
+  {
+   "type": "CheckBox",
+   "name": "",
+   "auto_id": "eBunGU",
+   "rect": [
+    1531,
+    1215,
+    1559,
+    1243
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emTcc",
+   "rect": [
+    2247,
+    1526,
+    2431,
+    1558
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "70472",
+   "rect": [
+    2254,
+    1531,
+    2424,
+    1552
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    2254,
+    1531,
+    2424,
+    1552
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "총 납부할 세액",
+   "auto_id": "RzStatusPane33",
+   "rect": [
+    2247,
+    1493,
+    2431,
+    1525
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "3.세율구분",
+   "auto_id": "labelControl2",
+   "rect": [
+    1320,
+    588,
+    1563,
+    620
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "4.양도소득금액",
+   "auto_id": "labelControl3",
+   "rect": [
+    1320,
+    618,
+    1563,
+    650
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "편집허용",
+   "auto_id": "btnUnLock",
+   "rect": [
+    2273,
+    1321,
+    2448,
+    1374
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Text",
+   "name": "5.기신고소득금액",
+   "auto_id": "labelControl4",
+   "rect": [
+    1320,
+    648,
+    1563,
+    680
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "편집제한",
+   "auto_id": "btnLock",
+   "rect": [
+    2273,
+    1257,
+    2448,
+    1310
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "6.소득감면대상소득금액",
+   "auto_id": "labelControl5",
+   "rect": [
+    1320,
+    707,
+    1563,
+    739
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "7.양도소득기본공제",
+   "auto_id": "labelControl6",
+   "rect": [
+    1320,
+    737,
+    1563,
+    769
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "8.과세표준",
+   "auto_id": "labelControl7",
+   "rect": [
+    1320,
+    767,
+    1563,
+    799
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "9.세율",
+   "auto_id": "labelControl8",
+   "rect": [
+    1320,
+    796,
+    1563,
+    828
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emCC1HLog",
+   "rect": [
+    1528,
+    1124,
+    1563,
+    1156
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    1528,
+    1124,
+    1563,
+    1156
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "  누진공제",
+   "auto_id": "labelControl9",
+   "rect": [
+    1320,
+    826,
+    1773,
+    858
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "10.산출세액",
+   "auto_id": "labelControl10",
+   "rect": [
+    1320,
+    856,
+    1563,
+    888
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "11.감면세액",
+   "auto_id": "labelControl11",
+   "rect": [
+    1320,
+    886,
+    1563,
+    918
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "신축·증축가산세(5%)",
+   "auto_id": "labelControl12",
+   "rect": [
+    1320,
+    1124,
+    1563,
+    1156
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "12.외국납부세액공제",
+   "auto_id": "labelControl13",
+   "rect": [
+    1320,
+    915,
+    1563,
+    947
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "13.원천징수세액공제",
+   "auto_id": "labelControl15",
+   "rect": [
+    1320,
+    945,
+    1563,
+    977
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "무(과소)신고",
+   "auto_id": "labelControl16",
+   "rect": [
+    1414,
+    1034,
+    1563,
+    1066
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "납부지연",
+   "auto_id": "labelControl17",
+   "rect": [
+    1414,
+    1064,
+    1563,
+    1096
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "기장불성실 등",
+   "auto_id": "labelControl18",
+   "rect": [
+    1414,
+    1094,
+    1563,
+    1126
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "17.기신고결정경정세액",
+   "auto_id": "labelControl19",
+   "rect": [
+    1320,
+    1153,
+    1563,
+    1185
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "18.납부할세액",
+   "auto_id": "labelControl20",
+   "rect": [
+    1320,
+    1183,
+    1563,
+    1215
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "19.분납할세액",
+   "auto_id": "labelControl21",
+   "rect": [
+    1320,
+    1213,
+    1563,
+    1245
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "20.납부세액",
+   "auto_id": "labelControl22",
+   "rect": [
+    1320,
+    1243,
+    1563,
+    1275
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": " 환급세액",
+   "auto_id": "labelControl46",
+   "rect": [
+    1320,
+    1391,
+    1563,
+    1423
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "21.환급세액",
+   "auto_id": "labelControl23",
+   "rect": [
+    1320,
+    1272,
+    1563,
+    1304
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "농어촌특별세 납부 계산서",
+   "auto_id": "labelControl24",
+   "rect": [
+    1771,
+    1272,
+    2224,
+    1304
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "22.소득세감면세액",
+   "auto_id": "labelControl25",
+   "rect": [
+    1771,
+    1302,
+    2014,
+    1334
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": " 납부할세액",
+   "auto_id": "labelControl45",
+   "rect": [
+    1320,
+    1362,
+    1563,
+    1394
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "23.세율",
+   "auto_id": "labelControl26",
+   "rect": [
+    1771,
+    1332,
+    2014,
+    1364
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "24.산출세액",
+   "auto_id": "labelControl27",
+   "rect": [
+    1771,
+    1362,
+    2014,
+    1394
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "25.수정신고가산세등",
+   "auto_id": "labelControl28",
+   "rect": [
+    1771,
+    1391,
+    2014,
+    1423
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "26.기신고결정경정세액",
+   "auto_id": "labelControl29",
+   "rect": [
+    1771,
+    1421,
+    2014,
+    1453
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "27.납부할세액",
+   "auto_id": "labelControl30",
+   "rect": [
+    1771,
+    1451,
+    2014,
+    1483
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "합        계",
+   "auto_id": "labelControl31",
+   "rect": [
+    1561,
+    588,
+    1773,
+    620
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "16.가산세",
+   "auto_id": "labelControl32",
+   "rect": [
+    1320,
+    1034,
+    1416,
+    1125
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "28.분납할세액",
+   "auto_id": "labelControl33",
+   "rect": [
+    1771,
+    1481,
+    2014,
+    1513
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "29.납부세액",
+   "auto_id": "labelControl34",
+   "rect": [
+    1771,
+    1510,
+    2014,
+    1542
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "30.환급세액",
+   "auto_id": "labelControl35",
+   "rect": [
+    1771,
+    1540,
+    2014,
+    1572
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC04",
+   "rect": [
+    1561,
+    618,
+    1773,
+    650
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70554",
+   "rect": [
+    1568,
+    623,
+    1766,
+    644
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    623,
+    1766,
+    644
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC05",
+   "rect": [
+    1561,
+    648,
+    1773,
+    680
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70558",
+   "rect": [
+    1568,
+    653,
+    1766,
+    674
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    653,
+    1766,
+    674
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX1",
+   "rect": [
+    1561,
+    707,
+    1773,
+    739
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70562",
+   "rect": [
+    1568,
+    712,
+    1766,
+    733
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    712,
+    1766,
+    733
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC06",
+   "rect": [
+    1561,
+    737,
+    1773,
+    769
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70566",
+   "rect": [
+    1568,
+    742,
+    1766,
+    763
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    742,
+    1766,
+    763
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC07",
+   "rect": [
+    1561,
+    767,
+    1773,
+    799
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70570",
+   "rect": [
+    1568,
+    772,
+    1766,
+    793
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    772,
+    1766,
+    793
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "emCC08",
+   "rect": [
+    1561,
+    796,
+    1773,
+    828
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "70574",
+   "rect": [
+    1568,
+    802,
+    1766,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    1568,
+    802,
+    1766,
+    823
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC15",
+   "rect": [
+    1561,
+    1183,
+    1773,
+    1215
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70578",
+   "rect": [
+    1568,
+    1188,
+    1766,
+    1209
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    1188,
+    1766,
+    1209
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC32",
+   "rect": [
+    1561,
+    1391,
+    1773,
+    1423
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70582",
+   "rect": [
+    1568,
+    1397,
+    1766,
+    1418
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    1397,
+    1766,
+    1418
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC14",
+   "rect": [
+    1561,
+    1153,
+    1773,
+    1185
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70586",
+   "rect": [
+    1568,
+    1159,
+    1766,
+    1180
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    1159,
+    1766,
+    1180
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCG3",
+   "rect": [
+    1561,
+    1094,
+    1773,
+    1126
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70590",
+   "rect": [
+    1568,
+    1099,
+    1766,
+    1120
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    1099,
+    1766,
+    1120
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCN3",
+   "rect": [
+    1561,
+    1064,
+    1773,
+    1096
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70594",
+   "rect": [
+    1568,
+    1069,
+    1766,
+    1090
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    1069,
+    1766,
+    1090
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC31",
+   "rect": [
+    1561,
+    1362,
+    1773,
+    1394
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70598",
+   "rect": [
+    1568,
+    1367,
+    1766,
+    1388
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    1367,
+    1766,
+    1388
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC13",
+   "rect": [
+    1561,
+    1034,
+    1773,
+    1066
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70602",
+   "rect": [
+    1568,
+    1040,
+    1766,
+    1061
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    1040,
+    1766,
+    1061
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCCX3",
+   "rect": [
+    1561,
+    945,
+    1773,
+    977
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70606",
+   "rect": [
+    1568,
+    950,
+    1766,
+    971
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    950,
+    1766,
+    971
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC11",
+   "rect": [
+    1561,
+    915,
+    1773,
+    947
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70610",
+   "rect": [
+    1568,
+    921,
+    1766,
+    942
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    921,
+    1766,
+    942
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC1H",
+   "rect": [
+    1561,
+    1124,
+    1773,
+    1156
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70614",
+   "rect": [
+    1568,
+    1129,
+    1766,
+    1150
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    1129,
+    1766,
+    1150
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC10",
+   "rect": [
+    1561,
+    886,
+    1773,
+    918
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70618",
+   "rect": [
+    1568,
+    891,
+    1766,
+    912
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    891,
+    1766,
+    912
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC09",
+   "rect": [
+    1561,
+    856,
+    1773,
+    888
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70622",
+   "rect": [
+    1568,
+    861,
+    1766,
+    882
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    861,
+    1766,
+    882
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC17",
+   "rect": [
+    1561,
+    1243,
+    1773,
+    1275
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70626",
+   "rect": [
+    1568,
+    1248,
+    1766,
+    1269
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    1248,
+    1766,
+    1269
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "emCC20",
+   "rect": [
+    2013,
+    1332,
+    2225,
+    1364
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "70630",
+   "rect": [
+    2020,
+    1337,
+    2218,
+    1358
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0.00",
+   "auto_id": "",
+   "rect": [
+    2020,
+    1337,
+    2218,
+    1358
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC21",
+   "rect": [
+    2013,
+    1362,
+    2225,
+    1394
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70634",
+   "rect": [
+    2020,
+    1367,
+    2218,
+    1388
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2020,
+    1367,
+    2218,
+    1388
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC24",
+   "rect": [
+    2013,
+    1451,
+    2225,
+    1483
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70638",
+   "rect": [
+    2020,
+    1456,
+    2218,
+    1477
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2020,
+    1456,
+    2218,
+    1477
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC26",
+   "rect": [
+    2013,
+    1510,
+    2225,
+    1542
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70642",
+   "rect": [
+    2020,
+    1516,
+    2218,
+    1537
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2020,
+    1516,
+    2218,
+    1537
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC16",
+   "rect": [
+    1561,
+    1213,
+    1773,
+    1245
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70646",
+   "rect": [
+    1568,
+    1218,
+    1766,
+    1239
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    1218,
+    1766,
+    1239
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC18",
+   "rect": [
+    1561,
+    1272,
+    1773,
+    1304
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70650",
+   "rect": [
+    1568,
+    1278,
+    1766,
+    1299
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    1568,
+    1278,
+    1766,
+    1299
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC19",
+   "rect": [
+    2013,
+    1302,
+    2225,
+    1334
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70654",
+   "rect": [
+    2020,
+    1307,
+    2218,
+    1328
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2020,
+    1307,
+    2218,
+    1328
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC23",
+   "rect": [
+    2013,
+    1421,
+    2225,
+    1453
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70658",
+   "rect": [
+    2020,
+    1426,
+    2218,
+    1447
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2020,
+    1426,
+    2218,
+    1447
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC25",
+   "rect": [
+    2013,
+    1481,
+    2225,
+    1513
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70662",
+   "rect": [
+    2020,
+    1486,
+    2218,
+    1507
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2020,
+    1486,
+    2218,
+    1507
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC27",
+   "rect": [
+    2013,
+    1540,
+    2225,
+    1572
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70666",
+   "rect": [
+    2020,
+    1545,
+    2218,
+    1566
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2020,
+    1545,
+    2218,
+    1566
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "emCC22",
+   "rect": [
+    2013,
+    1391,
+    2225,
+    1423
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "70678",
+   "rect": [
+    2020,
+    1397,
+    2218,
+    1418
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "0",
+   "auto_id": "",
+   "rect": [
+    2020,
+    1397,
+    2218,
+    1418
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "과세표준신고서(양도소득세)",
+   "auto_id": "",
+   "rect": [
+    1311,
+    543,
+    1626,
+    585
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "과세표준신고서(지방소득세)",
+   "auto_id": "",
+   "rect": [
+    1626,
+    543,
+    1941,
+    585
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "양도소득금액계산서",
+   "auto_id": "",
+   "rect": [
+    1941,
+    543,
+    2186,
+    585
+   ],
+   "enabled": true
+  },
+  {
+   "type": "TabItem",
+   "name": "건물기준시가계산서",
+   "auto_id": "",
+   "rect": [
+    2186,
+    543,
+    2431,
+    585
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "가상양도인",
+   "auto_id": "emName",
+   "rect": [
+    2860,
+    1216,
+    2956,
+    1248
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "가상양도인",
+   "auto_id": "70684",
+   "rect": [
+    2867,
+    1222,
+    2949,
+    1243
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "가상양도인",
+   "auto_id": "",
+   "rect": [
+    2867,
+    1222,
+    2949,
+    1243
+   ],
+   "enabled": true
+  },
+  {
+   "type": "List",
+   "name": "",
+   "auto_id": "lbmen",
+   "rect": [
+    3078,
+    760,
+    3197,
+    975
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "기본공제적용",
+   "auto_id": "btnCal01",
+   "rect": [
+    2860,
+    1010,
+    3033,
+    1054
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "기본공제적용",
+   "auto_id": "btnCC4",
+   "rect": [
+    2860,
+    963,
+    3033,
+    1007
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "감면소득금액적용",
+   "auto_id": "btnCC3",
+   "rect": [
+    2860,
+    915,
+    3033,
+    959
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "양도소득금액통산",
+   "auto_id": "btnCC2",
+   "rect": [
+    2860,
+    849,
+    3033,
+    893
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "가져오기",
+   "auto_id": "btnCC1",
+   "rect": [
+    2860,
+    802,
+    3033,
+    846
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "고객리스트가져오기",
+   "auto_id": "btnCC0",
+   "rect": [
+    2860,
+    754,
+    3033,
+    798
+   ],
+   "enabled": true
+  },
+  {
+   "type": "CheckBox",
+   "name": "",
+   "auto_id": "c9",
+   "rect": [
+    2489,
+    1134,
+    2514,
+    1185
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "세액감면·이연신청서",
+   "auto_id": "btnPrn05",
+   "rect": [
+    2518,
+    1260,
+    2758,
+    1304
+   ],
+   "enabled": true
+  },
+  {
+   "type": "CheckBox",
+   "name": "",
+   "auto_id": "c10",
+   "rect": [
+    2489,
+    1430,
+    2514,
+    1481
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "경정청구서",
+   "auto_id": "btnCal100g",
+   "rect": [
+    2520,
+    1481,
+    2760,
+    1525
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "계산근거",
+   "auto_id": "btnGrounds",
+   "rect": [
+    2518,
+    1433,
+    2758,
+    1477
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "건물기준시가계산서",
+   "auto_id": "btnGunView",
+   "rect": [
+    2518,
+    1528,
+    2758,
+    1572
+   ],
+   "enabled": true
+  },
+  {
+   "type": "CheckBox",
+   "name": "세무대리인 인쇄",
+   "auto_id": "cS",
+   "rect": [
+    2562,
+    982,
+    2758,
+    1012
+   ],
+   "enabled": true
+  },
+  {
+   "type": "CheckBox",
+   "name": "",
+   "auto_id": "c2_1",
+   "rect": [
+    2489,
+    945,
+    2514,
+    977
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "양도소득간편신고서",
+   "auto_id": "btnPrn09",
+   "rect": [
+    2518,
+    845,
+    2758,
+    889
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "과세표준신고서(지방)",
+   "auto_id": "btnPrn02_1",
+   "rect": [
+    2518,
+    940,
+    2758,
+    984
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "양도소득세납부서",
+   "auto_id": "btnPrn03",
+   "rect": [
+    2518,
+    1012,
+    2758,
+    1056
+   ],
+   "enabled": true
+  },
+  {
+   "type": "CheckBox",
+   "name": "",
+   "auto_id": "c4",
+   "rect": [
+    2489,
+    1057,
+    2514,
+    1097
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "지방소득세납부서",
+   "auto_id": "btnPrn04",
+   "rect": [
+    2518,
+    1055,
+    2758,
+    1099
+   ],
+   "enabled": true
+  },
+  {
+   "type": "CheckBox",
+   "name": "QR코드 인쇄",
+   "auto_id": "ckQR",
+   "rect": [
+    2594,
+    1099,
+    2750,
+    1129
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "양도소득금액계산서",
+   "auto_id": "btnPrn01",
+   "rect": [
+    2518,
+    798,
+    2758,
+    842
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "과세표준신고서(양도)",
+   "auto_id": "btnPrn02",
+   "rect": [
+    2518,
+    893,
+    2758,
+    937
+   ],
+   "enabled": true
+  },
+  {
+   "type": "CheckBox",
+   "name": "",
+   "auto_id": "c3",
+   "rect": [
+    2489,
+    1008,
+    2514,
+    1059
+   ],
+   "enabled": true
+  },
+  {
+   "type": "CheckBox",
+   "name": "",
+   "auto_id": "c2",
+   "rect": [
+    2489,
+    887,
+    2514,
+    938
+   ],
+   "enabled": true
+  },
+  {
+   "type": "CheckBox",
+   "name": "",
+   "auto_id": "c1",
+   "rect": [
+    2489,
+    795,
+    2514,
+    846
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "선택항목 인쇄/저장",
+   "auto_id": "btnPrint",
+   "rect": [
+    2518,
+    1185,
+    2758,
+    1229
+   ],
+   "enabled": false
+  },
+  {
+   "type": "Button",
+   "name": "필요경비계산명세서",
+   "auto_id": "btnPrnCP",
+   "rect": [
+    2518,
+    1136,
+    2758,
+    1180
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "양도인 : 가상양도인",
+   "auto_id": "lbPerson",
+   "rect": [
+    2478,
+    558,
+    2667,
+    579
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "OldMen2",
+   "rect": [
+    2643,
+    635,
+    2773,
+    667
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "70766",
+   "rect": [
+    2650,
+    641,
+    2766,
+    662
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    2650,
+    641,
+    2766,
+    662
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "합산",
+   "auto_id": "btnSum",
+   "rect": [
+    2482,
+    674,
+    2622,
+    709
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "양도세 합산신고방법",
+   "auto_id": "btn_Url",
+   "rect": [
+    2487,
+    595,
+    2774,
+    627
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "합산취소",
+   "auto_id": "btnSumCancel",
+   "rect": [
+    2634,
+    674,
+    2774,
+    709
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "기신고자료번호",
+   "auto_id": "lbOldMen",
+   "rect": [
+    2485,
+    635,
+    2632,
+    667
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "세 액 재 계 산",
+   "auto_id": "btnCalAll",
+   "rect": [
+    2485,
+    726,
+    2772,
+    770
+   ],
+   "enabled": true
+  },
+  {
+   "type": "List",
+   "name": "신고구분",
+   "auto_id": "eSINGOGU",
+   "rect": [
+    1428,
+    459,
+    1962,
+    529
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "예정",
+   "auto_id": "",
+   "rect": [
+    1435,
+    480,
+    1565,
+    508
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "확정",
+   "auto_id": "",
+   "rect": [
+    1565,
+    480,
+    1695,
+    508
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "수정",
+   "auto_id": "",
+   "rect": [
+    1694,
+    480,
+    1824,
+    508
+   ],
+   "enabled": true
+  },
+  {
+   "type": "RadioButton",
+   "name": "기한후",
+   "auto_id": "",
+   "rect": [
+    1824,
+    480,
+    1954,
+    508
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "양 도 세\r\n신고구분",
+   "auto_id": "lbSingoGU",
+   "rect": [
+    1321,
+    459,
+    1428,
+    529
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "양도세 전자신고방법",
+   "auto_id": "btnHometaxBrowse",
+   "rect": [
+    1985,
+    499,
+    2213,
+    531
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "지방세 전자신고방법",
+   "auto_id": "btnWetaxBrowse",
+   "rect": [
+    2221,
+    499,
+    2449,
+    531
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "화면인쇄",
+   "auto_id": "btnScreen",
+   "rect": [
+    2499,
+    488,
+    2639,
+    532
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "닫기",
+   "auto_id": "cxClose",
+   "rect": [
+    2648,
+    488,
+    2771,
+    532
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "지방세 전자신고",
+   "auto_id": "btnEReport_Ji",
+   "rect": [
+    2350,
+    1603,
+    2560,
+    1647
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "양도세 전자신고",
+   "auto_id": "btnEReport",
+   "rect": [
+    2132,
+    1603,
+    2342,
+    1647
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "이전단계",
+   "auto_id": "PreBtn",
+   "rect": [
+    2583,
+    1603,
+    2776,
+    1647
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "지방세 납부기한",
+   "auto_id": "labelControl151",
+   "rect": [
+    1950,
+    1594,
+    2092,
+    1613
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "지방세 신고일자",
+   "auto_id": "labelControl152",
+   "rect": [
+    1794,
+    1594,
+    1936,
+    1613
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "양도세 분납기한",
+   "auto_id": "lbBUNDATE",
+   "rect": [
+    1635,
+    1594,
+    1777,
+    1613
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "양도세 납부기한",
+   "auto_id": "lbNAPDATE",
+   "rect": [
+    1479,
+    1594,
+    1621,
+    1613
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "양도세 신고일자",
+   "auto_id": "lbSINDATE",
+   "rect": [
+    1323,
+    1594,
+    1465,
+    1613
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "OldMen",
+   "rect": [
+    2644,
+    873,
+    2774,
+    905
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "70840",
+   "rect": [
+    2651,
+    879,
+    2767,
+    900
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Edit",
+   "name": "",
+   "auto_id": "",
+   "rect": [
+    2651,
+    879,
+    2767,
+    900
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Tab",
+   "name": "",
+   "auto_id": "Faqtab",
+   "rect": [
+    -182,
+    -788,
+    1306,
+    376
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "화면인쇄",
+   "auto_id": "simpleButton11",
+   "rect": [
+    1136,
+    -782,
+    1276,
+    -743
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "Page",
+   "auto_id": "labelControl15",
+   "rect": [
+    999,
+    -775,
+    1038,
+    -747
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "2",
+   "auto_id": "simpleButton8",
+   "rect": [
+    1085,
+    -781,
+    1120,
+    -746
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "1",
+   "auto_id": "simpleButton9",
+   "rect": [
+    1045,
+    -781,
+    1080,
+    -746
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "자주 하는 질문 (양도소득세 FAQ)",
+   "auto_id": "labelControl48",
+   "rect": [
+    -166,
+    -774,
+    182,
+    -748
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "부담부증여 입력방법",
+   "auto_id": "simpleButton13",
+   "rect": [
+    229,
+    -149,
+    446,
+    -117
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "홈택스 전자신고방법",
+   "auto_id": "simpleButton5",
+   "rect": [
+    228,
+    -385,
+    447,
+    -353
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "※ 증축건물은 바닥면적 합계가 85㎡를 초과되는 경우에만 가산세가 반영됩니다.",
+   "auto_id": "labelControl50",
+   "rect": [
+    228,
+    -40,
+    918,
+    -15
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl51",
+   "rect": [
+    196,
+    -334,
+    222,
+    -294
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "양도소득세 일부 자료만 선택하여 백업하는 경우 「양도인등록」화면에서 백업할 양도인을 선택합니다.\r\n「자료 백업」메뉴로 선택한 자료를 백업하고, 이 후 「자료 복원」메뉴에서 백업파일을 열면 복원됩니다.",
+   "auto_id": "labelControl52",
+   "rect": [
+    229,
+    -326,
+    1090,
+    -277
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl53",
+   "rect": [
+    196,
+    -448,
+    222,
+    -408
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "세무대리인의 경우 「환경 설정」에서 세무대리인 필수정보를 입력하고, 「세액 계산」화면에서 세액 계산 후\r\n「양도세 전자신고」메뉴를 선택하여 전자신고를 진행합니다.",
+   "auto_id": "labelControl54",
+   "rect": [
+    229,
+    -439,
+    1118,
+    -390
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl55",
+   "rect": [
+    194,
+    -613,
+    220,
+    -573
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "경정청구할 양도인을 선택하여 「양도인 복사」를 하고, 복사된 양도인 자료에서 내용을 수정합니다.\r\n「세액 계산」화면에서 「과세표준 및 세액의 결정(경정)청구서」메뉴를 선택하여 작성합니다.",
+   "auto_id": "labelControl56",
+   "rect": [
+    228,
+    -604,
+    1063,
+    -555
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "※ 주택이 최초고시일 이후 2회 이상 증축된 경우는 계산이 지원되지 않습니다.",
+   "auto_id": "labelControl57",
+   "rect": [
+    228,
+    75,
+    897,
+    100
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl58",
+   "rect": [
+    194,
+    12,
+    220,
+    52
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "「건물입력 및 수정」화면에서 건물을 추가하여 취득일자 옆 「거래원인」을 증축으로 선택하고, \r\n주택인 경우 증축일 이후 최초고시일 및 개별주택가격을 입력합니다.",
+   "auto_id": "labelControl59",
+   "rect": [
+    228,
+    21,
+    1016,
+    70
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "※「부담부증여후 양도(이월과세)」는 부담부증여로 취득한 자산을 10년 이내 양도(이월과세)하는 경우에만 선택합니다.",
+   "auto_id": "labelControl60",
+   "rect": [
+    229,
+    -180,
+    1246,
+    -155
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl61",
+   "rect": [
+    196,
+    -105,
+    222,
+    -65
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "「건물입력 및 수정」화면에서 취득일자 옆 「거래원인」을 신축 또는 증축으로, 「취득가액 종류」는 환산취득가액 \r\n또는 감정가액을 선택하면 취득일부터 5년 이내 양도인 경우 가산세가 자동 반영됩니다.",
+   "auto_id": "labelControl62",
+   "rect": [
+    229,
+    -96,
+    1160,
+    -47
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl63",
+   "rect": [
+    196,
+    -243,
+    222,
+    -203
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "「자산 등록」화면에서 해당 재산유형 (예: 토지)을 선택한 후 「양도유형」를 부담부증여로 선택합니다.\r\n부담부증여 관련 증여세는 증여세 메뉴에서 별도로 계산합니다.\r\n",
+   "auto_id": "labelControl64",
+   "rect": [
+    229,
+    -235,
+    1080,
+    -186
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "합산신고방법",
+   "auto_id": "simpleButton6",
+   "rect": [
+    228,
+    -495,
+    447,
+    -463
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl66",
+   "rect": [
+    196,
+    -536,
+    222,
+    -496
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "「세액 계산」화면에서 「합산」버튼 을 클릭하여 합산할 신고자료를 불러옵니다.",
+   "auto_id": "labelControl67",
+   "rect": [
+    229,
+    -527,
+    885,
+    -502
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Button",
+   "name": "수정신고방법",
+   "auto_id": "simpleButton7",
+   "rect": [
+    228,
+    -653,
+    447,
+    -621
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "A.",
+   "auto_id": "labelControl68",
+   "rect": [
+    196,
+    -716,
+    222,
+    -676
+   ],
+   "enabled": true
+  },
+  {
+   "type": "Text",
+   "name": "수정신고할 양도인을 선택하여 「양도인 복사」를 하고, 복사된 양도인 자료에서 내용을 수정합니다.\r\n신고구분을 「수정」으로 바꾼 후 과세표준 수정신고서를 작성합니다.",
+   "auto_id": "labelControl69",
+   "rect": [
+    229,
+    -707,
+    1064,
+    -658
+   ],
+   "enabled": true
+  }
+ ],
+ "unreviewed": [
+  "자료 백업",
+  "환경 설정",
+  "공서식 인쇄·작성",
+  "Column Left",
+  "Page Left",
+  "Position",
+  "Page Right",
+  "Column Right",
+  "편집허용",
+  "편집제한",
+  "기본공제적용",
+  "감면소득금액적용",
+  "양도소득금액통산",
+  "가져오기",
+  "고객리스트가져오기",
+  "세액감면·이연신청서",
+  "경정청구서",
+  "계산근거",
+  "건물기준시가계산서",
+  "양도소득간편신고서",
+  "과세표준신고서(지방)",
+  "양도소득세납부서",
+  "지방소득세납부서",
+  "양도소득금액계산서",
+  "과세표준신고서(양도)",
+  "선택항목 인쇄/저장",
+  "필요경비계산명세서",
+  "합산",
+  "양도세 합산신고방법",
+  "합산취소",
+  "세 액 재 계 산",
+  "양도세 전자신고방법",
+  "지방세 전자신고방법",
+  "화면인쇄",
+  "닫기",
+  "지방세 전자신고",
+  "양도세 전자신고",
+  "이전단계",
+  "2",
+  "1",
+  "부담부증여 입력방법",
+  "홈택스 전자신고방법",
+  "합산신고방법",
+  "수정신고방법"
+ ],
+ "blocked": [
+  "자료 복원",
+  "원격지원"
+ ]
+}
