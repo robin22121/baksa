@@ -45,6 +45,9 @@ BIG_FILE = 200 * 1024 * 1024  # 이 크기를 넘는 파일은 앞·뒤 1MB 표�
 
 Win = namedtuple("Win", "hwnd pid title cls owner msg", defaults=("",))
 
+# 파일 대화상자 제목(#32770): 단계에 없이 뜨면 U5 같은 사고의 신호
+FILE_DIALOG_TITLES = {"열기", "다른이름으로저장", "폴더찾아보기"}
+
 # 이 이름의 버튼만 있는 창(+짧은 문구)은 모달(메시지 상자), 아니면 화면
 MODAL_BUTTONS = {"예", "아니오", "확인", "취소", "닫기"}
 
@@ -187,6 +190,20 @@ def top_windows():
         return True
 
     _u32.EnumWindows(cb, 0)
+    return out
+
+
+def check_unexpected(wins, forbidden):
+    """Win 목록에서 예상 밖 창만 골라 [(Win, 사유)]. (a) #32770 파일 대화상자 제목, (b) 창 제목 또는 msg에 금지어.
+    버튼 텍스트는 보지 않는다(메인 창의 '업데이트 확인' 버튼 때문). msg는 모달만 채워져 있다."""
+    out = []
+    for w in wins:
+        if w.cls == "#32770" and norm(w.title) in FILE_DIALOG_TITLES:
+            out.append((w, "파일 대화상자"))
+            continue
+        hit = next((f for f in forbidden if f and (f in norm(w.title) or f in norm(w.msg))), None)
+        if hit:
+            out.append((w, f"금지어 {hit!r}"))
     return out
 
 
@@ -389,6 +406,32 @@ class App:
     def modals_info(self):
         return self._split()[1]
 
+    def unexpected_windows(self):
+        """양도박사 보이는 최상위 창 중 예상 밖 창 [(Win, 사유)]. 파일 대화상자·금지어 제목/모달 문구.
+        #32770은 _split이 msg를 채우지 않으므로 여기서 따로 읽는다(modal_key에는 영향 없음)."""
+        screens, modals = self._split()
+        wins = list(screens)
+        for w in modals:
+            if w.cls == "#32770" and not w.msg:
+                try:
+                    texts = [t for t in (d.window_text().strip() for d in win32_descendants(w.hwnd)) if t]
+                except Exception:  # noqa: BLE001
+                    texts = []
+                w = w._replace(msg=" ".join(t for t in texts if norm(t) not in MODAL_BUTTONS))
+            wins.append(w)
+        return check_unexpected(wins, self.forbidden)
+
+    def halt_if_unexpected(self, tag):
+        """예상 밖 창이 있으면 아무것도 누르지 않고 첫 창을 캡처한 뒤 사유 문자열을 돌려준다. 없으면 None."""
+        found = self.unexpected_windows()
+        if not found:
+            return None
+        w, why = found[0]
+        cap = self.capture(w.hwnd, ROOT / "docs" / "screens" / f"{tag}_unexpected.png")
+        desc = ", ".join(f"{x.title!r}({x.cls}) {y}" for x, y in found)
+        log("unexpected", f"{desc} capture={cap}")
+        return f"예상 밖 창 {desc} (캡처 {cap})"
+
     @staticmethod
     def modal_key(w):
         """모달 키: 제목|문구 (공백 제거)."""
@@ -457,12 +500,19 @@ class App:
     # ---- 캡처 ----
 
     def capture(self, win, path):
-        """창을 맨 앞에 두고 화면 복사. 실패하면 PrintWindow. 반환: ok / printwindow / failed."""
+        """창을 맨 앞에 두고 화면 복사. 실패하면 PrintWindow. 반환: ok / printwindow / failed / window_gone."""
         from PIL import Image, ImageGrab
         hwnd = _hwnd_of(win)
         path = Path(path)
         path.parent.mkdir(parents=True, exist_ok=True)
-        w = wrap(hwnd)
+        if not _u32.IsWindow(hwnd):
+            log("capture", f"window_gone {hwnd}")
+            return "window_gone"
+        try:
+            w = wrap(hwnd)
+        except Exception as e:  # noqa: BLE001
+            log("capture", f"window_gone {hwnd} {e}")
+            return "window_gone"
         try:
             w.set_focus()
         except Exception as e:  # noqa: BLE001

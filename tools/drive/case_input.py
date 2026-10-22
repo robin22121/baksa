@@ -616,6 +616,10 @@ def find_status(found, enabled=True):
 
 
 def dry_run(a, window, steps):
+    bad = a.unexpected_windows()
+    if bad:
+        print(f"경고: 예상 밖 창 {[(w.title, w.cls, why) for w, why in bad]} — 종료")
+        return 2
     w = find_target(a, window)
     if not w:
         print(f"창 {window!r}이(가) 열려 있지 않음 — dry-run은 창을 열지 않는다")
@@ -830,9 +834,29 @@ class Runner:
             rec["new_externals"] = [list(self.a.externals().get(h, ("", ""))) for h in new_e]
             raise Stop("abort", f"외부 창이 떴다 {rec['new_externals']}")
 
+    def no_unexpected(self):
+        """누르기 직전 검사: 예상 밖 창이 있으면 캡처하고 중단."""
+        why = self.a.halt_if_unexpected(f"{self.case}_{self.i:02d}")
+        if why:
+            raise Stop("abort", why)
+
+    def check_closes(self, step, rec):
+        """closes: <창 제목> — 누른 뒤 5초 안에 그 창이 사라지면 True(대상 창을 최상위 window로 되돌림). 아니면 기록만."""
+        name = step.get("closes")
+        if not name:
+            return False
+        gone = bool(appmod.wait_for(lambda: find_target(self.a, name) is None, 5.0))
+        rec["closes"] = {"title": name, "gone": gone}
+        if gone:
+            base = find_target(self.a, self.base_window) if self.base_window else None
+            if base:
+                self.hwnd = base.hwnd
+        return gone
+
     # -- 동작
     def do_press(self, step, rec):
         name = step["press"]
+        self.no_unexpected()
         if self.a.is_forbidden(name):
             raise Stop("abort", f"금지 목록에 걸리는 버튼 {name!r}")
         st = self.btn_states().get(norm(name))
@@ -847,6 +871,8 @@ class Runner:
                 raise Stop("fail", f"버튼을 누를 수 없음 {name!r}")
         rec["how"] = how
         self.settle(step, rec, before)
+        if self.check_closes(step, rec):
+            return
         exp_en = step.get("expect_enabled") or []
         exp_dis = step.get("expect_disabled") or []
         if exp_en or exp_dis:
@@ -864,6 +890,7 @@ class Runner:
 
     def do_press_id(self, step, rec):
         aid = step["press_id"]
+        self.no_unexpected()
         before = self.snap()
         found, enabled, h, name = guard(lambda: op_click_id(self.hwnd, aid))
         rec["button"] = {"id": aid, "name": name, "click_hwnd": h}
@@ -874,6 +901,8 @@ class Runner:
         if not enabled:
             raise Stop("fail", f"버튼 비활성 {aid}")
         self.settle(step, rec, before)
+        if self.check_closes(step, rec):
+            return
         exp_en = step.get("expect_enabled") or []
         exp_dis = step.get("expect_disabled") or []
         if exp_en or exp_dis:
@@ -889,6 +918,7 @@ class Runner:
 
     def do_click_id(self, step, rec):
         aid = step["click_id"]
+        self.no_unexpected()
         before = self.snap()
         res = guard(lambda: op_click_id_mouse(self.hwnd, aid))
         rec["result"] = res
@@ -967,6 +997,8 @@ class Runner:
     def do_capture(self, step, rec):
         status, rel = self.shot(step["capture"])
         rec["capture"], rec["capture_method"] = rel, status
+        if status == "window_gone":
+            return  # 대상 창이 없다: 기록만 하고 계속
         if status == "failed":
             raise Stop("fail", "캡처 실패")
 
@@ -1106,6 +1138,9 @@ def execute(a, steps_path, window, vars_, steps):
             raise Stop("abort", f"창 {window!r}이(가) 열려 있지 않음")
         if a.modals():
             raise Stop("abort", f"실행 전에 모달이 열려 있음 {a.modals()}")
+        why = a.halt_if_unexpected(f"{case}_start")
+        if why:
+            raise Stop("abort", why)
         rec["hwnd"] = w.hwnd
         bdir, bfail = a.backup_before_run()
         rec["backup"], rec["backup_failed"] = str(bdir), bfail

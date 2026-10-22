@@ -253,6 +253,10 @@ class Run:
 
     def step(self, parent_hwnd, btn, path, parent_seq):
         """부모 화면에서 버튼 하나를 눌러 간선을 판정하고 처리한다."""
+        why = self.a.halt_if_unexpected(f"explore_{self.presses:03d}")
+        if why:
+            self.unknown_modal = True  # 정리 단계에서 아무것도 닫지 않는다
+            raise Abort(why)
         before = self.snapshot()
         key0 = self.cur_key(parent_hwnd)
         self.presses += 1
@@ -311,6 +315,10 @@ def open_root(a, allow):
 
 
 def dry_run(a, allow):
+    bad = a.unexpected_windows()
+    if bad:
+        print(f"경고: 예상 밖 창 {[(w.title, w.cls, why) for w, why in bad]} — 종료")
+        return 2
     run = Run(a, allow)
     try:
         w, opened = open_root(a, allow)
@@ -359,6 +367,10 @@ def fdb_blocks(root, bdir, changed, page=4096, limit=50):
 
 
 def explore(a, allow):
+    why = a.halt_if_unexpected("explore_start")
+    if why:
+        print(f"중단: {why}")
+        return 2
     run = Run(a, allow)
     bdir, bfail = a.backup_before_run()
     print(f"백업: {bdir} 실패={bfail}")
