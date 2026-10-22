@@ -4,7 +4,7 @@
 - 전체 구조 `docs/work-plans/2026-10-22-전체구조.md` — 구현(W0~W1b 뼈대 Mac에서 작성·미검증, "구현 결과" 표). 남은 것: Windows에서 W1 실행 → 손질 지점 반영 → W1b 탐색 1회 → archive
 
 ## 막힌 것 / 사람 확인 필요
-- Windows 첫 세션에 사람이 줄 것: 양도박사 EULA 자동화 조항 확인, 금지 메뉴 확정(`docs/env.md` 기본 8개), 데이터 폴더 위치 (설계서 §5-5·6)
+- 데모버전이라 출력 분석(3단계·W2b) 보류. 정품으로 바꾸면 재개 (`docs/decisions.md` "라이선스·출력 분석")
 
 ## 다음 할 일 (Windows 에이전트)
 1. `git pull` → `pip install -r tools/requirements.txt` → 양도박사 실행 후 `python tools/check_env.py` 출력을 `docs/env.md`에 붙이고 조작 방식(uia/win32/좌표+OCR) 결정

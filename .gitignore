@@ -16,3 +16,6 @@ node_modules/
 data/schema/dump/
 data/efile/spec/
 data/efile/samples/
+
+# 일회성 조회 스크립트·캡처
+.scratch/
