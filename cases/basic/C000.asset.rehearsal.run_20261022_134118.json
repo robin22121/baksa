@@ -1,0 +1,150 @@
+{
+ "steps_file": "cases\\basic\\C000.asset.rehearsal.steps.yaml",
+ "case": "C000",
+ "started": "2026-10-22T13:41:18",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 4,
+ "hwnd": 5965548,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261022_134119",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록"
+   },
+   "t": "2026-10-22T13:41:20",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "press",
+   "spec": {
+    "press": "주택외건물(토지포함)",
+    "modals": {
+     "*|*2회이상*": "아니오"
+    },
+    "opens": "자산내역등록"
+   },
+   "t": "2026-10-22T13:41:26",
+   "how": "postmessage",
+   "modals": [
+    {
+     "key": "확인|2회이상지분으로취득한자산등록방법2회이상에걸쳐지분으로취득한주택외건물(토지포함)을양도하였습니까?",
+     "title": "확인",
+     "msg": "2회 이상 지분으로 취득한 자산 등록방법 2회 이상에 걸쳐 지분으로 취득한 주택외건물(토지포함)을 양도하였습니까?",
+     "pressed": [
+      "아니오"
+     ],
+     "handled": true
+    }
+   ],
+   "status": "error",
+   "detail": "ArgumentError: argument 1: OverflowError: int too long to convert",
+   "trace": "Traceback (most recent call last):\n  File \"C:\\Users\\USER\\W\\baksa\\tools\\drive\\case_input.py\", line 1065, in run\n    getattr(self, \"do_\" + act)(step, rec)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^\n  File \"C:\\Users\\USER\\W\\baksa\\tools\\drive\\case_input.py\", line 849, in do_press\n    self.settle(step, rec, before)\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\W\\baksa\\tools\\drive\\case_input.py\", line 819, in settle\n    \"capture_method\": self.a.capture(h, cp)}\n                      ~~~~~~~~~~~~~~^^^^^^^\n  File \"C:\\Users\\USER\\w\\baksa\\tools\\drive\\app.py\", line 466, in capture\n    mdc = gdi.CreateCompatibleDC(hdc_screen)\nctypes.ArgumentError: argument 1: OverflowError: int too long to convert\n"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 0,
+   "by_type": {},
+   "first_pages": {},
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 6,
+   "by_type": {
+    "header": 1,
+    "PIP": 1,
+    "gen": 1,
+    "pointer": 1,
+    "TIP": 1,
+    "data": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "PIP": [
+     1
+    ],
+    "gen": [
+     136
+    ],
+    "pointer": [
+     171
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     306
+    ]
+   },
+   "data_type_changed": 2
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 0,
+    "by_type": {},
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 6,
+    "by_type": {
+     "header": 1,
+     "PIP": 1,
+     "gen": 1,
+     "pointer": 1,
+     "TIP": 1,
+     "data": 1
+    },
+    "only_header_tip": false,
+    "data_type_changed": 2,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": "ArgumentError: argument 1: OverflowError: int too long to convert",
+ "exit_code": 1,
+ "finished": "2026-10-22T13:41:39",
+ "remaining_screens": [
+  1512552,
+  5965548,
+  199966,
+  2623152,
+  200110,
+  1707054,
+  460136
+ ],
+ "remaining_modals": []
+}

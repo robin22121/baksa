@@ -1,0 +1,270 @@
+{
+ "steps_file": ".scratch\\addr_probe.steps.yaml",
+ "case": "addr_probe",
+ "started": "2026-10-22T13:39:37",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 5965548,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261022_133938",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록"
+   },
+   "t": "2026-10-22T13:39:40",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "press",
+   "spec": {
+    "press": "주택외건물(토지포함)",
+    "modals": {
+     "*|*2회이상*": "아니오"
+    },
+    "opens": "자산내역등록"
+   },
+   "t": "2026-10-22T13:39:46",
+   "how": "postmessage",
+   "modals": [
+    {
+     "key": "확인|2회이상지분으로취득한자산등록방법2회이상에걸쳐지분으로취득한주택외건물(토지포함)을양도하였습니까?",
+     "title": "확인",
+     "msg": "2회 이상 지분으로 취득한 자산 등록방법 2회 이상에 걸쳐 지분으로 취득한 주택외건물(토지포함)을 양도하였습니까?",
+     "pressed": [
+      "아니오"
+     ],
+     "handled": true
+    }
+   ],
+   "opened": {
+    "title": "자산내역등록",
+    "hwnd": 1578248,
+    "capture": "docs/screens/addr_probe_02_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "click_id",
+   "spec": {
+    "click_id": "CC02",
+    "opens": "주소검색"
+   },
+   "t": "2026-10-22T13:39:56",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     1295,
+     488,
+     1871,
+     537
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       1578248
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "opened": {
+    "title": "주소 검색",
+    "hwnd": 1643240,
+    "capture": "docs/screens/addr_probe_03_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "emSearch",
+     "value": "월드컵로 212"
+    }
+   },
+   "t": "2026-10-22T13:40:05",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "월드컵로 212",
+       "월드컵로 212",
+       "월드컵로 212"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       1643240
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "월드컵로 212",
+     "월드컵로 212",
+     "월드컵로 212"
+    ]
+   },
+   "want": "월드컵로 212",
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSearch"
+   },
+   "t": "2026-10-22T13:40:10",
+   "button": {
+    "id": "btnSearch",
+    "name": "조회",
+    "click_hwnd": 1119040
+   },
+   "new_screens": [
+    1119146
+   ],
+   "status": "abort",
+   "detail": "새 화면이 떴다 [1119146] — 단계 파일에 반영 필요"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 6,
+   "by_type": {
+    "header": 1,
+    "PIP": 1,
+    "gen": 1,
+    "pointer": 1,
+    "TIP": 1,
+    "data": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "PIP": [
+     1
+    ],
+    "gen": [
+     136
+    ],
+    "pointer": [
+     171
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     306
+    ]
+   },
+   "data_type_changed": 2
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 6,
+    "by_type": {
+     "header": 1,
+     "PIP": 1,
+     "gen": 1,
+     "pointer": 1,
+     "TIP": 1,
+     "data": 1
+    },
+    "only_header_tip": false,
+    "data_type_changed": 2,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 5 press_id abort: 새 화면이 떴다 [1119146] — 단계 파일에 반영 필요",
+ "exit_code": 2,
+ "finished": "2026-10-22T13:40:15",
+ "remaining_screens": [
+  1119146,
+  1643240,
+  1578248,
+  199782,
+  5965548,
+  199966,
+  2623152,
+  200110,
+  1707054,
+  460136
+ ],
+ "remaining_modals": []
+}

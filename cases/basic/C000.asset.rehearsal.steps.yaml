@@ -8,6 +8,16 @@ steps:
     opens: 자산내역등록
   - radio_id: rgJasanBU2          # 부동산계약서구분: 토지,건물 각각
   - radio_id: rgCHK1              # 취득가액 유형: 취득실가를 아는 경우
+  # 소재지: 주소 검색 창에서 공공기관 주소(마포구청)를 검색 → 결과 창에서 첫 결과가 자동 선택 → 저장 (사용자 결정 2026-10-22, 메인 수동 확인)
+  - click_id: CC02
+    opens: 주소검색
+  - text: {id: emSearch, value: 월드컵로 212}
+  - press_id: btnSearch
+    opens: 주소검색
+  - read: [txtResultJuso]
+  - press_id: btnOk
+  - window: 자산내역등록
+  - read: [CC02]
   - text: {id: CC06, value: "2025-06-30", type: Pane}   # 양도일자
   - text: {id: CC11, value: "2020-03-16", type: Pane}   # 토지취득일자
   - text: {id: GN11, value: "2020-03-16", type: Pane}   # 건물취득일자

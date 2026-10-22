@@ -67,6 +67,20 @@ if platform.system() == "Windows":
     _u32.ScreenToClient.argtypes = [wt.HWND, ctypes.POINTER(wt.POINT)]
     _u32.ChildWindowFromPointEx.restype = wt.HWND
     _u32.ChildWindowFromPointEx.argtypes = [wt.HWND, wt.POINT, wt.UINT]
+    _u32.GetDC.argtypes = [wt.HWND]
+    _u32.ReleaseDC.argtypes = [wt.HWND, wt.HDC]
+    _u32.ReleaseDC.restype = ctypes.c_int
+    _g32 = ctypes.windll.gdi32
+    _g32.CreateCompatibleDC.restype = wt.HDC
+    _g32.CreateCompatibleDC.argtypes = [wt.HDC]
+    _g32.CreateCompatibleBitmap.restype = wt.HBITMAP
+    _g32.CreateCompatibleBitmap.argtypes = [wt.HDC, ctypes.c_int, ctypes.c_int]
+    _g32.SelectObject.restype = wt.HGDIOBJ
+    _g32.SelectObject.argtypes = [wt.HDC, wt.HGDIOBJ]
+    _g32.GetDIBits.restype = ctypes.c_int
+    _g32.GetDIBits.argtypes = [wt.HDC, wt.HBITMAP, wt.UINT, wt.UINT, ctypes.c_void_p, ctypes.c_void_p, wt.UINT]
+    _g32.DeleteObject.argtypes = [wt.HGDIOBJ]
+    _g32.DeleteDC.argtypes = [wt.HDC]
     _k32.OpenProcess.restype = wt.HANDLE
     _k32.OpenProcess.argtypes = [wt.DWORD, wt.BOOL, wt.DWORD]
     _k32.CloseHandle.argtypes = [wt.HANDLE]
@@ -462,7 +476,7 @@ class App:
                 return "ok"
         # 포그라운드가 아니면 PrintWindow(PW_RENDERFULLCONTENT) 한 번
         hdc_screen = _u32.GetDC(0)
-        gdi = ctypes.windll.gdi32
+        gdi = _g32
         mdc = gdi.CreateCompatibleDC(hdc_screen)
         bmp = gdi.CreateCompatibleBitmap(hdc_screen, r - l, b - t)
         gdi.SelectObject(mdc, bmp)
