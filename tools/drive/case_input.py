@@ -32,7 +32,8 @@ import yaml  # noqa: E402
 ROOT = appmod.ROOT
 SCREENS = ROOT / "docs" / "screens"
 CASES = ROOT / "cases" / "basic"
-ACTIONS = ("press", "radio", "text", "combo", "check_combo", "read", "capture", "verify_grid")
+ACTIONS = ("press", "radio", "text", "combo", "check_combo", "read", "capture", "verify_grid",
+           "window", "radio_id", "tab", "grid_cell", "close", "press_id", "click_id")
 OP_TIMEOUT = 40  # uia 한 번의 조회·조작 상한(초)
 norm = appmod.norm
 
@@ -46,6 +47,23 @@ class Stop(Exception):
 
 
 # ---------------------------------------------------------------- uia 조작 (모두 worker 스레드 안에서 실행)
+
+def _modal_match(mapkey, key):
+    """모달 키 비교: 제목·문구 부분이 '*부분*'이면 포함 여부, '*'만 있으면 전부, 그 밖은 정확히 같음."""
+    if "|" not in mapkey or "|" not in key:
+        return False
+    mt, mm = mapkey.split("|", 1)
+    kt, km = key.split("|", 1)
+
+    def ok(m, k):
+        if m == "*":
+            return True
+        if len(m) > 2 and m.startswith("*") and m.endswith("*"):
+            return m[1:-1] in k
+        return m == k
+
+    return ok(mt, kt) and ok(mm, km)
+
 
 def clean_title(t):
     return t.split("▶")[0].strip()
@@ -76,7 +94,14 @@ def btn_states_from(inv):
     return d
 
 
-def _value_cands(el):
+def _legacy_value(el):
+    try:
+        return el.legacy_properties().get("Value") or ""
+    except Exception:  # noqa: BLE001
+        return ""
+
+
+def _value_cands(el, use_name=False):
     """칸의 값 후보: ValuePattern, window_text, 자식 Edit의 값 (이름은 라벨이라 쓰지 않는다)."""
     out = []
     try:
@@ -87,6 +112,9 @@ def _value_cands(el):
         out.append(el.window_text())
     except Exception:  # noqa: BLE001
         pass
+    out.append(_legacy_value(el))
+    if use_name:  # Pane 등 값 패턴이 없는 칸: 이름이 값을 따라 바뀌는지 보기 위해
+        out.append(el.element_info.name)
     if not any(x for x in out):
         try:
             for ch in el.descendants(control_type="Edit"):
@@ -112,10 +140,20 @@ def _combo_cands(el):
     return [x for x in c if x]
 
 
+def date_of(s):
+    """'2025-06-30'·'2025년 6월 30일 월요일' 등에서 (연, 월, 일)."""
+    m = re.search(r"(\d{4})\D+(\d{1,2})\D+(\d{1,2})", s or "")
+    return tuple(int(x) for x in m.groups()) if m else None
+
+
 def same_text(want, got_list):
-    """글자 칸: 공백을 지운 값이 같다. 숫자 13자리면 숫자만 뽑아 비교(주민번호)."""
+    """글자 칸: 공백을 지운 값이 같다. 숫자 13자리면 숫자만 뽑아 비교(주민번호). 날짜는 (연,월,일)로 비교."""
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", want):
+        return any(date_of(g) == date_of(want) for g in got_list)
     if re.fullmatch(r"\d{13}", want):
         return any(re.sub(r"\D", "", g) == want for g in got_list)
+    if re.fullmatch(r"[\d,.\-]+", want):  # 금액·날짜: 공백·쉼표 무시
+        return any(re.sub(r"[\s,]", "", g) == re.sub(r"[\s,]", "", want) for g in got_list)
     return any(re.sub(r"\s+", "", g) == re.sub(r"\s+", "", want) for g in got_list)
 
 
@@ -171,7 +209,7 @@ def esc_keys(text):
     return "".join("{" + ch + "}" if ch in "{}+^%~()[]" else ch for ch in text)
 
 
-def op_input(hwnd, auto_id, ctype, want, kind):
+def op_input(hwnd, auto_id, ctype, want, kind, use_name=False):
     """칸 하나에 값을 넣고 Tab으로 확정한 뒤 다시 읽는다.
     시도 순서: ① ValuePattern 설정 ② Ctrl+A 후 영문은 type_keys, 한글 등은 클립보드 붙여넣기. 매 시도 직전에 전경 확인."""
     from pywinauto.keyboard import send_keys
@@ -181,29 +219,41 @@ def op_input(hwnd, auto_id, ctype, want, kind):
     log = {"found": True, "enabled": bool(el.element_info.enabled), "attempts": [], "foreground": [], "ok": False}
     if not log["enabled"]:
         return log
-    cands = _combo_cands if kind == "combo" else _value_cands
+    cands = _combo_cands if kind == "combo" else (lambda e: _value_cands(e, use_name))
     same = same_combo if kind == "combo" else same_text
     log["before"] = cands(el)
 
-    for method in ("set_value", "type" if want.isascii() else "paste"):
+    for method in ("set_value", "type" if want.isascii() else "paste", "mouse"):
         okfg, seen = fg_ensure(hwnd)
         log["foreground"].append({"before": method, "ok": okfg, "hwnds": seen})
         if not okfg:
             return log
         att = {"method": method}
         try:
-            try:
-                el.set_focus()
-            except Exception:  # noqa: BLE001
-                pass
+            if method == "mouse":  # 실제 마우스로 칸 중앙을 눌러 편집을 켠 뒤 입력(위 방법이 안 먹는 칸용)
+                from pywinauto import mouse
+                r = el.element_info.rectangle
+                mouse.click(coords=((r.left + r.right) // 2, (r.top + r.bottom) // 2))
+                time.sleep(0.4)
+                okfg, seen = fg_ensure(hwnd)
+                log["foreground"].append({"before": "mouse-input", "ok": okfg, "hwnds": seen})
+                if not okfg:
+                    return log
+            else:
+                try:
+                    el.set_focus()
+                except Exception:  # noqa: BLE001
+                    pass
             time.sleep(0.15)
             if method == "set_value":
                 el.iface_value.SetValue(want)
             else:
                 send_keys("^a")
                 time.sleep(0.1)
-                if method == "type":
-                    send_keys(esc_keys(want), with_spaces=True, pause=0.03)
+                if method in ("type", "mouse"):
+                    # 날짜 마스크 칸(____-__-__)은 숫자만 쳐야 하이픈이 자동으로 채워진다
+                    keys = re.sub(r"\D", "", want) if re.fullmatch(r"\d{4}-\d{2}-\d{2}", want) and use_name else want
+                    send_keys(esc_keys(keys), with_spaces=True, pause=0.03)
                 else:
                     set_clipboard(want)
                     send_keys("^v")
@@ -265,10 +315,13 @@ def op_radio(hwnd, group, value, act=True):
     if tgt is None:
         return {"found": False, "why": f"항목 없음: {names}"}
     log = {"found": True, "enabled": bool(tgt.element_info.enabled), "items": names}
-    if not act:
+    if not act or not log["enabled"]:
         return log
-    if not log["enabled"]:
-        return log
+    return _select_item(hwnd, tgt, log)
+
+
+def _select_item(hwnd, tgt, log):
+    """SelectionItem.Select → is_selected 확인, 안 되면 PostMessage 클릭 후 다시 확인."""
     log["method"] = "select"
     try:
         tgt.iface_selection_item.Select()
@@ -284,6 +337,178 @@ def op_radio(hwnd, group, value, act=True):
         sel = _is_selected(tgt)
     log["selected"] = sel
     log["ok"] = bool(sel)
+    return log
+
+
+def op_radio_id(hwnd, auto_id):
+    """auto_id로 RadioButton을 직접 찾아 고른다."""
+    el = find_el(appmod.wrap(hwnd), auto_id, "RadioButton")
+    if el is None:
+        return {"found": False, "why": "auto_id 없음"}
+    log = {"found": True, "enabled": bool(el.element_info.enabled), "name": el.element_info.name}
+    if not log["enabled"]:
+        return log
+    return _select_item(hwnd, el, log)
+
+
+def _dataitems(root):
+    """DataItem 전체 → [(열이름, 레코드번호, 요소)]. 이름 형식 '<열> row N'."""
+    out = []
+    for c in root.descendants(control_type="DataItem"):
+        m = re.fullmatch(r"(.*?)\s+row\s+(\d+)\s*", c.element_info.name or "")
+        if m:
+            out.append((m.group(1), int(m.group(2)), c))
+    return out
+
+
+def op_tab(hwnd, name):
+    """TabItem(이름 norm 일치)을 고르고(안 되면 PostMessage 클릭) 1.5초 기다린 뒤,
+    창 안 DataItem(세로형 그리드 행)의 {열: 값}(레코드 0)을 기록한다."""
+    root = appmod.wrap(hwnd)
+    tabs = list(root.descendants(control_type="TabItem"))
+    names = [c.element_info.name for c in tabs]
+    tgt = next((c for c in tabs if norm(c.element_info.name) == norm(name)), None)
+    if tgt is None:
+        return {"found": False, "tabs": names}
+    log = {"found": True, "tabs": names}
+    _select_item(hwnd, tgt, log)
+    log["ok"] = log.get("selected") is not False  # 선택 상태를 못 읽으면(None) 통과시키되 selected=None으로 남긴다
+    time.sleep(1.5)
+    rows = {}
+    for col, n, c in _dataitems(appmod.wrap(hwnd)):
+        if n == 0:
+            rows[col] = _cell_value(c)
+    log["row_names"] = list(rows)
+    log["row_values"] = rows
+    return log
+
+
+def cell_same(want, got_list):
+    """그리드 셀: 날짜는 숫자만, 금액은 공백·쉼표 제거 후 같음, 그 밖(콤보)은 값에 포함."""
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", want):
+        d = re.sub(r"\D", "", want)
+        return any(re.sub(r"\D", "", g) == d for g in got_list)
+    w = re.sub(r"[\s,]", "", want)
+    n = [re.sub(r"[\s,]", "", g) for g in got_list]
+    return any(w == g or (not w.isdigit() and w in g) for g in n)
+
+
+def op_grid_cell(hwnd, grid_id, row, want, record=0, method=None):
+    """세로형 DevExpress 그리드 셀 입력. 열이름 row의 DataItem(레코드 record)을 찾아
+    (a) ValuePattern.SetValue → 다시 읽기, (b) 안 되면 값 영역(너비 65% 지점) PostMessage 클릭 → 전경 확인 →
+    Ctrl+A → 클립보드 붙여넣기 → Tab → 다시 읽기. method: set_value(기본, 실패 시 mouse로 이어짐) | mouse | post."""
+    from pywinauto.keyboard import send_keys
+
+    def locate():
+        g = find_el(appmod.wrap(hwnd), grid_id)
+        if g is None:
+            return None, []
+        items = _dataitems(g)
+        cols = [c for c, n, _ in items if n == record]
+        hit = [e for c, n, e in items if n == record and norm(c) == norm(row)]
+        return (hit[0] if hit else None), cols
+
+    c, cols = locate()
+    if c is None:
+        return {"found": False, "rows": cols}
+    log = {"found": True, "rows": cols, "attempts": [], "foreground": [], "ok": False,
+           "enabled": bool(c.element_info.enabled), "before": _cell_value(c)}
+    if not log["enabled"]:
+        return log
+
+    def reread():
+        c2, _ = locate()
+        return [_cell_value(c2)] if c2 is not None else []
+
+    if method in (None, "set_value"):
+        att = {"method": "set_value", "already_equal": cell_same(want, [log["before"]])}
+        try:
+            c.iface_value.SetValue(want)
+            time.sleep(0.4)
+            att["read"] = reread()
+            att["match"] = cell_same(want, att["read"])
+        except Exception as e:  # noqa: BLE001
+            att["error"] = f"{type(e).__name__}: {e}"
+            att["match"] = False
+        log["attempts"].append(att)
+        if att["match"]:
+            log.update(ok=True, method="set_value", read=att["read"])
+            return log
+    # (b) 셀 값 영역(너비 65% 지점)을 눌러 편집기를 켜고 입력한다.
+    #   mouse: 실제 마우스 클릭(기본) — PostMessage 클릭은 이 그리드에서 셀 포커스를 옮기지 못했다(시험 확인).
+    #   post : PostMessage 클릭. 입력은 날짜면 숫자만 type_keys(마스크 칸), 아니면 Ctrl+A 후 클립보드 붙여넣기.
+    how = "post" if method == "post" else "mouse"
+    okfg, seen = fg_ensure(hwnd)
+    log["foreground"].append({"before": how, "ok": okfg, "hwnds": seen})
+    if not okfg:
+        return log
+    att = {"method": how + "+" + ("type" if re.fullmatch(r"\d{4}-\d{2}-\d{2}", want) else "paste")}
+    try:
+        c, _ = locate()
+        r = c.element_info.rectangle
+        x, y = r.left + int(r.width() * 0.65), (r.top + r.bottom) // 2
+        if how == "post":
+            att["click_hwnd"] = appmod.post_click_at(hwnd, x, y)
+        else:
+            from pywinauto import mouse
+            mouse.click(coords=(x, y))
+        time.sleep(0.8)
+        okfg, seen = fg_ensure(hwnd)
+        log["foreground"].append({"before": "input", "ok": okfg, "hwnds": seen})
+        if not okfg:
+            log["attempts"].append(att)
+            return log
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}", want):
+            send_keys(re.sub(r"\D", "", want))
+        else:
+            send_keys("^a")
+            time.sleep(0.15)
+            set_clipboard(want)
+            send_keys("^v")
+        time.sleep(0.4)
+        send_keys("{TAB}")
+        time.sleep(0.6)
+        att["read"] = reread()
+        att["match"] = cell_same(want, att["read"])
+    except Exception as e:  # noqa: BLE001
+        att["error"] = f"{type(e).__name__}: {e}"
+        att["match"] = False
+    log["attempts"].append(att)
+    if att["match"]:
+        log.update(ok=True, method=att["method"], read=att["read"])
+    else:
+        log["read"] = att.get("read", [])
+    return log
+
+
+def op_click_id(hwnd, auto_id):
+    """auto_id로 Button을 찾아 중앙에 PostMessage 클릭. (이름이 같은 버튼이 여럿일 때 쓴다) 반환: (찾음, 활성, 클릭받은 hwnd, 이름)"""
+    el = find_el(appmod.wrap(hwnd), auto_id, "Button")
+    if el is None:
+        return (False, False, 0, "")
+    e = el.element_info
+    if not e.enabled:
+        return (True, False, 0, e.name or "")
+    r = e.rectangle
+    return (True, True, appmod.post_click_at(hwnd, (r.left + r.right) // 2, (r.top + r.bottom) // 2), e.name or "")
+
+
+def op_click_id_mouse(hwnd, auto_id):
+    """auto_id인 첫 요소(종류 무관)의 중앙을 실제 마우스로 클릭(읽기 전용 칸 등). 1.0초 대기."""
+    el = find_el(appmod.wrap(hwnd), auto_id)
+    if el is None:
+        return {"found": False}
+    r = el.element_info.rectangle
+    log = {"found": True, "enabled": bool(el.element_info.enabled), "rect": [r.left, r.top, r.right, r.bottom],
+           "foreground": [], "ok": False}
+    okfg, seen = fg_ensure(hwnd)
+    log["foreground"].append({"before": "mouse", "ok": okfg, "hwnds": seen})
+    if not okfg:
+        return log
+    from pywinauto import mouse
+    mouse.click(coords=((r.left + r.right) // 2, (r.top + r.bottom) // 2))
+    time.sleep(1.0)
+    log["ok"] = True
     return log
 
 
@@ -432,12 +657,36 @@ def dry_run(a, window, steps):
     def add(i, act, target, st):
         rows.append((i, act, target, st))
 
+    stopped = None
     for i, s in enumerate(steps, 1):
+        if stopped:
+            break
         k = action_of(s)
+        if k in ("window", "close"):
+            stopped = f"단계 {i} {k}: {s[k]!r} — 이후 단계는 그 창이 열려야 확인할 수 있어 생략"
+            break
+        if k == "radio_id":
+            t = ids.get(s[k] if isinstance(s[k], str) else s[k]["id"])
+            add(i, k, str(s[k]), find_status(bool(t) and t[0] == "RadioButton", bool(t) and t[2]))
+            continue
+        if k == "click_id":
+            t = ids.get(s[k])
+            add(i, k, str(s[k]), find_status(bool(t), bool(t) and t[2]))
+            continue
+        if k == "tab":
+            t = next((x for x in inv if x[0] == "TabItem" and norm(x[1]) == norm(s[k])), None)
+            add(i, k, s[k], find_status(bool(t), bool(t) and t[3]))
+            continue
+        if k == "grid_cell":
+            t = ids.get(s[k]["grid"])
+            add(i, k, f"{s[k]['grid']}/{s[k]['row']}", find_status(bool(t), bool(t) and t[2]))
+            continue
         if k == "press":
             nm = s["press"]
             st = btns.get(norm(nm))
             add(i, "press", nm, find_status(st is not None, bool(st) and any(st)))
+            if s.get("opens"):
+                stopped = f"단계 {i} press opens {s['opens']!r} — 이후 단계는 그 창이 열려야 확인할 수 있어 생략"
             for key in ("expect_enabled", "expect_disabled"):
                 for b in s.get(key, []) or []:
                     st = btns.get(norm(b))
@@ -459,6 +708,8 @@ def dry_run(a, window, steps):
             r = guard(lambda sp=sp: op_radio(hwnd, sp["group"], sp["value"], act=False))
             add(i, "radio", f"{sp['group']}/{sp['value']}" + ("" if r["found"] else f" [{r.get('why')}]"),
                 find_status(r["found"], r.get("enabled", False)))
+    if stopped:
+        print(f"\n{stopped}")
     print(f"\n{'단계':>3}  {'동작':<14} {'대상':<44} 결과")
     for i, act, target, st in rows:
         print(f"{i:>3}  {act:<14} {target:<44} {st}")
@@ -472,8 +723,8 @@ def dry_run(a, window, steps):
 # ---------------------------------------------------------------- 실행
 
 class Runner:
-    def __init__(self, a, hwnd, case):
-        self.a, self.hwnd, self.case = a, hwnd, case
+    def __init__(self, a, hwnd, case, base_window=""):
+        self.a, self.hwnd, self.case, self.base_window = a, hwnd, case, base_window
         self.start_screens = set(a.screens())
         self.results = []
         self.reads = {}
@@ -503,11 +754,12 @@ class Runner:
               for k, v in (step.get("modals") or {}).items()}
         item = {"key": key, "title": w.title, "msg": w.msg}
         rec.setdefault("modals", []).append(item)
-        if key not in mm:
+        hit = key if key in mm else next((k for k in mm if _modal_match(k, key)), None)
+        if hit is None:
             item["handled"] = False
             item["capture"] = self.shot_modal(w, "modal_unknown")
             raise Stop("abort", f"처음 보는 모달 {key!r} — 아무것도 누르지 않음. 단계 파일 modals에 추가 필요")
-        for b in mm[key]:
+        for b in mm[hit]:
             if not self.a.press(w.hwnd, b):
                 item["capture"] = self.shot_modal(w, "modal_nobutton")
                 raise Stop("abort", f"모달 {key!r}에서 버튼 {b!r}을 누를 수 없음")
@@ -528,6 +780,10 @@ class Runner:
             for w in new:
                 self.handle_modal(w, step, rec)
             time.sleep(0.6)
+        opens = norm(step.get("opens") or "")
+        if opens:
+            appmod.wait_for(lambda: find_target(self.a, opens), 20.0, 0.5)
+            time.sleep(1.0)
         new_s = set(self.a.screens()) - before[0]
         smap = {norm(k): norm(v) for k, v in (step.get("screens") or {}).items()}
         for h in sorted(new_s):
@@ -540,12 +796,31 @@ class Runner:
             cp = SCREENS / f"{self.case}_{self.i:02d}_screen_{len(rec['handled_screens'])}.png"
             item["capture_method"] = self.a.capture(h, cp)
             item["capture"] = str(cp.relative_to(ROOT)).replace("\\", "/")
-            if not self.a.press(h, smap[tk]):
+            if smap[tk] == "@close":  # 버튼 대신 WM_CLOSE로 닫는다(닫으며 뜨는 모달은 step의 modals 규칙)
+                appmod._u32.PostMessageW(h, 0x0010, 0, 0)
+                time.sleep(0.8)
+                for _ in range(3):
+                    for m in [x for x in self.a.modals_info() if x.hwnd not in before[1]]:
+                        self.handle_modal(m, step, rec)
+                        time.sleep(0.5)
+            elif not self.a.press(h, smap[tk]):
                 raise Stop("abort", f"화면 {w.title!r}에서 버튼 {smap[tk]!r}을 누를 수 없음")
             if not appmod.wait_for(lambda h=h: h not in self.a.screens(), 5.0):
                 raise Stop("fail", f"화면 {w.title!r}이(가) 5초 안에 닫히지 않음")
             time.sleep(0.5)
             new_s.discard(h)
+        if opens:
+            for h in sorted(new_s):
+                w = next((x for x in self.a.screens_info() if x.hwnd == h), None)
+                if w and norm(clean_title(w.title)) == opens:
+                    self.hwnd = h
+                    cp = SCREENS / f"{self.case}_{self.i:02d}_opened.png"
+                    rec["opened"] = {"title": w.title, "hwnd": h, "capture": str(cp.relative_to(ROOT)).replace("\\", "/"),
+                                     "capture_method": self.a.capture(h, cp)}
+                    new_s.discard(h)
+            cur = next((x.title for x in self.a.screens_info() if x.hwnd == self.hwnd), "")
+            if norm(clean_title(cur)) != opens:
+                raise Stop("fail", f"opens {opens!r} 창이 열리지 않음")
         if new_s:
             rec["new_screens"] = sorted(new_s)
             self.shot("new_screen")
@@ -561,9 +836,8 @@ class Runner:
         if self.a.is_forbidden(name):
             raise Stop("abort", f"금지 목록에 걸리는 버튼 {name!r}")
         st = self.btn_states().get(norm(name))
-        if st is None:
-            raise Stop("fail", f"버튼 없음 {name!r}")
-        if not any(st):
+        # st가 None이어도(접근성 이름이 화면 글자와 다른 버튼) win32 글자로 누를 수 있으니 아래 press에 맡긴다
+        if st is not None and not any(st):
             raise Stop("fail", f"버튼 비활성 {name!r}")
         before = self.snap()
         how = "postmessage"
@@ -588,14 +862,51 @@ class Runner:
             if not good:
                 raise Stop("fail", f"기대 상태와 다름 enabled={exp_en} disabled={exp_dis} 실제={rec['states']}")
 
+    def do_press_id(self, step, rec):
+        aid = step["press_id"]
+        before = self.snap()
+        found, enabled, h, name = guard(lambda: op_click_id(self.hwnd, aid))
+        rec["button"] = {"id": aid, "name": name, "click_hwnd": h}
+        if not found:
+            raise Stop("fail", f"버튼을 못 찾음 {aid}")
+        if self.a.is_forbidden(name):
+            raise Stop("abort", f"금지 목록에 걸리는 버튼 {name!r} ({aid})")
+        if not enabled:
+            raise Stop("fail", f"버튼 비활성 {aid}")
+        self.settle(step, rec, before)
+        exp_en = step.get("expect_enabled") or []
+        exp_dis = step.get("expect_disabled") or []
+        if exp_en or exp_dis:
+            last = {}
+
+            def ok():
+                last.update(self.btn_states())
+                return (all(any(last.get(norm(b), [False])) for b in exp_en)
+                        and all(norm(b) in last and not any(last[norm(b)]) for b in exp_dis))
+
+            if not appmod.wait_for(ok, 6.0, 0.7):
+                raise Stop("fail", f"기대 상태와 다름 enabled={exp_en} disabled={exp_dis}")
+
+    def do_click_id(self, step, rec):
+        aid = step["click_id"]
+        before = self.snap()
+        res = guard(lambda: op_click_id_mouse(self.hwnd, aid))
+        rec["result"] = res
+        self.settle(step, rec, before, base_wait=0.3)
+        if not res["found"]:
+            raise Stop("fail", f"요소를 못 찾음 {aid}")
+        if res["foreground"] and not res["foreground"][-1]["ok"]:
+            raise Stop("fail", f"전경 창이 대상 창이 아님 {res['foreground'][-1]['hwnds']} (대상 {self.hwnd})")
+
     def _input(self, step, rec, kind):
         sp = step[kind]
         want = str(sp["value"])
-        ctype = "Edit" if kind == "text" else "ComboBox"
+        ctype = sp.get("type") or ("Edit" if kind == "text" else "ComboBox")  # type: Pane 등으로 바꿀 수 있다
+        use_name = ctype not in ("Edit", "ComboBox")
         title0 = clean_title(next((w.title for w in self.a.screens_info() if w.hwnd == self.hwnd), ""))
         save0 = self.btn_states().get(norm("저장")) if kind == "combo" else None
         before = self.snap()
-        res = guard(lambda: op_input(self.hwnd, sp["id"], ctype, want, kind))
+        res = guard(lambda: op_input(self.hwnd, sp["id"], ctype, want, kind, use_name))
         rec["result"] = res
         rec["want"] = want
         self.settle(step, rec, before, base_wait=0.3)  # 모달이 먼저다
@@ -658,6 +969,72 @@ class Runner:
         rec["capture"], rec["capture_method"] = rel, status
         if status == "failed":
             raise Stop("fail", "캡처 실패")
+
+    def do_window(self, step, rec):
+        name = step["window"]
+        w = appmod.wait_for(lambda: find_target(self.a, name), 10.0, 0.5)
+        if not w:
+            raise Stop("fail", f"창 {name!r}을(를) 찾을 수 없음")
+        self.hwnd = w.hwnd
+        rec["hwnd"] = w.hwnd
+
+    def do_radio_id(self, step, rec):
+        sp = step["radio_id"]
+        aid = sp if isinstance(sp, str) else sp["id"]
+        before = self.snap()
+        res = guard(lambda: op_radio_id(self.hwnd, aid))
+        rec["result"] = res
+        self.settle(step, rec, before, base_wait=0.4)
+        if not res["found"]:
+            raise Stop("fail", f"라디오를 못 찾음 {aid}: {res.get('why')}")
+        if not res["enabled"]:
+            raise Stop("fail", f"라디오 비활성 {aid}")
+        if not res.get("ok"):
+            raise Stop("fail", f"라디오가 선택되지 않음 {aid} ({res.get('method')})")
+
+    def do_tab(self, step, rec):
+        name = step["tab"]
+        before = self.snap()
+        res = guard(lambda: op_tab(self.hwnd, name), 60)
+        rec["result"] = res
+        self.settle(step, rec, before, base_wait=0.2)
+        if not res["found"]:
+            raise Stop("fail", f"탭을 못 찾음 {name!r} 탭들={res.get('tabs')}")
+        if not res.get("ok"):
+            raise Stop("fail", f"탭이 선택되지 않음 {name!r} ({res.get('method')})")
+
+    def do_grid_cell(self, step, rec):
+        sp = step["grid_cell"]
+        want = str(sp["value"])
+        before = self.snap()
+        res = guard(lambda: op_grid_cell(self.hwnd, sp["grid"], sp["row"], want, int(sp.get("record", 0)), sp.get("method")), 90)
+        rec["result"], rec["want"] = res, want
+        self.settle(step, rec, before, base_wait=0.3)
+        if not res["found"]:
+            raise Stop("fail", f"그리드 셀을 못 찾음 {sp['grid']}/{sp['row']} 행들={res.get('rows')}")
+        if not res["enabled"]:
+            raise Stop("fail", f"셀 비활성 {sp['row']}")
+        if res["foreground"] and not res["foreground"][-1]["ok"]:
+            raise Stop("fail", f"전경 창이 대상 창이 아님 {res['foreground'][-1]['hwnds']} (대상 {self.hwnd})")
+        if not res["ok"]:
+            raise Stop("fail", f"셀 값이 들어가지 않음 {sp['row']} 원하는={want!r} 시도={res['attempts']}")
+
+    def do_close(self, step, rec):
+        """창 닫기(WM_CLOSE). 닫으며 뜨는 모달은 step의 modals 규칙으로 처리한다. 끝나면 기본 창으로 되돌린다."""
+        name = step["close"]
+        w = find_target(self.a, name)
+        if not w:
+            raise Stop("fail", f"창 {name!r}을(를) 찾을 수 없음")
+        before = self.snap()
+        appmod._u32.PostMessageW(w.hwnd, 0x0010, 0, 0)
+        self.settle(step, rec, before, base_wait=0.8)
+        gone = appmod.wait_for(lambda: w.hwnd not in self.a.screens(), 6.0)
+        rec["closed"] = bool(gone)
+        if not gone:
+            raise Stop("fail", f"창 {name!r}이(가) 닫히지 않음")
+        base = find_target(self.a, self.base_window) if self.base_window else None
+        if base:
+            self.hwnd = base.hwnd
 
     def do_verify_grid(self, step, rec):
         sp = step["verify_grid"]
@@ -741,7 +1118,7 @@ def execute(a, steps_path, window, vars_, steps):
             raise Stop("abort", f"백업 헤더 불일치 {probs}")
         print("백업 헤더(페이지 크기·수·파일 크기) 원본과 일치")
         fp_before = a.fingerprint()
-        runner = Runner(a, w.hwnd, case)
+        runner = Runner(a, w.hwnd, case, window)
         try:
             reason = runner.run(steps)
         finally:
