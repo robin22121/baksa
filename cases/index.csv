@@ -1,1 +1,3 @@
 case_id,group,description,status
+C000,basic,상가건물(주택 외 건물+부속토지) 1동 양도 보유 5년 기본세율 장특 10%,match
+C001,house,1세대1주택 고가주택(양도가 15억) 조정지역 취득 보유·거주 7년 장특 표2 56%,pending

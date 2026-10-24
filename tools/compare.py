@@ -2,8 +2,12 @@
 
 사용: python tools/compare.py cases/basic/C000.yaml
 
-- 대조 8항목: 양도차익, 장기보유특별공제, 양도소득금액, 기본공제, 과세표준, 세율, 산출세액, 지방소득세
-- status: 8항목이 모두 있으면 match/mismatch, 하나라도 비면 pending
+- 기본 대조 8항목: 양도차익, 장기보유특별공제, 양도소득금액, 기본공제, 과세표준, 세율, 산출세액, 지방소득세
+- 선택 항목(OPTIONAL_ITEMS: 비과세 양도차익, 과세대상 양도차익)은 케이스 expected_baksa에 키가
+  있을 때만 대조한다(C000 8항목, C001 10항목)
+- 케이스 옵션 `local_tax_floor10_ok: true`(최상위): 지방소득세 화면값이 calc 값의 10원 미만 절사
+  값과 같아도 match로 본다
+- status: 대조 항목이 모두 있으면 match/mismatch, 하나라도 비면 pending
 - yaml의 다른 키·주석은 보존한다(최상위 `expected_law:`·`status:` 블록만 글자 단위로 바꾼다)
 - 불일치 원인 판정(mismatch_note)은 사람(메인)이 쓴다
 """
@@ -22,6 +26,8 @@ from calc import yangdo  # noqa: E402
 
 ITEMS = [
     ("gain", "양도차익"),
+    ("exempt_gain", "비과세양도차익"),
+    ("taxable_gain", "과세대상양도차익"),
     ("holding_deduction", "장기보유특별공제"),
     ("income_amount", "양도소득금액"),
     ("basic_deduction", "기본공제"),
@@ -30,6 +36,21 @@ ITEMS = [
     ("tax", "산출세액"),
     ("local_tax", "지방소득세"),
 ]
+OPTIONAL_ITEMS = {"exempt_gain", "taxable_gain"}
+
+
+def _items(baksa: dict) -> list[tuple[str, str]]:
+    return [(k, lb) for k, lb in ITEMS if k not in OPTIONAL_ITEMS or k in baksa]
+
+
+def _judge(key: str, law, b, floor10_ok: bool) -> str:
+    if b is None:
+        return "pending"
+    if b == law:
+        return "match"
+    if key == "local_tax" and floor10_ok and b == law // 10 * 10:
+        return "match"
+    return "mismatch"
 
 
 def _norm(key: str, v):
@@ -78,11 +99,12 @@ def run(path: Path) -> dict:
     law = result["amounts"]
     baksa = case.get("expected_baksa") or {}
 
+    floor10_ok = bool(case.get("local_tax_floor10_ok"))
     rows = []
-    for key, label in ITEMS:
+    for key, label in _items(baksa):
         b = _norm(key, baksa.get(key))
         l = law[key]
-        st = "pending" if b is None else ("match" if b == l else "mismatch")
+        st = _judge(key, l, b, floor10_ok)
         rows.append((label, l, b, st, result["basis"][key]))
     states = {r[3] for r in rows}
     # 하나라도 안 읽혔으면 pending(불일치 항목은 표에 남는다), 전부 읽혔으면 match/mismatch
@@ -106,8 +128,12 @@ def run(path: Path) -> dict:
         print(f"{label:<12}{l:>16,}{bs_txt:>16}  {st:<9}{bs}")
     print("자산별:")
     for a in result["assets"]:
+        extra = ""
+        if "residence_years" in a:
+            extra = (f" 거주 {a['residence_years']}년 비과세요건 {a['one_house_exempt']} "
+                     f"{a['ltd_table']} 과세차익 {a['taxable_gain']:,}")
         print(f"  {a['id']} {a['kind']}: 필요경비 {a['necessary_expenses']:,} 차익 {a['gain']:,} "
-              f"보유 {a['holding_years']}년 {a['holding_rate_pct']}% 장특 {a['holding_deduction']:,}")
+              f"보유 {a['holding_years']}년 {a['holding_rate_pct']}% 장특 {a['holding_deduction']:,}{extra}")
     return {"status": status, "rows": rows}
 
 

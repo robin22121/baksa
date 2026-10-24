@@ -1,4 +1,4 @@
-"""양도소득세 계산 — 조문 단위 순수 함수 (일반 부동산·기본세율 경로).
+"""양도소득세 계산 — 조문 단위 순수 함수 (일반 부동산·1세대1주택·기본세율 경로).
 
 금액은 전부 정수(원). 세율 곱은 정수 산술로 하고 원 미만은 버린다(아래 각 함수 참조).
 
@@ -23,8 +23,17 @@
           reduction: null
           price_basis: 구분가액           # 구분가액 | 안분(일괄양도 기준시가 안분 — 범위 밖)
 
+주택 자산(kind: 주택, house: true)은 다음 키를 더 받는다:
+
+          one_house: true                 # 1세대1주택(§89①3, 시행령 §154). false면 범위 밖
+          adjusted_area_acquired: true    # 취득 당시 조정대상지역(시행령 §154① 거주요건)
+          contract_date: 2018-02-10       # 계약일(기록용. 부칙 예외는 아래 플래그로만 판정)
+          residence_exception: false      # 2017-08-02 이전 계약·계약일 무주택 부칙 예외
+          residence_start: 2018-04-10     # 거주 시작·종료일 또는 residence_years(정수)
+          residence_end: 2025-08-20
+
 범위 밖 분기(입력이 요구하면 NotImplementedError):
-1세대1주택·주택, 단기보유(2년 미만) 세율, 비사업용토지, 중과, 감면, 미등기, 일괄양도 안분,
+다주택·일시적 2주택·상속주택 등 1세대1주택 외 주택, 단기보유(2년 미만) 세율, 비사업용토지, 중과, 감면, 미등기, 일괄양도 안분,
 감가상각비 차감(≠0), 비거주자, 2023-01-01 이전 양도(§55① 옛 세율표).
 """
 
@@ -51,7 +60,15 @@ BASIC_RATE_TABLE = (
 )
 BASIC_RATE_FROM = _dt.date(2023, 1, 1)
 
-ASSET_KINDS = ("토지", "건물")
+ASSET_KINDS = ("토지", "건물", "주택")
+
+# 소득세법 §89①3 괄호·시행령 §156① 고가주택 기준(2021-12-08 이후 양도분 12억원).
+# 그 전 양도(9억)는 2023-01-01 이전 양도 차단(BASIC_RATE_FROM)으로 범위 밖.
+HIGH_PRICE_LIMIT = 1_200_000_000
+# 시행령 §154①(2017.9.19 개정) 거주요건 — 2017-08-03 이후 조정대상지역 취득분
+RESIDENCE_RULE_FROM = _dt.date(2017, 8, 3)
+# 주택 중 1세대1주택 외 분기 플래그 → 범위 밖
+OTHER_HOUSE_FLAGS = ("temporary_two_house", "inherited_house", "multi_house")
 
 
 # ---------------------------------------------------------------- 공통
@@ -110,8 +127,15 @@ def _check_scope(asset: dict, residency: str) -> None:
     kind = asset.get("kind")
     if kind not in ASSET_KINDS:
         raise NotImplementedError(f"{aid}: 자산 종류 {kind!r} — 범위 밖(토지·건물만)")
-    if asset.get("house"):
-        raise NotImplementedError(f"{aid}: 주택(1세대1주택 §89①3, 중과 §104⑦, 장특 표2) — 범위 밖")
+    is_house = bool(asset.get("house"))
+    if is_house != (kind == "주택"):
+        raise NotImplementedError(f"{aid}: kind={kind!r}·house={asset.get('house')!r} 조합 — 범위 밖")
+    if is_house:
+        if not asset.get("one_house"):
+            raise NotImplementedError(f"{aid}: 1세대1주택 아닌 주택(다주택 중과 §104⑦ 등) — 범위 밖")
+        for flag in OTHER_HOUSE_FLAGS:
+            if asset.get(flag):
+                raise NotImplementedError(f"{aid}: {flag}(시행령 §155 특례 등) — 범위 밖")
     if asset.get("registered") is False:
         raise NotImplementedError(f"{aid}: 미등기(§104①10, §95② 단서, §103① 단서) — 범위 밖")
     if asset.get("non_business_land"):
@@ -158,11 +182,25 @@ def long_term_rate_pct(years: int) -> int:
     """장기보유특별공제율(%) — 표1(일반).
 
     근거: 소득세법 §95② 표1 — 3년 이상 4년 미만 6%, 이후 1년마다 2%p 가산, 15년 이상 30%.
-    3년 미만 0. (1세대1주택 표2는 범위 밖)
+    3년 미만 0. (1세대1주택 표2는 long_term_rate_pct_table2)
     """
     if years < 3:
         return 0
     return min(years * 2, 30)
+
+
+def long_term_rate_pct_table2(holding: int, residence: int) -> tuple[int, int]:
+    """장기보유특별공제율(%) — 표2(1세대1주택) → (보유분, 거주분).
+
+    근거: 소득세법 §95② 단서·표2(2021.1.1 이후 양도분) — 보유 3년 이상 연 4%(10년 이상 40%),
+    거주 2년 이상(보유 3년 이상인 경우) 연 4%(2년 8%, 10년 이상 40%), 합 최대 80%.
+    적용 대상은 시행령 §159의4(보유기간 중 거주 2년 이상인 1세대1주택). 보유 3년 미만이면 0.
+    """
+    if holding < 3:
+        return 0, 0
+    h = min(holding * 4, 40)
+    r = min(residence * 4, 40) if residence >= 2 else 0
+    return h, r
 
 
 def long_term_deduction(gain: int, years: int) -> int:
@@ -175,6 +213,69 @@ def long_term_deduction(gain: int, years: int) -> int:
     if gain <= 0:
         return 0
     return gain * long_term_rate_pct(years) // 100
+
+
+def residence_years(asset: dict) -> int:
+    """거주기간(만 년수). residence_years가 있으면 그 값, 없으면 거주 시작·종료일로 계산.
+
+    근거: 시행령 §154⑥(거주기간은 주민등록표 등본상 전입일부터 전출일까지), 기간 계산은
+    holding_years와 같이 국세기본법 §4·민법 §157·§160. 보유기간 안의 거주만 센다
+    (§95② 표2 '보유기간 중 거주기간', 시행령 §159의4).
+    """
+    if asset.get("residence_years") is not None:
+        return int(asset["residence_years"])
+    start, end = asset.get("residence_start"), asset.get("residence_end")
+    if start is None or end is None:
+        return 0
+    acq, tr = _date(asset["acquisition_date"]), _date(asset["transfer_date"])
+    s, e = max(_date(start), acq), min(_date(end), tr)
+    return holding_years(s, e) if e >= s else 0
+
+
+def one_house_exempt(asset: dict) -> bool:
+    """1세대1주택 비과세 요건 충족 여부(고가주택 안분 전 단계).
+
+    근거: 소득세법 §89①3가목, 시행령 §154① — 양도일 현재 국내 1주택, 보유 2년 이상.
+    취득 당시 조정대상지역이고 2017-08-03 이후 취득이면 보유기간 중 거주 2년 이상
+    (시행령 §154① 본문 괄호). 2017-08-02 이전 계약·계약일 무주택 세대의 부칙 예외
+    (대통령령 제28293호 부칙 §2②)는 입력 플래그 residence_exception으로만 받는다.
+    """
+    if not asset.get("one_house"):
+        return False
+    acq, tr = _date(asset["acquisition_date"]), _date(asset["transfer_date"])
+    if holding_years(acq, tr) < 2:
+        return False
+    if asset.get("residence_exception") and asset.get("contract_date") is not None:
+        if _date(asset["contract_date"]) >= RESIDENCE_RULE_FROM:
+            raise ValueError(f"{asset.get('id')}: residence_exception인데 계약일이 2017-08-03 이후")
+    need_residence = (
+        bool(asset.get("adjusted_area_acquired"))
+        and acq >= RESIDENCE_RULE_FROM
+        and not asset.get("residence_exception")
+    )
+    return not need_residence or residence_years(asset) >= 2
+
+
+def high_price_taxable_gain(gain: int, transfer_price: int) -> int:
+    """고가주택 양도차익 중 과세 부분 = 양도차익 × (양도가액 − 12억) ÷ 양도가액, 원 미만 절사.
+
+    근거: 소득세법 §95③, 시행령 §160①1(2021-12-08 이후 양도분 기준 12억원, 시행령 §156①).
+    양도가액이 12억 이하면 0(전액 비과세). 차익 0 이하면 0.
+    """
+    if gain <= 0 or transfer_price <= HIGH_PRICE_LIMIT:
+        return 0
+    return gain * (transfer_price - HIGH_PRICE_LIMIT) // transfer_price
+
+
+def high_price_long_term_deduction(full_deduction: int, transfer_price: int) -> int:
+    """고가주택 장기보유특별공제 = 전체 양도차익 기준 장특액 × (양도가액 − 12억) ÷ 양도가액.
+
+    근거: 소득세법 §95③, 시행령 §160①2. 원 미만 절사. (과세 양도차익 × 공제율과의 절사 위치
+    차이는 C001에선 0 — 계획서 §0 전제 ⑤, 미검증 분기)
+    """
+    if full_deduction <= 0 or transfer_price <= HIGH_PRICE_LIMIT:
+        return 0
+    return full_deduction * (transfer_price - HIGH_PRICE_LIMIT) // transfer_price
 
 
 def basic_deduction(income: int, already_used: int = 0) -> int:
@@ -228,8 +329,9 @@ def local_income_tax(tax_base: int) -> int:
 def compute(inp: dict) -> dict:
     """케이스 input → 단계별 금액(amounts)·근거(basis)·자산별 내역(assets).
 
-    amounts 키: gain, holding_deduction, income_amount, basic_deduction, tax_base, rate,
-    progressive_deduction, tax, local_tax.
+    amounts 키: gain, exempt_gain, taxable_gain, holding_deduction, income_amount,
+    basic_deduction, tax_base, rate, progressive_deduction, tax, local_tax.
+    gain은 전체 양도차익, taxable_gain은 비과세(1세대1주택·고가주택 안분) 뒤 과세대상 양도차익.
     """
     residency = inp.get("residency", "거주자")
     assets = inp.get("assets") or []
@@ -239,22 +341,39 @@ def compute(inp: dict) -> dict:
         _check_scope(a, residency)
 
     per_asset = []
+    table2_used = False
     for a in assets:
         yrs = holding_years(a["acquisition_date"], a["transfer_date"])
         g = transfer_gain(a)
-        ltd = long_term_deduction(g, yrs)
-        per_asset.append({
-            "id": a.get("id"),
-            "kind": a["kind"],
-            "necessary_expenses": necessary_expenses(a),
-            "gain": g,
-            "holding_years": yrs,
-            "holding_rate_pct": long_term_rate_pct(yrs),
-            "holding_deduction": ltd,
-            "income_amount": g - ltd,
-        })
+        row = {"id": a.get("id"), "kind": a["kind"], "necessary_expenses": necessary_expenses(a),
+               "gain": g, "holding_years": yrs}
+        if a.get("house"):
+            res = residence_years(a)
+            exempt = one_house_exempt(a)
+            price = int(a["transfer_price"])
+            taxable = high_price_taxable_gain(g, price) if exempt else g
+            # §95② 단서·시행령 §159의4: 1세대1주택이고 보유기간 중 거주 2년 이상이면 표2, 아니면 표1
+            if res >= 2 and yrs >= 3:
+                h_pct, r_pct = long_term_rate_pct_table2(yrs, res)
+                table = "표2"
+                table2_used = True
+            else:
+                h_pct, r_pct, table = long_term_rate_pct(yrs), 0, "표1"
+            full_ltd = g * (h_pct + r_pct) // 100 if g > 0 else 0
+            ltd = high_price_long_term_deduction(full_ltd, price) if exempt else full_ltd
+            row.update({"residence_years": res, "one_house_exempt": exempt,
+                        "ltd_table": table, "holding_rate_pct": h_pct + r_pct,
+                        "holding_part_pct": h_pct, "residence_part_pct": r_pct})
+        else:
+            taxable = g
+            ltd = long_term_deduction(g, yrs)
+            row["holding_rate_pct"] = long_term_rate_pct(yrs)
+        row.update({"exempt_gain": g - taxable, "taxable_gain": taxable,
+                    "holding_deduction": ltd, "income_amount": taxable - ltd})
+        per_asset.append(row)
 
     gain = sum(p["gain"] for p in per_asset)
+    taxable_gain = sum(p["taxable_gain"] for p in per_asset)
     ltd = sum(p["holding_deduction"] for p in per_asset)
     # §102①·②: 양도소득금액은 그룹별 합산(같은 그룹 내 결손은 통산)
     income = sum(p["income_amount"] for p in per_asset)
@@ -263,6 +382,8 @@ def compute(inp: dict) -> dict:
     pct, prog = basic_rate(base)
     amounts = {
         "gain": gain,
+        "exempt_gain": gain - taxable_gain,
+        "taxable_gain": taxable_gain,
         "holding_deduction": ltd,
         "income_amount": income,
         "basic_deduction": bd,
@@ -274,7 +395,12 @@ def compute(inp: dict) -> dict:
     }
     basis = {
         "gain": "소득세법 §95①, §96①, §97①·③, §100①, 시행령 §163",
-        "holding_deduction": "소득세법 §95② 표1, §95④(보유기간), 국세기본법 §4·민법 §157·§160",
+        "exempt_gain": "소득세법 §89①3, 시행령 §154①(1세대1주택), §95③·시행령 §160①1(고가주택 12억 초과분만 과세)",
+        "taxable_gain": "소득세법 §95①·③, 시행령 §160①1",
+        "holding_deduction": (
+            "소득세법 §95② 단서·표2, 시행령 §159의4·§160①2(고가주택 안분), §95④, 국세기본법 §4·민법 §157·§160"
+            if table2_used else
+            "소득세법 §95② 표1, §95④(보유기간), 국세기본법 §4·민법 §157·§160"),
         "income_amount": "소득세법 §95①, §102",
         "basic_deduction": "소득세법 §103①1·②",
         "tax_base": "소득세법 §92②",

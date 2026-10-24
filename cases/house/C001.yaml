@@ -1,0 +1,104 @@
+case_id: C001
+group: house
+law_date: 2025-08-20    # 적용 법령 기준일 = 양도일. 양도박사 버전의 세법 반영일은 docs/env.md
+description: 1세대1주택 고가주택(양도가 15억) 아파트 양도, 거주자, 조정대상지역 취득, 보유·거주 7년, 12억 초과분만 과세, 장특 표2 56%
+# 계획서: docs/work-plans/2026-10-24-C001-고가주택.md §0 (입력값·입력 전제 ①~⑤는 Fable 검토 채택)
+local_tax_floor10_ok: true   # 지방소득세 화면값이 10원 미만 절사(811,140)여도 일치로 본다(계획서 §0)
+input:
+  residency: 거주자
+  report_type: 예정
+  prior_basic_deduction_used: 0  # 가상양도인2 — 같은 해 다른 양도 없음
+  baksa_asset_type: 아파트·연립·다세대
+  seller: 가상양도인2            # 생년 1983(양도일 기준 30세 이상, 시행령 §152의3) — 전제 ③
+  assets:
+    - id: H1
+      kind: 주택                     # 국내 아파트 1채
+      transfer_date: 2025-08-20      # 잔금청산일(§98, 시행령 §162①)
+      acquisition_date: 2018-04-10   # 잔금청산일
+      contract_date: 2018-02-10      # 전제 ① 2017-08-03 이후 계약 → 거주요건 부칙 예외 비적용
+      transfer_price: 1500000000
+      acquisition_price: 800000000
+      expenses:
+        acquisition_tax: 8800000     # 임의값(양도박사 취득세 자동계산 팝업이 뜨면 취소)
+        transfer_brokerage: 6000000  # 양도 중개수수료
+      depreciation: 0
+      location: 서울 마포구           # 전제 ② 2016-11-03~2023-01-05 조정대상지역 (주소 검색은 마포구청 월드컵로 212, 가상 101동 101호·전용 84㎡)
+      area_m2: 84
+      registered: true
+      house: true
+      one_house: true                # 세대원 다른 주택 없음
+      adjusted_area_acquired: true   # 취득 당시 조정대상지역 → 거주 2년 요건 적용(시행령 §154①)
+      residence_exception: false     # 2017-08-02 이전 계약·무주택 부칙 예외 아님
+      residence_start: 2018-04-10    # 전입
+      residence_end: 2025-08-20      # 전출 (보유·거주 7년 4개월 10일 → 7년, 전제 ④)
+      temporary_two_house: false
+      inherited_house: false
+      surcharge: false
+      reduction: null
+      price_basis: 구분가액
+expected_baksa:         # 양도박사 산출값 (W3에서 화면에서 읽어 채움, 출처 캡처 번호)
+  gain:                 # 양도소득금액계산서 14. 양도차익(전체)
+  exempt_gain:          # 같은 서식 비과세 양도차익
+  taxable_gain:         # 같은 서식 15. 과세대상 양도차익
+  holding_deduction:    # 같은 서식 16. 장기보유특별공제
+  income_amount:        # 과세표준신고서 4. 양도소득금액
+  basic_deduction:      # 과세표준신고서 7. 양도소득기본공제
+  tax_base:             # 과세표준신고서 8. 과세표준
+  rate:                 # 과세표준신고서 9. 세율
+  tax:                  # 과세표준신고서 10. 산출세액
+  local_tax:            # 과세표준신고서 지방소득세
+  source:
+expected_law:  # calc 결과. compare.py가 채움
+  amounts:
+    gain: 685200000
+    exempt_gain: 548160000
+    taxable_gain: 137040000
+    holding_deduction: 76742400
+    income_amount: 60297600
+    basic_deduction: 2500000
+    tax_base: 57797600
+    rate: 24
+    progressive_deduction: 5760000
+    tax: 8111424
+    local_tax: 811142
+  assets:
+  - id: H1
+    kind: 주택
+    necessary_expenses: 814800000
+    gain: 685200000
+    holding_years: 7
+    residence_years: 7
+    one_house_exempt: true
+    ltd_table: 표2
+    holding_rate_pct: 56
+    holding_part_pct: 28
+    residence_part_pct: 28
+    exempt_gain: 548160000
+    taxable_gain: 137040000
+    holding_deduction: 76742400
+    income_amount: 60297600
+  basis:
+    gain: 소득세법 §95①, §96①, §97①·③, §100①, 시행령 §163
+    exempt_gain: 소득세법 §89①3, 시행령 §154①(1세대1주택), §95③·시행령 §160①1(고가주택 12억 초과분만 과세)
+    taxable_gain: 소득세법 §95①·③, 시행령 §160①1
+    holding_deduction: 소득세법 §95② 단서·표2, 시행령 §159의4·§160①2(고가주택 안분), §95④, 국세기본법 §4·민법
+      §157·§160
+    income_amount: 소득세법 §95①, §102
+    basic_deduction: 소득세법 §103①1·②
+    tax_base: 소득세법 §92②
+    rate: 소득세법 §104①1, §55①(2023.1.1 이후)
+    progressive_deduction: 소득세법 §55①
+    tax: 소득세법 §104①1, §55① (원 미만 절사)
+    local_tax: 지방세법 §103의2, §103의3①, §92① (원 미만 절사)
+basis:
+  - "1세대1주택 비과세: 소득세법 §89①3가목, 시행령 §154①(보유 2년, 2017-08-03 이후 조정대상지역 취득은 거주 2년)"
+  - "고가주택: 소득세법 §89①3 괄호·§95③, 시행령 §156①(12억), §160①1(과세 양도차익 = 양도차익 × (양도가액 − 12억)/양도가액)"
+  - "양도차익: 소득세법 §95①, §96①, §97①, §100①, 시행령 §163"
+  - "취득·양도시기: 소득세법 §98, 시행령 §162①(잔금청산일)"
+  - "장기보유특별공제: 소득세법 §95② 단서·표2(보유 7년 28% + 거주 7년 28% = 56%), 시행령 §159의4, §160①2, §95④·국세기본법 §4·민법 §157·§160"
+  - "양도소득금액: 소득세법 §95①, §102"
+  - "기본공제: 소득세법 §103①1"
+  - "세율: 소득세법 §104①1, §55①(2023.1.1 이후 표) — 과세표준 8,800만원 이하 구간 24%, 누진공제 5,760,000"
+  - "지방소득세: 지방세법 §103의2, §103의3①, §92①"
+status: pending  # match | mismatch | pending
+mismatch_note:
