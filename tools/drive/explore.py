@@ -126,6 +126,7 @@ class Run:
         self.unreviewed = 0
         self.errors = 0
         self.externals = []
+        self.externals_ignored = []
         self.unknown_modal = False
         self.start_screens = set(a.screens())  # 실행 전부터 열려 있던 화면은 닫지 않는다
 
@@ -197,8 +198,15 @@ class Run:
 
     def note_external(self, new_ext, path, parent_seq):
         ext = self.a.externals()
+        _, ignored = self.a.judge_externals(new_ext)
+        if ignored:
+            self.externals_ignored.extend(ignored)
+            print(f"    external 무시(externals_ignored): {[(i['title'], i['process'], i['reason']) for i in ignored]}")
+        ign = {(i["title"], i["process"]) for i in ignored}
         for h in new_ext:
             t, p = ext.get(h, ("", ""))
+            if (t, p) in ign:
+                continue
             self.externals.append({"title": t, "process": p})
             self.flow({"seq": self.seq, "path": path, "title": t, "key": "", "parent_seq": parent_seq,
                        "edge": "external", "counts": {}, "process": p})
@@ -263,6 +271,7 @@ class Run:
         try:
             if not self.a.press(parent_hwnd, btn):
                 raise RuntimeError(f"press 실패: {btn}")
+            self.a.mark_op()
             new_s, new_m, new_e = self.after_press(before)
             if not (new_s or new_m or new_e):
                 # 화면 전환이 느릴 수 있어, 부모 화면 키가 바뀌거나 새 창이 뜰 때까지 최대 8초 기다린 뒤 판정
@@ -395,7 +404,7 @@ def explore(a, allow):
     diff = a.diff_fingerprint(fp_before, a.fingerprint())
     blocks = fdb_blocks(a.root, bdir, diff["content"])
     summary = {"screens": run.nscreens, "presses": run.presses, "unreviewed": run.unreviewed,
-               "errors": run.errors, "abort": reason, "exit_code": code, "externals": run.externals,
+               "errors": run.errors, "abort": reason, "exit_code": code, "externals": run.externals, "externals_ignored": run.externals_ignored,
                "fingerprint_diff": diff, "fdb_changed_blocks": blocks, "backup": str(bdir), "backup_failed": bfail,
                "elapsed_sec": round(time.time() - run.t0, 1), "remaining_screens": a.screens()}
     RAW.mkdir(parents=True, exist_ok=True)

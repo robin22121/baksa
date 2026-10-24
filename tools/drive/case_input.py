@@ -775,6 +775,7 @@ class Runner:
 
     def settle(self, step, rec, before, base_wait=0.8):
         """누르거나 입력한 뒤: 새 모달은 단계 파일 규칙대로 처리, 새 화면·외부 창은 중단."""
+        self.a.mark_op()
         appmod.wait_for(lambda: set(self.a.modals()) - before[1] or set(self.a.screens()) - before[0], 2.0, 0.25)
         time.sleep(base_wait)
         for _ in range(5):
@@ -831,8 +832,12 @@ class Runner:
             raise Stop("abort", f"새 화면이 떴다 {sorted(new_s)} — 단계 파일에 반영 필요")
         new_e = set(self.a.externals()) - before[2]
         if new_e:
-            rec["new_externals"] = [list(self.a.externals().get(h, ("", ""))) for h in new_e]
-            raise Stop("abort", f"외부 창이 떴다 {rec['new_externals']}")
+            aborts, ignored = self.a.judge_externals(new_e)
+            if ignored:
+                rec.setdefault("externals_ignored", []).extend(ignored)
+            if aborts:
+                rec["new_externals"] = aborts
+                raise Stop("abort", f"외부 창이 떴다 {rec['new_externals']}")
 
     def no_unexpected(self):
         """누르기 직전 검사: 예상 밖 창이 있으면 캡처하고 중단."""

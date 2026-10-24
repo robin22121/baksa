@@ -207,6 +207,25 @@ def check_unexpected(wins, forbidden):
     return out
 
 
+def all_pids():
+    """실행 중인 프로세스 pid 전체 집합 (EnumProcesses)."""
+    n = 4096
+    arr = (wt.DWORD * n)()
+    got = wt.DWORD()
+    if not _k32.K32EnumProcesses(ctypes.byref(arr), ctypes.sizeof(arr), ctypes.byref(got)):
+        return set()
+    return {arr[i] for i in range(got.value // ctypes.sizeof(wt.DWORD))}
+
+
+def judge_external(pid, baseline, last_op, now, window=10.0):
+    """새 외부 창 판정 → (abort 여부, 사유). pid가 baseline에 없고 마지막 조작 후 window초 이내면 abort."""
+    if pid in baseline:
+        return False, "실행 전부터 있던 프로세스의 창"
+    if now - last_op > window:
+        return False, f"조작 끝난 지 {now - last_op:.0f}초 지남(>{window:.0f}초)"
+    return True, "실행 중 새로 시작된 프로세스 + 조작 직후"
+
+
 def yd_pids():
     """YDdoctor.exe 프로세스의 pid 목록 (보이는 창을 가진 것)."""
     return sorted({w.pid for w in top_windows() if proc_name(w.pid).lower() == PROC_NAME.lower()})
@@ -340,6 +359,25 @@ class App:
         self.main_hwnd = None
         self.pids = []
         self.root = None  # 설치 폴더
+        self.baseline_pids = all_pids()  # 실행 시작 시점에 떠 있던 프로세스 전부
+        self.last_op = 0.0  # 마지막 조작 단계가 끝난 시각(time.time())
+
+    def mark_op(self):
+        self.last_op = time.time()
+
+    def judge_externals(self, hwnds):
+        """새 외부 창 hwnd들을 판정해 ([abort용 (제목, 프로세스명)], [externals_ignored 기록]) 반환."""
+        pid_of = {w.hwnd: w.pid for w in top_windows()}
+        ext = self.externals()
+        aborts, ignored = [], []
+        for h in hwnds:
+            t, p = ext.get(h, ("", ""))
+            ab, why = judge_external(pid_of.get(h, 0), self.baseline_pids, self.last_op, time.time())
+            if ab:
+                aborts.append([t, p])
+            else:
+                ignored.append({"title": t, "process": p, "time": time.strftime("%H:%M:%S"), "reason": why})
+        return aborts, ignored
 
     # ---- 시작·붙기 ----
 
