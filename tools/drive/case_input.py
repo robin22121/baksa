@@ -274,6 +274,113 @@ def op_input(hwnd, auto_id, ctype, want, kind, use_name=False):
     return log
 
 
+def _combo_selection_names(el):
+    """콤보 SelectionPattern의 선택 항목 이름들. 읽을 수 없으면 None."""
+    try:
+        arr = el.iface_selection.GetCurrentSelection()
+        return [arr.GetElement(i).CurrentName for i in range(arr.Length)]
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def _list_items(el, before_handles):
+    """펼친 목록의 ListItem: 콤보 자손 → 없으면 새로 생긴 데스크톱 최상위 창의 자손."""
+    items = []
+    try:
+        items = list(el.descendants(control_type="ListItem"))
+    except Exception:  # noqa: BLE001
+        pass
+    if not items:
+        try:
+            from pywinauto import Desktop
+            for w in Desktop(backend="uia").windows():
+                if w.handle in before_handles:
+                    continue
+                items.extend(w.descendants(control_type="ListItem"))
+        except Exception:  # noqa: BLE001
+            pass
+    return items
+
+
+def op_combo_select(hwnd, auto_id, want):
+    """콤보를 펼쳐 목록에서 이름이 같은 항목을 골라 확정한다(글자만 넣으면 선택 항목이 안 바뀌는 DevExpress 콤보용).
+    펼치기: ExpandCollapse → 안 되면 오른쪽 끝 버튼 영역 실제 클릭. 고르기: SelectionItem.Select → 안 되면 실제 클릭. Enter는 쓰지 않는다."""
+    from pywinauto import mouse
+    el = find_el(appmod.wrap(hwnd), auto_id, "ComboBox")
+    if el is None:
+        return {"found": False}
+    log = {"found": True, "enabled": bool(el.element_info.enabled), "attempts": [], "foreground": [], "ok": False,
+           "method": "select"}
+    if not log["enabled"]:
+        return log
+    log["before"] = _combo_cands(el)
+    okfg, seen = fg_ensure(hwnd)
+    log["foreground"].append({"before": "expand", "ok": okfg, "hwnds": seen})
+    if not okfg:
+        return log
+    try:
+        from pywinauto import Desktop
+        before_handles = {w.handle for w in Desktop(backend="uia").windows()}
+    except Exception:  # noqa: BLE001
+        before_handles = set()
+    r = el.element_info.rectangle
+    try:
+        el.iface_expand_collapse.Expand()
+        log["expand"] = "pattern"
+    except Exception as e:  # noqa: BLE001
+        log["expand_error"] = f"{type(e).__name__}: {e}"
+        mouse.click(coords=(r.right - 8, (r.top + r.bottom) // 2))
+        log["expand"] = "mouse"
+    time.sleep(0.6)
+    items = _list_items(el, before_handles)
+    names = [i.element_info.name for i in items]
+    tgt = next((i for i in items if norm(i.element_info.name) == norm(want)), None)
+    if tgt is None and log["expand"] == "pattern":  # 펼침 패턴이 겉으로만 성공했을 수 있다: 버튼 영역 클릭 재시도
+        mouse.click(coords=(r.right - 8, (r.top + r.bottom) // 2))
+        log["expand"] = "pattern→mouse"
+        time.sleep(0.6)
+        items = _list_items(el, before_handles)
+        names = [i.element_info.name for i in items]
+        tgt = next((i for i in items if norm(i.element_info.name) == norm(want)), None)
+    log["items"] = names
+    if tgt is None:
+        log["why"] = f"항목 없음: {names}"
+        _combo_collapse(el)
+        return log
+    try:
+        tgt.iface_selection_item.Select()
+        log["pick"] = "select"
+    except Exception as e:  # noqa: BLE001
+        log["select_error"] = f"{type(e).__name__}: {e}"
+        tr = tgt.element_info.rectangle
+        mouse.click(coords=((tr.left + tr.right) // 2, (tr.top + tr.bottom) // 2))
+        log["pick"] = "mouse"
+    time.sleep(0.5)
+    _combo_collapse(el)
+    time.sleep(0.4)
+    att = {"method": "select", "read": _combo_cands(el)}
+    att["match"] = same_combo(want, att["read"])
+    sel = _combo_selection_names(el)
+    if sel is None:
+        att["selection_unverified"] = True
+        log["selection_unverified"] = True
+    else:
+        att["selection"] = sel
+        att["selection_match"] = any(norm(s) == norm(want) for s in sel)
+        log["selection"] = sel
+    log["attempts"].append(att)
+    log["read"] = att["read"]
+    log["ok"] = bool(att["match"]) and (sel is None or att["selection_match"])
+    return log
+
+
+def _combo_collapse(el):
+    try:
+        el.iface_expand_collapse.Collapse()
+    except Exception:  # noqa: BLE001
+        pass
+
+
 def op_read(hwnd, auto_id, ctype=None, combo=False):
     el = find_el(appmod.wrap(hwnd), auto_id, ctype)
     if el is None:
@@ -941,7 +1048,10 @@ class Runner:
         title0 = clean_title(next((w.title for w in self.a.screens_info() if w.hwnd == self.hwnd), ""))
         save0 = self.btn_states().get(norm("저장")) if kind == "combo" else None
         before = self.snap()
-        res = guard(lambda: op_input(self.hwnd, sp["id"], ctype, want, kind, use_name))
+        if kind == "combo" and sp.get("mode", "select") == "select":
+            res = guard(lambda: op_combo_select(self.hwnd, sp["id"], want))
+        else:  # text 칸, 또는 combo mode: text(글자 방식)
+            res = guard(lambda: op_input(self.hwnd, sp["id"], ctype, want, kind, use_name))
         rec["result"] = res
         rec["want"] = want
         self.settle(step, rec, before, base_wait=0.3)  # 모달이 먼저다
@@ -952,7 +1062,8 @@ class Runner:
         if res["foreground"] and not res["foreground"][-1]["ok"]:
             raise Stop("fail", f"전경 창이 대상 창이 아님 {res['foreground'][-1]['hwnds']} (대상 {self.hwnd})")
         if not res["ok"]:
-            raise Stop("fail", f"값이 들어가지 않음 {sp['id']} 원하는={want!r} 읽은={res.get('read')}")
+            raise Stop("fail", f"값이 들어가지 않음 {sp['id']} 원하는={want!r} 읽은={res.get('read')}"
+                               + (f" 항목={res.get('items')} 선택={res.get('selection')}" if "items" in res else ""))
         if kind == "combo":
             title1 = clean_title(next((w.title for w in self.a.screens_info() if w.hwnd == self.hwnd), ""))
             save1 = self.btn_states().get(norm("저장"))

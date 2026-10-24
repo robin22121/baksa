@@ -1,0 +1,27 @@
+# C001 자산 수정: 거주기간을 "7년이상 8년미만"으로 바로잡는다(Q7 — 글자 입력 콤보가 "2년이상 3년미만"을 선택해 저장됨).
+# 기존 자산 1건(아파트, 월드컵로 212)을 자산 수정으로 열고 1세대1주택 창을 다시 연 뒤 목록 선택(combo mode select)으로 고른다.
+window: 양도소득세
+steps:
+  - press: 2. 자 산 등 록
+  - verify_grid: {id: cxGrid1, column: 소재지, contains: 월드컵로, count: 1}
+  - press_id: btnEdit                      # 자산 수정
+    opens: 실지거래>아파트·연립주택
+  - read: [S01, S02, S03, CC06, CC11]
+  - capture: edit_opened
+  - click_id: emHigh                       # 체크 해제(처음 보는 창이 뜨면 멈춤)
+  - capture: high_unchecked
+  - click_id: emHigh                       # 다시 체크 → 1세대1주택 창
+    opens: 1세대1주택비과세(고가주택포함)
+  - radio_id: r1_1                         # 예
+  - combo: {id: c3, value: 7년이상 8년미만}
+  - capture: high_dialog_fixed
+  - press_id: btnSave
+    closes: 1세대1주택비과세(고가주택포함)
+  - window: 실지거래>아파트·연립주택
+  - press_id: btnCal
+  - read: [CC10, CC17, CC19, CC20, CC21, CC22]
+  - capture: recalculated
+  - press_id: btnSave
+    closes: 실지거래>아파트·연립주택
+  - press: 2. 자 산 등 록
+  - verify_grid: {id: cxGrid1, column: 소재지, contains: 월드컵로, count: 1}
