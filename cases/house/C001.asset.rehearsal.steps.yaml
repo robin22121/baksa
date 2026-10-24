@@ -1,0 +1,57 @@
+# C001 자산 입력 리허설: 아파트 1채(1세대1주택 고가), 취득실가를 아는 경우. 계산 앞에서 멈추고 저장하지 않고 닫는다(U4).
+# 전제: 양도인 목록에서 가상양도인2(0002)가 선택된 상태(실행 전에 메인이 확인). 값 근거: docs/work-plans/2026-10-24-C001-고가주택.md §0
+window: 양도소득세
+steps:
+  - press: 2. 자 산 등 록
+  - press_id: btnS53                       # 아 파 트 / 연립·다세대
+    opens: 실지거래>아파트·연립주택
+  - radio_id: rgCHK1                       # 취득실가를 아는 경우
+  # 소재지: 공공기관 주소(마포구청) — 2018 취득 당시 조정대상지역(마포구)
+  - click_id: CC02
+    opens: 주소검색
+  - text: {id: emSearch, value: 월드컵로 212}
+  - press_id: btnSearch
+    opens: 주소검색
+  - read: [txtResultJuso]
+  - press_id: btnOk
+  - window: 실지거래>아파트·연립주택
+  - read: [CC02]
+  - text: {id: CC06, value: "2025-08-20", type: Pane}   # 양도일자
+  - text: {id: CC11, value: "2018-04-10", type: Pane}   # 취득일자
+  - text: {id: CC04, value: "84"}                       # 전용면적(가상)
+  - capture: basic_filled
+  - text: {id: S01, value: "1500000000"}                # 양도실가
+    screens: {취득실가: "@close", 필요경비: "@close"}
+  # 취득실가
+  - press_id: btnS02
+    opens: 취득실가
+  - text: {id: S11, value: "800000000"}                 # 매입가격
+  - text: {id: S12, value: "8800000"}                   # 취득세 등(임의값)
+  - read: [ST]
+  - capture: acq
+  - press_id: btnOK
+  - window: 실지거래>아파트·연립주택
+  # 필요경비(양도비)
+  - press_id: btnS03
+    opens: 필요경비
+  - click_id: S41
+  - grid_cell: {grid: cxGrid1, row: 거래처, value: 가상중개사무소, record: 0}
+  - grid_cell: {grid: cxGrid1, row: 지급일자, value: "2025-08-20", record: 0}
+  - grid_cell: {grid: cxGrid1, row: 지급금액, value: "6000000", record: 0}
+  - read: [S41, S1234T]
+  - capture: exp
+  - press_id: btnOK
+  - window: 실지거래>아파트·연립주택
+  # 1세대1주택 비과세(고가주택 포함) + 거주기간 구간
+  - click_id: emHigh
+    opens: 1세대1주택비과세(고가주택포함)
+  - radio_id: r1_1                          # 예
+  - combo: {id: c3, value: 7년이상 8년미만}
+  - capture: high_dialog
+  - press_id: btnSave
+    closes: 1세대1주택비과세(고가주택포함)
+  - window: 실지거래>아파트·연립주택
+  - read: [S01, S02, S03, CC06, CC11, CC04]
+  - capture: before_calc
+  - close: 실지거래>아파트·연립주택
+    modals: {"*|*저장하시겠습니까*": 아니오}

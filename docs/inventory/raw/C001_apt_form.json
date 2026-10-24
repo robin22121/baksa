@@ -1,0 +1,1344 @@
+[
+{
+"type": "Pane",
+"name": "pnlCap",
+"auto_id": "pnlCap",
+"value": null,
+"rect": [
+1197,
+824
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "",
+"auto_id": "splitContainer1",
+"value": null,
+"rect": [
+1201,
+896
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "",
+"auto_id": "splitContainer2",
+"value": null,
+"rect": [
+1201,
+896
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "pnlMain",
+"auto_id": "pnlMain",
+"value": null,
+"rect": [
+1201,
+896
+],
+"enabled": true
+},
+{
+"type": "List",
+"name": "취득원인",
+"auto_id": "cxChk1",
+"value": null,
+"rect": [
+2394,
+1418
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "전체지분",
+"auto_id": "CC04_02",
+"value": "100",
+"rect": [
+1572,
+1733
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "p3",
+"auto_id": "p3",
+"value": null,
+"rect": [
+1748,
+1684
+],
+"enabled": true
+},
+{
+"type": "CheckBox",
+"name": "고가주택",
+"auto_id": "CPUT",
+"value": null,
+"rect": [
+2212,
+1727
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "양도시 기준시가",
+"auto_id": "textEdit3",
+"value": "양도시 기준시가",
+"rect": [
+1750,
+1685
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "필요경비(합)",
+"auto_id": "T04",
+"value": "0",
+"rect": [
+1983,
+1685
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "취득시 기준시가",
+"auto_id": "textEdit2",
+"value": "취득시 기준시가",
+"rect": [
+1750,
+1729
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "필요경비(합)",
+"auto_id": "T05",
+"value": "0",
+"rect": [
+1983,
+1729
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "p4",
+"auto_id": "p4",
+"value": null,
+"rect": [
+1209,
+1771
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "감면율(%)",
+"auto_id": "textEdit1",
+"value": "감면율(%)",
+"rect": [
+1985,
+1776
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "조정감면소득금액",
+"auto_id": "RE23",
+"value": "0",
+"rect": [
+1444,
+1820
+],
+"enabled": false
+},
+{
+"type": "Edit",
+"name": "조정감면소득금액",
+"auto_id": "RE23_1",
+"value": "조정감면소득금액",
+"rect": [
+1209,
+1820
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "CC24_JISU",
+"value": "0",
+"rect": [
+2154,
+1776
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "감면 종류",
+"auto_id": "CC24_1",
+"value": "감면 종류",
+"rect": [
+1209,
+1776
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "감면종류",
+"auto_id": "CC24",
+"value": "",
+"rect": [
+1444,
+1776
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "취득가액 환산/기준시가 조회",
+"auto_id": "btnHS",
+"value": null,
+"rect": [
+1405,
+1671
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "p2",
+"auto_id": "p2",
+"value": null,
+"rect": [
+1208,
+1475
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "취득실가",
+"auto_id": "S02",
+"value": "0",
+"rect": [
+1442,
+1526
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "양도실가",
+"auto_id": "S01",
+"value": "0",
+"rect": [
+1442,
+1482
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "필요경비",
+"auto_id": "S03_1",
+"value": "필요경비",
+"rect": [
+1209,
+1570
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "양도 실가",
+"auto_id": "S01_1",
+"value": "양도 실가",
+"rect": [
+1209,
+1482
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "취득당시평가액",
+"auto_id": "S02_1",
+"value": "취득당시평가액",
+"rect": [
+1209,
+1526
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "수정",
+"auto_id": "btnS03",
+"value": null,
+"rect": [
+1671,
+1568
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "수정",
+"auto_id": "btnS02",
+"value": null,
+"rect": [
+1671,
+1526
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "필요경비(합)",
+"auto_id": "S03",
+"value": "0",
+"rect": [
+1442,
+1570
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "pnTK",
+"auto_id": "pnTK",
+"value": null,
+"rect": [
+1750,
+1475
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "조회(홈택스)",
+"auto_id": "btn_URL",
+"value": null,
+"rect": [
+1922,
+1561
+],
+"enabled": true
+},
+{
+"type": "CheckBox",
+"name": "고가주택",
+"auto_id": "emHigh",
+"value": null,
+"rect": [
+1761,
+1481
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "panelControl5",
+"auto_id": "panelControl5",
+"value": null,
+"rect": [
+1953,
+1519
+],
+"enabled": true
+},
+{
+"type": "CheckBox",
+"name": "조정대상지역",
+"auto_id": "cbJA",
+"value": null,
+"rect": [
+1761,
+1565
+],
+"enabled": true
+},
+{
+"type": "ComboBox",
+"name": "아파트",
+"auto_id": "JasanAPT",
+"value": "아파트",
+"rect": [
+1442,
+1384
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "공동주택유형",
+"auto_id": "lbJasanAPT",
+"value": "공동주택유형",
+"rect": [
+1208,
+1384
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "p0",
+"auto_id": "p0",
+"value": null,
+"rect": [
+1208,
+901
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "계산구분",
+"auto_id": "yCalc_l",
+"value": "계산구분",
+"rect": [
+1211,
+907
+],
+"enabled": true
+},
+{
+"type": "List",
+"name": "0",
+"auto_id": "yCalc",
+"value": null,
+"rect": [
+1444,
+907
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "",
+"auto_id": "resPnl",
+"value": null,
+"rect": [
+1442,
+1078
+],
+"enabled": true
+},
+{
+"type": "CheckBox",
+"name": "직전거주주택보유주택의 양도소득금액 계산 적용",
+"auto_id": "GU10",
+"value": null,
+"rect": [
+1453,
+1080
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "edGU10",
+"value": "0",
+"rect": [
+2139,
+1104
+],
+"enabled": false
+},
+{
+"type": "Edit",
+"name": "소재지",
+"auto_id": "cxLabelEx11",
+"value": "소재지",
+"rect": [
+1209,
+961
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "세율구분 및 과세특례",
+"auto_id": "lbGU",
+"value": "세율구분 및 과세특례",
+"rect": [
+1209,
+1022
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "rgGU",
+"auto_id": "rgGU",
+"value": null,
+"rect": [
+1442,
+1022
+],
+"enabled": true
+},
+{
+"type": "ComboBox",
+"name": "일반과세",
+"auto_id": "GU",
+"value": "일반과세",
+"rect": [
+1442,
+1022
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "소재지",
+"auto_id": "CC02",
+"value": "",
+"rect": [
+1442,
+961
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "위쪽 스크롤 화살표",
+"auto_id": "UpButton",
+"value": null,
+"rect": [
+2310,
+963
+],
+"enabled": false
+},
+{
+"type": "Button",
+"name": "아래쪽 스크롤 화살표",
+"auto_id": "DownButton",
+"value": null,
+"rect": [
+2310,
+1000
+],
+"enabled": false
+},
+{
+"type": "Pane",
+"name": "p1",
+"auto_id": "p1",
+"value": null,
+"rect": [
+1208,
+1146
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "p1_1",
+"auto_id": "p1_1",
+"value": null,
+"rect": [
+1745,
+1236
+],
+"enabled": true
+},
+{
+"type": "ComboBox",
+"name": "매매",
+"auto_id": "chDateW",
+"value": "매매",
+"rect": [
+2202,
+1281
+],
+"enabled": false
+},
+{
+"type": "Edit",
+"name": "일반취득",
+"auto_id": "chName",
+"value": "일반취득",
+"rect": [
+1978,
+1239
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "증여세상당액",
+"auto_id": "chAmt",
+"value": "0",
+"rect": [
+1978,
+1323
+],
+"enabled": false
+},
+{
+"type": "Edit",
+"name": "증여자 취득일자",
+"auto_id": "chDate_1",
+"value": "증여자 취득일자",
+"rect": [
+1748,
+1281
+],
+"enabled": false
+},
+{
+"type": "Pane",
+"name": "증여취득일",
+"auto_id": "chDate",
+"value": null,
+"rect": [
+1978,
+1281
+],
+"enabled": false
+},
+{
+"type": "Edit",
+"name": "증여세 상당액",
+"auto_id": "chAmt_1",
+"value": "증여세 상당액",
+"rect": [
+1748,
+1323
+],
+"enabled": false
+},
+{
+"type": "Edit",
+"name": "취득 원인",
+"auto_id": "chName_1",
+"value": "취득 원인",
+"rect": [
+1748,
+1239
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "토지면적",
+"auto_id": "E06",
+"value": "0",
+"rect": [
+1442,
+1323
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "공용면적",
+"auto_id": "E05",
+"value": "0",
+"rect": [
+1442,
+1279
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "취득실가유형A",
+"auto_id": "cxLabelEx6",
+"value": null,
+"rect": [
+1978,
+1148
+],
+"enabled": true
+},
+{
+"type": "RadioButton",
+"name": "취득실가유형A",
+"auto_id": "rgCHK3",
+"value": null,
+"rect": [
+1983,
+1180
+],
+"enabled": true
+},
+{
+"type": "RadioButton",
+"name": "취득실가유형A",
+"auto_id": "rgCHK1",
+"value": null,
+"rect": [
+1983,
+1153
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "취득실가 유형",
+"auto_id": "lbCHK",
+"value": "취득실가 유형",
+"rect": [
+1748,
+1148
+],
+"enabled": true
+},
+{
+"type": "ComboBox",
+"name": "매매",
+"auto_id": "CC11W",
+"value": "매매",
+"rect": [
+1622,
+1192
+],
+"enabled": true
+},
+{
+"type": "ComboBox",
+"name": "매매",
+"auto_id": "CC06W",
+"value": "매매",
+"rect": [
+1622,
+1148
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "토지면적(㎡)",
+"auto_id": "E06_1",
+"value": "토지면적(㎡)",
+"rect": [
+1209,
+1323
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "취득일자",
+"auto_id": "CC11",
+"value": null,
+"rect": [
+1442,
+1192
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "취득 일자",
+"auto_id": "CC11_1",
+"value": "취득 일자",
+"rect": [
+1209,
+1192
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "전용면적",
+"auto_id": "CC04",
+"value": "0",
+"rect": [
+1442,
+1236
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "공용면적(㎡)",
+"auto_id": "E05_1",
+"value": "공용면적(㎡)",
+"rect": [
+1209,
+1279
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "전용면적(㎡)",
+"auto_id": "CC04_1",
+"value": "전용면적(㎡)",
+"rect": [
+1209,
+1236
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "양도 일자",
+"auto_id": "CC06_1",
+"value": "양도 일자",
+"rect": [
+1209,
+1148
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "양도일자",
+"auto_id": "CC06",
+"value": null,
+"rect": [
+1442,
+1148
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "양도지분/전체지분",
+"auto_id": "CC04_01_1",
+"value": "양도지분/전체지분",
+"rect": [
+1209,
+1733
+],
+"enabled": true
+},
+{
+"type": "ComboBox",
+"name": "취득가액종류",
+"auto_id": "JasanKD1",
+"value": "환산취득가액",
+"rect": [
+1442,
+1426
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "양도지분",
+"auto_id": "CC04_01",
+"value": "100",
+"rect": [
+1444,
+1733
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "취득가액 종류",
+"auto_id": "lbJasanKD1",
+"value": "취득가액 종류",
+"rect": [
+1208,
+1426
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "pCalResult",
+"auto_id": "pCalResult",
+"value": null,
+"rect": [
+2356,
+1649
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "dd23",
+"value": "0",
+"rect": [
+2723,
+1943
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "dd22",
+"value": "0",
+"rect": [
+2723,
+1902
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "dd21",
+"value": "0",
+"rect": [
+2723,
+1862
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "dd20",
+"value": "0",
+"rect": [
+2723,
+1822
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "dd19",
+"value": "0",
+"rect": [
+2723,
+1782
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "dd17",
+"value": "0",
+"rect": [
+2723,
+1741
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "dd10",
+"value": "0",
+"rect": [
+2723,
+1701
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "",
+"auto_id": "lbGUN",
+"value": "",
+"rect": [
+2723,
+1659
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "부 동 산",
+"auto_id": "lbTOJI",
+"value": "부 동 산",
+"rect": [
+2550,
+1659
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "CC23",
+"value": "0",
+"rect": [
+2550,
+1943
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "CC22",
+"value": "0",
+"rect": [
+2550,
+1902
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "CC21",
+"value": "0",
+"rect": [
+2550,
+1862
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "CC20",
+"value": "0",
+"rect": [
+2550,
+1822
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "CC19",
+"value": "0",
+"rect": [
+2550,
+1782
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "CC17",
+"value": "0",
+"rect": [
+2550,
+1741
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "감면소득금액",
+"auto_id": "CC23_1",
+"value": "감면소득금액",
+"rect": [
+2364,
+1943
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "양도소득금액",
+"auto_id": "CC22_1",
+"value": "양도소득금액",
+"rect": [
+2364,
+1902
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "장기보유특별공제",
+"auto_id": "CC21_1",
+"value": "장기보유특별공제",
+"rect": [
+2364,
+1862
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "양도차익",
+"auto_id": "CC20_1",
+"value": "양도차익",
+"rect": [
+2364,
+1822
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "필요경비",
+"auto_id": "CC19_1",
+"value": "필요경비",
+"rect": [
+2364,
+1782
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "취득가액",
+"auto_id": "CC17_1",
+"value": "취득가액",
+"rect": [
+2364,
+1741
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "0",
+"auto_id": "CC10",
+"value": "0",
+"rect": [
+2550,
+1701
+],
+"enabled": true
+},
+{
+"type": "Edit",
+"name": "양도가액",
+"auto_id": "CC10_1",
+"value": "양도가액",
+"rect": [
+2364,
+1701
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "pCalLog",
+"auto_id": "pCalLog",
+"value": null,
+"rect": [
+2356,
+896
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "gosiPnl",
+"auto_id": "gosiPnl",
+"value": null,
+"rect": [
+2356,
+1465
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "gosiPanel",
+"auto_id": "gosiPanel",
+"value": null,
+"rect": [
+2356,
+1465
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "비과세등 확인\r\n(국세청)",
+"auto_id": "btnFTaxinfo2URL",
+"value": null,
+"rect": [
+2637,
+1558
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "실거래가 조회\r\n(국토부)",
+"auto_id": "btnFMolitURL",
+"value": null,
+"rect": [
+2364,
+1558
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "조세법령조회\r\n(국세청)",
+"auto_id": "btnFWetaxGunPrice",
+"value": null,
+"rect": [
+2637,
+1474
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "기준시가 조회\r\n(국토부)",
+"auto_id": "btnFRealtyPrice",
+"value": null,
+"rect": [
+2364,
+1474
+],
+"enabled": true
+},
+{
+"type": "List",
+"name": "0",
+"auto_id": "rgKind",
+"value": null,
+"rect": [
+2392,
+1519
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "",
+"auto_id": "WebBrowser",
+"value": null,
+"rect": [
+2356,
+896
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "panelControl2",
+"auto_id": "panelControl2",
+"value": null,
+"rect": [
+1201,
+1995
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "계산근거보기",
+"auto_id": "btnPrint",
+"value": null,
+"rect": [
+2497,
+2004
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "자산삭제",
+"auto_id": "btnDel",
+"value": null,
+"rect": [
+2350,
+2004
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "아파트조회",
+"auto_id": "btnAPT",
+"value": null,
+"rect": [
+2028,
+2004
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "다음단계",
+"auto_id": "btnNext",
+"value": null,
+"rect": [
+2707,
+2004
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "계산",
+"auto_id": "btnCal",
+"value": null,
+"rect": [
+1348,
+2004
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "저장",
+"auto_id": "btnSave",
+"value": null,
+"rect": [
+1215,
+2004
+],
+"enabled": true
+},
+{
+"type": "Pane",
+"name": "panelControl1",
+"auto_id": "panelControl1",
+"value": null,
+"rect": [
+1201,
+828
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "공동명의 아파트 양도방법",
+"auto_id": "btnUrl",
+"value": null,
+"rect": [
+2321,
+844
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "원격지원",
+"auto_id": "btnRemote",
+"value": null,
+"rect": [
+2616,
+837
+],
+"enabled": true
+},
+{
+"type": "Button",
+"name": "화면인쇄",
+"auto_id": "btnScreen",
+"value": null,
+"rect": [
+2763,
+837
+],
+"enabled": true
+}
+]
