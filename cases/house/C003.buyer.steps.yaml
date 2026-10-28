@@ -1,0 +1,22 @@
+# C003 양수인 입력(실제 저장): C003 리허설과 같은 입력 + 저장. C000 양수인 단계 파일에서 이름만 바꿈.
+# 전제: 양도인 목록에서 가상양도인4(0004)가 선택된 상태, 리허설 종료 코드 0
+window: 양도소득세
+vars:
+  rrn_b: {fake_rrn: {birth: 1988-08-08, sex: M}}
+steps:
+  - press: 3. 양수인 등록
+  - press_id: btnReg
+    expect_enabled: [저장, 취소]
+  - text: {id: eName, value: 가상양수인4}
+  - text: {id: eJumin, value: "{rrn_b}"}
+  - combo: {id: eAddr, value: "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)"}   # 양도자산 소재지: 자산 주소 전체 문자열(Q6)
+  - read: [eJasan, eNative, eJibun, eTotalJibun]
+  - text: {id: eJibun, value: "100"}                  # 양수지분
+  - text: {id: eTotalJibun, value: "100"}             # 전체지분
+  - capture: buyer_filled
+  - press_id: btnSave
+    expect_disabled: [저장, 취소]
+    modals: {}                    # 처음 보는 모달이면 멈춘다
+  - capture: buyer_saved
+  - press: 3. 양수인 등록
+  - verify_grid: {id: cxGrid1, column: 성명, contains: 가상양수인4, count: 1}

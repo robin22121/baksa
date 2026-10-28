@@ -1,4 +1,4 @@
-"""양도소득세 계산 — 조문 단위 순수 함수 (일반 부동산·1세대1주택·2주택 중과 배제·기본세율 경로).
+"""양도소득세 계산 — 조문 단위 순수 함수 (일반 부동산·1세대1주택·조정 2주택 중과·중과 배제·기본세율 경로).
 
 금액은 전부 정수(원). 세율 곱은 정수 산술로 하고 원 미만은 버린다(아래 각 함수 참조).
 
@@ -32,18 +32,25 @@
           residence_start: 2018-04-10     # 거주 시작·종료일 또는 residence_years(정수)
           residence_end: 2025-08-20
 
-1세대1주택이 아닌 주택(one_house: false)은 다음 키를 받고, 1세대2주택 중 아래 둘만 범위 안이다
-(기본세율 §104①1 + 장특 표1 §95②, 결과 자산 행 surcharge_status):
+1세대1주택이 아닌 주택(one_house: false)은 다음 키를 받고, 1세대2주택 중 아래 셋만 범위 안이다
+(결과 자산 행 surcharge_status):
 
           house_count: 2                  # 세대 주택 수(시행령 §167의10②). 2만 범위 안
           adjusted_area_at_transfer: true # 양도 시점 조정대상지역(§104⑦1)
+          transfer_contract_date: 2026-06-01  # 양도 매매계약일(2026-05-10 이후 양도에만 필요)
     - 조정대상지역, 양도일 2022-05-10~2026-05-09 → 중과 배제(시행령 §167의10①12의2), "excluded_grace"
-    - 비조정대상지역 → §104⑦ 자산 아님, "not_adjusted"
+      (기본세율 §104①1 + 장특 표1 §95②)
+    - 조정대상지역, 양도일 2026-05-10 이후이고 양도 계약일도 2026-05-10 이후 → 중과, "surcharged"
+      (§104⑦1: §55① 세율 + 20%p, 누진공제는 기본표 그대로 / 장특 0 — §95② 본문 괄호).
+      자산 1건 양도만 범위 안(같은 해 여러 자산이면 §104⑤ 비교과세 — 범위 밖)
+    - 비조정대상지역 → §104⑦ 자산 아님, "not_adjusted" (기본세율 + 장특 표1)
+  contract_date는 취득 계약일(1세대1주택 부칙 예외 판정용)이라 양도 계약일과 키를 나눈다.
 
 범위 밖 분기(입력이 요구하면 NotImplementedError):
-3주택 이상, 조정대상지역 2주택의 유예기간 밖 양도(2026-05-10 이후는 유예 연장 여부 미확인),
-일시적 2주택·상속주택 등 특례, 단기보유(2년 미만) 세율, 비사업용토지, 중과, 감면, 미등기, 일괄양도 안분,
-감가상각비 차감(≠0), 비거주자, 2023-01-01 이전 양도(§55① 옛 세율표).
+3주택 이상, 조정대상지역 2주택의 2022-05-10 이전 양도, 2026-05-09 이전 계약·이후 양도(보완 유예 4~6개월 —
+지역별 기간 조문 미확인, 계약금 요건 미반영), 2026-05-10 이후 양도인데 양도 계약일 없음, 중과 자산이 낀 여러 자산 양도,
+일시적 2주택·상속주택 등 특례, 단기보유(2년 미만) 세율, 비사업용토지, 그 밖의 중과(surcharge 플래그), 감면, 미등기,
+일괄양도 안분, 감가상각비 차감(≠0), 비거주자, 2023-01-01 이전 양도(§55① 옛 세율표).
 """
 
 from __future__ import annotations
@@ -144,7 +151,7 @@ def _check_scope(asset: dict, residency: str) -> None:
         raise NotImplementedError(f"{aid}: kind={kind!r}·house={asset.get('house')!r} 조합 — 범위 밖")
     if is_house:
         if not asset.get("one_house"):
-            surcharge_status(asset)  # 2주택 중과 배제·비조정만 범위 안(보유 2년 미만은 아래에서 막음)
+            surcharge_status(asset)  # 2주택 중과·중과 배제·비조정만 범위 안(보유 2년 미만은 아래에서 막음)
         for flag in OTHER_HOUSE_FLAGS:
             if asset.get(flag):
                 raise NotImplementedError(f"{aid}: {flag}(시행령 §155 특례 등) — 범위 밖")
@@ -173,7 +180,10 @@ def surcharge_status(asset: dict) -> str:
     근거: 소득세법 §104⑦1(조정대상지역 1세대2주택 +20%p, 장특 배제 §95② 본문 괄호),
     시행령 §167의10①12의2(보유 2년 이상 주택을 2022-05-10~2026-05-09에 양도 → 중과 배제).
     양도 시점 비조정대상지역이면 §104⑦ 자산이 아님 → "not_adjusted".
-    유예기간 안이면 "excluded_grace". 그 밖은 NotImplementedError.
+    유예기간 안이면 "excluded_grace". 유예는 연장 없이 2026-05-09 종료(2026-02-24 국무회의 의결
+    시행령 개정) → 양도일 2026-05-10 이후이고 양도 계약일(transfer_contract_date)도 2026-05-10
+    이후면 "surcharged". 계약일 ≤ 2026-05-09(보완 유예 4~6개월)이거나 계약일이 없으면
+    NotImplementedError. 그 밖(2022-05-10 이전 양도·3주택 이상)도 NotImplementedError.
     """
     aid = asset.get("id", "?")
     if asset.get("house_count") != 2:
@@ -184,10 +194,18 @@ def surcharge_status(asset: dict) -> str:
     tr = _date(asset["transfer_date"])
     if tr < GRACE_FROM:
         raise NotImplementedError(f"{aid}: 2022-05-10 이전 조정대상지역 2주택 양도 — 중과(§104⑦1) 범위 밖")
-    if tr > GRACE_TO:
+    if tr <= GRACE_TO:
+        return "excluded_grace"
+    contract = asset.get("transfer_contract_date")
+    if contract is None:
         raise NotImplementedError(
-            f"{aid}: 2026-05-10 이후 조정대상지역 2주택 양도 — 유예 연장 여부 미확인 — 법령 확인 필요")
-    return "excluded_grace"
+            f"{aid}: 2026-05-10 이후 조정대상지역 2주택 양도 — 양도 계약일(transfer_contract_date) 없음, "
+            "보완 유예 해당 여부 판정 불가")
+    if _date(contract) <= GRACE_TO:
+        raise NotImplementedError(
+            f"{aid}: 2026-05-09 이전 계약·이후 양도 — 보완 유예 4~6개월 — 지역별 기간 조문 미확인, "
+            "계약금 요건 미반영")
+    return "surcharged"
 
 
 # ---------------------------------------------------------------- 조문 함수
@@ -334,29 +352,32 @@ def basic_rate(tax_base: int) -> tuple[int, int]:
     raise AssertionError("unreachable")
 
 
-def computed_tax(tax_base: int) -> int:
-    """산출세액 = 과세표준 × 세율 − 누진공제, 원 미만 절사.
+def computed_tax(tax_base: int, surcharge_pct: int = 0) -> int:
+    """산출세액 = 과세표준 × (세율 + 가산세율) − 누진공제, 원 미만 절사.
 
     근거: 소득세법 §104①1, §55①. 정수 산술 floor(과세표준×세율%/100) − 누진공제.
+    중과(§104⑦1)는 "§55①에 따른 세율에 100분의 20을 더한 세율" → 구간 세율 + surcharge_pct,
+    누진공제는 기본표 그대로.
     (국고금 관리법 §47 10원 미만 절사는 납부·징수 단계라 산출세액엔 적용하지 않음)
     """
     if tax_base <= 0:
         return 0
     pct, prog = basic_rate(tax_base)
-    return tax_base * pct // 100 - prog
+    return tax_base * (pct + surcharge_pct) // 100 - prog
 
 
-def local_income_tax(tax_base: int) -> int:
+def local_income_tax(tax_base: int, surcharge_pct: int = 0) -> int:
     """지방소득세(양도소득분) 산출세액 = 과세표준 × 지방세율 − 지방 누진공제, 원 미만 절사.
 
     근거: 지방세법 §103의3①(양도소득 과세표준은 소득세법 과세표준과 같음 — §103의2),
     §103의3① 세율 = §92①(종합소득 지방세율 0.6%~4.5%, 국세 세율의 1/10, 누진공제도 1/10).
-    정수 산술 floor(과세표준×세율%/1000) − 누진공제/10.
+    중과 자산(§103의3① — 소득세법 §104⑦ 대응)은 구간 지방세율 + surcharge_pct/10(2%p).
+    정수 산술 floor(과세표준×(세율%+가산%)/1000) − 누진공제/10.
     """
     if tax_base <= 0:
         return 0
     pct, prog = basic_rate(tax_base)
-    return tax_base * pct // 1000 - prog // 10
+    return tax_base * (pct + surcharge_pct) // 1000 - prog // 10
 
 
 # ---------------------------------------------------------------- 전체
@@ -387,8 +408,12 @@ def compute(inp: dict) -> dict:
             exempt = one_house_exempt(a)
             price = int(a["transfer_price"])
             taxable = high_price_taxable_gain(g, price) if exempt else g
+            status = None if a.get("one_house") else surcharge_status(a)
             # §95② 단서·시행령 §159의4: 1세대1주택이고 보유기간 중 거주 2년 이상이면 표2, 아니면 표1
-            if a.get("one_house") and res >= 2 and yrs >= 3:
+            if status == "surcharged":
+                # §95② 본문 괄호: §104⑦ 각 호 주택(중과 자산)은 장기보유특별공제 배제
+                h_pct, r_pct, table = 0, 0, "배제"
+            elif a.get("one_house") and res >= 2 and yrs >= 3:
                 h_pct, r_pct = long_term_rate_pct_table2(yrs, res)
                 table = "표2"
                 table2_used = True
@@ -399,8 +424,10 @@ def compute(inp: dict) -> dict:
             row.update({"residence_years": res, "one_house_exempt": exempt,
                         "ltd_table": table, "holding_rate_pct": h_pct + r_pct,
                         "holding_part_pct": h_pct, "residence_part_pct": r_pct})
-            if not a.get("one_house"):
-                row["surcharge_status"] = surcharge_status(a)
+            if status is not None:
+                row["surcharge_status"] = status
+                if status == "surcharged":
+                    row["surcharge_pct"] = 20  # §104⑦1
         else:
             taxable = g
             ltd = long_term_deduction(g, yrs)
@@ -408,6 +435,11 @@ def compute(inp: dict) -> dict:
         row.update({"exempt_gain": g - taxable, "taxable_gain": taxable,
                     "holding_deduction": ltd, "income_amount": taxable - ltd})
         per_asset.append(row)
+
+    surcharged = any(p.get("surcharge_status") == "surcharged" for p in per_asset)
+    if surcharged and len(per_asset) > 1:
+        raise NotImplementedError("중과 자산이 낀 여러 자산 양도(§104⑤ 비교과세) — 범위 밖, 자산 1건만 범위 안")
+    add_pct = 20 if surcharged else 0  # §104⑦1
 
     gain = sum(p["gain"] for p in per_asset)
     taxable_gain = sum(p["taxable_gain"] for p in per_asset)
@@ -425,27 +457,31 @@ def compute(inp: dict) -> dict:
         "income_amount": income,
         "basic_deduction": bd,
         "tax_base": base,
-        "rate": pct,
+        "rate": pct + add_pct,
         "progressive_deduction": prog,
-        "tax": computed_tax(base),
-        "local_tax": local_income_tax(base),
+        "tax": computed_tax(base, add_pct),
+        "local_tax": local_income_tax(base, add_pct),
     }
     basis = {
         "gain": "소득세법 §95①, §96①, §97①·③, §100①, 시행령 §163",
         "exempt_gain": "소득세법 §89①3, 시행령 §154①(1세대1주택), §95③·시행령 §160①1(고가주택 12억 초과분만 과세)",
         "taxable_gain": "소득세법 §95①·③, 시행령 §160①1",
         "holding_deduction": (
+            "소득세법 §95② 본문 괄호 — 중과 자산 장특 배제" if surcharged else
             "소득세법 §95② 단서·표2, 시행령 §159의4·§160①2(고가주택 안분), §95④, 국세기본법 §4·민법 §157·§160"
             if table2_used else
             "소득세법 §95② 표1, §95④(보유기간), 국세기본법 §4·민법 §157·§160"),
         "income_amount": "소득세법 §95①, §102",
         "basic_deduction": "소득세법 §103①1·②",
         "tax_base": "소득세법 §92②",
-        "rate": "소득세법 §104①1, §55①(2023.1.1 이후)" + (
+        "rate": "소득세법 §104⑦1, §55①, 시행령 §167의10①(유예 종료 2026-05-09)" if surcharged else
+                "소득세법 §104①1, §55①(2023.1.1 이후)" + (
             ", 시행령 §167의10①12의2(2주택 중과 배제)"
             if any(p.get("surcharge_status") == "excluded_grace" for p in per_asset) else ""),
         "progressive_deduction": "소득세법 §55①",
-        "tax": "소득세법 §104①1, §55① (원 미만 절사)",
-        "local_tax": "지방세법 §103의2, §103의3①, §92① (원 미만 절사)",
+        "tax": ("소득세법 §104⑦1, §55① (기본세율 + 20%p, 원 미만 절사)" if surcharged else
+                "소득세법 §104①1, §55① (원 미만 절사)"),
+        "local_tax": "지방세법 §103의2, §103의3①, §92① (원 미만 절사)" + (
+            ", 중과 자산 지방세율 + 2%p" if surcharged else ""),
     }
     return {"amounts": amounts, "basis": basis, "assets": per_asset}

@@ -91,10 +91,16 @@ class TestC002Boundaries(unittest.TestCase):
         with self.assertRaisesRegex(NotImplementedError, "2022-05-10 이전"):
             compute_with(transfer_date=dt.date(2022, 5, 9))
 
-    def test_after_grace_extension_unverified(self):
-        # 2026-05-10 → 유예 연장 여부 미확인(법령 확정 주장 아님) → NotImplementedError
-        with self.assertRaisesRegex(NotImplementedError, "유예 연장 여부 미확인"):
+    def test_after_grace_needs_contract_date(self):
+        # 2026-05-10 양도(유예 종료 뒤, C003 계획서 §0) — 양도 계약일이 없거나 2026-05-09 이전이면
+        # 보완 유예 해당 여부를 판정할 수 없어 NotImplementedError. 계약일도 5-10 이후면 중과.
+        with self.assertRaisesRegex(NotImplementedError, "양도 계약일"):
             compute_with(transfer_date=dt.date(2026, 5, 10))
+        with self.assertRaisesRegex(NotImplementedError, "보완 유예"):
+            compute_with(transfer_date=dt.date(2026, 5, 10), transfer_contract_date=dt.date(2026, 5, 9))
+        a, h = compute_with(transfer_date=dt.date(2026, 5, 10), transfer_contract_date=dt.date(2026, 5, 10))
+        self.assertEqual(h["surcharge_status"], "surcharged")
+        self.assertEqual(a["rate"], 60)
 
     def test_not_adjusted_same_result(self):
         # 양도 시점 비조정대상지역 → §104⑦ 자산 아님, C002와 같은 결과
