@@ -36,18 +36,18 @@ input:
       surcharge: false
       reduction: null
       price_basis: 구분가액
-expected_baksa:         # 양도박사 산출값 (W3에서 화면에서 읽어 채움, 출처 캡처 번호)
-  gain:                 # 양도소득금액계산서 14. 양도차익(전체)
-  exempt_gain:          # 같은 서식 비과세 양도차익
-  taxable_gain:         # 같은 서식 15. 과세대상 양도차익
-  holding_deduction:    # 같은 서식 16. 장기보유특별공제
-  income_amount:        # 과세표준신고서 4. 양도소득금액
-  basic_deduction:      # 과세표준신고서 7. 양도소득기본공제
-  tax_base:             # 과세표준신고서 8. 과세표준
-  rate:                 # 과세표준신고서 9. 세율
-  tax:                  # 과세표준신고서 10. 산출세액
-  local_tax:            # 과세표준신고서 지방소득세
-  source:
+expected_baksa:         # 양도박사 산출값 (W3에서 화면에서 읽어 채움, v.20261028.002)
+  gain: "685,200,000"           # 양도소득금액계산서 양도차익 > 전체 양도차익
+  exempt_gain: "548,160,000"    # 같은 서식 비과세 양도차익(이연)
+  taxable_gain: "137,040,000"   # 같은 서식 15. 과세대상 양도차익
+  holding_deduction: "76,742,400"  # 같은 서식 16. 장기보유특별공제(코드 01)
+  income_amount: "60,297,600"   # 과세표준신고서(양도소득세) 4. 양도소득금액
+  basic_deduction: "2,500,000"  # 같은 서식 7. 양도소득기본공제
+  tax_base: "57,797,600"        # 같은 서식 8. 과세표준
+  rate: "0.24"                  # 같은 서식 9. 세율(누진공제 5,760,000)
+  tax: "8,111,424"              # 같은 서식 10. 산출세액
+  local_tax: "811,142"          # 같은 서식 지방소득세 납부할세액(과세표준신고서(지방소득세) 7. 산출세액 811,142)
+  source: "docs/screens/C001_02_tax_과세표준신고서.png, docs/screens/C001_04_tax_양도소득금액계산서.png, docs/screens/C001_06_tax_지방소득세.png (메인이 직접 읽음, 2026-10-28)"
 expected_law:  # calc 결과. compare.py가 채움
   amounts:
     gain: 685200000
@@ -100,5 +100,5 @@ basis:
   - "기본공제: 소득세법 §103①1"
   - "세율: 소득세법 §104①1, §55①(2023.1.1 이후 표) — 과세표준 8,800만원 이하 구간 24%, 누진공제 5,760,000"
   - "지방소득세: 지방세법 §103의2, §103의3①, §92①"
-status: pending  # match | mismatch | pending
+status: match  # match | mismatch | pending
 mismatch_note:

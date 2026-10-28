@@ -1,0 +1,163 @@
+{
+ "steps_file": "cases\\house\\C001.seller.verify.steps.yaml",
+ "case": "C001",
+ "started": "2026-10-28T23:20:56",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 5113378,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261028_232056",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "1.양도인등록"
+   },
+   "t": "2026-10-28T23:21:06",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "verify_grid",
+   "spec": {
+    "verify_grid": {
+     "id": "cxGrid1",
+     "column": "성명",
+     "contains": "가상양도인2",
+     "count": 1
+    }
+   },
+   "t": "2026-10-28T23:21:11",
+   "result": {
+    "found": true,
+    "rows": 2,
+    "matched": 1,
+    "row_values": [
+     {
+      "선택": "Unchecked",
+      "고객": "0001",
+      "성명": "가상양도인",
+      "양도구분": "부동산",
+      "양도연월": "202506",
+      "등록일자": "2026-10-22"
+     },
+     {
+      "선택": "Unchecked",
+      "고객": "0002",
+      "성명": "가상양도인2",
+      "양도구분": "부동산",
+      "양도연월": "202508",
+      "등록일자": "2026-10-24"
+     }
+    ],
+    "column": "성명"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "capture",
+   "spec": {
+    "capture": "seller_grid"
+   },
+   "t": "2026-10-28T23:21:17",
+   "capture": "docs/screens/C001_03_seller_grid.png",
+   "capture_method": "ok",
+   "status": "ok"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": [
+   "backup.ini"
+  ]
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     200
+    ]
+   },
+   "data_type_changed": 0
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": false,
+  "others_only_header_tip": true
+ },
+ "abort": null,
+ "exit_code": 0,
+ "finished": "2026-10-28T23:21:19",
+ "remaining_screens": [
+  5113378,
+  3540768
+ ],
+ "remaining_modals": []
+}
