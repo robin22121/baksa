@@ -1,0 +1,112 @@
+{
+ "steps_file": "cases\\house\\C002.buyer.cancel.steps.yaml",
+ "case": "C002",
+ "started": "2026-10-29T00:01:00",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 5113378,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261029_000100",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnCancel",
+    "expect_disabled": [
+     "저장",
+     "취소"
+    ]
+   },
+   "t": "2026-10-29T00:01:01",
+   "button": {
+    "id": "btnCancel",
+    "name": "취소",
+    "click_hwnd": 1641104
+   },
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "verify_grid",
+   "spec": {
+    "verify_grid": {
+     "id": "cxGrid1",
+     "column": "성명",
+     "contains": "가상양수인3",
+     "count": 0
+    }
+   },
+   "t": "2026-10-29T00:01:08",
+   "result": {
+    "found": true,
+    "rows": 0,
+    "matched": 0,
+    "row_values": [],
+    "column": "성명"
+   },
+   "status": "ok"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 0,
+   "by_type": {},
+   "first_pages": {},
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 0,
+   "by_type": {},
+   "first_pages": {},
+   "data_type_changed": 0
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 0,
+    "by_type": {},
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 0,
+    "by_type": {},
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": false,
+  "others_only_header_tip": true
+ },
+ "abort": null,
+ "exit_code": 0,
+ "finished": "2026-10-29T00:01:13",
+ "remaining_screens": [
+  5113378,
+  3540768
+ ],
+ "remaining_modals": []
+}

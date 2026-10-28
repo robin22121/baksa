@@ -7,6 +7,7 @@
 --dry-run: 값을 넣지 않고 칸·라디오·콤보·버튼을 찾기만 해 표로 출력한다. 단계 파일의 `등록`·`저장`·`취소` 등은 누르지 않는다.
            칸이 안 보이면 `1.양도인등록` 버튼만 1회 누른다(화면 이동, 읽기).
 실행: backup_before_run → 백업 헤더 확인 → 단계 → 지문 + fdb 페이지 비교 → cases/basic/<케이스>.run_<시각>.json
+단계마다 시작 시 열려 있는 모달(이전 단계 뒤늦게 뜬 것)은 단계 modals 규칙으로 처리(rec.modals_at_start), 없으면 캡처 후 중단.
 종료 코드: 정상 0, 중단(fail/abort) 2, 예외 1.
 """
 import argparse
@@ -304,7 +305,8 @@ def _list_items(el, before_handles):
 
 def op_combo_select(hwnd, auto_id, want):
     """콤보를 펼쳐 목록에서 이름이 같은 항목을 골라 확정한다(글자만 넣으면 선택 항목이 안 바뀌는 DevExpress 콤보용).
-    펼치기: ExpandCollapse → 안 되면 오른쪽 끝 버튼 영역 실제 클릭. 고르기: SelectionItem.Select → 안 되면 실제 클릭. Enter는 쓰지 않는다."""
+    펼치기: ExpandCollapse → 안 되면 오른쪽 끝 버튼 영역 실제 클릭. 고르기: SelectionItem.Select → 안 되면 실제 클릭. Enter는 쓰지 않는다.
+    고른 뒤에도 목록이 열려 있으면(펼침 패턴 없는 콤보) 항목 중앙을 실제 클릭해 닫고 log["closed_by"]에 기록, 그래도 열려 있으면 ok=False."""
     from pywinauto import mouse
     el = find_el(appmod.wrap(hwnd), auto_id, "ComboBox")
     if el is None:
@@ -358,6 +360,16 @@ def op_combo_select(hwnd, auto_id, want):
     time.sleep(0.5)
     _combo_collapse(el)
     time.sleep(0.4)
+    # F7: 펼침 패턴이 없는 콤보(GU 등)는 Select()만으로 목록이 안 닫힌다 → 열려 있으면 항목을 실제 클릭해 닫는다(Esc는 선택을 되돌릴 수 있어 쓰지 않음)
+    log["closed_by"] = "select"
+    if _list_still_open(el, before_handles, want):
+        tr = tgt.element_info.rectangle
+        mouse.click(coords=((tr.left + tr.right) // 2, (tr.top + tr.bottom) // 2))
+        log["closed_by"] = "mouse_item"
+        time.sleep(0.6)
+        if _list_still_open(el, before_handles, want):
+            log["why"] = "콤보 목록이 닫히지 않음"
+            return log
     att = {"method": "select", "read": _combo_cands(el)}
     att["match"] = same_combo(want, att["read"])
     sel = _combo_selection_names(el)
@@ -372,6 +384,19 @@ def op_combo_select(hwnd, auto_id, want):
     log["read"] = att["read"]
     log["ok"] = bool(att["match"]) and (sel is None or att["selection_match"])
     return log
+
+
+def _list_still_open(el, before_handles, want=None):
+    """선택 뒤에도 목록 팝업이 남았는지. 실측(2026-10-29): DevExpress 콤보 ListItem은 팝업이 닫혀도 UIA 트리에 남아
+    항목 이름으로는 판별할 수 없다. 팝업이 열려 있는 동안에만 새 최상위 창 클래스 "SysShadow"가 보이고(펼치기 전
+    before_handles에 없음), 마우스로 항목을 클릭하면 사라진다(Select()만으로는 남는다). want는 호환용으로 쓰지 않는다."""
+    try:
+        from pywinauto import Desktop
+        u32 = ctypes.windll.user32
+        return any(w.class_name() == "SysShadow" and w.handle not in before_handles and bool(u32.IsWindowVisible(w.handle))
+                   for w in Desktop(backend="uia").windows())
+    except Exception:  # noqa: BLE001
+        return False
 
 
 def _combo_collapse(el):
@@ -442,6 +467,14 @@ def _select_item(hwnd, tgt, log):
         log["method"] = f"select→postclick({h})"
         time.sleep(0.5)
         sel = _is_selected(tgt)
+    if not sel:  # F9: 상태 읽기가 늦게 반영되는 경우 → 클릭 없이 최대 2.0초(0.25초 간격) 재읽기
+        n = 0
+        while not sel and n < 8:
+            time.sleep(0.25)
+            n += 1
+            sel = _is_selected(tgt)
+        log["reread"] = n
+        log["reread_true"] = bool(sel)
     log["selected"] = sel
     log["ok"] = bool(sel)
     return log
@@ -880,6 +913,22 @@ class Runner:
         if not gone:
             raise Stop("abort", f"모달 {key!r}이(가) 닫히지 않음")
 
+    def handle_open_modals(self, step, rec):
+        """단계 시작 시 이미 열려 있는 모달(이전 단계 settle이 끝난 뒤 늦게 뜬 것) 처리:
+        단계 modals에 맞으면 처리해 rec["modals_at_start"]에 기록, 없으면 캡처 후 중단."""
+        for w in self.a.modals_info():
+            key = self.a.modal_key(w)
+            mm = [norm(k) for k in (step.get("modals") or {})]
+            if not (key in mm or any(_modal_match(k, key) for k in mm)):
+                self.shot_modal(w, "modal_at_start")
+                raise Stop("abort", f"단계 시작 시 열려 있는 모달 {key!r} — 단계 파일 modals에 추가 필요")
+            tmp = {}
+            try:
+                self.handle_modal(w, step, tmp)
+            finally:
+                rec.setdefault("modals_at_start", []).extend(tmp.get("modals", []))
+            time.sleep(0.6)
+
     def settle(self, step, rec, before, base_wait=0.8):
         """누르거나 입력한 뒤: 새 모달은 단계 파일 규칙대로 처리, 새 화면·외부 창은 중단."""
         self.a.mark_op()
@@ -1210,6 +1259,7 @@ class Runner:
             self.results.append(rec)
             print(f"[{self.i:02d}] {act}: {json.dumps(step[act], ensure_ascii=False, default=str)}", flush=True)
             try:
+                self.handle_open_modals(step, rec)  # F8: 늦게 뜬 모달이 다음 단계 입력을 막지 않게 먼저 처리
                 getattr(self, "do_" + act)(step, rec)
                 rec["status"] = "ok"
                 print("     ok", flush=True)

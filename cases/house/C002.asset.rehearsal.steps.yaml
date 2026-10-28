@@ -1,0 +1,56 @@
+# C002 자산 리허설(W1 탐색 겸): 아파트 폼에 C002 값 입력 + 세율구분 `1세대2주택` 선택 → 계산 앞에서 저장 없이 닫는다(U4).
+# 전제: 양도인 목록에서 가상양도인3이 선택된 상태. 값 근거: docs/work-plans/2026-10-28-C002-조정2주택-중과유예.md §0
+window: 양도소득세
+steps:
+  - press: 2. 자 산 등 록
+  - press_id: btnS53                       # 아 파 트 / 연립·다세대
+    opens: 실지거래>아파트·연립주택
+  - radio_id: rgCHK1                       # 취득실가를 아는 경우
+  # 소재지: 공공기관 주소(강남구청) — 양도일 2025-08-20 조정대상지역(강남구)
+  - click_id: CC02
+    opens: 주소검색
+  - text: {id: emSearch, value: 학동로 426}
+  - press_id: btnSearch
+    opens: 주소검색
+  - read: [txtResultJuso]
+  - press_id: btnOk
+  - window: 실지거래>아파트·연립주택
+  - read: [CC02]
+  - text: {id: CC06, value: "2025-08-20", type: Pane}   # 양도일자
+  - text: {id: CC11, value: "2015-03-10", type: Pane}   # 취득일자
+  - text: {id: CC04, value: "84"}                       # 전용면적(가상)
+  - capture: basic_filled
+  # 세율구분 및 과세특례: 목록 전체를 실행 기록(items)에 남기고 1세대2주택을 고른다. 처음 보는 창이 뜨면 멈춘다(W1 관찰)
+  # 1차 실행(233702) 관찰: 선택 직후 모달 "확인 | 다주택자가 … 2022년 5월 10일부터 2026년 5월 9일까지 양도하는 경우 중과 미적용(시행령 §167의3①12의2, §167의10①12의2) … 「일반과세」를 적용하시겠습니까?"
+  # 유예기간 안 양도 → 예. 모달이 늦게 뜰 수 있어 다음 단계에도 같은 규칙(F8 수정: 단계 시작 시 열린 모달도 규칙으로 처리)
+  # 2차 실행(234045) 교훈: 콤보 목록이 펼쳐진 채 남아 마우스 클릭이 다른 항목을 골랐다(F7) — 콤보 뒤에 마우스 클릭 단계를 두지 않는다
+  - combo: {id: GU, value: 1세대2주택}
+    modals: {"확인|*일반과세」를적용하시겠습니까*": 예}
+    screens: {확인: 아니오}                 # 2번째 창 "중과되는 주택이 맞습니까?" — 유예기간 안이라 아니오
+  - capture: gu_selected
+  - read: [GU]
+  - text: {id: S01, value: "900000000"}                 # 양도실가
+    screens: {취득실가: "@close", 필요경비: "@close", 확인: 아니오}
+    modals: {"확인|*일반과세」를적용하시겠습니까*": 예}
+  - press_id: btnS02
+    opens: 취득실가
+  - text: {id: S11, value: "500000000"}                 # 매입가격
+  - text: {id: S12, value: "5500000"}                   # 취득세 등(임의값)
+  - read: [ST]
+  - capture: acq
+  - press_id: btnOK
+  - window: 실지거래>아파트·연립주택
+  - press_id: btnS03
+    opens: 필요경비
+  - click_id: S41
+  - grid_cell: {grid: cxGrid1, row: 거래처, value: 가상중개사무소, record: 0}
+  - grid_cell: {grid: cxGrid1, row: 지급일자, value: "2025-08-20", record: 0}
+  - grid_cell: {grid: cxGrid1, row: 지급금액, value: "4000000", record: 0}
+  - read: [S41, S1234T]
+  - capture: exp
+  - press_id: btnOK
+  - window: 실지거래>아파트·연립주택
+  - read: [S01, S02, S03, CC06, CC11, CC04, GU]
+  - capture: before_calc
+  - close: 실지거래>아파트·연립주택
+    modals: {"*|*저장하시겠습니까*": 아니오}

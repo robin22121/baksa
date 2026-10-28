@@ -1,0 +1,470 @@
+{
+ "steps_file": "cases\\house\\C002.buyer.rehearsal.steps.yaml",
+ "case": "C002",
+ "started": "2026-10-29T00:01:37",
+ "window": "양도소득세",
+ "vars": {
+  "rrn_b": "8506061766692"
+ },
+ "prior_runs_same_steps": 1,
+ "hwnd": 5113378,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261029_000137",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "3. 양수인 등록"
+   },
+   "t": "2026-10-29T00:01:39",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnReg",
+    "expect_enabled": [
+     "저장",
+     "취소"
+    ]
+   },
+   "t": "2026-10-29T00:01:44",
+   "button": {
+    "id": "btnReg",
+    "name": "등록",
+    "click_hwnd": 1639946
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "eName",
+     "value": "가상양수인3"
+    }
+   },
+   "t": "2026-10-29T00:01:51",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "가상양수인3",
+       "양수인",
+       "가상양수인3"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       5113378
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "양수인"
+    ],
+    "method": "set_value",
+    "read": [
+     "가상양수인3",
+     "양수인",
+     "가상양수인3"
+    ]
+   },
+   "want": "가상양수인3",
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "eJumin",
+     "value": "8506061766692"
+    }
+   },
+   "t": "2026-10-29T00:01:57",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "8506061766692",
+       "주민등록번호(양수인)",
+       "8506061766692"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       5113378
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "주민등록번호(양수인)"
+    ],
+    "method": "set_value",
+    "read": [
+     "8506061766692",
+     "주민등록번호(양수인)",
+     "8506061766692"
+    ]
+   },
+   "want": "8506061766692",
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "combo",
+   "spec": {
+    "combo": {
+     "id": "eAddr",
+     "value": "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)"
+    }
+   },
+   "t": "2026-10-29T00:02:02",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "select",
+      "read": [
+       "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)",
+       "주소",
+       "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)",
+       "주소",
+       "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)"
+      ],
+      "match": true,
+      "selection_unverified": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "expand",
+      "ok": true,
+      "hwnds": [
+       5113378
+      ]
+     }
+    ],
+    "ok": true,
+    "method": "select",
+    "before": [
+     "주소",
+     "주소"
+    ],
+    "expand_error": "NoPatternInterfaceError: ",
+    "expand": "mouse",
+    "items": [
+     "",
+     "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)"
+    ],
+    "pick": "select",
+    "closed_by": "mouse_item",
+    "selection_unverified": true,
+    "read": [
+     "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)",
+     "주소",
+     "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)",
+     "주소",
+     "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)"
+    ]
+   },
+   "want": "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)",
+   "title_same": true,
+   "save_same": true,
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "read",
+   "spec": {
+    "read": [
+     "eJasan",
+     "eNative",
+     "eJibun",
+     "eTotalJibun"
+    ]
+   },
+   "t": "2026-10-29T00:02:14",
+   "values": {
+    "eJasan": [
+     "양도자산"
+    ],
+    "eNative": [
+     "내국인",
+     "내국인"
+    ],
+    "eJibun": [
+     "100",
+     "지분",
+     "100"
+    ],
+    "eTotalJibun": [
+     "100",
+     "100"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "eJibun",
+     "value": "100"
+    }
+   },
+   "t": "2026-10-29T00:02:22",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "100",
+       "지분",
+       "100"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       5113378
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "100",
+     "지분",
+     "100"
+    ],
+    "method": "set_value",
+    "read": [
+     "100",
+     "지분",
+     "100"
+    ]
+   },
+   "want": "100",
+   "status": "ok"
+  },
+  {
+   "i": 8,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "eTotalJibun",
+     "value": "100"
+    }
+   },
+   "t": "2026-10-29T00:02:27",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "100",
+       "100"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       5113378
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "100",
+     "100"
+    ],
+    "method": "set_value",
+    "read": [
+     "100",
+     "100"
+    ]
+   },
+   "want": "100",
+   "status": "ok"
+  },
+  {
+   "i": 9,
+   "action": "capture",
+   "spec": {
+    "capture": "buyer_filled"
+   },
+   "t": "2026-10-29T00:02:33",
+   "capture": "docs/screens/C002_09_buyer_filled.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 10,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnCancel",
+    "expect_disabled": [
+     "저장",
+     "취소"
+    ]
+   },
+   "t": "2026-10-29T00:02:33",
+   "button": {
+    "id": "btnCancel",
+    "name": "취소",
+    "click_hwnd": 1640874
+   },
+   "status": "ok"
+  },
+  {
+   "i": 11,
+   "action": "verify_grid",
+   "spec": {
+    "verify_grid": {
+     "id": "cxGrid1",
+     "column": "성명",
+     "contains": "가상양수인3",
+     "count": 0
+    }
+   },
+   "t": "2026-10-29T00:02:40",
+   "result": {
+    "found": true,
+    "rows": 0,
+    "matched": 0,
+    "row_values": [],
+    "column": "성명"
+   },
+   "status": "ok"
+  }
+ ],
+ "reads": {
+  "eJasan": [
+   "양도자산"
+  ],
+  "eNative": [
+   "내국인",
+   "내국인"
+  ],
+  "eJibun": [
+   "100",
+   "지분",
+   "100"
+  ],
+  "eTotalJibun": [
+   "100",
+   "100"
+  ]
+ },
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 0,
+   "by_type": {},
+   "first_pages": {},
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     200
+    ]
+   },
+   "data_type_changed": 0
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 0,
+    "by_type": {},
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": false,
+  "others_only_header_tip": true
+ },
+ "abort": null,
+ "exit_code": 0,
+ "finished": "2026-10-29T00:02:45",
+ "remaining_screens": [
+  5113378,
+  3540768
+ ],
+ "remaining_modals": []
+}

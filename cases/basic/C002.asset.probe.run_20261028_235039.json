@@ -1,0 +1,172 @@
+{
+ "steps_file": "cases\\house\\C002.asset.probe.steps.yaml",
+ "case": "C002",
+ "started": "2026-10-28T23:50:39",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 5113378,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261028_235039",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록"
+   },
+   "t": "2026-10-28T23:50:40",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnS53",
+    "opens": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-28T23:50:45",
+   "button": {
+    "id": "btnS53",
+    "name": "실지거래 > 아파트/연립",
+    "click_hwnd": 1444132
+   },
+   "opened": {
+    "title": "실지거래 > 아파트·연립주택",
+    "hwnd": 986390,
+    "capture": "docs/screens/C002_02_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "capture",
+   "spec": {
+    "capture": "form_default"
+   },
+   "t": "2026-10-28T23:50:51",
+   "capture": "docs/screens/C002_03_form_default.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "close",
+   "spec": {
+    "close": "실지거래>아파트·연립주택",
+    "modals": {
+     "*|*저장하시겠습니까*": "아니오"
+    }
+   },
+   "t": "2026-10-28T23:50:52",
+   "modals": [
+    {
+     "key": "확인|현재정보를저장하시겠습니까?",
+     "title": "확인",
+     "msg": "현재 정보를 저장하시겠습니까?",
+     "pressed": [
+      "아니오"
+     ],
+     "handled": true
+    }
+   ],
+   "new_screens": [
+    527960
+   ],
+   "status": "abort",
+   "detail": "새 화면이 떴다 [527960] — 단계 파일에 반영 필요"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     200
+    ]
+   },
+   "data_type_changed": 0
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": false,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 4 close abort: 새 화면이 떴다 [527960] — 단계 파일에 반영 필요",
+ "exit_code": 2,
+ "finished": "2026-10-28T23:50:56",
+ "remaining_screens": [
+  527960,
+  5113378,
+  3540768
+ ],
+ "remaining_modals": []
+}

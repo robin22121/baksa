@@ -1,0 +1,100 @@
+case_id: C002
+group: house
+law_date: 2025-08-20    # 적용 법령 기준일 = 양도일. 양도박사 버전의 세법 반영일은 docs/env.md
+description: 조정대상지역 1세대2주택 중 아파트 1채 양도, 거주자, 중과 유예기간(2022-05-10~2026-05-09) 안 → 중과 배제, 기본세율 + 장특 표1 10년 20%
+# 계획서: docs/work-plans/2026-10-28-C002-조정2주택-중과유예.md §0 (입력값), §2 (대조 8항목)
+local_tax_floor10_ok: true   # 지방소득세 화면값이 10원 미만 절사여도 일치로 본다(C001과 같은 규칙)
+input:
+  residency: 거주자
+  report_type: 예정
+  prior_basic_deduction_used: 0  # 가상양도인3 — 같은 해 다른 양도 없음
+  baksa_asset_type: 아파트·연립·다세대
+  seller: 가상양도인3            # 생년 1975, 새 양도인(§107② 합산 섞임 방지)
+  assets:
+    - id: H1
+      kind: 주택                     # 국내 아파트 A (계속 보유 주택 B는 2012년 취득, 양도박사에 넣지 않음)
+      transfer_date: 2025-08-20      # 잔금청산일(§98, 시행령 §162①) — 유예기간 안
+      acquisition_date: 2015-03-10   # 잔금청산일 (보유 10년 5개월 → 표1 20%)
+      contract_date: 2015-01-10
+      transfer_price: 900000000
+      acquisition_price: 500000000
+      expenses:
+        acquisition_tax: 5500000     # 임의값(양도박사 취득세 자동계산 팝업이 뜨면 취소)
+        transfer_brokerage: 4000000  # 양도 중개수수료
+      depreciation: 0
+      location: 서울 강남구           # 2017-08-03 이후 계속 조정대상지역 (주소 검색은 강남구청 학동로 426, 가상 전용 84㎡)
+      area_m2: 84
+      registered: true
+      house: true
+      one_house: false               # 세대 주택 A·B 2채
+      house_count: 2                 # 시행령 §167의10② 산정 — 입주권·분양권·임대등록 주택 없음
+      adjusted_area_at_transfer: true  # 양도 시점 조정대상지역(§104⑦1)
+      temporary_two_house: false     # 일시적 2주택(시행령 §155①) 아님
+      inherited_house: false
+      surcharge: false               # 중과 배제(시행령 §167의10①12의2)
+      reduction: null
+      price_basis: 구분가액
+expected_baksa:         # 양도박사 산출값 (W3에서 화면에서 읽어 채움, v.20261028.002)
+  gain: "390,500,000"           # 양도소득금액계산서 15. 과세대상 양도차익(전체 양도차익 같음, 비과세 0)
+  holding_deduction: "78,100,000"  # 같은 서식 16. 장기보유특별공제(코드 02)
+  income_amount: "312,400,000"  # 과세표준신고서(양도소득세) 4. 양도소득금액
+  basic_deduction: "2,500,000"  # 같은 서식 7. 양도소득기본공제
+  tax_base: "309,900,000"       # 같은 서식 8. 과세표준
+  rate: "0.40"                  # 같은 서식 9. 세율, 열 머리글 "일반세율 (1-10)"(누진공제 25,940,000)
+  tax: "98,020,000"             # 같은 서식 10. 산출세액
+  local_tax: "9,802,000"        # 같은 서식 지방소득세 납부할세액(과세표준신고서(지방소득세) 7. 산출세액 9,802,000)
+  source: "docs/screens/C002_02_tax_과세표준신고서.png, docs/screens/C002_04_tax_양도소득금액계산서.png, docs/screens/C002_06_tax_지방소득세.png (메인이 직접 읽음, 2026-10-29)"
+expected_law:  # calc 결과. compare.py가 채움
+  amounts:
+    gain: 390500000
+    exempt_gain: 0
+    taxable_gain: 390500000
+    holding_deduction: 78100000
+    income_amount: 312400000
+    basic_deduction: 2500000
+    tax_base: 309900000
+    rate: 40
+    progressive_deduction: 25940000
+    tax: 98020000
+    local_tax: 9802000
+  assets:
+  - id: H1
+    kind: 주택
+    necessary_expenses: 509500000
+    gain: 390500000
+    holding_years: 10
+    residence_years: 0
+    one_house_exempt: false
+    ltd_table: 표1
+    holding_rate_pct: 20
+    holding_part_pct: 20
+    residence_part_pct: 0
+    surcharge_status: excluded_grace
+    exempt_gain: 0
+    taxable_gain: 390500000
+    holding_deduction: 78100000
+    income_amount: 312400000
+  basis:
+    gain: 소득세법 §95①, §96①, §97①·③, §100①, 시행령 §163
+    exempt_gain: 소득세법 §89①3, 시행령 §154①(1세대1주택), §95③·시행령 §160①1(고가주택 12억 초과분만 과세)
+    taxable_gain: 소득세법 §95①·③, 시행령 §160①1
+    holding_deduction: 소득세법 §95② 표1, §95④(보유기간), 국세기본법 §4·민법 §157·§160
+    income_amount: 소득세법 §95①, §102
+    basic_deduction: 소득세법 §103①1·②
+    tax_base: 소득세법 §92②
+    rate: 소득세법 §104①1, §55①(2023.1.1 이후), 시행령 §167의10①12의2(2주택 중과 배제)
+    progressive_deduction: 소득세법 §55①
+    tax: 소득세법 §104①1, §55① (원 미만 절사)
+    local_tax: 지방세법 §103의2, §103의3①, §92① (원 미만 절사)
+basis:
+  - "중과 대상: 소득세법 §104⑦1(조정대상지역 1세대2주택 +20%p), 주택 수 시행령 §167의10②"
+  - "중과 배제(유예): 소득세법 시행령 §167의10①12의2(보유 2년 이상, 2022-05-10~2026-05-09 양도)"
+  - "양도차익: 소득세법 §95①, §96①, §97①, §100①, 시행령 §163"
+  - "취득·양도시기: 소득세법 §98, 시행령 §162①(잔금청산일)"
+  - "장기보유특별공제: 소득세법 §95② 표1(보유 10년 20%) — 본문 괄호의 배제 대상 §104⑦ 자산 아님(중과 배제), §95④·국세기본법 §4·민법 §157·§160"
+  - "양도소득금액: 소득세법 §95①, §102"
+  - "기본공제: 소득세법 §103①1"
+  - "세율: 소득세법 §104①1, §55①(2023.1.1 이후 표) — 과세표준 3억 초과 5억 이하 구간 40%, 누진공제 25,940,000"
+  - "지방소득세: 지방세법 §103의2, §103의3①, §92①"
+status: match  # match | mismatch | pending
+mismatch_note:

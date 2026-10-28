@@ -1,4 +1,4 @@
-"""양도소득세 계산 — 조문 단위 순수 함수 (일반 부동산·1세대1주택·기본세율 경로).
+"""양도소득세 계산 — 조문 단위 순수 함수 (일반 부동산·1세대1주택·2주택 중과 배제·기본세율 경로).
 
 금액은 전부 정수(원). 세율 곱은 정수 산술로 하고 원 미만은 버린다(아래 각 함수 참조).
 
@@ -32,8 +32,17 @@
           residence_start: 2018-04-10     # 거주 시작·종료일 또는 residence_years(정수)
           residence_end: 2025-08-20
 
+1세대1주택이 아닌 주택(one_house: false)은 다음 키를 받고, 1세대2주택 중 아래 둘만 범위 안이다
+(기본세율 §104①1 + 장특 표1 §95②, 결과 자산 행 surcharge_status):
+
+          house_count: 2                  # 세대 주택 수(시행령 §167의10②). 2만 범위 안
+          adjusted_area_at_transfer: true # 양도 시점 조정대상지역(§104⑦1)
+    - 조정대상지역, 양도일 2022-05-10~2026-05-09 → 중과 배제(시행령 §167의10①12의2), "excluded_grace"
+    - 비조정대상지역 → §104⑦ 자산 아님, "not_adjusted"
+
 범위 밖 분기(입력이 요구하면 NotImplementedError):
-다주택·일시적 2주택·상속주택 등 1세대1주택 외 주택, 단기보유(2년 미만) 세율, 비사업용토지, 중과, 감면, 미등기, 일괄양도 안분,
+3주택 이상, 조정대상지역 2주택의 유예기간 밖 양도(2026-05-10 이후는 유예 연장 여부 미확인),
+일시적 2주택·상속주택 등 특례, 단기보유(2년 미만) 세율, 비사업용토지, 중과, 감면, 미등기, 일괄양도 안분,
 감가상각비 차감(≠0), 비거주자, 2023-01-01 이전 양도(§55① 옛 세율표).
 """
 
@@ -69,6 +78,9 @@ HIGH_PRICE_LIMIT = 1_200_000_000
 RESIDENCE_RULE_FROM = _dt.date(2017, 8, 3)
 # 주택 중 1세대1주택 외 분기 플래그 → 범위 밖
 OTHER_HOUSE_FLAGS = ("temporary_two_house", "inherited_house", "multi_house")
+# 시행령 §167의10①12의2 — 보유 2년 이상 조정대상지역 주택을 이 기간에 양도하면 2주택 중과 배제
+GRACE_FROM = _dt.date(2022, 5, 10)
+GRACE_TO = _dt.date(2026, 5, 9)
 
 
 # ---------------------------------------------------------------- 공통
@@ -132,7 +144,7 @@ def _check_scope(asset: dict, residency: str) -> None:
         raise NotImplementedError(f"{aid}: kind={kind!r}·house={asset.get('house')!r} 조합 — 범위 밖")
     if is_house:
         if not asset.get("one_house"):
-            raise NotImplementedError(f"{aid}: 1세대1주택 아닌 주택(다주택 중과 §104⑦ 등) — 범위 밖")
+            surcharge_status(asset)  # 2주택 중과 배제·비조정만 범위 안(보유 2년 미만은 아래에서 막음)
         for flag in OTHER_HOUSE_FLAGS:
             if asset.get(flag):
                 raise NotImplementedError(f"{aid}: {flag}(시행령 §155 특례 등) — 범위 밖")
@@ -153,6 +165,29 @@ def _check_scope(asset: dict, residency: str) -> None:
         raise NotImplementedError(f"{aid}: 2023-01-01 이전 양도 — §55① 옛 세율표 범위 밖")
     if holding_years(asset["acquisition_date"], tr) < 2:
         raise NotImplementedError(f"{aid}: 보유 2년 미만 단기세율(§104①2·3) — 범위 밖")
+
+
+def surcharge_status(asset: dict) -> str:
+    """1세대2주택(one_house: false, house_count 2) 주택의 중과 판정.
+
+    근거: 소득세법 §104⑦1(조정대상지역 1세대2주택 +20%p, 장특 배제 §95② 본문 괄호),
+    시행령 §167의10①12의2(보유 2년 이상 주택을 2022-05-10~2026-05-09에 양도 → 중과 배제).
+    양도 시점 비조정대상지역이면 §104⑦ 자산이 아님 → "not_adjusted".
+    유예기간 안이면 "excluded_grace". 그 밖은 NotImplementedError.
+    """
+    aid = asset.get("id", "?")
+    if asset.get("house_count") != 2:
+        raise NotImplementedError(
+            f"{aid}: 세대 주택 수 {asset.get('house_count')!r}(3주택 이상 §104⑦3·4 등) — 범위 밖")
+    if not asset.get("adjusted_area_at_transfer"):
+        return "not_adjusted"
+    tr = _date(asset["transfer_date"])
+    if tr < GRACE_FROM:
+        raise NotImplementedError(f"{aid}: 2022-05-10 이전 조정대상지역 2주택 양도 — 중과(§104⑦1) 범위 밖")
+    if tr > GRACE_TO:
+        raise NotImplementedError(
+            f"{aid}: 2026-05-10 이후 조정대상지역 2주택 양도 — 유예 연장 여부 미확인 — 법령 확인 필요")
+    return "excluded_grace"
 
 
 # ---------------------------------------------------------------- 조문 함수
@@ -353,7 +388,7 @@ def compute(inp: dict) -> dict:
             price = int(a["transfer_price"])
             taxable = high_price_taxable_gain(g, price) if exempt else g
             # §95② 단서·시행령 §159의4: 1세대1주택이고 보유기간 중 거주 2년 이상이면 표2, 아니면 표1
-            if res >= 2 and yrs >= 3:
+            if a.get("one_house") and res >= 2 and yrs >= 3:
                 h_pct, r_pct = long_term_rate_pct_table2(yrs, res)
                 table = "표2"
                 table2_used = True
@@ -364,6 +399,8 @@ def compute(inp: dict) -> dict:
             row.update({"residence_years": res, "one_house_exempt": exempt,
                         "ltd_table": table, "holding_rate_pct": h_pct + r_pct,
                         "holding_part_pct": h_pct, "residence_part_pct": r_pct})
+            if not a.get("one_house"):
+                row["surcharge_status"] = surcharge_status(a)
         else:
             taxable = g
             ltd = long_term_deduction(g, yrs)
@@ -404,7 +441,9 @@ def compute(inp: dict) -> dict:
         "income_amount": "소득세법 §95①, §102",
         "basic_deduction": "소득세법 §103①1·②",
         "tax_base": "소득세법 §92②",
-        "rate": "소득세법 §104①1, §55①(2023.1.1 이후)",
+        "rate": "소득세법 §104①1, §55①(2023.1.1 이후)" + (
+            ", 시행령 §167의10①12의2(2주택 중과 배제)"
+            if any(p.get("surcharge_status") == "excluded_grace" for p in per_asset) else ""),
         "progressive_deduction": "소득세법 §55①",
         "tax": "소득세법 §104①1, §55① (원 미만 절사)",
         "local_tax": "지방세법 §103의2, §103의3①, §92① (원 미만 절사)",

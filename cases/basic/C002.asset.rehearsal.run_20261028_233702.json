@@ -1,0 +1,688 @@
+{
+ "steps_file": "cases\\house\\C002.asset.rehearsal.steps.yaml",
+ "case": "C002",
+ "started": "2026-10-28T23:37:02",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 5113378,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261028_233702",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록"
+   },
+   "t": "2026-10-28T23:37:04",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnS53",
+    "opens": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-28T23:37:10",
+   "button": {
+    "id": "btnS53",
+    "name": "실지거래 > 아파트/연립",
+    "click_hwnd": 788772
+   },
+   "opened": {
+    "title": "실지거래 > 아파트·연립주택",
+    "hwnd": 658094,
+    "capture": "docs/screens/C002_02_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "radio_id",
+   "spec": {
+    "radio_id": "rgCHK1"
+   },
+   "t": "2026-10-28T23:37:17",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "name": "취득실가유형A",
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "click_id",
+   "spec": {
+    "click_id": "CC02",
+    "opens": "주소검색"
+   },
+   "t": "2026-10-28T23:37:24",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     259,
+     252,
+     1159,
+     306
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       658094
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "opened": {
+    "title": "주소 검색",
+    "hwnd": 200566,
+    "capture": "docs/screens/C002_04_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "emSearch",
+     "value": "학동로 426"
+    }
+   },
+   "t": "2026-10-28T23:37:32",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "학동로 426",
+       "학동로 426",
+       "학동로 426"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       200566
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "학동로 426",
+     "학동로 426",
+     "학동로 426"
+    ]
+   },
+   "want": "학동로 426",
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSearch",
+    "opens": "주소검색"
+   },
+   "t": "2026-10-28T23:37:36",
+   "button": {
+    "id": "btnSearch",
+    "name": "조회",
+    "click_hwnd": 200570
+   },
+   "opened": {
+    "title": "주소 검색",
+    "hwnd": 134600,
+    "capture": "docs/screens/C002_06_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "read",
+   "spec": {
+    "read": [
+     "txtResultJuso"
+    ]
+   },
+   "t": "2026-10-28T23:37:41",
+   "values": {
+    "txtResultJuso": [
+     "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)",
+     "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)",
+     "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 8,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOk"
+   },
+   "t": "2026-10-28T23:37:41",
+   "button": {
+    "id": "btnOk",
+    "name": "저장",
+    "click_hwnd": 134538
+   },
+   "status": "ok"
+  },
+  {
+   "i": 9,
+   "action": "window",
+   "spec": {
+    "window": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-28T23:37:46",
+   "hwnd": 658094,
+   "status": "ok"
+  },
+  {
+   "i": 10,
+   "action": "read",
+   "spec": {
+    "read": [
+     "CC02"
+    ]
+   },
+   "t": "2026-10-28T23:37:46",
+   "values": {
+    "CC02": [
+     "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)",
+     "소재지",
+     "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 11,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC06",
+     "value": "2025-08-20",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-28T23:37:48",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "양도일자",
+       "2025년 8월 20일 수요일",
+       "양도일자"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       658094
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       658094
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "양도일자",
+     "양도일자"
+    ],
+    "method": "type",
+    "read": [
+     "양도일자",
+     "2025년 8월 20일 수요일",
+     "양도일자"
+    ]
+   },
+   "want": "2025-08-20",
+   "status": "ok"
+  },
+  {
+   "i": 12,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC11",
+     "value": "2015-03-10",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-28T23:37:55",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "취득일자",
+       "2015년 3월 10일 화요일",
+       "취득일자"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       1050060,
+       658094
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       658094
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "취득일자",
+     "0001년 1월 1일 월요일",
+     "취득일자"
+    ],
+    "method": "type",
+    "read": [
+     "취득일자",
+     "2015년 3월 10일 화요일",
+     "취득일자"
+    ]
+   },
+   "want": "2015-03-10",
+   "status": "ok"
+  },
+  {
+   "i": 13,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC04",
+     "value": "84"
+    }
+   },
+   "t": "2026-10-28T23:38:04",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "84",
+       "전용면적",
+       "84"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       658094
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "전용면적"
+    ],
+    "method": "set_value",
+    "read": [
+     "84",
+     "전용면적",
+     "84"
+    ]
+   },
+   "want": "84",
+   "status": "ok"
+  },
+  {
+   "i": 14,
+   "action": "capture",
+   "spec": {
+    "capture": "basic_filled"
+   },
+   "t": "2026-10-28T23:38:10",
+   "capture": "docs/screens/C002_14_basic_filled.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 15,
+   "action": "combo",
+   "spec": {
+    "combo": {
+     "id": "GU",
+     "value": "1세대2주택"
+    }
+   },
+   "t": "2026-10-28T23:38:11",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "select",
+      "read": [
+       "1세대2주택",
+       "1세대2주택",
+       "1세대2주택",
+       "1세대2주택",
+       "1세대2주택"
+      ],
+      "match": true,
+      "selection_unverified": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "expand",
+      "ok": true,
+      "hwnds": [
+       658094
+      ]
+     }
+    ],
+    "ok": true,
+    "method": "select",
+    "before": [
+     "일반과세",
+     "일반과세",
+     "일반과세",
+     "일반과세",
+     "일반과세"
+    ],
+    "expand_error": "NoPatternInterfaceError: ",
+    "expand": "mouse",
+    "items": [
+     "일반과세",
+     "미등기",
+     "1세대2주택",
+     "1세대3주택",
+     "과세1세대1주택",
+     "미분양주택 (조특법 제98조)",
+     "지방미분양주택 (조특법 제98조의2)",
+     "장기일반민간임대주택 장기보유공제율 50% (조특법 제97조의3)",
+     "장기일반민간임대주택 장기보유공제율 70% (조특법 제97조의3)",
+     "장기임대주택 추가 장기보유공제율 가산 (조특법 제97조의4)"
+    ],
+    "pick": "select",
+    "selection_unverified": true,
+    "read": [
+     "1세대2주택",
+     "1세대2주택",
+     "1세대2주택",
+     "1세대2주택",
+     "1세대2주택"
+    ]
+   },
+   "want": "1세대2주택",
+   "title_same": true,
+   "save_same": true,
+   "status": "ok"
+  },
+  {
+   "i": 16,
+   "action": "capture",
+   "spec": {
+    "capture": "gu_selected"
+   },
+   "t": "2026-10-28T23:38:25",
+   "capture": "docs/screens/C002_16_gu_selected.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 17,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "S01",
+     "value": "900000000"
+    },
+    "screens": {
+     "취득실가": "@close",
+     "필요경비": "@close"
+    }
+   },
+   "t": "2026-10-28T23:38:25",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "COMError: (-2147220992, None, (None, None, None, 0, None))",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "양도실가"
+      ],
+      "match": false
+     },
+     {
+      "method": "mouse",
+      "read": [
+       "0",
+       "양도실가",
+       "0"
+      ],
+      "match": false
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       658094
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       658094
+      ]
+     },
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       658094
+      ]
+     },
+     {
+      "before": "mouse-input",
+      "ok": true,
+      "hwnds": [
+       658094
+      ]
+     }
+    ],
+    "ok": false,
+    "before": [
+     "0",
+     "양도실가",
+     "0"
+    ],
+    "read": [
+     "0",
+     "양도실가",
+     "0"
+    ]
+   },
+   "want": "900000000",
+   "handled_screens": [
+    {
+     "title": "취득실가",
+     "hwnd": 462278,
+     "pressed": "@close",
+     "capture_method": "ok",
+     "capture": "docs/screens/C002_17_screen_1.png"
+    }
+   ],
+   "status": "fail",
+   "detail": "값이 들어가지 않음 S01 원하는='900000000' 읽은=['0', '양도실가', '0']"
+  }
+ ],
+ "reads": {
+  "txtResultJuso": [
+   "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)",
+   "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)",
+   "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)"
+  ],
+  "CC02": [
+   "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)",
+   "소재지",
+   "서울특별시 강남구 학동로 426 (삼성동, 강남구청, 16-1)"
+  ]
+ },
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     200
+    ]
+   },
+   "data_type_changed": 0
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": false,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 17 text fail: 값이 들어가지 않음 S01 원하는='900000000' 읽은=['0', '양도실가', '0']",
+ "exit_code": 2,
+ "finished": "2026-10-28T23:38:37",
+ "remaining_screens": [
+  658094,
+  5113378,
+  3540768
+ ],
+ "remaining_modals": [
+  265672
+ ]
+}

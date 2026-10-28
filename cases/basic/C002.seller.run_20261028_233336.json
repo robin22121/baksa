@@ -1,0 +1,699 @@
+{
+ "steps_file": "cases\\house\\C002.seller.steps.yaml",
+ "case": "C002",
+ "started": "2026-10-28T23:33:36",
+ "window": "양도소득세",
+ "vars": {
+  "rrn": "7505051814275"
+ },
+ "prior_runs_same_steps": 0,
+ "hwnd": 5113378,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261028_233337",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "1.양도인등록"
+   },
+   "t": "2026-10-28T23:33:39",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "check_combo",
+   "spec": {
+    "check_combo": {
+     "id": "cbMen100Year",
+     "value": "전체"
+    }
+   },
+   "t": "2026-10-28T23:33:49",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "values": [
+     "전체",
+     "전체",
+     "전체",
+     "전체",
+     "전체"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "press",
+   "spec": {
+    "press": "등록",
+    "screens": {
+     "양도구분선택": "부동산권리"
+    },
+    "expect_enabled": [
+     "저장",
+     "취소"
+    ]
+   },
+   "t": "2026-10-28T23:33:52",
+   "how": "postmessage",
+   "handled_screens": [
+    {
+     "title": "양도구분 선택",
+     "hwnd": 265402,
+     "pressed": "부동산권리",
+     "capture_method": "ok",
+     "capture": "docs/screens/C002_03_screen_1.png"
+    }
+   ],
+   "states": {
+    "저장": [
+     true
+    ],
+    "취소": [
+     true
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "emJASANGU",
+     "value": "부동산"
+    }
+   },
+   "t": "2026-10-28T23:34:02",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "부동산",
+     "국외자산",
+     "주식",
+     "토지등 매매차익",
+     "파생상품"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "emSINGOGU",
+     "value": "예정"
+    }
+   },
+   "t": "2026-10-28T23:34:08",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "예정",
+     "확정",
+     "수정",
+     "기한후"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "emBORN",
+     "value": "내국인"
+    }
+   },
+   "t": "2026-10-28T23:34:15",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "내국인",
+     "외국인"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "emOUTJUSO",
+     "value": "거주자"
+    }
+   },
+   "t": "2026-10-28T23:34:21",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "거주자",
+     "비거주자"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 8,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "emNAME",
+     "value": "가상양도인3"
+    }
+   },
+   "t": "2026-10-28T23:34:26",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "가상양도인3",
+       "양도인",
+       "가상양도인3"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       5113378
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "양도인"
+    ],
+    "method": "set_value",
+    "read": [
+     "가상양도인3",
+     "양도인",
+     "가상양도인3"
+    ]
+   },
+   "want": "가상양도인3",
+   "status": "ok"
+  },
+  {
+   "i": 9,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "emJUMIN",
+     "value": "7505051814275"
+    }
+   },
+   "t": "2026-10-28T23:34:33",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "750505-1814275",
+       "주민등록번호(양도인)",
+       "750505-1814275"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       5113378
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "주민등록번호(양도인)"
+    ],
+    "method": "set_value",
+    "read": [
+     "750505-1814275",
+     "주민등록번호(양도인)",
+     "750505-1814275"
+    ]
+   },
+   "want": "7505051814275",
+   "status": "ok"
+  },
+  {
+   "i": 10,
+   "action": "combo",
+   "spec": {
+    "combo": {
+     "id": "emSEONAME",
+     "value": "마포"
+    }
+   },
+   "t": "2026-10-28T23:34:39",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "select",
+      "read": [
+       "마포",
+       "관할세무서",
+       "마포",
+       "관할세무서",
+       "마포"
+      ],
+      "match": true,
+      "selection_unverified": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "expand",
+      "ok": true,
+      "hwnds": [
+       5113378
+      ]
+     }
+    ],
+    "ok": true,
+    "method": "select",
+    "before": [
+     "관할세무서",
+     "관할세무서"
+    ],
+    "expand_error": "NoPatternInterfaceError: ",
+    "expand": "mouse",
+    "items": [
+     "강남",
+     "강동",
+     "강릉",
+     "강서",
+     "거창",
+     "경기광주",
+     "경산",
+     "경주",
+     "계양",
+     "고양",
+     "공주",
+     "관악",
+     "광명",
+     "광산",
+     "광주",
+     "구로",
+     "구리",
+     "구미",
+     "군산",
+     "금정",
+     "금천",
+     "기흥",
+     "김천",
+     "김포",
+     "김해",
+     "나주",
+     "남대구",
+     "남대문",
+     "남동",
+     "남부천",
+     "남양주",
+     "남원",
+     "노원",
+     "논산",
+     "대전",
+     "도봉",
+     "동고양",
+     "동대구",
+     "동대문",
+     "동래",
+     "동수원",
+     "동안산",
+     "동안양",
+     "동울산",
+     "동작",
+     "동청주",
+     "동화성",
+     "마산",
+     "마포",
+     "목포",
+     "반포",
+     "보령",
+     "부산강서",
+     "부산진",
+     "부천",
+     "부평",
+     "북광주",
+     "북대구",
+     "북대전",
+     "북부산",
+     "북전주",
+     "분당",
+     "삼성",
+     "삼척",
+     "상주",
+     "서광주",
+     "서대구",
+     "서대문",
+     "서대전",
+     "서부산",
+     "서산",
+     "서인천",
+     "서초",
+     "성남",
+     "성동",
+     "성북",
+     "세종",
+     "속초",
+     "송파",
+     "수성",
+     "수영",
+     "수원",
+     "순천",
+     "시흥",
+     "아산",
+     "안동",
+     "안산",
+     "안양",
+     "양산",
+     "양천",
+     "여수",
+     "역삼",
+     "연수",
+     "영덕",
+     "영동",
+     "영등포",
+     "영월",
+     "영주",
+     "예산",
+     "용산",
+     "용인",
+     "울산",
+     "원주",
+     "은평",
+     "의정부",
+     "이천",
+     "익산",
+     "인천",
+     "잠실",
+     "전주",
+     "정읍",
+     "제주",
+     "제천",
+     "종로",
+     "중랑",
+     "중부",
+     "중부산",
+     "진주",
+     "창원",
+     "천안",
+     "청주",
+     "춘천",
+     "충주",
+     "통영",
+     "파주",
+     "평택",
+     "포천",
+     "포항",
+     "해남",
+     "해운대",
+     "홍성",
+     "홍천",
+     "화성"
+    ],
+    "pick": "select",
+    "selection_unverified": true,
+    "read": [
+     "마포",
+     "관할세무서",
+     "마포",
+     "관할세무서",
+     "마포"
+    ]
+   },
+   "want": "마포",
+   "title_same": true,
+   "save_same": true,
+   "status": "ok"
+  },
+  {
+   "i": 11,
+   "action": "read",
+   "spec": {
+    "read": [
+     "emSEOCD"
+    ]
+   },
+   "t": "2026-10-28T23:34:54",
+   "values": {
+    "emSEOCD": [
+     "105",
+     "세무서코드",
+     "105"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 12,
+   "action": "capture",
+   "spec": {
+    "capture": "before_save"
+   },
+   "t": "2026-10-28T23:34:56",
+   "capture": "docs/screens/C002_12_before_save.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 13,
+   "action": "press",
+   "spec": {
+    "press": "저장",
+    "expect_disabled": [
+     "저장",
+     "취소"
+    ],
+    "modals": {}
+   },
+   "t": "2026-10-28T23:34:57",
+   "how": "postmessage",
+   "states": {
+    "저장": [
+     false
+    ],
+    "취소": [
+     false
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 14,
+   "action": "capture",
+   "spec": {
+    "capture": "after_save"
+   },
+   "t": "2026-10-28T23:35:07",
+   "capture": "docs/screens/C002_14_after_save.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 15,
+   "action": "press",
+   "spec": {
+    "press": "1.양도인등록"
+   },
+   "t": "2026-10-28T23:35:08",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 16,
+   "action": "verify_grid",
+   "spec": {
+    "verify_grid": {
+     "id": "cxGrid1",
+     "column": "성명",
+     "contains": "가상양도인3",
+     "count": 1
+    }
+   },
+   "t": "2026-10-28T23:35:15",
+   "result": {
+    "found": true,
+    "rows": 3,
+    "matched": 1,
+    "row_values": [
+     {
+      "선택": "Unchecked",
+      "고객": "0001",
+      "성명": "가상양도인",
+      "양도구분": "부동산",
+      "양도연월": "202506",
+      "등록일자": "2026-10-22"
+     },
+     {
+      "선택": "Unchecked",
+      "고객": "0002",
+      "성명": "가상양도인2",
+      "양도구분": "부동산",
+      "양도연월": "202508",
+      "등록일자": "2026-10-24"
+     },
+     {
+      "선택": "Unchecked",
+      "고객": "0003",
+      "성명": "가상양도인3",
+      "양도구분": "부동산",
+      "양도연월": "",
+      "등록일자": "2026-10-28"
+     }
+    ],
+    "column": "성명"
+   },
+   "status": "ok"
+  }
+ ],
+ "reads": {
+  "emSEOCD": [
+   "105",
+   "세무서코드",
+   "105"
+  ]
+ },
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": [
+   "backup.ini"
+  ]
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 6,
+   "by_type": {
+    "header": 1,
+    "gen": 1,
+    "pointer": 1,
+    "TIP": 1,
+    "data": 2
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "gen": [
+     136
+    ],
+    "pointer": [
+     169
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     305,
+     316
+    ]
+   },
+   "data_type_changed": 3
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 6,
+    "by_type": {
+     "header": 1,
+     "gen": 1,
+     "pointer": 1,
+     "TIP": 1,
+     "data": 2
+    },
+    "only_header_tip": false,
+    "data_type_changed": 3,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": null,
+ "exit_code": 0,
+ "finished": "2026-10-28T23:35:22",
+ "remaining_screens": [
+  5113378,
+  3540768
+ ],
+ "remaining_modals": []
+}

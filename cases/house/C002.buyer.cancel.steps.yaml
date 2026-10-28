@@ -1,0 +1,6 @@
+# C002 양수인 입력 중단 뒤 정리: 취소 → 그리드 0행 확인
+window: 양도소득세
+steps:
+  - press_id: btnCancel
+    expect_disabled: [저장, 취소]
+  - verify_grid: {id: cxGrid1, column: 성명, contains: 가상양수인3, count: 0}

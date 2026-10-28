@@ -1,0 +1,201 @@
+{
+ "steps_file": "cases\\house\\C002.tax.read.steps.yaml",
+ "case": "C002",
+ "started": "2026-10-29T00:04:13",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 5113378,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261029_000413",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press_id",
+   "spec": {
+    "press_id": "nBar14"
+   },
+   "t": "2026-10-29T00:04:14",
+   "button": {
+    "id": "nBar14",
+    "name": "4. 세 액 계 산",
+    "click_hwnd": 789350
+   },
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "capture",
+   "spec": {
+    "capture": "tax_과세표준신고서"
+   },
+   "t": "2026-10-29T00:04:20",
+   "capture": "docs/screens/C002_02_tax_과세표준신고서.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "tab",
+   "spec": {
+    "tab": "양도소득금액계산서"
+   },
+   "t": "2026-10-29T00:04:21",
+   "result": {
+    "found": true,
+    "tabs": [
+     "과세표준신고서(양도소득세)",
+     "과세표준신고서(지방소득세)",
+     "양도소득금액계산서",
+     "건물기준시가계산서"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true,
+    "row_names": [],
+    "row_values": {}
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "capture",
+   "spec": {
+    "capture": "tax_양도소득금액계산서"
+   },
+   "t": "2026-10-29T00:04:34",
+   "capture": "docs/screens/C002_04_tax_양도소득금액계산서.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "tab",
+   "spec": {
+    "tab": "과세표준신고서(지방소득세)"
+   },
+   "t": "2026-10-29T00:04:34",
+   "result": {
+    "found": true,
+    "tabs": [
+     "과세표준신고서(양도소득세)",
+     "과세표준신고서(지방소득세)",
+     "양도소득금액계산서",
+     "건물기준시가계산서",
+     "1",
+     "2"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true,
+    "row_names": [],
+    "row_values": {}
+   },
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "capture",
+   "spec": {
+    "capture": "tax_지방소득세"
+   },
+   "t": "2026-10-29T00:04:48",
+   "capture": "docs/screens/C002_06_tax_지방소득세.png",
+   "capture_method": "ok",
+   "status": "ok"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 0,
+   "by_type": {},
+   "first_pages": {},
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 8,
+   "by_type": {
+    "header": 1,
+    "PIP": 1,
+    "pointer": 1,
+    "TIP": 1,
+    "data": 4
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "PIP": [
+     1
+    ],
+    "pointer": [
+     169
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     306,
+     315,
+     316,
+     317
+    ]
+   },
+   "data_type_changed": 5
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 0,
+    "by_type": {},
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 8,
+    "by_type": {
+     "header": 1,
+     "PIP": 1,
+     "pointer": 1,
+     "TIP": 1,
+     "data": 4
+    },
+    "only_header_tip": false,
+    "data_type_changed": 5,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": null,
+ "exit_code": 0,
+ "finished": "2026-10-29T00:04:50",
+ "remaining_screens": [
+  5113378,
+  3540768
+ ],
+ "remaining_modals": []
+}
