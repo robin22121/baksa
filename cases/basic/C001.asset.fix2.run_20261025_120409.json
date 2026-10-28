@@ -1,0 +1,372 @@
+{
+ "steps_file": "cases\\house\\C001.asset.fix2.steps.yaml",
+ "case": "C001",
+ "started": "2026-10-25T12:04:09",
+ "window": "실지거래>아파트·연립주택",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 592798,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261025_120409",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "window",
+   "spec": {
+    "window": "1세대1주택비과세(고가주택포함)"
+   },
+   "t": "2026-10-25T12:04:11",
+   "hwnd": 461170,
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "radio_id",
+   "spec": {
+    "radio_id": "r1_1"
+   },
+   "t": "2026-10-25T12:04:11",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "name": "예",
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "combo",
+   "spec": {
+    "combo": {
+     "id": "c3",
+     "value": "7년이상 8년미만"
+    }
+   },
+   "t": "2026-10-25T12:04:15",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "select",
+      "read": [
+       "7년이상 8년미만",
+       "7년이상 8년미만",
+       "7년이상 8년미만",
+       "7년이상 8년미만",
+       "7년이상 8년미만"
+      ],
+      "match": true,
+      "selection_unverified": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "expand",
+      "ok": true,
+      "hwnds": [
+       461170
+      ]
+     }
+    ],
+    "ok": true,
+    "method": "select",
+    "before": [
+     "2년미만(미거주 포함)",
+     "2년미만(미거주 포함)",
+     "2년미만(미거주 포함)",
+     "2년미만(미거주 포함)",
+     "2년미만(미거주 포함)"
+    ],
+    "expand_error": "NoPatternInterfaceError: ",
+    "expand": "mouse",
+    "items": [
+     "2년미만(미거주 포함)",
+     "2년미만(동일세대 통산, 상생임대주택)",
+     "2년이상 3년미만",
+     "3년이상 4년미만",
+     "4년이상 5년미만",
+     "5년이상 6년미만",
+     "6년이상 7년미만",
+     "7년이상 8년미만",
+     "8년이상 9년미만",
+     "9년이상 10년미만",
+     "10년이상"
+    ],
+    "pick": "select",
+    "selection_unverified": true,
+    "read": [
+     "7년이상 8년미만",
+     "7년이상 8년미만",
+     "7년이상 8년미만",
+     "7년이상 8년미만",
+     "7년이상 8년미만"
+    ]
+   },
+   "want": "7년이상 8년미만",
+   "title_same": true,
+   "save_same": true,
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "capture",
+   "spec": {
+    "capture": "high_dialog_fixed"
+   },
+   "t": "2026-10-25T12:04:20",
+   "capture": "docs/screens/C001_04_high_dialog_fixed.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSave",
+    "closes": "1세대1주택비과세(고가주택포함)"
+   },
+   "t": "2026-10-25T12:04:21",
+   "button": {
+    "id": "btnSave",
+    "name": "저장",
+    "click_hwnd": 330036
+   },
+   "closes": {
+    "title": "1세대1주택비과세(고가주택포함)",
+    "gone": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "window",
+   "spec": {
+    "window": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-25T12:04:25",
+   "hwnd": 592798,
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnCal"
+   },
+   "t": "2026-10-25T12:04:25",
+   "button": {
+    "id": "btnCal",
+    "name": "계산",
+    "click_hwnd": 2033336
+   },
+   "status": "ok"
+  },
+  {
+   "i": 8,
+   "action": "read",
+   "spec": {
+    "read": [
+     "CC10",
+     "CC17",
+     "CC19",
+     "CC20",
+     "CC21",
+     "CC22"
+    ]
+   },
+   "t": "2026-10-25T12:04:31",
+   "values": {
+    "CC10": [
+     "1,500,000,000",
+     "1,500,000,000",
+     "1,500,000,000"
+    ],
+    "CC17": [
+     "808,800,000",
+     "808,800,000",
+     "808,800,000"
+    ],
+    "CC19": [
+     "6,000,000",
+     "6,000,000",
+     "6,000,000"
+    ],
+    "CC20": [
+     "137,040,000",
+     "137,040,000",
+     "137,040,000"
+    ],
+    "CC21": [
+     "76,742,400",
+     "76,742,400",
+     "76,742,400"
+    ],
+    "CC22": [
+     "60,297,600",
+     "60,297,600",
+     "60,297,600"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 9,
+   "action": "capture",
+   "spec": {
+    "capture": "recalculated"
+   },
+   "t": "2026-10-25T12:04:45",
+   "capture": "docs/screens/C001_09_recalculated.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 10,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSave",
+    "closes": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-25T12:04:46",
+   "button": {
+    "id": "btnSave",
+    "name": "저장",
+    "click_hwnd": 854152
+   },
+   "closes": {
+    "title": "실지거래>아파트·연립주택",
+    "gone": true
+   },
+   "status": "ok"
+  }
+ ],
+ "reads": {
+  "CC10": [
+   "1,500,000,000",
+   "1,500,000,000",
+   "1,500,000,000"
+  ],
+  "CC17": [
+   "808,800,000",
+   "808,800,000",
+   "808,800,000"
+  ],
+  "CC19": [
+   "6,000,000",
+   "6,000,000",
+   "6,000,000"
+  ],
+  "CC20": [
+   "137,040,000",
+   "137,040,000",
+   "137,040,000"
+  ],
+  "CC21": [
+   "76,742,400",
+   "76,742,400",
+   "76,742,400"
+  ],
+  "CC22": [
+   "60,297,600",
+   "60,297,600",
+   "60,297,600"
+  ]
+ },
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoTax.fdb",
+   "Log\\3.Log"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 0,
+   "by_type": {},
+   "first_pages": {},
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 8,
+   "by_type": {
+    "header": 1,
+    "gen": 1,
+    "pointer": 1,
+    "TIP": 1,
+    "data": 4
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "gen": [
+     136
+    ],
+    "pointer": [
+     171
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     305,
+     306,
+     313,
+     316
+    ]
+   },
+   "data_type_changed": 5
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 0,
+    "by_type": {},
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 8,
+    "by_type": {
+     "header": 1,
+     "gen": 1,
+     "pointer": 1,
+     "TIP": 1,
+     "data": 4
+    },
+    "only_header_tip": false,
+    "data_type_changed": 5,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": null,
+ "exit_code": 0,
+ "finished": "2026-10-25T12:04:53",
+ "remaining_screens": [
+  656434,
+  3409466
+ ],
+ "remaining_modals": []
+}

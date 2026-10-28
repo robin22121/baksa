@@ -1,0 +1,291 @@
+{
+ "steps_file": "cases\\house\\C001.asset.fix.steps.yaml",
+ "case": "C001",
+ "started": "2026-10-24T23:58:14",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 656434,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261024_235815",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록"
+   },
+   "t": "2026-10-24T23:58:16",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "verify_grid",
+   "spec": {
+    "verify_grid": {
+     "id": "cxGrid1",
+     "column": "소재지",
+     "contains": "월드컵로",
+     "count": 1
+    }
+   },
+   "t": "2026-10-24T23:58:23",
+   "result": {
+    "found": true,
+    "rows": 1,
+    "matched": 1,
+    "row_values": [
+     {
+      "계산반영": "Checked",
+      "No.": "1",
+      "세율구분": "일반세율",
+      "자산종류": "아파트",
+      "소재지": "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+      "양도일자": "20250820",
+      "취득일자": "20180410",
+      "양도가액": "1500000000"
+     }
+    ],
+    "column": "소재지"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnEdit",
+    "opens": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-24T23:58:26",
+   "button": {
+    "id": "btnEdit",
+    "name": "자산 수정",
+    "click_hwnd": 658206
+   },
+   "opened": {
+    "title": "실지거래 > 아파트·연립주택",
+    "hwnd": 592798,
+    "capture": "docs/screens/C001_03_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S01",
+     "S02",
+     "S03",
+     "CC06",
+     "CC11"
+    ]
+   },
+   "t": "2026-10-24T23:58:32",
+   "values": {
+    "S01": [
+     "1,500,000,000",
+     "양도실가",
+     "1,500,000,000"
+    ],
+    "S02": [
+     "808,800,000",
+     "취득실가",
+     "808,800,000"
+    ],
+    "S03": [
+     "6,000,000",
+     "필요경비(합)",
+     "6,000,000"
+    ],
+    "CC06": [
+     "양도일자",
+     "2025년 8월 20일 수요일"
+    ],
+    "CC11": [
+     "취득일자",
+     "2018년 4월 10일 화요일"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "capture",
+   "spec": {
+    "capture": "edit_opened"
+   },
+   "t": "2026-10-24T23:58:44",
+   "capture": "docs/screens/C001_05_edit_opened.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "click_id",
+   "spec": {
+    "click_id": "emHigh"
+   },
+   "t": "2026-10-24T23:58:44",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     1761,
+     1481,
+     2246,
+     1520
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       592798
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "new_screens": [
+    461170
+   ],
+   "status": "abort",
+   "detail": "새 화면이 떴다 [461170] — 단계 파일에 반영 필요"
+  }
+ ],
+ "reads": {
+  "S01": [
+   "1,500,000,000",
+   "양도실가",
+   "1,500,000,000"
+  ],
+  "S02": [
+   "808,800,000",
+   "취득실가",
+   "808,800,000"
+  ],
+  "S03": [
+   "6,000,000",
+   "필요경비(합)",
+   "6,000,000"
+  ],
+  "CC06": [
+   "양도일자",
+   "2025년 8월 20일 수요일"
+  ],
+  "CC11": [
+   "취득일자",
+   "2018년 4월 10일 화요일"
+  ]
+ },
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 6,
+   "by_type": {
+    "header": 1,
+    "PIP": 1,
+    "pointer": 1,
+    "TIP": 1,
+    "data": 2
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "PIP": [
+     1
+    ],
+    "pointer": [
+     169
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     305,
+     315
+    ]
+   },
+   "data_type_changed": 3
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 6,
+    "by_type": {
+     "header": 1,
+     "PIP": 1,
+     "pointer": 1,
+     "TIP": 1,
+     "data": 2
+    },
+    "only_header_tip": false,
+    "data_type_changed": 3,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 6 click_id abort: 새 화면이 떴다 [461170] — 단계 파일에 반영 필요",
+ "exit_code": 2,
+ "finished": "2026-10-24T23:58:51",
+ "remaining_screens": [
+  461170,
+  592798,
+  656434,
+  3409466
+ ],
+ "remaining_modals": []
+}

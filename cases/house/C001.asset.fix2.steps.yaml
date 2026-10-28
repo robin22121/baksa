@@ -1,0 +1,15 @@
+# C001 자산 수정 이어서: 체크된 emHigh를 누르면 1세대1주택 창이 바로 열린다(fix 1차 확인). 그 창이 열린 상태에서 시작한다.
+window: 실지거래>아파트·연립주택
+steps:
+  - window: 1세대1주택비과세(고가주택포함)
+  - radio_id: r1_1                         # 예
+  - combo: {id: c3, value: 7년이상 8년미만}   # 목록 선택(mode select)
+  - capture: high_dialog_fixed
+  - press_id: btnSave
+    closes: 1세대1주택비과세(고가주택포함)
+  - window: 실지거래>아파트·연립주택
+  - press_id: btnCal
+  - read: [CC10, CC17, CC19, CC20, CC21, CC22]
+  - capture: recalculated
+  - press_id: btnSave
+    closes: 실지거래>아파트·연립주택
