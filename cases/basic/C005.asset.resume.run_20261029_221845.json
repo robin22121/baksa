@@ -1,0 +1,534 @@
+{
+ "steps_file": "cases\\house\\C005.asset.resume.steps.yaml",
+ "case": "C005",
+ "started": "2026-10-29T22:18:45",
+ "window": "필요경비",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 2296236,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261029_221846",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "click_id",
+   "spec": {
+    "click_id": "S41"
+   },
+   "t": "2026-10-29T22:18:47",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     1778,
+     345,
+     1981,
+     419
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       2296236
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S41",
+     "S1234T"
+    ]
+   },
+   "t": "2026-10-29T22:18:53",
+   "values": {
+    "S41": [
+     "3,000,000",
+     "10_1",
+     "3,000,000"
+    ],
+    "S1234T": [
+     "3,000,000",
+     "3,000,000",
+     "3,000,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "capture",
+   "spec": {
+    "capture": "exp"
+   },
+   "t": "2026-10-29T22:18:56",
+   "capture": "docs/screens/C005_03_exp.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOK"
+   },
+   "t": "2026-10-29T22:18:57",
+   "button": {
+    "id": "btnOK",
+    "name": "저장",
+    "click_hwnd": 2297498
+   },
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "window",
+   "spec": {
+    "window": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-29T22:19:03",
+   "hwnd": 1707796,
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S01",
+     "S02",
+     "S03",
+     "CC06",
+     "CC11",
+     "CC04",
+     "GU"
+    ]
+   },
+   "t": "2026-10-29T22:19:03",
+   "values": {
+    "S01": [
+     "600,000,000",
+     "양도실가",
+     "600,000,000"
+    ],
+    "S02": [
+     "505,000,000",
+     "취득실가",
+     "505,000,000"
+    ],
+    "S03": [
+     "3,000,000",
+     "필요경비(합)",
+     "3,000,000"
+    ],
+    "CC06": [
+     "양도일자",
+     "2025년 8월 20일 수요일"
+    ],
+    "CC11": [
+     "취득일자",
+     "2024년 3월 15일 금요일"
+    ],
+    "CC04": [
+     "84",
+     "전용면적",
+     "84"
+    ],
+    "GU": [
+     "일반과세",
+     "일반과세",
+     "일반과세"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "capture",
+   "spec": {
+    "capture": "before_calc"
+   },
+   "t": "2026-10-29T22:19:18",
+   "capture": "docs/screens/C005_07_before_calc.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 8,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnCal"
+   },
+   "t": "2026-10-29T22:19:19",
+   "button": {
+    "id": "btnCal",
+    "name": "계산",
+    "click_hwnd": 2687158
+   },
+   "status": "ok"
+  },
+  {
+   "i": 9,
+   "action": "read",
+   "spec": {
+    "read": [
+     "CC10",
+     "dd10",
+     "CC17",
+     "dd17",
+     "CC19",
+     "dd19",
+     "CC20",
+     "dd20",
+     "CC21",
+     "dd21",
+     "CC22",
+     "dd22"
+    ]
+   },
+   "t": "2026-10-29T22:19:25",
+   "values": {
+    "CC10": [
+     "600,000,000",
+     "600,000,000",
+     "600,000,000"
+    ],
+    "dd10": [
+     "0",
+     "0",
+     "0"
+    ],
+    "CC17": [
+     "505,000,000",
+     "505,000,000",
+     "505,000,000"
+    ],
+    "dd17": [
+     "0",
+     "0",
+     "0"
+    ],
+    "CC19": [
+     "3,000,000",
+     "3,000,000",
+     "3,000,000"
+    ],
+    "dd19": [
+     "0",
+     "0",
+     "0"
+    ],
+    "CC20": [
+     "92,000,000",
+     "92,000,000",
+     "92,000,000"
+    ],
+    "dd20": [
+     "0",
+     "0",
+     "0"
+    ],
+    "CC21": [
+     "0",
+     "0",
+     "0"
+    ],
+    "dd21": [
+     "0",
+     "0",
+     "0"
+    ],
+    "CC22": [
+     "92,000,000",
+     "92,000,000",
+     "92,000,000"
+    ],
+    "dd22": [
+     "0",
+     "0",
+     "0"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 10,
+   "action": "capture",
+   "spec": {
+    "capture": "calculated"
+   },
+   "t": "2026-10-29T22:19:53",
+   "capture": "docs/screens/C005_10_calculated.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 11,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSave",
+    "closes": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-29T22:19:53",
+   "button": {
+    "id": "btnSave",
+    "name": "저장",
+    "click_hwnd": 4131832
+   },
+   "closes": {
+    "title": "실지거래>아파트·연립주택",
+    "gone": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 12,
+   "action": "capture",
+   "spec": {
+    "capture": "saved"
+   },
+   "t": "2026-10-29T22:19:59",
+   "capture": "docs/screens/C005_12_saved.png",
+   "capture_method": "window_gone",
+   "status": "ok"
+  },
+  {
+   "i": 13,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록"
+   },
+   "t": "2026-10-29T22:19:59",
+   "status": "error",
+   "detail": "COMError: (-2147220991, '이벤트에서 가입자를 불러낼 수 없습니다.', (None, None, None, 0, None))",
+   "trace": "Traceback (most recent call last):\n  File \"C:\\Users\\USER\\w\\baksa\\tools\\drive\\case_input.py\", line 1298, in run\n    getattr(self, \"do_\" + act)(step, rec)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^\n  File \"C:\\Users\\USER\\w\\baksa\\tools\\drive\\case_input.py\", line 1058, in do_press\n    st = self.btn_states().get(norm(name))\n         ~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\USER\\w\\baksa\\tools\\drive\\case_input.py\", line 905, in btn_states\n    return btn_states_from(self.inv())\n                           ~~~~~~~~^^\n  File \"C:\\Users\\USER\\w\\baksa\\tools\\drive\\case_input.py\", line 902, in inv\n    return guard(lambda: op_inventory(self.hwnd))\n  File \"C:\\Users\\USER\\w\\baksa\\tools\\drive\\case_input.py\", line 767, in guard\n    return appmod.call_with_timeout(fn, sec)\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n  File \"C:\\Users\\USER\\w\\baksa\\tools\\drive\\app.py\", line 281, in call_with_timeout\n    raise box[\"e\"]\n  File \"C:\\Users\\USER\\w\\baksa\\tools\\drive\\app.py\", line 271, in work\n    box[\"v\"] = fn()\n               ~~^^\n  File \"C:\\Users\\USER\\w\\baksa\\tools\\drive\\case_input.py\", line 902, in <lambda>\n    return guard(lambda: op_inventory(self.hwnd))\n                         ~~~~~~~~~~~~^^^^^^^^^^^\n  File \"C:\\Users\\USER\\w\\baksa\\tools\\drive\\case_input.py\", line 84, in op_inventory\n    for c in appmod.wrap(hwnd).descendants():\n             ~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\USER\\w\\baksa\\tools\\drive\\app.py\", line 242, in wrap\n    return Desktop(backend=\"uia\").window(handle=hwnd).wrapper_object()\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\pywinauto\\application.py\", line 267, in wrapper_object\n    ctrls = self.__resolve_control(self.criteria)\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\pywinauto\\application.py\", line 250, in __resolve_control\n    ctrl = wait_until_passes(\n        timeout,\n    ...<5 lines>...\n         controls.InvalidElement),\n        criteria)\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\pywinauto\\timings.py\", line 436, in wait_until_passes\n    func_val = func(*args, **kwargs)\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\pywinauto\\application.py\", line 203, in __get_ctrl\n    dialog = self.backend.generic_wrapper_class(findwindows.find_element(**criteria[0]))\n                                                ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\pywinauto\\findwindows.py\", line 84, in find_element\n    elements = find_elements(**kwargs)\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\pywinauto\\findwindows.py\", line 181, in find_elements\n    return [backend_obj.element_info_class(handle), ]\n            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\pywinauto\\uia_element_info.py\", line 71, in __init__\n    self._element = IUIA().iuia.ElementFromHandle(handle_or_elem)\n                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n_ctypes.COMError: (-2147220991, '이벤트에서 가입자를 불러낼 수 없습니다.', (None, None, None, 0, None))\n"
+  }
+ ],
+ "reads": {
+  "S41": [
+   "3,000,000",
+   "10_1",
+   "3,000,000"
+  ],
+  "S1234T": [
+   "3,000,000",
+   "3,000,000",
+   "3,000,000"
+  ],
+  "S01": [
+   "600,000,000",
+   "양도실가",
+   "600,000,000"
+  ],
+  "S02": [
+   "505,000,000",
+   "취득실가",
+   "505,000,000"
+  ],
+  "S03": [
+   "3,000,000",
+   "필요경비(합)",
+   "3,000,000"
+  ],
+  "CC06": [
+   "양도일자",
+   "2025년 8월 20일 수요일"
+  ],
+  "CC11": [
+   "취득일자",
+   "2024년 3월 15일 금요일"
+  ],
+  "CC04": [
+   "84",
+   "전용면적",
+   "84"
+  ],
+  "GU": [
+   "일반과세",
+   "일반과세",
+   "일반과세"
+  ],
+  "CC10": [
+   "600,000,000",
+   "600,000,000",
+   "600,000,000"
+  ],
+  "dd10": [
+   "0",
+   "0",
+   "0"
+  ],
+  "CC17": [
+   "505,000,000",
+   "505,000,000",
+   "505,000,000"
+  ],
+  "dd17": [
+   "0",
+   "0",
+   "0"
+  ],
+  "CC19": [
+   "3,000,000",
+   "3,000,000",
+   "3,000,000"
+  ],
+  "dd19": [
+   "0",
+   "0",
+   "0"
+  ],
+  "CC20": [
+   "92,000,000",
+   "92,000,000",
+   "92,000,000"
+  ],
+  "dd20": [
+   "0",
+   "0",
+   "0"
+  ],
+  "CC21": [
+   "0",
+   "0",
+   "0"
+  ],
+  "dd21": [
+   "0",
+   "0",
+   "0"
+  ],
+  "CC22": [
+   "92,000,000",
+   "92,000,000",
+   "92,000,000"
+  ],
+  "dd22": [
+   "0",
+   "0",
+   "0"
+  ]
+ },
+ "fingerprint_diff": {
+  "added": [
+   "Log\\11.Log"
+  ],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 9,
+   "by_type": {
+    "header": 1,
+    "PIP": 1,
+    "gen": 1,
+    "pointer": 1,
+    "TIP": 1,
+    "data": 4
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "PIP": [
+     1
+    ],
+    "gen": [
+     136
+    ],
+    "pointer": [
+     171
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     306,
+     319,
+     320,
+     322
+    ]
+   },
+   "data_type_changed": 5
+  }
+ },
+ "fdb_verdict": {
+  "added": [
+   "Log\\11.Log"
+  ],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 9,
+    "by_type": {
+     "header": 1,
+     "PIP": 1,
+     "gen": 1,
+     "pointer": 1,
+     "TIP": 1,
+     "data": 4
+    },
+    "only_header_tip": false,
+    "data_type_changed": 5,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": "COMError: (-2147220991, '이벤트에서 가입자를 불러낼 수 없습니다.', (None, None, None, 0, None))",
+ "exit_code": 1,
+ "finished": "2026-10-29T22:20:01",
+ "remaining_screens": [
+  1378532,
+  3409506
+ ],
+ "remaining_modals": []
+}

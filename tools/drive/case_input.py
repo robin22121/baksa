@@ -360,16 +360,23 @@ def op_combo_select(hwnd, auto_id, want):
     time.sleep(0.5)
     _combo_collapse(el)
     time.sleep(0.4)
-    # F7: 펼침 패턴이 없는 콤보(GU 등)는 Select()만으로 목록이 안 닫힌다 → 열려 있으면 항목을 실제 클릭해 닫는다(Esc는 선택을 되돌릴 수 있어 쓰지 않음)
+    # F7/F11: 펼침 패턴이 없는 콤보는 Select()만으로 목록이 안 닫힌다 → 열려 있으면 콤보 자체의 버튼 영역을 눌러(토글, 선택 불변) 닫는다.
+    # 항목 중앙 클릭은 긴 목록(관할세무서 ~140개)에서 대상 항목이 스크롤 밖이라 다른 항목을 고르므로(F11) 항목이 팝업 안에 완전히 보일 때만 쓴다.
     log["closed_by"] = "select"
     if _list_still_open(el, before_handles, want):
-        tr = tgt.element_info.rectangle
-        mouse.click(coords=((tr.left + tr.right) // 2, (tr.top + tr.bottom) // 2))
-        log["closed_by"] = "mouse_item"
+        mouse.click(coords=(r.right - 8, (r.top + r.bottom) // 2))
+        log["closed_by"] = "toggle"
         time.sleep(0.6)
         if _list_still_open(el, before_handles, want):
-            log["why"] = "콤보 목록이 닫히지 않음"
-            return log
+            tr = tgt.element_info.rectangle
+            pr = _popup_rect(before_handles)
+            if pr is not None and tr.left >= pr.left and tr.right <= pr.right and tr.top >= pr.top and tr.bottom <= pr.bottom:
+                mouse.click(coords=((tr.left + tr.right) // 2, (tr.top + tr.bottom) // 2))
+                log["closed_by"] = "mouse_item"
+                time.sleep(0.6)
+            if _list_still_open(el, before_handles, want):
+                log["why"] = "콤보 목록이 닫히지 않음"
+                return log
     att = {"method": "select", "read": _combo_cands(el)}
     att["match"] = same_combo(want, att["read"])
     sel = _combo_selection_names(el)
@@ -397,6 +404,19 @@ def _list_still_open(el, before_handles, want=None):
                    for w in Desktop(backend="uia").windows())
     except Exception:  # noqa: BLE001
         return False
+
+
+def _popup_rect(before_handles):
+    """열려 있는 목록 팝업 창(펼치기 전에 없던 보이는 최상위 창, SysShadow 제외)의 사각형. 못 찾으면 None."""
+    try:
+        from pywinauto import Desktop
+        u32 = ctypes.windll.user32
+        for w in Desktop(backend="uia").windows():
+            if w.handle not in before_handles and w.class_name() != "SysShadow" and bool(u32.IsWindowVisible(w.handle)):
+                return w.rectangle()
+    except Exception:  # noqa: BLE001
+        pass
+    return None
 
 
 def _combo_collapse(el):
@@ -947,9 +967,15 @@ class Runner:
             time.sleep(1.0)
         new_s = set(self.a.screens()) - before[0]
         smap = {norm(k): norm(v) for k, v in (step.get("screens") or {}).items()}
+        # 처음 보였을 때의 제목을 잡아 둔다(잠깐 떴다 사라지는 창 기록용)
+        seen = {x.hwnd: x.title for x in self.a.screens_info() if x.hwnd in new_s}
         for h in sorted(new_s):
             w = next((x for x in self.a.screens_info() if x.hwnd == h), None)
-            tk = norm(clean_title(w.title)) if w else ""
+            if w is None:  # 이미 사라진 창 = 일시 창
+                rec.setdefault("transient_screens", []).append({"hwnd": h, "title": seen.get(h, "")})
+                new_s.discard(h)
+                continue
+            tk = norm(clean_title(w.title))
             if tk not in smap:
                 continue
             item = {"title": w.title, "hwnd": h, "pressed": smap[tk]}
@@ -982,6 +1008,15 @@ class Runner:
             cur = next((x.title for x in self.a.screens_info() if x.hwnd == self.hwnd), "")
             if norm(clean_title(cur)) != opens:
                 raise Stop("fail", f"opens {opens!r} 창이 열리지 않음")
+        if new_s:  # 잠깐 떴다 사라지는 창은 최대 1.5초 기다려 걸러낸다
+            for _ in range(6):
+                gone = new_s - set(self.a.screens())
+                for h in sorted(gone):
+                    rec.setdefault("transient_screens", []).append({"hwnd": h, "title": seen.get(h, "")})
+                new_s -= gone
+                if not new_s:
+                    break
+                time.sleep(0.25)
         if new_s:
             rec["new_screens"] = sorted(new_s)
             self.shot("new_screen")

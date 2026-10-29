@@ -58,6 +58,8 @@ expected_baksa:         # 양도박사 산출값 (W5에서 화면에서 읽어 �
 expected_law:  # calc 결과. compare.py가 채움
   amounts:
     gain: 217500000
+    exempt_gain: 0
+    taxable_gain: 217500000
     holding_deduction: 21750000
     income_amount: 195750000
     basic_deduction: 2500000
@@ -73,18 +75,26 @@ expected_law:  # calc 결과. compare.py가 채움
     gain: 176200000
     holding_years: 5
     holding_rate_pct: 10
+    exempt_gain: 0
+    taxable_gain: 176200000
     holding_deduction: 17620000
     income_amount: 158580000
+    rate_rule: basic
   - id: B1
     kind: 건물
     necessary_expenses: 158700000
     gain: 41300000
     holding_years: 5
     holding_rate_pct: 10
+    exempt_gain: 0
+    taxable_gain: 41300000
     holding_deduction: 4130000
     income_amount: 37170000
+    rate_rule: basic
   basis:
     gain: 소득세법 §95①, §96①, §97①·③, §100①, 시행령 §163
+    exempt_gain: 소득세법 §89①3, 시행령 §154①(1세대1주택), §95③·시행령 §160①1(고가주택 12억 초과분만 과세)
+    taxable_gain: 소득세법 §95①·③, 시행령 §160①1
     holding_deduction: 소득세법 §95② 표1, §95④(보유기간), 국세기본법 §4·민법 §157·§160
     income_amount: 소득세법 §95①, §102
     basic_deduction: 소득세법 §103①1·②

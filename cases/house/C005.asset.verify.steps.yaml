@@ -1,0 +1,6 @@
+# C005 자산 확인 전용(쓰기 없음): 자산 그리드 행 수와 캡처
+window: 양도소득세
+steps:
+  - press: 2. 자 산 등 록
+  - verify_grid: {id: cxGrid1, column: 소재지, contains: 월드컵로, count: 1}
+  - capture: asset_grid

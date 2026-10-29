@@ -55,7 +55,8 @@
 범위 밖 분기(입력이 요구하면 NotImplementedError):
 3주택 이상, 조정대상지역 2주택의 2022-05-10 이전 양도, 2026-05-09 이전 계약·이후 양도(보완 유예 4~6개월 —
 지역별 기간 조문 미확인, 계약금 요건 미반영), 2026-05-10 이후 양도인데 양도 계약일 없음, 중과 자산이 낀 여러 자산 양도,
-일시적 2주택·상속주택 등 특례, 단기보유(2년 미만) 세율, 비사업용토지, 그 밖의 중과(surcharge 플래그), 감면, 미등기,
+일시적 2주택·상속주택 등 특례, 2021-06-01 이전 양도의 단기보유(2년 미만) 세율,
+단기세율 자산이 낀 여러 자산 양도(§104⑤ 비교과세), 비사업용토지, 그 밖의 중과(surcharge 플래그), 감면, 미등기,
 일괄양도 안분, 감가상각비 차감(≠0), 비거주자, 2023-01-01 이전 양도(§55① 옛 세율표).
 """
 
@@ -94,6 +95,9 @@ OTHER_HOUSE_FLAGS = ("temporary_two_house", "inherited_house", "multi_house")
 # 시행령 §167의10①12의2 — 보유 2년 이상 조정대상지역 주택을 이 기간에 양도하면 2주택 중과 배제
 GRACE_FROM = _dt.date(2022, 5, 10)
 GRACE_TO = _dt.date(2026, 5, 9)
+# 소득세법 §104①2·3(2020.8.18 개정) — 2021-06-01 이후 양도분 단기세율. (주택%, 그 밖%)
+SHORT_TERM_FROM = _dt.date(2021, 6, 1)
+SHORT_TERM_RATES = {1: (60, 40), 0: (70, 50)}  # 보유 만 년수 → 2호(1년 이상 2년 미만)·3호(1년 미만)
 
 
 # ---------------------------------------------------------------- 공통
@@ -157,7 +161,7 @@ def _check_scope(asset: dict, residency: str) -> None:
         raise NotImplementedError(f"{aid}: kind={kind!r}·house={asset.get('house')!r} 조합 — 범위 밖")
     if is_house:
         if not asset.get("one_house"):
-            surcharge_status(asset)  # 2주택 중과·중과 배제·비조정만 범위 안(보유 2년 미만은 아래에서 막음)
+            surcharge_status(asset)  # 2주택 중과·중과 배제·비조정만 범위 안
         for flag in OTHER_HOUSE_FLAGS:
             if asset.get(flag):
                 raise NotImplementedError(f"{aid}: {flag}(시행령 §155 특례 등) — 범위 밖")
@@ -174,10 +178,10 @@ def _check_scope(asset: dict, residency: str) -> None:
     if int(asset.get("depreciation") or 0) != 0:
         raise NotImplementedError(f"{aid}: 감가상각비 차감(§97③) — 범위 밖")
     tr = _date(asset["transfer_date"])
+    if tr < SHORT_TERM_FROM and holding_years(asset["acquisition_date"], tr) < 2:
+        raise NotImplementedError(f"{aid}: 2021-06-01 이전 양도 보유 2년 미만 단기세율(§104①2·3 옛 세율) — 범위 밖")
     if tr < BASIC_RATE_FROM:
         raise NotImplementedError(f"{aid}: 2023-01-01 이전 양도 — §55① 옛 세율표 범위 밖")
-    if holding_years(asset["acquisition_date"], tr) < 2:
-        raise NotImplementedError(f"{aid}: 보유 2년 미만 단기세율(§104①2·3) — 범위 밖")
 
 
 def surcharge_status(asset: dict) -> str:
@@ -201,6 +205,10 @@ def surcharge_status(asset: dict) -> str:
     if tr < GRACE_FROM:
         raise NotImplementedError(f"{aid}: 2022-05-10 이전 조정대상지역 2주택 양도 — 중과(§104⑦1) 범위 밖")
     if tr <= GRACE_TO:
+        if holding_years(asset["acquisition_date"], tr) < 2:
+            raise NotImplementedError(
+                f"{aid}: 보유 2년 미만 조정대상지역 2주택 유예기간 양도 — 중과 배제(시행령 §167의10①12의2) "
+                "보유 2년 요건 미달, 중과·단기세율 비교 범위 밖")
         return "excluded_grace"
     contract = asset.get("transfer_contract_date")
     if contract is None:
@@ -433,6 +441,42 @@ def local_income_tax(tax_base: int, surcharge_pct: int = 0) -> int:
     return tax_base * (pct + surcharge_pct) // 1000 - prog // 10
 
 
+def short_term_rate_pct(asset: dict) -> int | None:
+    """단기보유 세율(%) — 보유 2년 이상이면 None.
+
+    근거: 소득세법 §104①2(보유 1년 이상 2년 미만: 주택 100분의 60, 그 밖 100분의 40),
+    §104①3(1년 미만: 주택 100분의 70, 그 밖 100분의 50), 2021-06-01 이후 양도분.
+    세율 적용 보유기간은 §104② — 취득일부터 양도일까지(holding_years와 같은 계산).
+    조합원입주권·분양권은 범위 밖(ASSET_KINDS). 단일세율, 누진공제 없음.
+    """
+    yrs = holding_years(asset["acquisition_date"], asset["transfer_date"])
+    if yrs >= 2:
+        return None
+    house_pct, other_pct = SHORT_TERM_RATES[yrs]
+    return house_pct if asset.get("house") else other_pct
+
+
+def rate_choice(tax_base: int, surcharge_pct: int, short_pct: int | None) -> dict:
+    """§104① 단서 — 1호(기본세율, §104⑦ 중과 포함)와 단기세율에 함께 해당하면 큰 세액.
+
+    단기세율 세액 = floor(과세표준 × 세율%/100), 지방소득세는 같은 선택으로 세율 1/10
+    (지방세법 §103의3①). 같으면 1호 쪽.
+    → {rule, rate, progressive_deduction, tax, local_tax}
+    """
+    pct, prog = basic_rate(tax_base)
+    rule = "surcharged" if surcharge_pct else "basic"
+    out = {"rule": rule, "rate": pct + surcharge_pct, "progressive_deduction": prog,
+           "tax": computed_tax(tax_base, surcharge_pct),
+           "local_tax": local_income_tax(tax_base, surcharge_pct)}
+    if short_pct is None:
+        return out
+    short_tax = max(tax_base, 0) * short_pct // 100
+    if short_tax > out["tax"]:
+        out = {"rule": "short_term", "rate": short_pct, "progressive_deduction": 0,
+               "tax": short_tax, "local_tax": max(tax_base, 0) * short_pct // 1000}
+    return out
+
+
 # ---------------------------------------------------------------- 전체
 
 def compute(inp: dict) -> dict:
@@ -497,6 +541,10 @@ def compute(inp: dict) -> dict:
     if surcharged and len(per_asset) > 1:
         raise NotImplementedError("중과 자산이 낀 여러 자산 양도(§104⑤ 비교과세) — 범위 밖, 자산 1건만 범위 안")
     add_pct = 20 if surcharged else 0  # §104⑦1
+    short_pcts = [short_term_rate_pct(a) for a in assets]
+    short_term = any(p is not None for p in short_pcts)
+    if short_term and len(per_asset) > 1:
+        raise NotImplementedError("단기세율 자산이 낀 여러 자산 양도(§104⑤ 비교과세) — 범위 밖, 자산 1건만 범위 안")
 
     gain = sum(p["gain"] for p in per_asset)
     taxable_gain = sum(p["taxable_gain"] for p in per_asset)
@@ -505,7 +553,10 @@ def compute(inp: dict) -> dict:
     income = sum(p["income_amount"] for p in per_asset)
     bd = basic_deduction(income, inp.get("prior_basic_deduction_used", 0))
     base = max(income - bd, 0)
-    pct, prog = basic_rate(base)
+    choice = rate_choice(base, add_pct, short_pcts[0] if short_term else None)
+    short_chosen = choice["rule"] == "short_term"
+    for p in per_asset:
+        p["rate_rule"] = choice["rule"]
     amounts = {
         "gain": gain,
         "exempt_gain": gain - taxable_gain,
@@ -514,10 +565,10 @@ def compute(inp: dict) -> dict:
         "income_amount": income,
         "basic_deduction": bd,
         "tax_base": base,
-        "rate": pct + add_pct,
-        "progressive_deduction": prog,
-        "tax": computed_tax(base, add_pct),
-        "local_tax": local_income_tax(base, add_pct),
+        "rate": choice["rate"],
+        "progressive_deduction": choice["progressive_deduction"],
+        "tax": choice["tax"],
+        "local_tax": choice["local_tax"],
     }
     basis = {
         "gain": "소득세법 §95①, §96①, §97①·③, §100①, 시행령 §163" + (
@@ -543,4 +594,14 @@ def compute(inp: dict) -> dict:
         "local_tax": "지방세법 §103의2, §103의3①, §92① (원 미만 절사)" + (
             ", 중과 자산 지방세율 + 2%p" if surcharged else ""),
     }
+    if short_chosen:
+        basis.update({
+            "rate": "소득세법 §104①2·3·단서(1호 세액과 비교해 큰 것), §104②(보유기간)",
+            "progressive_deduction": "소득세법 §104①2·3 (단일세율, 누진공제 없음)",
+            "tax": "소득세법 §104①2·3·단서 (과세표준 × 단기세율, 원 미만 절사)",
+            "local_tax": "지방세법 §103의2, §103의3① (단기세율 1/10, 원 미만 절사)",
+        })
+    elif short_term:
+        for k in ("rate", "tax"):
+            basis[k] += ", §104① 단서(단기세율 §104①2·3 세액보다 큼)"
     return {"amounts": amounts, "basis": basis, "assets": per_asset}

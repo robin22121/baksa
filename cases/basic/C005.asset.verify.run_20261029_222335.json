@@ -1,0 +1,158 @@
+{
+ "steps_file": "cases\\house\\C005.asset.verify.steps.yaml",
+ "case": "C005",
+ "started": "2026-10-29T22:23:35",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 1378532,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261029_222336",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록"
+   },
+   "t": "2026-10-29T22:23:37",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "verify_grid",
+   "spec": {
+    "verify_grid": {
+     "id": "cxGrid1",
+     "column": "소재지",
+     "contains": "월드컵로",
+     "count": 1
+    }
+   },
+   "t": "2026-10-29T22:23:47",
+   "result": {
+    "found": true,
+    "rows": 1,
+    "matched": 1,
+    "row_values": [
+     {
+      "계산반영": "Checked",
+      "No.": "1",
+      "세율구분": "2년미만주택",
+      "자산종류": "아파트",
+      "소재지": "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+      "양도일자": "20250820",
+      "취득일자": "20240315",
+      "양도가액": "600000000"
+     }
+    ],
+    "column": "소재지"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "capture",
+   "spec": {
+    "capture": "asset_grid"
+   },
+   "t": "2026-10-29T22:23:50",
+   "capture": "docs/screens/C005_03_asset_grid.png",
+   "capture_method": "ok",
+   "status": "ok"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 0,
+   "by_type": {},
+   "first_pages": {},
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 7,
+   "by_type": {
+    "header": 1,
+    "PIP": 1,
+    "pointer": 1,
+    "TIP": 1,
+    "data": 3
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "PIP": [
+     1
+    ],
+    "pointer": [
+     169
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     316,
+     322,
+     323
+    ]
+   },
+   "data_type_changed": 4
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 0,
+    "by_type": {},
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 7,
+    "by_type": {
+     "header": 1,
+     "PIP": 1,
+     "pointer": 1,
+     "TIP": 1,
+     "data": 3
+    },
+    "only_header_tip": false,
+    "data_type_changed": 4,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": null,
+ "exit_code": 0,
+ "finished": "2026-10-29T22:23:52",
+ "remaining_screens": [
+  1378532,
+  3409506
+ ],
+ "remaining_modals": []
+}

@@ -1,0 +1,19 @@
+# C005 자산 이어하기: 실제 실행(221617)이 필요경비 지급금액 셀 확정 전에 멈춤(편집 중 3,000,000). 필요경비 창이 열린 상태에서 시작.
+window: 필요경비
+steps:
+  - click_id: S41                          # ⑩ 칸을 눌러 셀 편집을 확정
+  - read: [S41, S1234T]
+  - capture: exp
+  - press_id: btnOK
+  - window: 실지거래>아파트·연립주택
+  - read: [S01, S02, S03, CC06, CC11, CC04, GU]
+  - capture: before_calc
+  - press_id: btnCal
+  - read: [CC10, dd10, CC17, dd17, CC19, dd19, CC20, dd20, CC21, dd21, CC22, dd22]
+  - capture: calculated
+  - press_id: btnSave
+    closes: 실지거래>아파트·연립주택
+  - capture: saved
+  - press: 2. 자 산 등 록
+  - verify_grid: {id: cxGrid1, column: 소재지, contains: 월드컵로, count: 1}
+  - capture: asset_grid

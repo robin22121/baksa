@@ -77,6 +77,7 @@ expected_law:  # calc 결과. compare.py가 채움
     taxable_gain: 391600000
     holding_deduction: 117480000
     income_amount: 274120000
+    rate_rule: basic
   basis:
     gain: 소득세법 §95①, §96①, §97①·③, §100①, 시행령 §163, §97①1나·②2, 시행령 §163⑥·⑫, §176의2②2
     exempt_gain: 소득세법 §89①3, 시행령 §154①(1세대1주택), §95③·시행령 §160①1(고가주택 12억 초과분만 과세)

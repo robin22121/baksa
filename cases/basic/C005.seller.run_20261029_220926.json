@@ -1,0 +1,570 @@
+{
+ "steps_file": "cases\\house\\C005.seller.steps.yaml",
+ "case": "C005",
+ "started": "2026-10-29T22:09:26",
+ "window": "양도소득세",
+ "vars": {
+  "rrn": "8010101477778"
+ },
+ "prior_runs_same_steps": 4,
+ "hwnd": 1378532,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261029_220926",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "1.양도인등록"
+   },
+   "t": "2026-10-29T22:09:27",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "check_combo",
+   "spec": {
+    "check_combo": {
+     "id": "cbMen100Year",
+     "value": "전체"
+    }
+   },
+   "t": "2026-10-29T22:09:34",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "values": [
+     "전체",
+     "전체",
+     "전체",
+     "전체",
+     "전체"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "press",
+   "spec": {
+    "press": "등록",
+    "screens": {
+     "양도구분선택": "부동산권리"
+    },
+    "expect_enabled": [
+     "저장",
+     "취소"
+    ]
+   },
+   "t": "2026-10-29T22:09:37",
+   "how": "postmessage",
+   "handled_screens": [
+    {
+     "title": "양도구분 선택",
+     "hwnd": 3213548,
+     "pressed": "부동산권리",
+     "capture_method": "ok",
+     "capture": "docs/screens/C005_03_screen_1.png"
+    }
+   ],
+   "states": {
+    "저장": [
+     true
+    ],
+    "취소": [
+     true
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "emJASANGU",
+     "value": "부동산"
+    },
+    "screens": {
+     "기준시가조회": "@close"
+    }
+   },
+   "t": "2026-10-29T22:09:48",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "부동산",
+     "국외자산",
+     "주식",
+     "토지등 매매차익",
+     "파생상품"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "emSINGOGU",
+     "value": "예정"
+    },
+    "screens": {
+     "기준시가조회": "@close"
+    }
+   },
+   "t": "2026-10-29T22:09:54",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "예정",
+     "확정",
+     "수정",
+     "기한후"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "emBORN",
+     "value": "내국인"
+    },
+    "screens": {
+     "기준시가조회": "@close"
+    }
+   },
+   "t": "2026-10-29T22:10:00",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "내국인",
+     "외국인"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "emOUTJUSO",
+     "value": "거주자"
+    },
+    "screens": {
+     "기준시가조회": "@close"
+    }
+   },
+   "t": "2026-10-29T22:10:06",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "거주자",
+     "비거주자"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 8,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "emNAME",
+     "value": "가상양도인6"
+    }
+   },
+   "t": "2026-10-29T22:10:12",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "가상양도인6",
+       "양도인",
+       "가상양도인6"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       1378532
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "양도인"
+    ],
+    "method": "set_value",
+    "read": [
+     "가상양도인6",
+     "양도인",
+     "가상양도인6"
+    ]
+   },
+   "want": "가상양도인6",
+   "status": "ok"
+  },
+  {
+   "i": 9,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "emJUMIN",
+     "value": "8010101477778"
+    }
+   },
+   "t": "2026-10-29T22:10:19",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "801010-1477778",
+       "주민등록번호(양도인)",
+       "801010-1477778"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       1378532
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "주민등록번호(양도인)"
+    ],
+    "method": "set_value",
+    "read": [
+     "801010-1477778",
+     "주민등록번호(양도인)",
+     "801010-1477778"
+    ]
+   },
+   "want": "8010101477778",
+   "status": "ok"
+  },
+  {
+   "i": 10,
+   "action": "combo",
+   "spec": {
+    "combo": {
+     "id": "emSEONAME",
+     "value": "마포"
+    }
+   },
+   "t": "2026-10-29T22:10:26",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "select",
+      "read": [
+       "안동",
+       "관할세무서",
+       "안동",
+       "관할세무서",
+       "안동"
+      ],
+      "match": false,
+      "selection_unverified": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "expand",
+      "ok": true,
+      "hwnds": [
+       1378532
+      ]
+     }
+    ],
+    "ok": false,
+    "method": "select",
+    "before": [
+     "관할세무서",
+     "관할세무서"
+    ],
+    "expand_error": "NoPatternInterfaceError: ",
+    "expand": "mouse",
+    "items": [
+     "강남",
+     "강동",
+     "강릉",
+     "강서",
+     "거창",
+     "경기광주",
+     "경산",
+     "경주",
+     "계양",
+     "고양",
+     "공주",
+     "관악",
+     "광명",
+     "광산",
+     "광주",
+     "구로",
+     "구리",
+     "구미",
+     "군산",
+     "금정",
+     "금천",
+     "기흥",
+     "김천",
+     "김포",
+     "김해",
+     "나주",
+     "남대구",
+     "남대문",
+     "남동",
+     "남부천",
+     "남양주",
+     "남원",
+     "노원",
+     "논산",
+     "대전",
+     "도봉",
+     "동고양",
+     "동대구",
+     "동대문",
+     "동래",
+     "동수원",
+     "동안산",
+     "동안양",
+     "동울산",
+     "동작",
+     "동청주",
+     "동화성",
+     "마산",
+     "마포",
+     "목포",
+     "반포",
+     "보령",
+     "부산강서",
+     "부산진",
+     "부천",
+     "부평",
+     "북광주",
+     "북대구",
+     "북대전",
+     "북부산",
+     "북전주",
+     "분당",
+     "삼성",
+     "삼척",
+     "상주",
+     "서광주",
+     "서대구",
+     "서대문",
+     "서대전",
+     "서부산",
+     "서산",
+     "서인천",
+     "서초",
+     "성남",
+     "성동",
+     "성북",
+     "세종",
+     "속초",
+     "송파",
+     "수성",
+     "수영",
+     "수원",
+     "순천",
+     "시흥",
+     "아산",
+     "안동",
+     "안산",
+     "안양",
+     "양산",
+     "양천",
+     "여수",
+     "역삼",
+     "연수",
+     "영덕",
+     "영동",
+     "영등포",
+     "영월",
+     "영주",
+     "예산",
+     "용산",
+     "용인",
+     "울산",
+     "원주",
+     "은평",
+     "의정부",
+     "이천",
+     "익산",
+     "인천",
+     "잠실",
+     "전주",
+     "정읍",
+     "제주",
+     "제천",
+     "종로",
+     "중랑",
+     "중부",
+     "중부산",
+     "진주",
+     "창원",
+     "천안",
+     "청주",
+     "춘천",
+     "충주",
+     "통영",
+     "파주",
+     "평택",
+     "포천",
+     "포항",
+     "해남",
+     "해운대",
+     "홍성",
+     "홍천",
+     "화성"
+    ],
+    "pick": "select",
+    "closed_by": "mouse_item",
+    "selection_unverified": true,
+    "read": [
+     "안동",
+     "관할세무서",
+     "안동",
+     "관할세무서",
+     "안동"
+    ]
+   },
+   "want": "마포",
+   "status": "fail",
+   "detail": "값이 들어가지 않음 emSEONAME 원하는='마포' 읽은=['안동', '관할세무서', '안동', '관할세무서', '안동'] 항목=['강남', '강동', '강릉', '강서', '거창', '경기광주', '경산', '경주', '계양', '고양', '공주', '관악', '광명', '광산', '광주', '구로', '구리', '구미', '군산', '금정', '금천', '기흥', '김천', '김포', '김해', '나주', '남대구', '남대문', '남동', '남부천', '남양주', '남원', '노원', '논산', '대전', '도봉', '동고양', '동대구', '동대문', '동래', '동수원', '동안산', '동안양', '동울산', '동작', '동청주', '동화성', '마산', '마포', '목포', '반포', '보령', '부산강서', '부산진', '부천', '부평', '북광주', '북대구', '북대전', '북부산', '북전주', '분당', '삼성', '삼척', '상주', '서광주', '서대구', '서대문', '서대전', '서부산', '서산', '서인천', '서초', '성남', '성동', '성북', '세종', '속초', '송파', '수성', '수영', '수원', '순천', '시흥', '아산', '안동', '안산', '안양', '양산', '양천', '여수', '역삼', '연수', '영덕', '영동', '영등포', '영월', '영주', '예산', '용산', '용인', '울산', '원주', '은평', '의정부', '이천', '익산', '인천', '잠실', '전주', '정읍', '제주', '제천', '종로', '중랑', '중부', '중부산', '진주', '창원', '천안', '청주', '춘천', '충주', '통영', '파주', '평택', '포천', '포항', '해남', '해운대', '홍성', '홍천', '화성'] 선택=None"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": [
+   "backup.ini"
+  ]
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     200
+    ]
+   },
+   "data_type_changed": 0
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": false,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 10 combo fail: 값이 들어가지 않음 emSEONAME 원하는='마포' 읽은=['안동', '관할세무서', '안동', '관할세무서', '안동'] 항목=['강남', '강동', '강릉', '강서', '거창', '경기광주', '경산', '경주', '계양', '고양', '공주', '관악', '광명', '광산', '광주', '구로', '구리', '구미', '군산', '금정', '금천', '기흥', '김천', '김포', '김해', '나주', '남대구', '남대문', '남동', '남부천', '남양주', '남원', '노원', '논산', '대전', '도봉', '동고양', '동대구', '동대문', '동래', '동수원', '동안산', '동안양', '동울산', '동작', '동청주', '동화성', '마산', '마포', '목포', '반포', '보령', '부산강서', '부산진', '부천', '부평', '북광주', '북대구', '북대전', '북부산', '북전주', '분당', '삼성', '삼척', '상주', '서광주', '서대구', '서대문', '서대전', '서부산', '서산', '서인천', '서초', '성남', '성동', '성북', '세종', '속초', '송파', '수성', '수영', '수원', '순천', '시흥', '아산', '안동', '안산', '안양', '양산', '양천', '여수', '역삼', '연수', '영덕', '영동', '영등포', '영월', '영주', '예산', '용산', '용인', '울산', '원주', '은평', '의정부', '이천', '익산', '인천', '잠실', '전주', '정읍', '제주', '제천', '종로', '중랑', '중부', '중부산', '진주', '창원', '천안', '청주', '춘천', '충주', '통영', '파주', '평택', '포천', '포항', '해남', '해운대', '홍성', '홍천', '화성'] 선택=None",
+ "exit_code": 2,
+ "finished": "2026-10-29T22:10:40",
+ "remaining_screens": [
+  1378532,
+  3409506
+ ],
+ "remaining_modals": []
+}

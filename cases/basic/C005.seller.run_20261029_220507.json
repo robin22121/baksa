@@ -1,0 +1,252 @@
+{
+ "steps_file": "cases\\house\\C005.seller.steps.yaml",
+ "case": "C005",
+ "started": "2026-10-29T22:05:07",
+ "window": "양도소득세",
+ "vars": {
+  "rrn": "8010101477778"
+ },
+ "prior_runs_same_steps": 1,
+ "hwnd": 1378532,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261029_220507",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "1.양도인등록"
+   },
+   "t": "2026-10-29T22:05:08",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "check_combo",
+   "spec": {
+    "check_combo": {
+     "id": "cbMen100Year",
+     "value": "전체"
+    }
+   },
+   "t": "2026-10-29T22:05:15",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "values": [
+     "전체",
+     "전체",
+     "전체",
+     "전체",
+     "전체"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "press",
+   "spec": {
+    "press": "등록",
+    "screens": {
+     "양도구분선택": "부동산권리"
+    },
+    "expect_enabled": [
+     "저장",
+     "취소"
+    ]
+   },
+   "t": "2026-10-29T22:05:18",
+   "how": "postmessage",
+   "handled_screens": [
+    {
+     "title": "양도구분 선택",
+     "hwnd": 2034960,
+     "pressed": "부동산권리",
+     "capture_method": "ok",
+     "capture": "docs/screens/C005_03_screen_1.png"
+    }
+   ],
+   "states": {
+    "저장": [
+     true
+    ],
+    "취소": [
+     true
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "emJASANGU",
+     "value": "부동산"
+    }
+   },
+   "t": "2026-10-29T22:05:28",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "부동산",
+     "국외자산",
+     "주식",
+     "토지등 매매차익",
+     "파생상품"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "emSINGOGU",
+     "value": "예정"
+    }
+   },
+   "t": "2026-10-29T22:05:34",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "예정",
+     "확정",
+     "수정",
+     "기한후"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "emBORN",
+     "value": "내국인"
+    }
+   },
+   "t": "2026-10-29T22:05:40",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "내국인",
+     "외국인"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "new_screens": [
+    2099460
+   ],
+   "status": "abort",
+   "detail": "새 화면이 떴다 [2099460] — 단계 파일에 반영 필요"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": [
+   "backup.ini"
+  ]
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     200
+    ]
+   },
+   "data_type_changed": 0
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": false,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 6 radio abort: 새 화면이 떴다 [2099460] — 단계 파일에 반영 필요",
+ "exit_code": 2,
+ "finished": "2026-10-29T22:05:46",
+ "remaining_screens": [
+  1378532,
+  3409506,
+  2099460
+ ],
+ "remaining_modals": []
+}
