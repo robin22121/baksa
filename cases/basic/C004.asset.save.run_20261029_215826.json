@@ -1,0 +1,323 @@
+{
+ "steps_file": "cases\\house\\C004.asset.save.steps.yaml",
+ "case": "C004",
+ "started": "2026-10-29T21:58:26",
+ "window": "실지거래>아파트·연립주택",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 1314316,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261029_215826",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S01",
+     "S02",
+     "S03",
+     "T04",
+     "T05",
+     "CC20",
+     "CC21",
+     "CC22"
+    ]
+   },
+   "t": "2026-10-29T21:58:27",
+   "values": {
+    "S01": [
+     "800,000,000",
+     "양도실가",
+     "800,000,000"
+    ],
+    "S02": [
+     "400,000,000",
+     "취득실가",
+     "400,000,000"
+    ],
+    "S03": [
+     "8,400,000",
+     "필요경비(합)",
+     "8,400,000"
+    ],
+    "T04": [
+     "560,000,000",
+     "필요경비(합)",
+     "560,000,000"
+    ],
+    "T05": [
+     "280,000,000",
+     "필요경비(합)",
+     "280,000,000"
+    ],
+    "CC20": [
+     "391,600,000",
+     "391,600,000",
+     "391,600,000"
+    ],
+    "CC21": [
+     "117,480,000",
+     "117,480,000",
+     "117,480,000"
+    ],
+    "CC22": [
+     "274,120,000",
+     "274,120,000",
+     "274,120,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "capture",
+   "spec": {
+    "capture": "before_save"
+   },
+   "t": "2026-10-29T21:58:51",
+   "capture": "docs/screens/C004_02_before_save.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSave",
+    "closes": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-29T21:58:52",
+   "button": {
+    "id": "btnSave",
+    "name": "저장",
+    "click_hwnd": 1052072
+   },
+   "closes": {
+    "title": "실지거래>아파트·연립주택",
+    "gone": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "window",
+   "spec": {
+    "window": "양도소득세"
+   },
+   "t": "2026-10-29T21:58:58",
+   "hwnd": 1378532,
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록"
+   },
+   "t": "2026-10-29T21:58:58",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "verify_grid",
+   "spec": {
+    "verify_grid": {
+     "id": "cxGrid1",
+     "column": "소재지",
+     "contains": "월드컵로",
+     "count": 1
+    }
+   },
+   "t": "2026-10-29T21:59:04",
+   "result": {
+    "found": true,
+    "rows": 1,
+    "matched": 1,
+    "row_values": [
+     {
+      "계산반영": "Checked",
+      "No.": "1",
+      "세율구분": "일반세율",
+      "자산종류": "아파트",
+      "소재지": "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+      "양도일자": "20250820",
+      "취득일자": "20100615",
+      "양도가액": "800000000"
+     }
+    ],
+    "column": "소재지"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "capture",
+   "spec": {
+    "capture": "asset_grid"
+   },
+   "t": "2026-10-29T21:59:08",
+   "capture": "docs/screens/C004_07_asset_grid.png",
+   "capture_method": "ok",
+   "status": "ok"
+  }
+ ],
+ "reads": {
+  "S01": [
+   "800,000,000",
+   "양도실가",
+   "800,000,000"
+  ],
+  "S02": [
+   "400,000,000",
+   "취득실가",
+   "400,000,000"
+  ],
+  "S03": [
+   "8,400,000",
+   "필요경비(합)",
+   "8,400,000"
+  ],
+  "T04": [
+   "560,000,000",
+   "필요경비(합)",
+   "560,000,000"
+  ],
+  "T05": [
+   "280,000,000",
+   "필요경비(합)",
+   "280,000,000"
+  ],
+  "CC20": [
+   "391,600,000",
+   "391,600,000",
+   "391,600,000"
+  ],
+  "CC21": [
+   "117,480,000",
+   "117,480,000",
+   "117,480,000"
+  ],
+  "CC22": [
+   "274,120,000",
+   "274,120,000",
+   "274,120,000"
+  ]
+ },
+ "fingerprint_diff": {
+  "added": [
+   "Log\\9.Log"
+  ],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 9,
+   "by_type": {
+    "header": 1,
+    "PIP": 1,
+    "gen": 1,
+    "pointer": 1,
+    "TIP": 1,
+    "data": 4
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "PIP": [
+     1
+    ],
+    "gen": [
+     136
+    ],
+    "pointer": [
+     171
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     306,
+     317,
+     318,
+     319
+    ]
+   },
+   "data_type_changed": 5
+  }
+ },
+ "fdb_verdict": {
+  "added": [
+   "Log\\9.Log"
+  ],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 9,
+    "by_type": {
+     "header": 1,
+     "PIP": 1,
+     "gen": 1,
+     "pointer": 1,
+     "TIP": 1,
+     "data": 4
+    },
+    "only_header_tip": false,
+    "data_type_changed": 5,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": null,
+ "exit_code": 0,
+ "finished": "2026-10-29T21:59:10",
+ "remaining_screens": [
+  1378532,
+  3409506
+ ],
+ "remaining_modals": []
+}

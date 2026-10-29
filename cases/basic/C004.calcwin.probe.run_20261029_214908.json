@@ -1,0 +1,174 @@
+{
+ "steps_file": "cases\\house\\C004.calcwin.probe.steps.yaml",
+ "case": "C004",
+ "started": "2026-10-29T21:49:08",
+ "window": "아파트·연립주택취득가액계산",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 3409958,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261029_214909",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "R01",
+     "value": "560000000"
+    }
+   },
+   "t": "2026-10-29T21:49:10",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "COMError: (-2146233079, None, (None, None, None, 0, None))",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "0",
+       "0",
+       "0"
+      ],
+      "match": false
+     },
+     {
+      "method": "mouse",
+      "read": [
+       "0",
+       "0",
+       "0"
+      ],
+      "match": false
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3409958
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       3409958
+      ]
+     },
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3409958
+      ]
+     },
+     {
+      "before": "mouse-input",
+      "ok": true,
+      "hwnds": [
+       3409958
+      ]
+     }
+    ],
+    "ok": false,
+    "before": [
+     "0",
+     "0",
+     "0"
+    ],
+    "read": [
+     "0",
+     "0",
+     "0"
+    ]
+   },
+   "want": "560000000",
+   "status": "fail",
+   "detail": "값이 들어가지 않음 R01 원하는='560000000' 읽은=['0', '0', '0']"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 0,
+   "by_type": {},
+   "first_pages": {},
+   "data_type_changed": 0
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 0,
+    "by_type": {},
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": false,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 1 text fail: 값이 들어가지 않음 R01 원하는='560000000' 읽은=['0', '0', '0']",
+ "exit_code": 2,
+ "finished": "2026-10-29T21:49:23",
+ "remaining_screens": [
+  3409958,
+  2164364,
+  1378532,
+  3409506
+ ],
+ "remaining_modals": []
+}

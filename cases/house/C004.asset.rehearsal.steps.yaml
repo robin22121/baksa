@@ -1,0 +1,46 @@
+# C004 자산 리허설: 아파트 폼 "취득실가를 모르는 경우"(기본값) — 양도실가, 기준시가 직접입력, 취득가액 환산 → 계산 앞에서 저장 없이 닫는다.
+# 칸(W1 덤프 docs/inventory/raw/C004_apt_form_unknown.json): T04 양도시 기준시가, T05 취득시 기준시가, CPUT 직접입력 체크(접근성 이름 "고가주택"), btnHS 취득가액 환산/기준시가 조회
+# 전제: 가상양도인5(0005) 선택 상태. 값 근거: docs/work-plans/2026-10-29-C004-환산취득가액.md §0
+window: 양도소득세
+steps:
+  - press: 2. 자 산 등 록
+  - press_id: btnS53
+    opens: 실지거래>아파트·연립주택
+  - click_id: CC02
+    opens: 주소검색
+  - text: {id: emSearch, value: 월드컵로 212}
+  - press_id: btnSearch
+    opens: 주소검색
+  - read: [txtResultJuso]
+  - press_id: btnOk
+    screens: {아파트·연립주택공동주택가격조회: "@close"}
+  - window: 실지거래>아파트·연립주택
+  - read: [CC02]
+  - text: {id: CC06, value: "2025-08-20", type: Pane}   # 양도일자
+  - text: {id: CC11, value: "2010-06-15", type: Pane}   # 취득일자
+  - text: {id: CC04, value: "84"}
+  - capture: basic_filled
+  # 1차(214631): 양도실가 입력 뒤 모달 "「취득가액 환산/기준시가 조회」을 눌러 환산취득가액을 계산하시기 바랍니다." → 확인
+  # 탐색(214908·직접입력 probe): 환산 버튼 창(취득가액 계산)의 기준시가 칸은 공동주택가격 조회로만 채워져 가상 아파트는 불가 → 폼의 직접입력(CPUT) + T04·T05로 넣는다
+  - text: {id: S01, value: "800000000"}                 # 양도실가
+    screens: {취득실가: "@close", 필요경비: "@close", 취득당시평가액: "@close"}
+    modals: {"확인|*취득가액환산/기준시가조회*": 확인}
+  - click_id: CPUT                                     # 직접입력
+    modals: {"확인|*취득가액환산/기준시가조회*": 확인}
+  - text: {id: T04, value: "560000000"}                # 양도시 기준시가
+  - text: {id: T05, value: "280000000"}                # 취득시 기준시가
+  - capture: std_filled
+  - press_id: btnS03
+    opens: 필요경비
+  - click_id: S41
+  - grid_cell: {grid: cxGrid1, row: 지급금액, value: "3000000", record: 0}
+  - read: [S41, S1234T]
+  - capture: exp
+  - press_id: btnOK
+  - window: 실지거래>아파트·연립주택
+  - read: [S01, S02, S03, T04, T05, JasanKD1, GU, CC06, CC11]
+  - capture: before_calc
+  - close: 실지거래>아파트·연립주택
+    modals: {"*|*저장하시겠습니까*": 아니오}
+  - press: 2. 자 산 등 록
+  - verify_grid: {id: cxGrid1, column: 소재지, contains: 월드컵로, count: 0}

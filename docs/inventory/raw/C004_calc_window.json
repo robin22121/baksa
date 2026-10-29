@@ -1,0 +1,842 @@
+[
+{
+"t": "Pane",
+"n": "pnlCap",
+"id": "pnlCap",
+"xy": [
+54,
+236
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "",
+"id": "splitContainer1",
+"xy": [
+58,
+298
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "",
+"id": "splitContainer2",
+"xy": [
+58,
+298
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "pnlMain",
+"id": "pnlMain",
+"xy": [
+58,
+298
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "공시지가",
+"id": "p4",
+"xy": [
+74,
+1117
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "FEdit0",
+"xy": [
+306,
+1117
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "2025년 토지 공시지가",
+"id": "FEdit1_1",
+"xy": [
+74,
+1157
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "FEdit1",
+"xy": [
+306,
+1157
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "2010년 토지 공시지가",
+"id": "FEdit0_1",
+"xy": [
+74,
+1117
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "p7",
+"id": "p7",
+"xy": [
+564,
+814
+],
+"en": true
+},
+{
+"t": "CheckBox",
+"n": "동일조정기간내에 추가 고시된 경우 체크하십시오",
+"id": "p7_0",
+"xy": [
+576,
+819
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "p3",
+"id": "p3",
+"xy": [
+70,
+1078
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "신축년도",
+"id": "E11",
+"xy": [
+306,
+1078
+],
+"en": true
+},
+{
+"t": "Text",
+"n": "신축연도(준공연도)",
+"id": "labelControl3",
+"xy": [
+74,
+1078
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "p0",
+"id": "p0",
+"xy": [
+72,
+303
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "소재지",
+"id": "cxLabelEx11",
+"xy": [
+74,
+305
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "세율구분 및 과세특례",
+"id": "lbGU",
+"xy": [
+74,
+362
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "rgGU",
+"id": "rgGU",
+"xy": [
+306,
+362
+],
+"en": true
+},
+{
+"t": "RadioButton",
+"n": "",
+"id": "GU48",
+"xy": [
+320,
+485
+],
+"en": true
+},
+{
+"t": "RadioButton",
+"n": "",
+"id": "GU47",
+"xy": [
+320,
+455
+],
+"en": true
+},
+{
+"t": "RadioButton",
+"n": "",
+"id": "GU50",
+"xy": [
+320,
+427
+],
+"en": true
+},
+{
+"t": "List",
+"n": "자산구분",
+"id": "GU",
+"xy": [
+313,
+368
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "소재지",
+"id": "CC02",
+"xy": [
+306,
+305
+],
+"en": true
+},
+{
+"t": "ScrollBar",
+"n": "세로",
+"id": "NonClientVerticalScrollBar",
+"xy": [
+1061,
+306
+],
+"en": false
+},
+{
+"t": "Button",
+"n": "위쪽 스크롤 화살표",
+"id": "UpButton",
+"xy": [
+1061,
+306
+],
+"en": false
+},
+{
+"t": "Button",
+"n": "아래쪽 스크롤 화살표",
+"id": "DownButton",
+"xy": [
+1061,
+343
+],
+"en": false
+},
+{
+"t": "Pane",
+"n": "p2",
+"id": "p2",
+"xy": [
+72,
+940
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "구조",
+"id": "textEdit5",
+"xy": [
+74,
+985
+],
+"en": true
+},
+{
+"t": "List",
+"n": "용도",
+"id": "E07",
+"xy": [
+224,
+940
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "용도",
+"id": "textEdit4",
+"xy": [
+74,
+940
+],
+"en": true
+},
+{
+"t": "ComboBox",
+"n": "구조",
+"id": "E09",
+"xy": [
+224,
+985
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "p1",
+"id": "p1",
+"xy": [
+70,
+627
+],
+"en": true
+},
+{
+"t": "Text",
+"n": "감가상각비",
+"id": "eG_",
+"xy": [
+74,
+851
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "eG",
+"xy": [
+306,
+851
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "p1_1",
+"id": "p1_1",
+"xy": [
+571,
+627
+],
+"en": true
+},
+{
+"t": "List",
+"n": "취득원인",
+"id": "cxChk1",
+"xy": [
+665,
+928
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "증여세상당액",
+"id": "chAmt",
+"xy": [
+819,
+712
+],
+"en": false
+},
+{
+"t": "Pane",
+"n": "증여취득일",
+"id": "chDate",
+"xy": [
+819,
+670
+],
+"en": false
+},
+{
+"t": "Edit",
+"n": "일반취득",
+"id": "chName",
+"xy": [
+819,
+628
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "취득원인",
+"id": "chName_1",
+"xy": [
+572,
+628
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "토지면적",
+"id": "E06",
+"xy": [
+306,
+807
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "공용면적",
+"id": "E05",
+"xy": [
+306,
+765
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "토지면적(㎡)",
+"id": "E06_1",
+"xy": [
+74,
+807
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "취득일자",
+"id": "CC11",
+"xy": [
+305,
+670
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "취득일자",
+"id": "CC11_1",
+"xy": [
+72,
+670
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "전용면적",
+"id": "CC04",
+"xy": [
+306,
+723
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "공용면적(㎡)",
+"id": "E05_1",
+"xy": [
+74,
+765
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "전용면적(㎡)",
+"id": "CC04_1",
+"xy": [
+74,
+723
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "양도일자",
+"id": "CC06_1",
+"xy": [
+72,
+628
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "양도일자",
+"id": "CC06",
+"xy": [
+305,
+628
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "pCalLog",
+"id": "pCalLog",
+"xy": [
+1117,
+299
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "",
+"id": "WebBrowser",
+"xy": [
+1117,
+299
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "gosiPnl",
+"id": "gosiPnl",
+"xy": [
+1117,
+1001
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "gosiPanel",
+"id": "gosiPanel",
+"xy": [
+1117,
+1001
+],
+"en": true
+},
+{
+"t": "Button",
+"n": "비과세등 확인\r\n(국세청)",
+"id": "btnFTaxinfo2URL",
+"xy": [
+1405,
+1082
+],
+"en": true
+},
+{
+"t": "Button",
+"n": "실거래가 조회\r\n(국토부)",
+"id": "btnFMolitURL",
+"xy": [
+1125,
+1082
+],
+"en": true
+},
+{
+"t": "Button",
+"n": "조세법령조회\r\n(국세청)",
+"id": "btnFWetaxGunPrice",
+"xy": [
+1405,
+1010
+],
+"en": true
+},
+{
+"t": "Button",
+"n": "기준시가 조회\r\n(국토부)",
+"id": "btnFRealtyPrice",
+"xy": [
+1125,
+1010
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "pCalResult",
+"id": "pCalResult",
+"xy": [
+1117,
+1164
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "",
+"id": "G03",
+"xy": [
+1554,
+1204
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "공시일",
+"id": "textEdit23",
+"xy": [
+1456,
+1204
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "",
+"id": "G02",
+"xy": [
+1554,
+1164
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "공시일",
+"id": "textEdit21",
+"xy": [
+1456,
+1164
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "R04",
+"xy": [
+1290,
+1314
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "800,000,000",
+"id": "R03",
+"xy": [
+1290,
+1274
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "R02",
+"xy": [
+1290,
+1204
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "환산취득가액",
+"id": "CC20_1",
+"xy": [
+1117,
+1314
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "양도실가",
+"id": "CC19_1",
+"xy": [
+1117,
+1274
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "취득기준시가",
+"id": "CC17_1",
+"xy": [
+1117,
+1204
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "R01",
+"xy": [
+1290,
+1164
+],
+"en": true
+},
+{
+"t": "Edit",
+"n": "양도기준시가",
+"id": "CC10_1",
+"xy": [
+1117,
+1164
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "pnlBottom",
+"id": "pnlBottom",
+"xy": [
+58,
+1412
+],
+"en": true
+},
+{
+"t": "Button",
+"n": "공시지가조회",
+"id": "btnGetTojiPrice",
+"xy": [
+1064,
+1425
+],
+"en": true
+},
+{
+"t": "Button",
+"n": "토지공시지가 조회",
+"id": "btn_toji",
+"xy": [
+1253,
+1425
+],
+"en": true
+},
+{
+"t": "Button",
+"n": "다음단계",
+"id": "btnPrint",
+"xy": [
+1491,
+1425
+],
+"en": true
+},
+{
+"t": "Button",
+"n": "자산삭제",
+"id": "btnDel",
+"xy": [
+838,
+1425
+],
+"en": true
+},
+{
+"t": "Button",
+"n": "계산",
+"id": "btnCal01",
+"xy": [
+205,
+1425
+],
+"en": true
+},
+{
+"t": "Button",
+"n": "저장",
+"id": "btnSave",
+"xy": [
+72,
+1425
+],
+"en": true
+},
+{
+"t": "Pane",
+"n": "panelControl1",
+"id": "panelControl1",
+"xy": [
+58,
+240
+],
+"en": true
+},
+{
+"t": "Text",
+"n": "취득가액을 계산하기 위해「계산」및「저장」버튼을 클릭합니다.",
+"id": "labelControl11",
+"xy": [
+68,
+250
+],
+"en": true
+},
+{
+"t": "Button",
+"n": "원격지원",
+"id": "btnRemote",
+"xy": [
+1393,
+242
+],
+"en": true
+},
+{
+"t": "Button",
+"n": "화면인쇄",
+"id": "btnScreen",
+"xy": [
+1538,
+242
+],
+"en": true
+},
+{
+"t": "Button",
+"n": "아파트조회",
+"id": "btnAPT",
+"xy": [
+868,
+242
+],
+"en": true
+},
+{
+"t": "MenuBar",
+"n": "시스템",
+"id": "MenuBar",
+"xy": [
+31,
+111
+],
+"en": true
+}
+]

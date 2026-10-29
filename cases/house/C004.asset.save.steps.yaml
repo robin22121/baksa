@@ -1,0 +1,11 @@
+# C004 자산 저장 이어서: 1차 계산(215529)이 끝난 폼이 열린 상태. 필요경비 창은 환산 방식에서 열리지 않음(모달) → 계산값 그대로 저장
+window: 실지거래>아파트·연립주택
+steps:
+  - read: [S01, S02, S03, T04, T05, CC20, CC21, CC22]
+  - capture: before_save
+  - press_id: btnSave
+    closes: 실지거래>아파트·연립주택
+  - window: 양도소득세
+  - press: 2. 자 산 등 록
+  - verify_grid: {id: cxGrid1, column: 소재지, contains: 월드컵로, count: 1}
+  - capture: asset_grid

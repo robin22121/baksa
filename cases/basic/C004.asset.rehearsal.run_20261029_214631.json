@@ -1,0 +1,560 @@
+{
+ "steps_file": "cases\\house\\C004.asset.rehearsal.steps.yaml",
+ "case": "C004",
+ "started": "2026-10-29T21:46:31",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 1378532,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261029_214631",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록"
+   },
+   "t": "2026-10-29T21:46:32",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnS53",
+    "opens": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-29T21:46:38",
+   "button": {
+    "id": "btnS53",
+    "name": "실지거래 > 아파트/연립",
+    "click_hwnd": 1248702
+   },
+   "opened": {
+    "title": "실지거래 > 아파트·연립주택",
+    "hwnd": 2164364,
+    "capture": "docs/screens/C004_02_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "click_id",
+   "spec": {
+    "click_id": "CC02",
+    "opens": "주소검색"
+   },
+   "t": "2026-10-29T21:46:44",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     261,
+     378,
+     1161,
+     432
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       2164364
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "opened": {
+    "title": "주소 검색",
+    "hwnd": 1183386,
+    "capture": "docs/screens/C004_03_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "emSearch",
+     "value": "월드컵로 212"
+    }
+   },
+   "t": "2026-10-29T21:46:51",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "월드컵로 212",
+       "월드컵로 212",
+       "월드컵로 212"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       1183386
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "월드컵로 212",
+     "월드컵로 212",
+     "월드컵로 212"
+    ]
+   },
+   "want": "월드컵로 212",
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSearch",
+    "opens": "주소검색"
+   },
+   "t": "2026-10-29T21:46:56",
+   "button": {
+    "id": "btnSearch",
+    "name": "조회",
+    "click_hwnd": 2491104
+   },
+   "opened": {
+    "title": "주소 검색",
+    "hwnd": 1445460,
+    "capture": "docs/screens/C004_05_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "read",
+   "spec": {
+    "read": [
+     "txtResultJuso"
+    ]
+   },
+   "t": "2026-10-29T21:47:00",
+   "values": {
+    "txtResultJuso": [
+     "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+     "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+     "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOk",
+    "screens": {
+     "아파트·연립주택공동주택가격조회": "@close"
+    }
+   },
+   "t": "2026-10-29T21:47:01",
+   "button": {
+    "id": "btnOk",
+    "name": "저장",
+    "click_hwnd": 2493752
+   },
+   "status": "ok"
+  },
+  {
+   "i": 8,
+   "action": "window",
+   "spec": {
+    "window": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-29T21:47:05",
+   "hwnd": 2164364,
+   "status": "ok"
+  },
+  {
+   "i": 9,
+   "action": "read",
+   "spec": {
+    "read": [
+     "CC02"
+    ]
+   },
+   "t": "2026-10-29T21:47:05",
+   "values": {
+    "CC02": [
+     "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+     "소재지",
+     "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 10,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC06",
+     "value": "2025-08-20",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-29T21:47:08",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "양도일자",
+       "2025년 8월 20일 수요일",
+       "양도일자"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       2164364
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       2164364
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "양도일자",
+     "양도일자"
+    ],
+    "method": "type",
+    "read": [
+     "양도일자",
+     "2025년 8월 20일 수요일",
+     "양도일자"
+    ]
+   },
+   "want": "2025-08-20",
+   "status": "ok"
+  },
+  {
+   "i": 11,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC11",
+     "value": "2010-06-15",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-29T21:47:17",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "취득일자",
+       "2010년 6월 15일 화요일",
+       "취득일자"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       2164364
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       2164364
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "취득일자",
+     "0001년 1월 1일 월요일",
+     "취득일자"
+    ],
+    "method": "type",
+    "read": [
+     "취득일자",
+     "2010년 6월 15일 화요일",
+     "취득일자"
+    ]
+   },
+   "want": "2010-06-15",
+   "status": "ok"
+  },
+  {
+   "i": 12,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC04",
+     "value": "84"
+    }
+   },
+   "t": "2026-10-29T21:47:25",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "84",
+       "전용면적",
+       "84"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       2164364
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "전용면적"
+    ],
+    "method": "set_value",
+    "read": [
+     "84",
+     "전용면적",
+     "84"
+    ]
+   },
+   "want": "84",
+   "status": "ok"
+  },
+  {
+   "i": 13,
+   "action": "capture",
+   "spec": {
+    "capture": "basic_filled"
+   },
+   "t": "2026-10-29T21:47:36",
+   "capture": "docs/screens/C004_13_basic_filled.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 14,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "S01",
+     "value": "800000000"
+    },
+    "screens": {
+     "취득실가": "@close",
+     "필요경비": "@close",
+     "취득당시평가액": "@close"
+    }
+   },
+   "t": "2026-10-29T21:47:36",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "800,000,000",
+       "양도실가",
+       "800,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       2164364
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "0",
+     "양도실가",
+     "0"
+    ],
+    "method": "set_value",
+    "read": [
+     "800,000,000",
+     "양도실가",
+     "800,000,000"
+    ]
+   },
+   "want": "800000000",
+   "modals": [
+    {
+     "key": "확인|「취득가액환산/기준시가조회」을눌러환산취득가액을계산하시기바랍니다.",
+     "title": "확인",
+     "msg": "「취득가액 환산/기준시가 조회」을 눌러 환산취득가액을 계산하시기 바랍니다.",
+     "handled": false,
+     "capture": [
+      "ok",
+      "docs/screens/C004_14_modal_unknown.png"
+     ]
+    }
+   ],
+   "status": "abort",
+   "detail": "처음 보는 모달 '확인|「취득가액환산/기준시가조회」을눌러환산취득가액을계산하시기바랍니다.' — 아무것도 누르지 않음. 단계 파일 modals에 추가 필요"
+  }
+ ],
+ "reads": {
+  "txtResultJuso": [
+   "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+   "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+   "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)"
+  ],
+  "CC02": [
+   "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+   "소재지",
+   "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)"
+  ]
+ },
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     200
+    ]
+   },
+   "data_type_changed": 0
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": false,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 14 text abort: 처음 보는 모달 '확인|「취득가액환산/기준시가조회」을눌러환산취득가액을계산하시기바랍니다.' — 아무것도 누르지 않음. 단계 파일 modals에 추가 필요",
+ "exit_code": 2,
+ "finished": "2026-10-29T21:47:46",
+ "remaining_screens": [
+  2164364,
+  1378532,
+  3409506
+ ],
+ "remaining_modals": [
+  2229240
+ ]
+}

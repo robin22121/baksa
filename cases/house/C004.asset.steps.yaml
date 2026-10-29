@@ -1,0 +1,57 @@
+# C004 자산 입력(실제 저장): 리허설(215306)과 같은 입력 → 계산(U4: 저장까지 함) → 환산취득가액·개산공제 읽기 → 필요경비 창에 양도비 3,000,000 → 다시 계산 → 저장.
+# 리허설 관찰: 기준시가 입력 뒤 필요경비 수정 버튼은 모달 "「양도시 기준시가」, 「취득시 기준시가」를 넣어 계산하시기 바랍니다." — 계산 전에는 필요경비 창이 열리지 않음
+# 값 근거: docs/work-plans/2026-10-29-C004-환산취득가액.md §0
+window: 양도소득세
+steps:
+  - press: 2. 자 산 등 록
+  - press_id: btnS53
+    opens: 실지거래>아파트·연립주택
+  - click_id: CC02
+    opens: 주소검색
+  - text: {id: emSearch, value: 월드컵로 212}
+  - press_id: btnSearch
+    opens: 주소검색
+  - read: [txtResultJuso]
+  - press_id: btnOk
+    screens: {아파트·연립주택공동주택가격조회: "@close"}
+  - window: 실지거래>아파트·연립주택
+  - read: [CC02]
+  - text: {id: CC06, value: "2025-08-20", type: Pane}   # 양도일자
+  - text: {id: CC11, value: "2010-06-15", type: Pane}   # 취득일자
+  - text: {id: CC04, value: "84"}
+  - capture: basic_filled
+  # 1차(214631): 양도실가 입력 뒤 모달 "「취득가액 환산/기준시가 조회」을 눌러 환산취득가액을 계산하시기 바랍니다." → 확인
+  # 탐색(214908·직접입력 probe): 환산 버튼 창(취득가액 계산)의 기준시가 칸은 공동주택가격 조회로만 채워져 가상 아파트는 불가 → 폼의 직접입력(CPUT) + T04·T05로 넣는다
+  - text: {id: S01, value: "800000000"}                 # 양도실가
+    screens: {취득실가: "@close", 필요경비: "@close", 취득당시평가액: "@close"}
+    modals: {"확인|*취득가액환산/기준시가조회*": 확인}
+  - click_id: CPUT                                     # 직접입력
+    modals: {"확인|*취득가액환산/기준시가조회*": 확인}
+  - text: {id: T04, value: "560000000"}                # 양도시 기준시가
+  - text: {id: T05, value: "280000000"}                # 취득시 기준시가
+  - capture: std_filled
+  - read: [S01, S02, S03, T04, T05, JasanKD1, GU]
+  - capture: before_calc
+  - press_id: btnCal
+    modals: {"확인|*취득가액환산/기준시가조회*": 확인, "확인|*기준시가」를넣어계산*": 확인}
+  - read: [S02, S03, CC10, CC17, CC19, CC20, CC21, CC22]
+  - capture: calculated1
+  - press_id: btnS03
+    opens: 필요경비
+    modals: {"확인|*기준시가」를넣어계산*": 확인}
+  - capture: exp_window
+  - click_id: S41
+  - grid_cell: {grid: cxGrid1, row: 지급금액, value: "3000000", record: 0}
+  - read: [S41, S1234T]
+  - capture: exp
+  - press_id: btnOK
+  - window: 실지거래>아파트·연립주택
+  - press_id: btnCal
+    modals: {"확인|*취득가액환산/기준시가조회*": 확인, "확인|*기준시가」를넣어계산*": 확인}
+  - read: [S02, S03, CC10, CC17, CC19, CC20, CC21, CC22]
+  - capture: calculated2
+  - press_id: btnSave
+    closes: 실지거래>아파트·연립주택
+  - press: 2. 자 산 등 록
+  - verify_grid: {id: cxGrid1, column: 소재지, contains: 월드컵로, count: 1}
+  - capture: asset_grid

@@ -46,6 +46,12 @@
     - 비조정대상지역 → §104⑦ 자산 아님, "not_adjusted" (기본세율 + 장특 표1)
   contract_date는 취득 계약일(1세대1주택 부칙 예외 판정용)이라 양도 계약일과 키를 나눈다.
 
+취득 실지거래가액 불명이면 acquisition_price 대신 다음 키를 받는다(환산취득가액만, §176의2③ 순위는 범위 밖):
+
+          acquisition_price_unknown: true
+          transfer_std_price: 560000000     # 양도 당시 기준시가
+          acquisition_std_price: 280000000  # 취득 당시 기준시가
+
 범위 밖 분기(입력이 요구하면 NotImplementedError):
 3주택 이상, 조정대상지역 2주택의 2022-05-10 이전 양도, 2026-05-09 이전 계약·이후 양도(보완 유예 4~6개월 —
 지역별 기간 조문 미확인, 계약금 요건 미반영), 2026-05-10 이후 양도인데 양도 계약일 없음, 중과 자산이 낀 여러 자산 양도,
@@ -216,10 +222,57 @@ def necessary_expenses(asset: dict) -> int:
     근거: 소득세법 §97①(취득가액·자본적지출·양도비), §97③(사업소득 필요경비로 산입한
     감가상각비 공제), 시행령 §163(필요경비 범위 — 취득세 등 취득부대비용, 중개수수료 등 양도비).
     `expenses`는 항목별 dict(합산) 또는 정수.
+    취득가액 불명(acquisition_price_unknown)이면 converted_expenses의 규칙을 따른다.
     """
+    if asset.get("acquisition_price_unknown"):
+        return converted_expenses(asset)[0]
     exp = asset.get("expenses") or 0
     exp_total = sum(int(v or 0) for v in exp.values()) if isinstance(exp, dict) else int(exp)
     return int(asset["acquisition_price"]) + exp_total - int(asset.get("depreciation") or 0)
+
+
+def converted_acquisition_price(asset: dict) -> int:
+    """환산취득가액 = 양도가액 × 취득 당시 기준시가 ÷ 양도 당시 기준시가.
+
+    근거: 소득세법 §97①1나, 시행령 §163⑫, §176의2②2. 매매사례가액·감정가액 순위(§176의2③)는
+    범위 밖 — acquisition_price_unknown은 환산취득가액만 뜻한다.
+    원 미만 절사(floor): 가정 — 조문 없음, 미실측.
+    """
+    return int(asset["transfer_price"]) * int(asset["acquisition_std_price"]) // int(asset["transfer_std_price"])
+
+
+def estimated_expense(asset: dict) -> int:
+    """필요경비 개산공제 = 취득 당시 기준시가 × 3%(등기 토지·건물), 원 미만 절사.
+
+    근거: 소득세법 §97②2호, 시행령 §163⑥1·2호. 미등기(0.3%)는 범위 밖.
+    """
+    if asset.get("registered") is False:
+        raise NotImplementedError(f"{asset.get('id', '?')}: 미등기 개산공제 0.3%(시행령 §163⑥) — 범위 밖")
+    return int(asset["acquisition_std_price"]) * 3 // 100
+
+
+def converted_expenses(asset: dict) -> tuple[int, int, int, str]:
+    """취득가액 불명 → (필요경비, 환산취득가액, 개산공제, expense_rule).
+
+    근거: 소득세법 §97②2호 본문(환산취득가액 + 개산공제), 단서(그 합계가 자본적지출액 + 양도비
+    합계보다 적으면 후자) → max. 취득세 등 취득부대비용은 환산취득가액에 흡수되므로 따로 넣지 않는다
+    (acquisition_tax > 0이면 모호하므로 NotImplementedError). 나머지 expenses 항목(양도비·자본적지출)이
+    단서 비교의 실제 경비 쪽.
+    """
+    aid = asset.get("id", "?")
+    exp = asset.get("expenses") or 0
+    if isinstance(exp, dict):
+        if int(exp.get("acquisition_tax") or 0) > 0:
+            raise NotImplementedError(
+                f"{aid}: 취득가액 불명(환산취득가액)인데 acquisition_tax 입력 — 필요경비 구분 모호, 범위 밖")
+        actual = sum(int(v or 0) for k, v in exp.items() if k != "acquisition_tax")
+    else:
+        actual = int(exp)
+    conv = converted_acquisition_price(asset)
+    est = estimated_expense(asset)
+    if conv + est >= actual:
+        return conv + est, conv, est, "converted"
+    return actual, conv, est, "actual_expenses"
 
 
 def transfer_gain(asset: dict) -> int:
@@ -403,6 +456,10 @@ def compute(inp: dict) -> dict:
         g = transfer_gain(a)
         row = {"id": a.get("id"), "kind": a["kind"], "necessary_expenses": necessary_expenses(a),
                "gain": g, "holding_years": yrs}
+        if a.get("acquisition_price_unknown"):
+            _, conv, est, rule = converted_expenses(a)
+            row.update({"converted_acquisition_price": conv, "estimated_expense": est,
+                        "expense_rule": rule})
         if a.get("house"):
             res = residence_years(a)
             exempt = one_house_exempt(a)
@@ -463,7 +520,9 @@ def compute(inp: dict) -> dict:
         "local_tax": local_income_tax(base, add_pct),
     }
     basis = {
-        "gain": "소득세법 §95①, §96①, §97①·③, §100①, 시행령 §163",
+        "gain": "소득세법 §95①, §96①, §97①·③, §100①, 시행령 §163" + (
+            ", §97①1나·②2, 시행령 §163⑥·⑫, §176의2②2"
+            if any(a.get("acquisition_price_unknown") for a in assets) else ""),
         "exempt_gain": "소득세법 §89①3, 시행령 §154①(1세대1주택), §95③·시행령 §160①1(고가주택 12억 초과분만 과세)",
         "taxable_gain": "소득세법 §95①·③, 시행령 §160①1",
         "holding_deduction": (

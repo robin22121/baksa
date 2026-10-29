@@ -1,0 +1,27 @@
+# C004 가상양도인5 등록 (실제 저장). C001 양도인 단계 파일(실행 검증됨)에서 이름·생년만 바꿈. 규칙은 docs/work-plans/2026-10-22-C000-양도인등록.md §2
+# 모달 키는 "제목|문구"(공백 제거). 첫 실행에서 처음 보는 모달이 나오면 메인이 여기에 추가한다.
+window: 양도소득세
+vars:
+  rrn: {fake_rrn: {birth: 1965-01-15, sex: M}}
+steps:
+  - press: 1.양도인등록
+  - check_combo: {id: cbMen100Year, value: 전체}
+  - press: 등록
+    screens: {양도구분선택: 부동산권리}   # 등록을 누르면 뜨는 양도구분 선택 창. 버튼 btn1 이름은 "부동산권리"(부 동 산·특정주식등은 겹친 라벨)
+    expect_enabled: [저장, 취소]
+  - radio: {group: emJASANGU, value: 부동산}
+  - radio: {group: emSINGOGU, value: 예정}
+  - radio: {group: emBORN, value: 내국인}
+  - radio: {group: emOUTJUSO, value: 거주자}
+  - text: {id: emNAME, value: 가상양도인5}
+  - text: {id: emJUMIN, value: "{rrn}"}
+  # 주소(emJUSO)는 칸을 누르면 "주소 검색" 창(실주소 검색·선택)이 떠서 가상 주소를 넣을 수 없다 — 이번엔 비워 둔다 (리허설 3차)
+  - combo: {id: emSEONAME, value: 마포}
+  - read: [emSEOCD]
+  - capture: before_save
+  - press: 저장
+    expect_disabled: [저장, 취소]
+    modals: {}
+  - capture: after_save
+  - press: 1.양도인등록
+  - verify_grid: {id: cxGrid1, column: 성명, contains: 가상양도인5, count: 1}

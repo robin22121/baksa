@@ -1,0 +1,11 @@
+# C004 탐색(쓰기 없음): 자산 폼에서 "직접입력"(CPUT) 체크 후 기준시가 T04·T05 직접 입력 가능 여부. 계산·저장은 누르지 않는다
+window: 실지거래>아파트·연립주택
+steps:
+  - read: [S01, S02, S03, T04, T05, JasanKD1]
+  - click_id: CPUT
+    modals: {}
+  - capture: cput_clicked
+  - text: {id: T04, value: "560000000"}
+  - text: {id: T05, value: "280000000"}
+  - read: [T04, T05, S02, S03]
+  - capture: t_filled

@@ -1,0 +1,19 @@
+{
+ "steps_file": "cases\\house\\C002.cleanup.steps.yaml",
+ "case": "C002",
+ "started": "2026-10-29T21:52:37",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 8,
+ "abort": "abort: 실행 전에 모달이 열려 있음 [1052028]",
+ "exit_code": 2,
+ "finished": "2026-10-29T21:52:37",
+ "remaining_screens": [
+  5572130,
+  1378532,
+  3409506
+ ],
+ "remaining_modals": [
+  1052028
+ ]
+}
