@@ -1,0 +1,9 @@
+# C006 세액 화면 읽기 전용: 4.세액계산 → 탭 3개 캡처. 세액재계산(btnCalAll)·인쇄·전자신고 버튼은 누르지 않는다(C000 W5와 같음)
+window: 양도소득세
+steps:
+  - press_id: nBar14                         # 4. 세 액 계 산
+  - capture: tax_과세표준신고서
+  - tab: 양도소득금액계산서
+  - capture: tax_양도소득금액계산서
+  - tab: 과세표준신고서(지방소득세)
+  - capture: tax_지방소득세

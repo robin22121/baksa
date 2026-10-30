@@ -634,6 +634,21 @@ def op_grid_cell(hwnd, grid_id, row, want, record=0, method=None):
         att["error"] = f"{type(e).__name__}: {e}"
         att["match"] = False
     log["attempts"].append(att)
+    if not att["match"] and "error" not in att:
+        # F12: Tab 뒤에도 편집 모드로 남아 값이 확정되지 않은 경우 → 편집기에 Enter만 보내 확정(Tab 재전송은 새 행으로 넘어갈 수 있어 금지)
+        att2 = {"method": "commit_enter"}
+        try:
+            send_keys("{ENTER}")
+            time.sleep(0.4)
+            att2["read"] = reread()
+            att2["match"] = cell_same(want, att2["read"])
+        except Exception as e:  # noqa: BLE001
+            att2["error"] = f"{type(e).__name__}: {e}"
+            att2["match"] = False
+        log["attempts"].append(att2)
+        if att2["match"]:
+            log.update(ok=True, method="commit_enter", read=att2["read"])
+            return log
     if att["match"]:
         log.update(ok=True, method=att["method"], read=att["read"])
     else:

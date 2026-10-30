@@ -1,0 +1,90 @@
+{
+ "steps_file": "cases\\house\\C006.seller.steps.yaml",
+ "case": "C006",
+ "started": "2026-10-30T12:27:08",
+ "window": "양도소득세",
+ "vars": {
+  "rrn": "7212121450226"
+ },
+ "prior_runs_same_steps": 0,
+ "hwnd": 1378532,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261030_122709",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "1.양도인등록"
+   },
+   "t": "2026-10-30T12:27:22",
+   "how": "postmessage",
+   "new_screens": [
+    2556834
+   ],
+   "status": "abort",
+   "detail": "새 화면이 떴다 [2556834] — 단계 파일에 반영 필요"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 0,
+   "by_type": {},
+   "first_pages": {},
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 0,
+   "by_type": {},
+   "first_pages": {},
+   "data_type_changed": 0
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 0,
+    "by_type": {},
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 0,
+    "by_type": {},
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": false,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 1 press abort: 새 화면이 떴다 [2556834] — 단계 파일에 반영 필요",
+ "exit_code": 2,
+ "finished": "2026-10-30T12:27:30",
+ "remaining_screens": [
+  2556834,
+  1378532,
+  3409506
+ ],
+ "remaining_modals": []
+}

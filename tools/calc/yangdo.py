@@ -52,6 +52,13 @@
           transfer_std_price: 560000000     # 양도 당시 기준시가
           acquisition_std_price: 280000000  # 취득 당시 기준시가
 
+상속받은 자산은 다음 키를 더 받는다(acquisition_cause 없으면 매매):
+
+          acquisition_cause: 상속            # 상속 | 매매
+          decedent_acquisition_date: 2005-04-01  # 피상속인 취득일(세율 보유기간 기산, §104②1)
+    acquisition_date는 상속개시일(장특 보유기간 기산, 시행령 §162①5), acquisition_price는 상속개시일
+    평가액(시행령 §163⑨)을 그대로 쓴다. 상속 1세대1주택(시행령 §154⑤ 동일세대 통산·§155②)은 범위 밖.
+
 범위 밖 분기(입력이 요구하면 NotImplementedError):
 3주택 이상, 조정대상지역 2주택의 2022-05-10 이전 양도, 2026-05-09 이전 계약·이후 양도(보완 유예 4~6개월 —
 지역별 기간 조문 미확인, 계약금 요건 미반영), 2026-05-10 이후 양도인데 양도 계약일 없음, 중과 자산이 낀 여러 자산 양도,
@@ -98,6 +105,7 @@ GRACE_TO = _dt.date(2026, 5, 9)
 # 소득세법 §104①2·3(2020.8.18 개정) — 2021-06-01 이후 양도분 단기세율. (주택%, 그 밖%)
 SHORT_TERM_FROM = _dt.date(2021, 6, 1)
 SHORT_TERM_RATES = {1: (60, 40), 0: (70, 50)}  # 보유 만 년수 → 2호(1년 이상 2년 미만)·3호(1년 미만)
+ACQUISITION_CAUSES = ("매매", "상속")
 
 
 # ---------------------------------------------------------------- 공통
@@ -148,6 +156,20 @@ def holding_years(acquisition_date: Any, transfer_date: Any) -> int:
             return years
 
 
+def _inherited(asset: dict) -> bool:
+    return asset.get("acquisition_cause") == "상속"
+
+
+def rate_holding_years(asset: dict) -> int:
+    """세율 판정 보유기간(만 년수).
+
+    근거: 소득세법 §104② 1호 — 상속받은 자산은 피상속인이 그 자산을 취득한 날부터 기산.
+    그 밖은 취득일부터(holding_years와 같은 계산). 장특 보유기간(§95④)은 holding_years.
+    """
+    start = asset["decedent_acquisition_date"] if _inherited(asset) else asset["acquisition_date"]
+    return holding_years(start, asset["transfer_date"])
+
+
 def _check_scope(asset: dict, residency: str) -> None:
     """이번 범위 밖 분기를 막는다. 근거 조문은 메시지에 적는다."""
     aid = asset.get("id", "?")
@@ -159,10 +181,24 @@ def _check_scope(asset: dict, residency: str) -> None:
     is_house = bool(asset.get("house"))
     if is_house != (kind == "주택"):
         raise NotImplementedError(f"{aid}: kind={kind!r}·house={asset.get('house')!r} 조합 — 범위 밖")
+    cause = asset.get("acquisition_cause", "매매")
+    if cause not in ACQUISITION_CAUSES:
+        raise NotImplementedError(f"{aid}: 취득원인 {cause!r} — 범위 밖(매매·상속만)")
+    if _inherited(asset):
+        if asset.get("decedent_acquisition_date") is None:
+            raise NotImplementedError(
+                f"{aid}: 상속인데 피상속인 취득일(decedent_acquisition_date) 없음 — 세율 보유기간(§104②1) 판정 불가")
+        if asset.get("acquisition_price_unknown"):
+            raise NotImplementedError(f"{aid}: 상속 자산 취득가액 불명 — 상속개시일 평가액(시행령 §163⑨) 필요, 범위 밖")
+        if is_house and asset.get("one_house"):
+            raise NotImplementedError(
+                f"{aid}: 상속 1세대1주택 비과세(시행령 §154⑤ 동일세대 통산·§155②) — 범위 밖")
     if is_house:
         if not asset.get("one_house"):
             surcharge_status(asset)  # 2주택 중과·중과 배제·비조정만 범위 안
         for flag in OTHER_HOUSE_FLAGS:
+            if flag == "inherited_house" and _inherited(asset):
+                continue  # 상속주택 자체 양도(특례 아님) — acquisition_cause로 처리
             if asset.get(flag):
                 raise NotImplementedError(f"{aid}: {flag}(시행령 §155 특례 등) — 범위 밖")
     if asset.get("registered") is False:
@@ -178,7 +214,7 @@ def _check_scope(asset: dict, residency: str) -> None:
     if int(asset.get("depreciation") or 0) != 0:
         raise NotImplementedError(f"{aid}: 감가상각비 차감(§97③) — 범위 밖")
     tr = _date(asset["transfer_date"])
-    if tr < SHORT_TERM_FROM and holding_years(asset["acquisition_date"], tr) < 2:
+    if tr < SHORT_TERM_FROM and rate_holding_years(asset) < 2:
         raise NotImplementedError(f"{aid}: 2021-06-01 이전 양도 보유 2년 미만 단기세율(§104①2·3 옛 세율) — 범위 밖")
     if tr < BASIC_RATE_FROM:
         raise NotImplementedError(f"{aid}: 2023-01-01 이전 양도 — §55① 옛 세율표 범위 밖")
@@ -446,10 +482,11 @@ def short_term_rate_pct(asset: dict) -> int | None:
 
     근거: 소득세법 §104①2(보유 1년 이상 2년 미만: 주택 100분의 60, 그 밖 100분의 40),
     §104①3(1년 미만: 주택 100분의 70, 그 밖 100분의 50), 2021-06-01 이후 양도분.
-    세율 적용 보유기간은 §104② — 취득일부터 양도일까지(holding_years와 같은 계산).
+    세율 적용 보유기간은 §104② — 취득일부터 양도일까지(holding_years와 같은 계산),
+    상속받은 자산은 피상속인 취득일부터(§104②1, rate_holding_years).
     조합원입주권·분양권은 범위 밖(ASSET_KINDS). 단일세율, 누진공제 없음.
     """
-    yrs = holding_years(asset["acquisition_date"], asset["transfer_date"])
+    yrs = rate_holding_years(asset)
     if yrs >= 2:
         return None
     house_pct, other_pct = SHORT_TERM_RATES[yrs]
@@ -500,6 +537,8 @@ def compute(inp: dict) -> dict:
         g = transfer_gain(a)
         row = {"id": a.get("id"), "kind": a["kind"], "necessary_expenses": necessary_expenses(a),
                "gain": g, "holding_years": yrs}
+        if _inherited(a):
+            row["rate_holding_years"] = rate_holding_years(a)  # §104②1 피상속인 취득일부터
         if a.get("acquisition_price_unknown"):
             _, conv, est, rule = converted_expenses(a)
             row.update({"converted_acquisition_price": conv, "estimated_expense": est,
@@ -546,6 +585,7 @@ def compute(inp: dict) -> dict:
     if short_term and len(per_asset) > 1:
         raise NotImplementedError("단기세율 자산이 낀 여러 자산 양도(§104⑤ 비교과세) — 범위 밖, 자산 1건만 범위 안")
 
+    inherited = any(_inherited(a) for a in assets)
     gain = sum(p["gain"] for p in per_asset)
     taxable_gain = sum(p["taxable_gain"] for p in per_asset)
     ltd = sum(p["holding_deduction"] for p in per_asset)
@@ -573,7 +613,8 @@ def compute(inp: dict) -> dict:
     basis = {
         "gain": "소득세법 §95①, §96①, §97①·③, §100①, 시행령 §163" + (
             ", §97①1나·②2, 시행령 §163⑥·⑫, §176의2②2"
-            if any(a.get("acquisition_price_unknown") for a in assets) else ""),
+            if any(a.get("acquisition_price_unknown") for a in assets) else "") + (
+            ", 시행령 §163⑨" if inherited else ""),
         "exempt_gain": "소득세법 §89①3, 시행령 §154①(1세대1주택), §95③·시행령 §160①1(고가주택 12억 초과분만 과세)",
         "taxable_gain": "소득세법 §95①·③, 시행령 §160①1",
         "holding_deduction": (
@@ -604,4 +645,7 @@ def compute(inp: dict) -> dict:
     elif short_term:
         for k in ("rate", "tax"):
             basis[k] += ", §104① 단서(단기세율 §104①2·3 세액보다 큼)"
+    if inherited:
+        basis["rate"] += ", §104②1(상속: 피상속인 취득일부터)"
+        basis["holding_deduction"] += ", §95④·시행령 §162①5(상속개시일부터)"
     return {"amounts": amounts, "basis": basis, "assets": per_asset}
