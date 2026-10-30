@@ -1,0 +1,1286 @@
+{
+ "steps_file": "cases\\land\\C009.asset.steps.yaml",
+ "case": "C009",
+ "started": "2026-10-30T21:02:08",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 1378532,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261030_210209",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록",
+    "screens": {
+     "업데이트": "취소"
+    }
+   },
+   "t": "2026-10-30T21:02:10",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnS51",
+    "modals": {
+     "*|*2회이상*": "아니오"
+    },
+    "opens": "자산내역등록"
+   },
+   "t": "2026-10-30T21:02:15",
+   "button": {
+    "id": "btnS51",
+    "name": "실지거래 > 토지",
+    "click_hwnd": 4131502
+   },
+   "modals": [
+    {
+     "key": "확인|2회이상지분으로취득한자산등록방법2회이상에걸쳐지분으로취득한토지를양도하였습니까?",
+     "title": "확인",
+     "msg": "2회 이상 지분으로 취득한 자산 등록방법 2회 이상에 걸쳐 지분으로 취득한 토지를 양도하였습니까?",
+     "pressed": [
+      "아니오"
+     ],
+     "handled": true
+    }
+   ],
+   "opened": {
+    "title": "자산내역등록",
+    "hwnd": 3147886,
+    "capture": "docs/screens/C009_02_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "radio_id",
+   "spec": {
+    "radio_id": "rgCHK1"
+   },
+   "t": "2026-10-30T21:02:22",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "name": "취득실가유형",
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "click_id",
+   "spec": {
+    "click_id": "CC02",
+    "opens": "주소검색"
+   },
+   "t": "2026-10-30T21:02:28",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     564,
+     116,
+     1140,
+     165
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3147886
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "opened": {
+    "title": "주소 검색",
+    "hwnd": 1904548,
+    "capture": "docs/screens/C009_04_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "emSearch",
+     "value": "성산동 370"
+    }
+   },
+   "t": "2026-10-30T21:02:35",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "성산동 370",
+       "성산동 370",
+       "성산동 370"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       1904548
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "성산동 370",
+     "성산동 370",
+     "성산동 370"
+    ]
+   },
+   "want": "성산동 370",
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSearch",
+    "opens": "주소검색"
+   },
+   "t": "2026-10-30T21:02:39",
+   "button": {
+    "id": "btnSearch",
+    "name": "조회",
+    "click_hwnd": 2755502
+   },
+   "opened": {
+    "title": "주소 검색",
+    "hwnd": 3737272,
+    "capture": "docs/screens/C009_06_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "read",
+   "spec": {
+    "read": [
+     "address",
+     "bunji"
+    ]
+   },
+   "t": "2026-10-30T21:02:43",
+   "values": {
+    "address": [
+     "서울특별시 마포구 성산동",
+     "서울특별시 마포구 성산동",
+     "서울특별시 마포구 성산동"
+    ],
+    "bunji": [
+     "370",
+     "370",
+     "370"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 8,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOk2"
+   },
+   "t": "2026-10-30T21:02:44",
+   "button": {
+    "id": "btnOk2",
+    "name": "저장",
+    "click_hwnd": 2820308
+   },
+   "status": "ok"
+  },
+  {
+   "i": 9,
+   "action": "window",
+   "spec": {
+    "window": "자산내역등록"
+   },
+   "t": "2026-10-30T21:02:48",
+   "hwnd": 3147886,
+   "status": "ok"
+  },
+  {
+   "i": 10,
+   "action": "read",
+   "spec": {
+    "read": [
+     "CC02"
+    ]
+   },
+   "t": "2026-10-30T21:02:48",
+   "values": {
+    "CC02": [
+     "서울특별시 마포구 성산동 370",
+     "소재지",
+     "서울특별시 마포구 성산동 370"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 11,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC06",
+     "value": "2025-08-20",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-30T21:02:50",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "양도일자",
+       "2025년 8월 20일 수요일",
+       "양도일자"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3147886
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       3147886
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "양도일자",
+     "양도일자"
+    ],
+    "method": "type",
+    "read": [
+     "양도일자",
+     "2025년 8월 20일 수요일",
+     "양도일자"
+    ]
+   },
+   "want": "2025-08-20",
+   "status": "ok"
+  },
+  {
+   "i": 12,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC11",
+     "value": "2015-03-01",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-30T21:02:57",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "취득일자",
+       "2015년 3월 1일 일요일",
+       "취득일자"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3147886
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       3147886
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "취득일자",
+     "0001년 1월 1일 월요일",
+     "취득일자"
+    ],
+    "method": "type",
+    "read": [
+     "취득일자",
+     "2015년 3월 1일 일요일",
+     "취득일자"
+    ]
+   },
+   "want": "2015-03-01",
+   "status": "ok"
+  },
+  {
+   "i": 13,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC04",
+     "value": "330"
+    }
+   },
+   "t": "2026-10-30T21:03:04",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "330",
+       "토지면적",
+       "330"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3147886
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "토지면적"
+    ],
+    "method": "set_value",
+    "read": [
+     "330",
+     "토지면적",
+     "330"
+    ]
+   },
+   "want": "330",
+   "status": "ok"
+  },
+  {
+   "i": 14,
+   "action": "radio",
+   "spec": {
+    "radio": {
+     "group": "rgGU",
+     "value": "비사업용토지"
+    },
+    "screens": {
+     "확인": "예"
+    }
+   },
+   "t": "2026-10-30T21:03:11",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "items": [
+     "장기임대주택과세특례3",
+     "장기임대주택과세특례2",
+     "장기임대주택과세특례1",
+     "산단이주택지",
+     "지방미분양",
+     "1세대3주택",
+     "미분양주택",
+     "미등기",
+     "과세1주택",
+     "1세대2주택",
+     "비사업용토지",
+     "자산구분"
+    ],
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 15,
+   "action": "capture",
+   "spec": {
+    "capture": "basic_filled"
+   },
+   "t": "2026-10-30T21:03:16",
+   "capture": "docs/screens/C009_15_basic_filled.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 16,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "S01",
+     "value": "700000000"
+    },
+    "screens": {
+     "취득실가": "@close",
+     "필요경비": "@close"
+    }
+   },
+   "t": "2026-10-30T21:03:17",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "700,000,000",
+       "양도실가",
+       "700,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3147886
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "0",
+     "양도실가",
+     "0"
+    ],
+    "method": "set_value",
+    "read": [
+     "700,000,000",
+     "양도실가",
+     "700,000,000"
+    ]
+   },
+   "want": "700000000",
+   "handled_screens": [
+    {
+     "title": "취득실가",
+     "hwnd": 3344430,
+     "pressed": "@close",
+     "capture_method": "ok",
+     "capture": "docs/screens/C009_16_screen_1.png"
+    }
+   ],
+   "status": "ok"
+  },
+  {
+   "i": 17,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnS02",
+    "opens": "취득실가"
+   },
+   "t": "2026-10-30T21:03:23",
+   "button": {
+    "id": "btnS02",
+    "name": "수정",
+    "click_hwnd": 7211638
+   },
+   "opened": {
+    "title": "취득실가",
+    "hwnd": 3475502,
+    "capture": "docs/screens/C009_17_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 18,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "S11",
+     "value": "300000000"
+    }
+   },
+   "t": "2026-10-30T21:03:29",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "300,000,000",
+       "300,000,000",
+       "300,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3475502
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "300,000,000",
+     "300,000,000",
+     "300,000,000"
+    ]
+   },
+   "want": "300000000",
+   "status": "ok"
+  },
+  {
+   "i": 19,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "S12",
+     "value": "3000000"
+    }
+   },
+   "t": "2026-10-30T21:03:35",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "3,000,000",
+       "3,000,000",
+       "3,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3475502
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "3,000,000",
+     "3,000,000",
+     "3,000,000"
+    ]
+   },
+   "want": "3000000",
+   "status": "ok"
+  },
+  {
+   "i": 20,
+   "action": "read",
+   "spec": {
+    "read": [
+     "ST"
+    ]
+   },
+   "t": "2026-10-30T21:03:40",
+   "values": {
+    "ST": [
+     "303,000,000",
+     "303,000,000",
+     "303,000,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 21,
+   "action": "capture",
+   "spec": {
+    "capture": "acq"
+   },
+   "t": "2026-10-30T21:03:41",
+   "capture": "docs/screens/C009_21_acq.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 22,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOK"
+   },
+   "t": "2026-10-30T21:03:42",
+   "button": {
+    "id": "btnOK",
+    "name": "저장",
+    "click_hwnd": 3149574
+   },
+   "status": "ok"
+  },
+  {
+   "i": 23,
+   "action": "window",
+   "spec": {
+    "window": "자산내역등록"
+   },
+   "t": "2026-10-30T21:03:47",
+   "hwnd": 3147886,
+   "status": "ok"
+  },
+  {
+   "i": 24,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnS03",
+    "opens": "필요경비"
+   },
+   "t": "2026-10-30T21:03:47",
+   "button": {
+    "id": "btnS03",
+    "name": "수정",
+    "click_hwnd": 2952968
+   },
+   "opened": {
+    "title": "필요경비",
+    "hwnd": 3606574,
+    "capture": "docs/screens/C009_24_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 25,
+   "action": "click_id",
+   "spec": {
+    "click_id": "S41"
+   },
+   "t": "2026-10-30T21:03:53",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     1778,
+     345,
+     1981,
+     419
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3606574
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 26,
+   "action": "grid_cell",
+   "spec": {
+    "grid_cell": {
+     "grid": "cxGrid1",
+     "row": "지급금액",
+     "value": "5000000",
+     "record": 0
+    }
+   },
+   "t": "2026-10-30T21:03:59",
+   "result": {
+    "found": true,
+    "rows": [
+     "삭제",
+     "거래처",
+     "사업자등록번호",
+     "지급일자",
+     "지급금액",
+     "증빙종류"
+    ],
+    "attempts": [
+     {
+      "method": "set_value",
+      "already_equal": false,
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "mouse+paste",
+      "read": [
+       "5,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3606574
+      ]
+     },
+     {
+      "before": "input",
+      "ok": true,
+      "hwnds": [
+       3606574
+      ]
+     }
+    ],
+    "ok": true,
+    "enabled": true,
+    "before": "",
+    "method": "mouse+paste",
+    "read": [
+     "5,000,000"
+    ]
+   },
+   "want": "5000000",
+   "status": "ok"
+  },
+  {
+   "i": 27,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S41",
+     "S1234T"
+    ]
+   },
+   "t": "2026-10-30T21:04:11",
+   "values": {
+    "S41": [
+     "5,000,000",
+     "10_1",
+     "5,000,000"
+    ],
+    "S1234T": [
+     "5,000,000",
+     "5,000,000",
+     "5,000,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 28,
+   "action": "capture",
+   "spec": {
+    "capture": "exp"
+   },
+   "t": "2026-10-30T21:04:14",
+   "capture": "docs/screens/C009_28_exp.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 29,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOK"
+   },
+   "t": "2026-10-30T21:04:14",
+   "button": {
+    "id": "btnOK",
+    "name": "저장",
+    "click_hwnd": 987822
+   },
+   "status": "ok"
+  },
+  {
+   "i": 30,
+   "action": "window",
+   "spec": {
+    "window": "자산내역등록"
+   },
+   "t": "2026-10-30T21:04:19",
+   "hwnd": 3147886,
+   "status": "ok"
+  },
+  {
+   "i": 31,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S01",
+     "S02",
+     "S03",
+     "CC06",
+     "CC11",
+     "CC04"
+    ]
+   },
+   "t": "2026-10-30T21:04:20",
+   "values": {
+    "S01": [
+     "700,000,000",
+     "양도실가",
+     "700,000,000"
+    ],
+    "S02": [
+     "303,000,000",
+     "취득실가",
+     "303,000,000"
+    ],
+    "S03": [
+     "5,000,000",
+     "필요경비(합)",
+     "5,000,000"
+    ],
+    "CC06": [
+     "양도일자",
+     "2025년 8월 20일 수요일"
+    ],
+    "CC11": [
+     "취득일자",
+     "2015년 3월 1일 일요일"
+    ],
+    "CC04": [
+     "330",
+     "토지면적",
+     "330"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 32,
+   "action": "capture",
+   "spec": {
+    "capture": "before_calc"
+   },
+   "t": "2026-10-30T21:04:31",
+   "capture": "docs/screens/C009_32_before_calc.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 33,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnCal"
+   },
+   "t": "2026-10-30T21:04:32",
+   "button": {
+    "id": "btnCal",
+    "name": "계산",
+    "click_hwnd": 3935162
+   },
+   "status": "ok"
+  },
+  {
+   "i": 34,
+   "action": "read",
+   "spec": {
+    "read": [
+     "CC10",
+     "CC17",
+     "CC19",
+     "CC20",
+     "CC21",
+     "CC22"
+    ]
+   },
+   "t": "2026-10-30T21:04:37",
+   "values": {
+    "CC10": [
+     "700,000,000",
+     "700,000,000",
+     "700,000,000"
+    ],
+    "CC17": [
+     "303,000,000",
+     "303,000,000",
+     "303,000,000"
+    ],
+    "CC19": [
+     "5,000,000",
+     "5,000,000",
+     "5,000,000"
+    ],
+    "CC20": [
+     "392,000,000",
+     "392,000,000",
+     "392,000,000"
+    ],
+    "CC21": [
+     "78,400,000",
+     "78,400,000",
+     "78,400,000"
+    ],
+    "CC22": [
+     "313,600,000",
+     "313,600,000",
+     "313,600,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 35,
+   "action": "capture",
+   "spec": {
+    "capture": "calculated"
+   },
+   "t": "2026-10-30T21:04:49",
+   "capture": "docs/screens/C009_35_calculated.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 36,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSave",
+    "closes": "자산내역등록"
+   },
+   "t": "2026-10-30T21:04:49",
+   "button": {
+    "id": "btnSave",
+    "name": "저장",
+    "click_hwnd": 2034956
+   },
+   "closes": {
+    "title": "자산내역등록",
+    "gone": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 37,
+   "action": "window",
+   "spec": {
+    "window": "양도소득세"
+   },
+   "t": "2026-10-30T21:04:55",
+   "hwnd": 1378532,
+   "status": "ok"
+  },
+  {
+   "i": 38,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록"
+   },
+   "t": "2026-10-30T21:04:55",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 39,
+   "action": "verify_grid",
+   "spec": {
+    "verify_grid": {
+     "id": "cxGrid1",
+     "column": "소재지",
+     "contains": "성산동",
+     "count": 1
+    }
+   },
+   "t": "2026-10-30T21:05:00",
+   "result": {
+    "found": true,
+    "rows": 1,
+    "matched": 1,
+    "row_values": [
+     {
+      "계산반영": "Checked",
+      "No.": "1",
+      "세율구분": "비사업용토지",
+      "자산종류": "토지",
+      "소재지": "서울특별시 마포구 성산동 370",
+      "양도일자": "20250820",
+      "취득일자": "20150301",
+      "양도가액": "700000000"
+     }
+    ],
+    "column": "소재지"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 40,
+   "action": "capture",
+   "spec": {
+    "capture": "asset_grid"
+   },
+   "t": "2026-10-30T21:05:03",
+   "capture": "docs/screens/C009_40_asset_grid.png",
+   "capture_method": "ok",
+   "status": "ok"
+  }
+ ],
+ "reads": {
+  "address": [
+   "서울특별시 마포구 성산동",
+   "서울특별시 마포구 성산동",
+   "서울특별시 마포구 성산동"
+  ],
+  "bunji": [
+   "370",
+   "370",
+   "370"
+  ],
+  "CC02": [
+   "서울특별시 마포구 성산동 370",
+   "소재지",
+   "서울특별시 마포구 성산동 370"
+  ],
+  "ST": [
+   "303,000,000",
+   "303,000,000",
+   "303,000,000"
+  ],
+  "S41": [
+   "5,000,000",
+   "10_1",
+   "5,000,000"
+  ],
+  "S1234T": [
+   "5,000,000",
+   "5,000,000",
+   "5,000,000"
+  ],
+  "S01": [
+   "700,000,000",
+   "양도실가",
+   "700,000,000"
+  ],
+  "S02": [
+   "303,000,000",
+   "취득실가",
+   "303,000,000"
+  ],
+  "S03": [
+   "5,000,000",
+   "필요경비(합)",
+   "5,000,000"
+  ],
+  "CC06": [
+   "양도일자",
+   "2025년 8월 20일 수요일"
+  ],
+  "CC11": [
+   "취득일자",
+   "2015년 3월 1일 일요일"
+  ],
+  "CC04": [
+   "330",
+   "토지면적",
+   "330"
+  ],
+  "CC10": [
+   "700,000,000",
+   "700,000,000",
+   "700,000,000"
+  ],
+  "CC17": [
+   "303,000,000",
+   "303,000,000",
+   "303,000,000"
+  ],
+  "CC19": [
+   "5,000,000",
+   "5,000,000",
+   "5,000,000"
+  ],
+  "CC20": [
+   "392,000,000",
+   "392,000,000",
+   "392,000,000"
+  ],
+  "CC21": [
+   "78,400,000",
+   "78,400,000",
+   "78,400,000"
+  ],
+  "CC22": [
+   "313,600,000",
+   "313,600,000",
+   "313,600,000"
+  ]
+ },
+ "fingerprint_diff": {
+  "added": [
+   "Log\\19.Log"
+  ],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 12,
+   "by_type": {
+    "header": 1,
+    "PIP": 1,
+    "gen": 1,
+    "pointer": 1,
+    "TIP": 1,
+    "data": 3,
+    "blob": 4
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "PIP": [
+     1
+    ],
+    "gen": [
+     136
+    ],
+    "pointer": [
+     171
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     323,
+     325,
+     330
+    ],
+    "blob": [
+     327,
+     329,
+     331,
+     332
+    ]
+   },
+   "data_type_changed": 4
+  }
+ },
+ "fdb_verdict": {
+  "added": [
+   "Log\\19.Log"
+  ],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 12,
+    "by_type": {
+     "header": 1,
+     "PIP": 1,
+     "gen": 1,
+     "pointer": 1,
+     "TIP": 1,
+     "data": 3,
+     "blob": 4
+    },
+    "only_header_tip": false,
+    "data_type_changed": 4,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": null,
+ "exit_code": 0,
+ "finished": "2026-10-30T21:05:05",
+ "remaining_screens": [
+  1378532,
+  3409506
+ ],
+ "remaining_modals": []
+}

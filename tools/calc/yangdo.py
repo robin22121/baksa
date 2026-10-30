@@ -18,7 +18,8 @@
           depreciation: 0
           registered: true
           house: false
-          non_business_land: false
+          non_business_land: false       # 비사업용토지(토지만). true면 §104①8 기본세율 + 10%p
+          nbl_basis: null                # 비사업용 판정 근거 기록용(calc는 쓰지 않음, 판정은 입력 플래그)
           surcharge: false
           reduction: null
           price_basis: 구분가액           # 구분가액 | 안분(일괄양도 기준시가 안분 — 범위 밖)
@@ -80,11 +81,16 @@
     증여자 취득일부터(§104②2). §97의2②3: 적용 결정세액 < 미적용 결정세액이면 미적용(증여가액·증여일 기준).
     자산 1건 양도만 범위 안. 1세대1주택 비과세(§97의2②2)·사업인정 수용(②1)은 범위 밖.
 
+비사업용토지(kind: 토지, non_business_land: true): §104①8 — §55① 세율 + 10%p(누진공제 기본표), 지방소득세
++1%p(지방세법 §103의3①), 장특 표1(취득일부터). 보유 2년 미만이면 §104① 단서로 단기세율(토지 40%·50%)과 비교해
+큰 세액. 비사업용 판정(§104의3, 시행령 §168의6~14)은 입력 플래그로 받는다. 지정지역 가산(§104④3)은 범위 밖.
+
 범위 밖 분기(입력이 요구하면 NotImplementedError):
 3주택 이상, 조정대상지역 2주택의 2022-05-10 이전 양도, 2026-05-09 이전 계약·이후 양도(보완 유예 4~6개월 —
 지역별 기간 조문 미확인, 계약금 요건 미반영), 2026-05-10 이후 양도인데 양도 계약일 없음, 중과 자산이 낀 여러 자산 양도,
 2023-01-12 이전 양도 일시적 2주택(지역별 기간)·상속주택 등 특례, 2021-06-01 이전 양도의 단기보유(2년 미만) 세율,
-단기세율 자산이 낀 여러 자산 양도(§104⑤ 비교과세), 비사업용토지, 그 밖의 중과(surcharge 플래그), 감면, 미등기,
+단기세율 자산이 낀 여러 자산 양도(§104⑤ 비교과세), 토지 외 non_business_land, 비사업용토지가 낀 여러 자산 양도,
+지정지역 비사업용토지 가산(§104④3), 그 밖의 중과(surcharge 플래그), 감면, 미등기,
 일괄양도 안분, 감가상각비 차감(≠0), 비거주자, 2023-01-01 이전 양도(§55① 옛 세율표).
 """
 
@@ -132,6 +138,8 @@ CARRYOVER_10Y_FROM = _dt.date(2023, 1, 1)
 CARRYOVER_KEYS = ("gift_date", "gift_value", "donor_acquisition_date", "donor_acquisition_price")
 # 시행령 §155①(2023.2.28 개정, 부칙) — 2023-01-12 이후 양도분 신규 취득일부터 3년 이내(조정 여부 무관)
 TEMP_TWO_HOUSE_FROM = _dt.date(2023, 1, 12)
+# 소득세법 §104①8 — 비사업용토지 §55① 세율 + 100분의 10 (지정지역 §104④3 추가 가산은 범위 밖)
+NON_BUSINESS_ADD_PCT = 10
 
 
 # ---------------------------------------------------------------- 공통
@@ -324,8 +332,8 @@ def _check_scope(asset: dict, residency: str) -> None:
                 raise NotImplementedError(f"{aid}: {flag}(시행령 §155 특례 등) — 범위 밖")
     if asset.get("registered") is False:
         raise NotImplementedError(f"{aid}: 미등기(§104①10, §95② 단서, §103① 단서) — 범위 밖")
-    if asset.get("non_business_land"):
-        raise NotImplementedError(f"{aid}: 비사업용토지(§104①8, §104의3) — 범위 밖")
+    if asset.get("non_business_land") and kind != "토지":
+        raise NotImplementedError(f"{aid}: 토지 외 비사업용(kind={kind!r}) — 범위 밖(§104①8은 토지)")
     if asset.get("surcharge"):
         raise NotImplementedError(f"{aid}: 중과(§104④·⑦) — 범위 밖")
     if asset.get("reduction"):
@@ -634,15 +642,17 @@ def short_term_rate_pct(asset: dict) -> int | None:
     return house_pct if asset.get("house") else other_pct
 
 
-def rate_choice(tax_base: int, surcharge_pct: int, short_pct: int | None) -> dict:
-    """§104① 단서 — 1호(기본세율, §104⑦ 중과 포함)와 단기세율에 함께 해당하면 큰 세액.
+def rate_choice(tax_base: int, surcharge_pct: int, short_pct: int | None, rule: str | None = None) -> dict:
+    """§104① 단서 — 1호(기본세율, §104⑦ 중과 포함)·8호(비사업용토지)와 단기세율에 함께 해당하면 큰 세액.
+
+    rule: 가산 세율 쪽 규칙 이름(없으면 surcharge_pct로 "surcharged"/"basic").
 
     단기세율 세액 = floor(과세표준 × 세율%/100), 지방소득세는 같은 선택으로 세율 1/10
     (지방세법 §103의3①). 같으면 1호 쪽.
     → {rule, rate, progressive_deduction, tax, local_tax}
     """
     pct, prog = basic_rate(tax_base)
-    rule = "surcharged" if surcharge_pct else "basic"
+    rule = rule or ("surcharged" if surcharge_pct else "basic")
     out = {"rule": rule, "rate": pct + surcharge_pct, "progressive_deduction": prog,
            "tax": computed_tax(tax_base, surcharge_pct),
            "local_tax": local_income_tax(tax_base, surcharge_pct)}
@@ -731,7 +741,11 @@ def compute(inp: dict) -> dict:
     surcharged = any(p.get("surcharge_status") == "surcharged" for p in per_asset)
     if surcharged and len(per_asset) > 1:
         raise NotImplementedError("중과 자산이 낀 여러 자산 양도(§104⑤ 비교과세) — 범위 밖, 자산 1건만 범위 안")
-    add_pct = 20 if surcharged else 0  # §104⑦1
+    non_business = any(a.get("non_business_land") for a in assets)
+    if non_business and len(per_asset) > 1:
+        raise NotImplementedError("비사업용토지가 낀 여러 자산 양도(§104⑤ 비교과세) — 범위 밖, 자산 1건만 범위 안")
+    # §104⑦1 중과 +20%p, §104①8 비사업용토지 +10%p (지정지역 §104④3 가산은 범위 밖)
+    add_pct = 20 if surcharged else (NON_BUSINESS_ADD_PCT if non_business else 0)
     short_pcts = [short_term_rate_pct(a) for a in assets]
     short_term = any(p is not None for p in short_pcts)
     if short_term and len(per_asset) > 1:
@@ -745,7 +759,8 @@ def compute(inp: dict) -> dict:
     income = sum(p["income_amount"] for p in per_asset)
     bd = basic_deduction(income, inp.get("prior_basic_deduction_used", 0))
     base = max(income - bd, 0)
-    choice = rate_choice(base, add_pct, short_pcts[0] if short_term else None)
+    choice = rate_choice(base, add_pct, short_pcts[0] if short_term else None,
+                         "non_business" if non_business else None)
     short_chosen = choice["rule"] == "short_term"
     for p in per_asset:
         p["rate_rule"] = choice["rule"]
@@ -788,6 +803,12 @@ def compute(inp: dict) -> dict:
         "local_tax": "지방세법 §103의2, §103의3①, §92① (원 미만 절사)" + (
             ", 중과 자산 지방세율 + 2%p" if surcharged else ""),
     }
+    if non_business:
+        basis.update({
+            "rate": "소득세법 §104①8(비사업용토지 +10%p), §104의3, §55①(2023.1.1 이후)",
+            "tax": "소득세법 §104①8, §55① (기본세율 + 10%p, 원 미만 절사)",
+            "local_tax": "지방세법 §103의2, §103의3①(+1%p), §92① (원 미만 절사)",
+        })
     if short_chosen:
         basis.update({
             "rate": "소득세법 §104①2·3·단서(1호 세액과 비교해 큰 것), §104②(보유기간)",

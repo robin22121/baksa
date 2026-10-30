@@ -1,0 +1,8 @@
+# C009 탐색(쓰기 없음): 토지 지번 주소 검색 창 — 동 이름으로 검색하고 결과를 캡처
+window: 자산내역등록
+steps:
+  - click_id: CC02
+    opens: 주소검색
+  - text: {id: eAddr, value: 성산동}
+  - press_id: btnJibun
+  - capture: addr_result

@@ -1,0 +1,51 @@
+# C009 자산 리허설: 토지(btnS51) → "2회 이상 지분 취득?" 아니오 → 자산내역등록, 취득실가를 아는 경우, 세율구분 비사업용토지 → 계산 앞에서 저장 없이 닫는다(U4)
+# 칸(W1 탐색 docs/inventory/raw/C009_land_form.json·C009_land_tab.json): CC06 양도일자, CC11 토지취득일자, CC04 토지면적, rgGU 세율구분, S01 양도실가, btnS02 취득실가 수정, btnS03 필요경비 수정
+# 전제: 가상양도인10(0010) 선택 상태. 값 근거: docs/work-plans/2026-10-30-C009-비사업용토지.md §0
+window: 양도소득세
+steps:
+  - press: 2. 자 산 등 록
+    screens: {업데이트: 취소}
+  - press_id: btnS51
+    modals: {"*|*2회이상*": 아니오}
+    opens: 자산내역등록
+  - radio_id: rgCHK1                       # 취득실가를 아는 경우
+  - click_id: CC02
+    opens: 주소검색
+  # 토지는 지번 주소: 1차 창에 "성산동 370"(마포구청 부지 지번, 공공기관 주소 규칙) → 지번 검색 창이 address "서울특별시 마포구 성산동"·bunji 370을 채움 → 저장(btnOk2)
+  - text: {id: emSearch, value: 성산동 370}
+  - press_id: btnSearch
+    opens: 주소검색
+  - read: [address, bunji]
+  - press_id: btnOk2
+  - window: 자산내역등록
+  - read: [CC02]
+  - text: {id: CC06, value: "2025-08-20", type: Pane}   # 양도일자
+  - text: {id: CC11, value: "2015-03-01", type: Pane}   # 토지취득일자
+  - text: {id: CC04, value: "330"}                      # 토지면적(가상)
+  - radio: {group: rgGU, value: 비사업용토지}
+    screens: {확인: 예}
+  - capture: basic_filled
+  - text: {id: S01, value: "700000000"}                 # 양도실가
+    screens: {취득실가: "@close", 필요경비: "@close"}
+  - press_id: btnS02
+    opens: 취득실가
+  - text: {id: S11, value: "300000000"}                 # 매입가격
+  - text: {id: S12, value: "3000000"}                   # 취득세 등(임의값)
+  - read: [ST]
+  - capture: acq
+  - press_id: btnOK
+  - window: 자산내역등록
+  - press_id: btnS03
+    opens: 필요경비
+  - click_id: S41
+  - grid_cell: {grid: cxGrid1, row: 지급금액, value: "5000000", record: 0}
+  - read: [S41, S1234T]
+  - capture: exp
+  - press_id: btnOK
+  - window: 자산내역등록
+  - read: [S01, S02, S03, CC06, CC11, CC04]
+  - capture: before_calc
+  - close: 자산내역등록
+    modals: {"*|*저장하시겠습니까*": 아니오}
+  - press: 2. 자 산 등 록
+  - verify_grid: {id: cxGrid1, column: 소재지, contains: 성산동, count: 0}

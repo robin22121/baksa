@@ -1,0 +1,618 @@
+[
+{
+"t": "Pane",
+"n": "pnlCap",
+"id": "pnlCap",
+"xy": [
+313,
+67
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Pane",
+"n": "pnlCond",
+"id": "pnlCond",
+"xy": [
+317,
+70
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "조정대상지역 조회",
+"id": "btn_URL",
+"xy": [
+1531,
+131
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Pane",
+"n": "pnlFunc",
+"id": "pnlFunc",
+"xy": [
+322,
+1243
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "공시지가조회",
+"id": "btnGetTojiPrice",
+"xy": [
+1003,
+1246
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "토지복사",
+"id": "btnCopy",
+"xy": [
+1181,
+1246
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "계산근거보기",
+"id": "btnPrint",
+"xy": [
+1538,
+1246
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "토지삭제",
+"id": "btnDel",
+"xy": [
+1360,
+1246
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "다음단계",
+"id": "btnNext",
+"xy": [
+1853,
+1246
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "토지추가",
+"id": "btnReg",
+"xy": [
+824,
+1246
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "『일반주택』전환",
+"id": "btnChangeJasan",
+"xy": [
+604,
+1246
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "계산",
+"id": "btnCal",
+"xy": [
+455,
+1246
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "저장",
+"id": "btnSave",
+"xy": [
+327,
+1246
+],
+"en": true,
+"vis": true
+},
+{
+"t": "List",
+"n": "0",
+"id": "rgKind",
+"xy": [
+2135,
+641
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "원격지원",
+"id": "btnRemote",
+"xy": [
+1757,
+81
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "화면인쇄",
+"id": "btnScreen",
+"xy": [
+1906,
+81
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Pane",
+"n": "neoNavigator1",
+"id": "nv",
+"xy": [
+1250,
+70
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Pane",
+"n": "pCalResult",
+"id": "pCalResult",
+"xy": [
+1517,
+914
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "dd23",
+"xy": [
+1873,
+1199
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "CC23",
+"xy": [
+1699,
+1199
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "감면소득금액",
+"id": "CC23_1",
+"xy": [
+1521,
+1199
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "dd22",
+"xy": [
+1873,
+1159
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "CC22",
+"xy": [
+1699,
+1159
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "양도소득금액",
+"id": "CC22_1",
+"xy": [
+1521,
+1159
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "dd21",
+"xy": [
+1873,
+1118
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "CC21",
+"xy": [
+1699,
+1118
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "장기보유특별공제",
+"id": "CC21_1",
+"xy": [
+1521,
+1118
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "dd20",
+"xy": [
+1873,
+1078
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "CC20",
+"xy": [
+1699,
+1078
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "양도차익",
+"id": "CC20_1",
+"xy": [
+1521,
+1078
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "dd19",
+"xy": [
+1873,
+1038
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "CC19",
+"xy": [
+1699,
+1038
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "필요경비",
+"id": "CC19_1",
+"xy": [
+1521,
+1038
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "dd17",
+"xy": [
+1873,
+998
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "CC17",
+"xy": [
+1699,
+998
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "취득가액",
+"id": "CC17_1",
+"xy": [
+1521,
+998
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "dd10",
+"xy": [
+1873,
+957
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "0",
+"id": "CC10",
+"xy": [
+1699,
+957
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "양도가액",
+"id": "CC10_1",
+"xy": [
+1521,
+957
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "환지증평토지분",
+"id": "lbGUN",
+"xy": [
+1873,
+917
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Edit",
+"n": "토     지",
+"id": "lbTOJI",
+"xy": [
+1699,
+917
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "개별공시지가 조회",
+"id": "btnCalPrint",
+"xy": [
+1797,
+131
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Pane",
+"n": "pCalLog",
+"id": "pCalLog",
+"xy": [
+1517,
+186
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Pane",
+"n": "",
+"id": "WebBrowser",
+"xy": [
+1517,
+186
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Pane",
+"n": "gosiPnl",
+"id": "gosiPnl",
+"xy": [
+1517,
+753
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Pane",
+"n": "gosiPanel",
+"id": "gosiPanel",
+"xy": [
+1517,
+753
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "비과세등 확인\r\n(국세청)",
+"id": "btnFTaxinfo2URL",
+"xy": [
+1787,
+835
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "실거래가 조회\r\n(국토부)",
+"id": "btnFMolitURL",
+"xy": [
+1526,
+835
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "조세법령조회\r\n(국세청)",
+"id": "btnFWetaxGunPrice",
+"xy": [
+1787,
+761
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Button",
+"n": "기준시가 조회\r\n(국토부)",
+"id": "btnFRealtyPrice",
+"xy": [
+1526,
+761
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Pane",
+"n": "lbHigh",
+"id": "lbHigh",
+"xy": [
+1584,
+203
+],
+"en": true,
+"vis": true
+},
+{
+"t": "CheckBox",
+"n": "고가주택",
+"id": "eMULTICHK",
+"xy": [
+1591,
+205
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Tab",
+"n": "",
+"id": "pc",
+"xy": [
+315,
+63
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Pane",
+"n": "토지입력 및 수정",
+"id": "xtraTabPage2",
+"xy": [
+322,
+110
+],
+"en": true,
+"vis": true
+},
+{
+"t": "Table",
+"n": "(취득일 가격은 토지·건물정보 입력 후 추가입력)",
+"id": "cxGrid1",
+"xy": [
+322,
+110
+],
+"en": true,
+"vis": true
+},
+{
+"t": "MenuBar",
+"n": "시스템",
+"id": "MenuBar",
+"xy": [
+179,
+14
+],
+"en": true,
+"vis": true
+}
+]

@@ -1,0 +1,7 @@
+# C009 탐색(쓰기 없음): 1차 주소 검색 창에 지번 주소(마포구청 부지 성산동 370) → 이어지는 창 캡처
+window: 주소검색
+steps:
+  - text: {id: emSearch, value: 성산동 370}
+  - press_id: btnSearch
+    opens: 주소검색
+  - capture: addr_result

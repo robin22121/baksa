@@ -1,0 +1,300 @@
+{
+ "steps_file": "cases\\land\\C009.asset.rehearsal.steps.yaml",
+ "case": "C009",
+ "started": "2026-10-30T20:56:11",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 1378532,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261030_205611",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록",
+    "screens": {
+     "업데이트": "취소"
+    }
+   },
+   "t": "2026-10-30T20:56:12",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnS51",
+    "modals": {
+     "*|*2회이상*": "아니오"
+    },
+    "opens": "자산내역등록"
+   },
+   "t": "2026-10-30T20:56:17",
+   "button": {
+    "id": "btnS51",
+    "name": "실지거래 > 토지",
+    "click_hwnd": 3869358
+   },
+   "modals": [
+    {
+     "key": "확인|2회이상지분으로취득한자산등록방법2회이상에걸쳐지분으로취득한토지를양도하였습니까?",
+     "title": "확인",
+     "msg": "2회 이상 지분으로 취득한 자산 등록방법 2회 이상에 걸쳐 지분으로 취득한 토지를 양도하였습니까?",
+     "pressed": [
+      "아니오"
+     ],
+     "handled": true
+    }
+   ],
+   "opened": {
+    "title": "자산내역등록",
+    "hwnd": 2689514,
+    "capture": "docs/screens/C009_02_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "radio_id",
+   "spec": {
+    "radio_id": "rgCHK1"
+   },
+   "t": "2026-10-30T20:56:24",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "name": "취득실가유형",
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "click_id",
+   "spec": {
+    "click_id": "CC02",
+    "opens": "주소검색"
+   },
+   "t": "2026-10-30T20:56:30",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     564,
+     116,
+     1140,
+     165
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       2689514
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "opened": {
+    "title": "주소 검색",
+    "hwnd": 2625000,
+    "capture": "docs/screens/C009_04_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "emSearch",
+     "value": "월드컵로 212"
+    }
+   },
+   "t": "2026-10-30T20:56:36",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "월드컵로 212",
+       "월드컵로 212",
+       "월드컵로 212"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       2625000
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "월드컵로 212",
+     "월드컵로 212",
+     "월드컵로 212"
+    ]
+   },
+   "want": "월드컵로 212",
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSearch",
+    "opens": "주소검색"
+   },
+   "t": "2026-10-30T20:56:41",
+   "button": {
+    "id": "btnSearch",
+    "name": "조회",
+    "click_hwnd": 2427722
+   },
+   "opened": {
+    "title": "주소 검색",
+    "hwnd": 1773456,
+    "capture": "docs/screens/C009_06_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "read",
+   "spec": {
+    "read": [
+     "txtResultJuso"
+    ]
+   },
+   "t": "2026-10-30T20:56:45",
+   "status": "fail",
+   "detail": "칸을 못 찾음 txtResultJuso"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 6,
+   "by_type": {
+    "header": 1,
+    "gen": 1,
+    "pointer": 1,
+    "TIP": 1,
+    "data": 2
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "gen": [
+     136
+    ],
+    "pointer": [
+     171
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     323,
+     325
+    ]
+   },
+   "data_type_changed": 3
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 6,
+    "by_type": {
+     "header": 1,
+     "gen": 1,
+     "pointer": 1,
+     "TIP": 1,
+     "data": 2
+    },
+    "only_header_tip": false,
+    "data_type_changed": 3,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 7 read fail: 칸을 못 찾음 txtResultJuso",
+ "exit_code": 2,
+ "finished": "2026-10-30T20:56:47",
+ "remaining_screens": [
+  1773456,
+  2625000,
+  2689514,
+  1378532,
+  3409506
+ ],
+ "remaining_modals": []
+}

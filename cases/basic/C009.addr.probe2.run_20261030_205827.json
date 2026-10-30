@@ -1,0 +1,168 @@
+{
+ "steps_file": "cases\\land\\C009.addr.probe2.steps.yaml",
+ "case": "C009",
+ "started": "2026-10-30T20:58:27",
+ "window": "주소검색",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 4655136,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261030_205828",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "emSearch",
+     "value": "성산동 370"
+    }
+   },
+   "t": "2026-10-30T20:58:29",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "성산동 370",
+       "성산동 370",
+       "성산동 370"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       4655136
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "성산동 370",
+     "성산동 370",
+     "성산동 370"
+    ]
+   },
+   "want": "성산동 370",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSearch",
+    "opens": "주소검색"
+   },
+   "t": "2026-10-30T20:58:33",
+   "button": {
+    "id": "btnSearch",
+    "name": "조회",
+    "click_hwnd": 1706566
+   },
+   "opened": {
+    "title": "주소 검색",
+    "hwnd": 8127260,
+    "capture": "docs/screens/C009_02_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "capture",
+   "spec": {
+    "capture": "addr_result"
+   },
+   "t": "2026-10-30T20:58:37",
+   "capture": "docs/screens/C009_03_addr_result.png",
+   "capture_method": "ok",
+   "status": "ok"
+  }
+ ],
+ "reads": {},
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 0,
+   "by_type": {},
+   "first_pages": {},
+   "data_type_changed": 0
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 0,
+    "by_type": {},
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": false,
+  "others_only_header_tip": true
+ },
+ "abort": null,
+ "exit_code": 0,
+ "finished": "2026-10-30T20:58:39",
+ "remaining_screens": [
+  8127260,
+  4655136,
+  2689514,
+  1378532,
+  3409506
+ ],
+ "remaining_modals": []
+}

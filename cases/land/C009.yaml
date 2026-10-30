@@ -1,0 +1,88 @@
+case_id: C009
+group: land
+law_date: 2025-08-20    # 적용 법령 기준일 = 양도일. 양도박사 버전의 세법 반영일은 docs/env.md
+description: 비사업용토지(서울 마포구 나대지) 보유 10년 5개월 양도, 거주자 → §104①8 기본세율 + 10%p, 장특 표1 20%(취득일부터)
+# 계획서: docs/work-plans/2026-10-30-C009-비사업용토지.md §0 (입력값), §2 (대조 8항목)
+local_tax_floor10_ok: true   # 지방소득세 화면값이 10원 미만 절사여도 일치로 본다(C001과 같은 규칙)
+input:
+  residency: 거주자
+  report_type: 예정
+  prior_basic_deduction_used: 0  # 가상양도인10 — 같은 해 다른 양도 없음
+  seller: 가상양도인10           # 생년 1968, 새 양도인(§107② 합산 섞임 방지)
+  assets:
+    - id: T1
+      kind: 토지                     # 지목 대, 건물 없음(나대지), 사업 사용 없음
+      transfer_date: 2025-08-20      # 잔금청산일(§98, 시행령 §162①)
+      acquisition_date: 2015-03-01   # 잔금청산일 (보유 10년 5개월 → 장특 표1 20%)
+      transfer_price: 700000000
+      acquisition_price: 300000000
+      expenses:
+        acquisition_tax: 3000000     # 취득세 등(임의)
+        transfer_brokerage: 5000000  # 양도 중개수수료
+      depreciation: 0
+      location: 서울 마포구           # 주소 검색은 마포구청 월드컵로 212 (토지 지번은 가상 — 소재지 문자열만 사용)
+      area_m2: 330
+      registered: true
+      house: false
+      non_business_land: true        # 소득세법 §104의3①, 시행령 §168의6 기간기준 → §104①8
+      nbl_basis: "종합합산 나대지 전 기간(시행령 §168의6 기간기준 전부 충족)"
+      surcharge: false
+      reduction: null
+      price_basis: 구분가액
+expected_baksa:         # 양도박사 산출값 (W3에서 화면에서 읽어 채움, v.20261028.002)
+  gain: "392,000,000"           # 양도소득금액계산서 15. 과세대상 양도차익(세율구분 비사업용토지 1-11, 자산종류 토지 01)
+  holding_deduction: "78,400,000"  # 같은 서식 16. 장기보유특별공제(코드 02) — 비사업용토지도 표1 적용
+  income_amount: "313,600,000"  # 과세표준신고서(양도소득세) 4. 양도소득금액, 열 "비사업용토지 (1…"
+  basic_deduction: "2,500,000"  # 같은 서식 7
+  tax_base: "311,100,000"       # 같은 서식 8
+  rate: "0.50"                  # 같은 서식 9(누진공제 25,940,000)
+  tax: "129,610,000"            # 같은 서식 10
+  local_tax: "12,961,000"       # 지방소득세 납부할세액(지방소득세 서식 세율 0.050·누진공제 2,594,000)
+  source: "docs/screens/C009_02_tax_과세표준신고서.png, docs/screens/C009_04_tax_양도소득금액계산서.png, docs/screens/C009_06_tax_지방소득세.png (메인이 직접 읽음, 2026-10-30)"
+expected_law:  # calc 결과. compare.py가 채움
+  amounts:
+    gain: 392000000
+    exempt_gain: 0
+    taxable_gain: 392000000
+    holding_deduction: 78400000
+    income_amount: 313600000
+    basic_deduction: 2500000
+    tax_base: 311100000
+    rate: 50
+    progressive_deduction: 25940000
+    tax: 129610000
+    local_tax: 12961000
+  assets:
+  - id: T1
+    kind: 토지
+    necessary_expenses: 308000000
+    gain: 392000000
+    holding_years: 10
+    holding_rate_pct: 20
+    exempt_gain: 0
+    taxable_gain: 392000000
+    holding_deduction: 78400000
+    income_amount: 313600000
+    rate_rule: non_business
+  basis:
+    gain: 소득세법 §95①, §96①, §97①·③, §100①, 시행령 §163
+    exempt_gain: 소득세법 §89①3, 시행령 §154①(1세대1주택), §95③·시행령 §160①1(고가주택 12억 초과분만 과세)
+    taxable_gain: 소득세법 §95①·③, 시행령 §160①1
+    holding_deduction: 소득세법 §95② 표1, §95④(보유기간), 국세기본법 §4·민법 §157·§160
+    income_amount: 소득세법 §95①, §102
+    basic_deduction: 소득세법 §103①1·②
+    tax_base: 소득세법 §92②
+    rate: 소득세법 §104①8(비사업용토지 +10%p), §104의3, §55①(2023.1.1 이후)
+    progressive_deduction: 소득세법 §55①
+    tax: 소득세법 §104①8, §55① (기본세율 + 10%p, 원 미만 절사)
+    local_tax: 지방세법 §103의2, §103의3①(+1%p), §92① (원 미만 절사)
+basis:
+  - "세율: 소득세법 §104①8(비사업용토지 — §55① 세율 + 100분의 10, 누진공제 기본표), §104의3①, 시행령 §168의6(기간기준) — 311,100,000×50% − 25,940,000 = 129,610,000"
+  - "비사업용 판정: 소득세법 §104의3①, 시행령 §168의6 — 보유 기간 내내 나대지(종합합산), 기간기준 전부 충족. 지정지역 가산(§104④3)은 범위 밖"
+  - "장기보유특별공제: 소득세법 §95② 표1(비사업용토지도 적용), §95④ 취득일부터(2017-01-01 이후 양도분) — 10년 20%"
+  - "취득·양도시기: 소득세법 §98, 시행령 §162①(잔금청산일)"
+  - "필요경비: 소득세법 §97①, 시행령 §163(취득세 등·양도비)"
+  - "기본공제: 소득세법 §103①1"
+  - "지방소득세: 지방세법 §103의2, §103의3①(비사업용토지 +1%p), §92① — 311,100,000×5% − 2,594,000 = 12,961,000"
+status: match  # match | mismatch | pending
+mismatch_note:
