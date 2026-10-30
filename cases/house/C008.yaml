@@ -1,0 +1,110 @@
+case_id: C008
+group: house
+law_date: 2025-08-20    # 적용 법령 기준일 = 양도일. 양도박사 버전의 세법 반영일은 docs/env.md
+description: 일시적 2주택(시행령 §155①) 종전주택 양도, 거주자, 조정대상지역 취득, 양도가 15억 → 1세대1주택 비과세·12억 초과분만 과세, 장특 표2 48%
+# 계획서: docs/work-plans/2026-10-30-C008-일시적2주택.md §0
+local_tax_floor10_ok: true   # 지방소득세 화면값이 10원 미만 절사(1,326,600)여도 일치로 본다(계획서 §4-5)
+input:
+  residency: 거주자
+  report_type: 예정
+  prior_basic_deduction_used: 0  # 가상양도인9 — 같은 해 다른 양도 없음
+  baksa_asset_type: 아파트·연립·다세대
+  seller: 가상양도인9            # 생년 1976
+  assets:
+    - id: H1
+      kind: 주택                     # 국내 아파트(종전주택)
+      transfer_date: 2025-08-20      # 잔금청산일(§98, 시행령 §162①) — 신규 취득일부터 3년 이내
+      acquisition_date: 2019-05-01   # 잔금청산일
+      contract_date: 2019-03-01      # 2017-08-03 이후 계약 → 거주요건 부칙 예외 비적용
+      transfer_price: 1500000000
+      acquisition_price: 700000000
+      expenses:
+        acquisition_tax: 7700000     # 임의값(양도박사 취득세 자동계산 팝업이 뜨면 취소)
+        transfer_brokerage: 6000000  # 양도 중개수수료(지급금액만)
+      depreciation: 0
+      location: 서울 마포구           # 2016-11-03~2023-01-05 조정대상지역 (주소 검색은 마포구청 월드컵로 212, 가상 101동 101호·전용 84㎡)
+      area_m2: 84
+      registered: true
+      house: true
+      one_house: false               # 신규주택 보유로 양도일 현재 2주택
+      house_count: 2
+      temporary_two_house: true      # 시행령 §155① 일시적 2주택
+      new_house_acquisition_date: 2024-03-01  # 신규주택 취득일(종전 취득+1년 이후)
+      adjusted_area_acquired: true   # 취득 당시 조정대상지역 → 거주 2년 요건(시행령 §154①)
+      adjusted_area_at_transfer: false  # 마포 조정대상지역 해제 2023-01-05
+      residence_exception: false
+      residence_start: 2019-05-01    # 전입
+      residence_end: 2025-08-20      # 전출 (보유·거주 6년 3개월 → 6년)
+      inherited_house: false
+      surcharge: false
+      reduction: null
+      price_basis: 구분가액
+expected_baksa:         # 양도박사 산출값 (W3에서 화면에서 읽어 채움, v.20261028.002)
+  gain: "786,300,000"           # 양도소득금액계산서 양도차익 > 전체 양도차익
+  exempt_gain: "629,040,000"    # 같은 서식 비과세 양도차익(이연)
+  taxable_gain: "157,260,000"   # 같은 서식 15. 과세대상 양도차익
+  holding_deduction: "75,484,800"  # 같은 서식 16. 장기보유특별공제(코드 01, 보유·거주 6년 이상 7년 미만)
+  income_amount: "81,775,200"   # 과세표준신고서(양도소득세) 4. 양도소득금액
+  basic_deduction: "2,500,000"  # 같은 서식 7
+  tax_base: "79,275,200"        # 같은 서식 8
+  rate: "0.24"                  # 같은 서식 9(누진공제 5,760,000)
+  tax: "13,266,048"             # 같은 서식 10. 산출세액
+  local_tax: "1,326,604"        # 지방소득세 납부할세액(지방소득세 서식 세율 0.024·누진공제 576,000)
+  source: "docs/screens/C008_02_tax_과세표준신고서.png, docs/screens/C008_04_tax_양도소득금액계산서.png, docs/screens/C008_06_tax_지방소득세.png (메인이 직접 읽음, 2026-10-30)"
+expected_law:  # calc 결과. compare.py가 채움
+  amounts:
+    gain: 786300000
+    exempt_gain: 629040000
+    taxable_gain: 157260000
+    holding_deduction: 75484800
+    income_amount: 81775200
+    basic_deduction: 2500000
+    tax_base: 79275200
+    rate: 24
+    progressive_deduction: 5760000
+    tax: 13266048
+    local_tax: 1326604
+  assets:
+  - id: H1
+    kind: 주택
+    necessary_expenses: 713700000
+    gain: 786300000
+    holding_years: 6
+    residence_years: 6
+    one_house_exempt: true
+    ltd_table: 표2
+    holding_rate_pct: 48
+    holding_part_pct: 24
+    residence_part_pct: 24
+    one_house_special: §155①
+    exempt_gain: 629040000
+    taxable_gain: 157260000
+    holding_deduction: 75484800
+    income_amount: 81775200
+    rate_rule: basic
+  basis:
+    gain: 소득세법 §95①, §96①, §97①·③, §100①, 시행령 §163
+    exempt_gain: 소득세법 §89①3, 시행령 §154①(1세대1주택), §95③·시행령 §160①1(고가주택 12억 초과분만 과세), 시행령
+      §155①(일시적 2주택)
+    taxable_gain: 소득세법 §95①·③, 시행령 §160①1
+    holding_deduction: 소득세법 §95② 단서·표2, 시행령 §159의4·§160①2(고가주택 안분), §95④, 국세기본법 §4·민법
+      §157·§160
+    income_amount: 소득세법 §95①, §102
+    basic_deduction: 소득세법 §103①1·②
+    tax_base: 소득세법 §92②
+    rate: 소득세법 §104①1, §55①(2023.1.1 이후)
+    progressive_deduction: 소득세법 §55①
+    tax: 소득세법 §104①1, §55① (원 미만 절사)
+    local_tax: 지방세법 §103의2, §103의3①, §92① (원 미만 절사)
+basis:
+  - "일시적 2주택: 소득세법 §89①3, 시행령 §155①(종전 취득 1년 이후 신규 취득, 신규 취득일부터 3년 이내 종전 양도 — 2023-01-12 이후 양도분 조정 여부 무관), §154①(종전주택 보유 2년, 조정 취득분 거주 2년)"
+  - "고가주택: 소득세법 §89①3 괄호·§95③, 시행령 §156①(12억), §160①1(과세 양도차익 = 양도차익 × (양도가액 − 12억)/양도가액)"
+  - "양도차익: 소득세법 §95①, §96①, §97①, §100①, 시행령 §163"
+  - "취득·양도시기: 소득세법 §98, 시행령 §162①(잔금청산일)"
+  - "장기보유특별공제: 소득세법 §95② 단서·표2(보유 6년 24% + 거주 6년 24% = 48%), 시행령 §159의4, §160①2, §95④·국세기본법 §4·민법 §157·§160"
+  - "양도소득금액: 소득세법 §95①, §102"
+  - "기본공제: 소득세법 §103①1"
+  - "세율: 소득세법 §104①1, §55①(2023.1.1 이후 표) — 과세표준 8,800만원 이하 구간 24%, 누진공제 5,760,000"
+  - "지방소득세: 지방세법 §103의2, §103의3①, §92①"
+status: match  # match | mismatch | pending
+mismatch_note:

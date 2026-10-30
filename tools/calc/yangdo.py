@@ -46,6 +46,13 @@
     - 비조정대상지역 → §104⑦ 자산 아님, "not_adjusted" (기본세율 + 장특 표1)
   contract_date는 취득 계약일(1세대1주택 부칙 예외 판정용)이라 양도 계약일과 키를 나눈다.
 
+일시적 2주택(시행령 §155①, 2023-01-12 이후 양도분만)은 one_house: false·house_count: 2에 다음 키를 더 받는다:
+
+          temporary_two_house: true
+          new_house_acquisition_date: 2024-03-01  # 신규주택 취득일
+    요건(종전 취득+1년 이후 신규 취득, 신규 취득+3년 이내 양도, 종전주택 §154① 요건) 충족이면 1세대1주택과
+    같이 비과세·고가주택 안분·장특 표2(결과 자산 행 one_house_special "§155①"), 아니면 None으로 2주택 일반 경로.
+
 취득 실지거래가액 불명이면 acquisition_price 대신 다음 키를 받는다(환산취득가액만, §176의2③ 순위는 범위 밖):
 
           acquisition_price_unknown: true
@@ -76,7 +83,7 @@
 범위 밖 분기(입력이 요구하면 NotImplementedError):
 3주택 이상, 조정대상지역 2주택의 2022-05-10 이전 양도, 2026-05-09 이전 계약·이후 양도(보완 유예 4~6개월 —
 지역별 기간 조문 미확인, 계약금 요건 미반영), 2026-05-10 이후 양도인데 양도 계약일 없음, 중과 자산이 낀 여러 자산 양도,
-일시적 2주택·상속주택 등 특례, 2021-06-01 이전 양도의 단기보유(2년 미만) 세율,
+2023-01-12 이전 양도 일시적 2주택(지역별 기간)·상속주택 등 특례, 2021-06-01 이전 양도의 단기보유(2년 미만) 세율,
 단기세율 자산이 낀 여러 자산 양도(§104⑤ 비교과세), 비사업용토지, 그 밖의 중과(surcharge 플래그), 감면, 미등기,
 일괄양도 안분, 감가상각비 차감(≠0), 비거주자, 2023-01-01 이전 양도(§55① 옛 세율표).
 """
@@ -123,6 +130,8 @@ ACQUISITION_CAUSES = ("매매", "상속", "이월과세")
 # 소득세법 §97의2①(2022.12.31 개정) — 2023-01-01 이후 증여분 10년, 그 전 증여분 5년(부칙)
 CARRYOVER_10Y_FROM = _dt.date(2023, 1, 1)
 CARRYOVER_KEYS = ("gift_date", "gift_value", "donor_acquisition_date", "donor_acquisition_price")
+# 시행령 §155①(2023.2.28 개정, 부칙) — 2023-01-12 이후 양도분 신규 취득일부터 3년 이내(조정 여부 무관)
+TEMP_TWO_HOUSE_FROM = _dt.date(2023, 1, 12)
 
 
 # ---------------------------------------------------------------- 공통
@@ -301,6 +310,16 @@ def _check_scope(asset: dict, residency: str) -> None:
         for flag in OTHER_HOUSE_FLAGS:
             if flag == "inherited_house" and _inherited(asset):
                 continue  # 상속주택 자체 양도(특례 아님) — acquisition_cause로 처리
+            if flag == "temporary_two_house" and asset.get(flag):
+                if asset.get("one_house"):
+                    raise NotImplementedError(f"{aid}: temporary_two_house인데 one_house: true — 입력 모순")
+                if asset.get("new_house_acquisition_date") is None:
+                    raise NotImplementedError(
+                        f"{aid}: 일시적 2주택인데 new_house_acquisition_date 없음 — 시행령 §155① 판정 불가")
+                if _date(asset["transfer_date"]) < TEMP_TWO_HOUSE_FROM:
+                    raise NotImplementedError(
+                        f"{aid}: 2023-01-12 이전 양도 일시적 2주택(시행령 §155① 옛 지역별 기간) — 범위 밖")
+                continue
             if asset.get(flag):
                 raise NotImplementedError(f"{aid}: {flag}(시행령 §155 특례 등) — 범위 밖")
     if asset.get("registered") is False:
@@ -508,6 +527,26 @@ def one_house_exempt(asset: dict) -> bool:
     return not need_residence or residence_years(asset) >= 2
 
 
+def temporary_two_house_ok(asset: dict) -> bool:
+    """일시적 2주택 비과세 요건(시행령 §155①, 2023-01-12 이후 양도분) 충족 여부.
+
+    ① 종전주택 취득일부터 1년 이상 지난 후 신규주택 취득 — holding_years(종전 취득, 신규 취득) ≥ 1
+    ② 신규주택 취득일부터 3년 이내 종전주택 양도 — 양도일 ≤ 신규 취득일의 3년 뒤 같은 날
+       (2/29 → 2/28, 가정). 2023-01-12 이후 양도분은 조정대상지역 여부 무관 3년(2023.2.28 개정령 부칙).
+    ③ 종전주택이 §154① 요건(보유 2년, 조정 취득분 거주 2년) 충족 — one_house_exempt 재사용.
+    경계(①·② 모두 초일불산입, 민법 §157·§160 — ① 신규 = 종전 취득+1년 당일 충족,
+    ② 양도 = 신규 취득+3년 당일 충족)는 확인 필요.
+    """
+    acq, tr = _date(asset["acquisition_date"]), _date(asset["transfer_date"])
+    new = _date(asset["new_house_acquisition_date"])
+    if new < acq or holding_years(acq, new) < 1:
+        return False
+    limit = _add_years(new, 3) or new.replace(year=new.year + 3, day=28)
+    if tr > limit:
+        return False
+    return one_house_exempt(dict(asset, one_house=True))
+
+
 def high_price_taxable_gain(gain: int, transfer_price: int) -> int:
     """고가주택 양도차익 중 과세 부분 = 양도차익 × (양도가액 − 12억) ÷ 양도가액, 원 미만 절사.
 
@@ -636,7 +675,14 @@ def compute(inp: dict) -> dict:
 
     per_asset = []
     table2_used = False
+    special_used = False
     for a in assets:
+        special = None
+        if a.get("house") and a.get("temporary_two_house"):
+            # 시행령 §155①: 요건 충족이면 1세대1주택으로 보아 §154①·§160①·§95② 표2 그대로
+            if temporary_two_house_ok(a):
+                special, special_used = "§155①", True
+                a = dict(a, one_house=True)
         yrs = holding_years(a["acquisition_date"], a["transfer_date"])
         g = transfer_gain(a)
         row = {"id": a.get("id"), "kind": a["kind"], "necessary_expenses": necessary_expenses(a),
@@ -668,6 +714,8 @@ def compute(inp: dict) -> dict:
             row.update({"residence_years": res, "one_house_exempt": exempt,
                         "ltd_table": table, "holding_rate_pct": h_pct + r_pct,
                         "holding_part_pct": h_pct, "residence_part_pct": r_pct})
+            if a.get("temporary_two_house"):
+                row["one_house_special"] = special
             if status is not None:
                 row["surcharge_status"] = status
                 if status == "surcharged":
@@ -719,7 +767,8 @@ def compute(inp: dict) -> dict:
             ", §97①1나·②2, 시행령 §163⑥·⑫, §176의2②2"
             if any(a.get("acquisition_price_unknown") for a in assets) else "") + (
             ", 시행령 §163⑨" if inherited else ""),
-        "exempt_gain": "소득세법 §89①3, 시행령 §154①(1세대1주택), §95③·시행령 §160①1(고가주택 12억 초과분만 과세)",
+        "exempt_gain": "소득세법 §89①3, 시행령 §154①(1세대1주택), §95③·시행령 §160①1(고가주택 12억 초과분만 과세)" + (
+            ", 시행령 §155①(일시적 2주택)" if special_used else ""),
         "taxable_gain": "소득세법 §95①·③, 시행령 §160①1",
         "holding_deduction": (
             "소득세법 §95② 본문 괄호 — 중과 자산 장특 배제" if surcharged else
