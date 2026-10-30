@@ -1,0 +1,14 @@
+# C007 자산 이어하기: 실제 실행(202914)이 계산(btnCal) 뒤 모달 "[주의] 이월과세 적용시 양도소득결정세액 비교(§97의2②) … 자동으로 비교하는 기능은 지원되지 않으니 …"에서 멈춤. 모달을 확인으로 닫고 결과를 읽어 저장한다
+window: 실지거래>아파트·연립주택
+steps:
+  - read: [S01, S02, S03, chName]
+    modals: {"확인|*이월과세적용시양도소득결정세액비교*": 확인}
+  - read: [CC10, CC17, CC19, CC20, CC21, CC22]
+  - capture: calculated
+  - press_id: btnSave
+    closes: 실지거래>아파트·연립주택
+    modals: {"확인|*이월과세적용시양도소득결정세액비교*": 확인}
+  - window: 양도소득세
+  - press: 2. 자 산 등 록
+  - verify_grid: {id: cxGrid1, column: 소재지, contains: 월드컵로, count: 1}
+  - capture: asset_grid

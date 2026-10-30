@@ -1,0 +1,21 @@
+{
+ "steps_file": "cases\\house\\C007.buyer.steps.yaml",
+ "case": "C007",
+ "started": "2026-10-30T20:32:24",
+ "window": "양도소득세",
+ "vars": {
+  "rrn_b": "9505051339602"
+ },
+ "prior_runs_same_steps": 0,
+ "abort": "abort: 실행 전에 모달이 열려 있음 [2034324]",
+ "exit_code": 2,
+ "finished": "2026-10-30T20:32:24",
+ "remaining_screens": [
+  9309846,
+  1378532,
+  3409506
+ ],
+ "remaining_modals": [
+  2034324
+ ]
+}

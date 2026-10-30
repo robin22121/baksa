@@ -1,0 +1,1276 @@
+{
+ "steps_file": "cases\\house\\C007.asset.rehearsal.steps.yaml",
+ "case": "C007",
+ "started": "2026-10-30T20:25:49",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 1378532,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261030_202549",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록",
+    "screens": {
+     "업데이트": "취소"
+    }
+   },
+   "t": "2026-10-30T20:25:51",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnS53",
+    "opens": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-30T20:25:57",
+   "button": {
+    "id": "btnS53",
+    "name": "실지거래 > 아파트/연립",
+    "click_hwnd": 3738298
+   },
+   "opened": {
+    "title": "실지거래 > 아파트·연립주택",
+    "hwnd": 3737064,
+    "capture": "docs/screens/C007_02_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "radio_id",
+   "spec": {
+    "radio_id": "rgCHK1"
+   },
+   "t": "2026-10-30T20:26:03",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "name": "취득실가유형A",
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "click_id",
+   "spec": {
+    "click_id": "CC02",
+    "opens": "주소검색"
+   },
+   "t": "2026-10-30T20:26:09",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     572,
+     203,
+     1472,
+     257
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3737064
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "opened": {
+    "title": "주소 검색",
+    "hwnd": 3148994,
+    "capture": "docs/screens/C007_04_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "emSearch",
+     "value": "월드컵로 212"
+    }
+   },
+   "t": "2026-10-30T20:26:16",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "월드컵로 212",
+       "월드컵로 212",
+       "월드컵로 212"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3148994
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "월드컵로 212",
+     "월드컵로 212",
+     "월드컵로 212"
+    ]
+   },
+   "want": "월드컵로 212",
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSearch",
+    "opens": "주소검색"
+   },
+   "t": "2026-10-30T20:26:20",
+   "button": {
+    "id": "btnSearch",
+    "name": "조회",
+    "click_hwnd": 1444934
+   },
+   "opened": {
+    "title": "주소 검색",
+    "hwnd": 3475198,
+    "capture": "docs/screens/C007_06_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "read",
+   "spec": {
+    "read": [
+     "txtResultJuso"
+    ]
+   },
+   "t": "2026-10-30T20:26:24",
+   "values": {
+    "txtResultJuso": [
+     "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+     "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+     "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 8,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOk",
+    "screens": {
+     "아파트·연립주택공동주택가격조회": "@close"
+    }
+   },
+   "t": "2026-10-30T20:26:25",
+   "button": {
+    "id": "btnOk",
+    "name": "저장",
+    "click_hwnd": 5441042
+   },
+   "status": "ok"
+  },
+  {
+   "i": 9,
+   "action": "window",
+   "spec": {
+    "window": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-30T20:26:29",
+   "hwnd": 3737064,
+   "status": "ok"
+  },
+  {
+   "i": 10,
+   "action": "read",
+   "spec": {
+    "read": [
+     "CC02"
+    ]
+   },
+   "t": "2026-10-30T20:26:29",
+   "values": {
+    "CC02": [
+     "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+     "소재지",
+     "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 11,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC06",
+     "value": "2025-08-20",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-30T20:26:32",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "양도일자",
+       "2025년 8월 20일 수요일",
+       "양도일자"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3737064
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       3737064
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "양도일자",
+     "양도일자"
+    ],
+    "method": "type",
+    "read": [
+     "양도일자",
+     "2025년 8월 20일 수요일",
+     "양도일자"
+    ]
+   },
+   "want": "2025-08-20",
+   "status": "ok"
+  },
+  {
+   "i": 12,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC11",
+     "value": "2023-06-01",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-30T20:26:39",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "취득일자",
+       "2023년 6월 1일 목요일",
+       "취득일자"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3737064
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       3737064
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "취득일자",
+     "0001년 1월 1일 월요일",
+     "취득일자"
+    ],
+    "method": "type",
+    "read": [
+     "취득일자",
+     "2023년 6월 1일 목요일",
+     "취득일자"
+    ]
+   },
+   "want": "2023-06-01",
+   "status": "ok"
+  },
+  {
+   "i": 13,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC04",
+     "value": "84"
+    }
+   },
+   "t": "2026-10-30T20:26:46",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "84",
+       "전용면적",
+       "84"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3737064
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "전용면적"
+    ],
+    "method": "set_value",
+    "read": [
+     "84",
+     "전용면적",
+     "84"
+    ]
+   },
+   "want": "84",
+   "status": "ok"
+  },
+  {
+   "i": 14,
+   "action": "capture",
+   "spec": {
+    "capture": "basic_filled"
+   },
+   "t": "2026-10-30T20:26:53",
+   "capture": "docs/screens/C007_14_basic_filled.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 15,
+   "action": "click_id",
+   "spec": {
+    "click_id": "chName",
+    "opens": "취득원인"
+   },
+   "t": "2026-10-30T20:26:54",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     1108,
+     481,
+     1448,
+     520
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3737064
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "opened": {
+    "title": "취득원인",
+    "hwnd": 3870868,
+    "capture": "docs/screens/C007_15_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 16,
+   "action": "radio_id",
+   "spec": {
+    "radio_id": "r3"
+   },
+   "t": "2026-10-30T20:27:00",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "name": "10년 이내 배우자 증여로 이월과세 적용 ('22년 이전 증여분은 5년 이내, 소득세법 제97조의2)",
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 17,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSave",
+    "closes": "취득원인"
+   },
+   "t": "2026-10-30T20:27:04",
+   "button": {
+    "id": "btnSave",
+    "name": "저장",
+    "click_hwnd": 4067452
+   },
+   "closes": {
+    "title": "취득원인",
+    "gone": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 18,
+   "action": "window",
+   "spec": {
+    "window": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-30T20:27:08",
+   "hwnd": 3737064,
+   "status": "ok"
+  },
+  {
+   "i": 19,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "chDate",
+     "value": "2012-03-01",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-30T20:27:08",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "증여취득일",
+       "2012년 3월 1일 목요일",
+       "증여취득일"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3737064
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       3737064
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "증여취득일",
+     "0001년 1월 1일 월요일",
+     "증여취득일"
+    ],
+    "method": "type",
+    "read": [
+     "증여취득일",
+     "2012년 3월 1일 목요일",
+     "증여취득일"
+    ]
+   },
+   "want": "2012-03-01",
+   "status": "ok"
+  },
+  {
+   "i": 20,
+   "action": "read",
+   "spec": {
+    "read": [
+     "chAmt"
+    ]
+   },
+   "t": "2026-10-30T20:27:16",
+   "values": {
+    "chAmt": [
+     "증여세상당액"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 21,
+   "action": "read",
+   "spec": {
+    "read": [
+     "chName",
+     "chDate",
+     "CC11W",
+     "chAmt"
+    ]
+   },
+   "t": "2026-10-30T20:27:18",
+   "values": {
+    "chName": [
+     "10년이내 배우자증여취득",
+     "10년이내 배우자증여취득",
+     "10년이내 배우자증여취득"
+    ],
+    "chDate": [
+     "증여취득일",
+     "2012년 3월 1일 목요일"
+    ],
+    "CC11W": [
+     "증여",
+     "증여",
+     "증여"
+    ],
+    "chAmt": [
+     "증여세상당액"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 22,
+   "action": "capture",
+   "spec": {
+    "capture": "cause_set"
+   },
+   "t": "2026-10-30T20:27:27",
+   "capture": "docs/screens/C007_22_cause_set.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 23,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "S01",
+     "value": "800000000"
+    },
+    "screens": {
+     "취득실가": "@close",
+     "필요경비": "@close"
+    }
+   },
+   "t": "2026-10-30T20:27:28",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "800,000,000",
+       "양도실가",
+       "800,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3737064
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "0",
+     "양도실가",
+     "0"
+    ],
+    "method": "set_value",
+    "read": [
+     "800,000,000",
+     "양도실가",
+     "800,000,000"
+    ]
+   },
+   "want": "800000000",
+   "handled_screens": [
+    {
+     "title": "취득실가",
+     "hwnd": 3149310,
+     "pressed": "@close",
+     "capture_method": "ok",
+     "capture": "docs/screens/C007_23_screen_1.png"
+    }
+   ],
+   "status": "ok"
+  },
+  {
+   "i": 24,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnS02",
+    "opens": "취득실가"
+   },
+   "t": "2026-10-30T20:27:35",
+   "button": {
+    "id": "btnS02",
+    "name": "수정",
+    "click_hwnd": 3084058
+   },
+   "opened": {
+    "title": "취득실가",
+    "hwnd": 3280382,
+    "capture": "docs/screens/C007_24_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 25,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "S11",
+     "value": "300000000"
+    }
+   },
+   "t": "2026-10-30T20:27:41",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "300,000,000",
+       "300,000,000",
+       "300,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       3280382
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "300,000,000",
+     "300,000,000",
+     "300,000,000"
+    ]
+   },
+   "want": "300000000",
+   "status": "ok"
+  },
+  {
+   "i": 26,
+   "action": "read",
+   "spec": {
+    "read": [
+     "ST"
+    ]
+   },
+   "t": "2026-10-30T20:27:47",
+   "values": {
+    "ST": [
+     "300,000,000",
+     "300,000,000",
+     "300,000,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 27,
+   "action": "capture",
+   "spec": {
+    "capture": "acq"
+   },
+   "t": "2026-10-30T20:27:48",
+   "capture": "docs/screens/C007_27_acq.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 28,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOK"
+   },
+   "t": "2026-10-30T20:27:48",
+   "button": {
+    "id": "btnOK",
+    "name": "저장",
+    "click_hwnd": 3868100
+   },
+   "status": "ok"
+  },
+  {
+   "i": 29,
+   "action": "window",
+   "spec": {
+    "window": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-30T20:27:53",
+   "hwnd": 3737064,
+   "status": "ok"
+  },
+  {
+   "i": 30,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnS03",
+    "opens": "필요경비"
+   },
+   "t": "2026-10-30T20:27:53",
+   "button": {
+    "id": "btnS03",
+    "name": "수정",
+    "click_hwnd": 1904516
+   },
+   "opened": {
+    "title": "필요경비",
+    "hwnd": 3411454,
+    "capture": "docs/screens/C007_30_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 31,
+   "action": "click_id",
+   "spec": {
+    "click_id": "S41"
+   },
+   "t": "2026-10-30T20:28:00",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     1778,
+     345,
+     1981,
+     419
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3411454
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 32,
+   "action": "grid_cell",
+   "spec": {
+    "grid_cell": {
+     "grid": "cxGrid1",
+     "row": "지급금액",
+     "value": "4000000",
+     "record": 0
+    }
+   },
+   "t": "2026-10-30T20:28:06",
+   "result": {
+    "found": true,
+    "rows": [
+     "삭제",
+     "거래처",
+     "사업자등록번호",
+     "지급일자",
+     "지급금액",
+     "증빙종류"
+    ],
+    "attempts": [
+     {
+      "method": "set_value",
+      "already_equal": false,
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "mouse+paste",
+      "read": [
+       "4,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3411454
+      ]
+     },
+     {
+      "before": "input",
+      "ok": true,
+      "hwnds": [
+       3411454
+      ]
+     }
+    ],
+    "ok": true,
+    "enabled": true,
+    "before": "",
+    "method": "mouse+paste",
+    "read": [
+     "4,000,000"
+    ]
+   },
+   "want": "4000000",
+   "status": "ok"
+  },
+  {
+   "i": 33,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S41",
+     "S1234T"
+    ]
+   },
+   "t": "2026-10-30T20:28:17",
+   "values": {
+    "S41": [
+     "4,000,000",
+     "10_1",
+     "4,000,000"
+    ],
+    "S1234T": [
+     "4,000,000",
+     "4,000,000",
+     "4,000,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 34,
+   "action": "capture",
+   "spec": {
+    "capture": "exp"
+   },
+   "t": "2026-10-30T20:28:20",
+   "capture": "docs/screens/C007_34_exp.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 35,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOK"
+   },
+   "t": "2026-10-30T20:28:21",
+   "button": {
+    "id": "btnOK",
+    "name": "저장",
+    "click_hwnd": 3738806
+   },
+   "status": "ok"
+  },
+  {
+   "i": 36,
+   "action": "window",
+   "spec": {
+    "window": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-30T20:28:26",
+   "hwnd": 3737064,
+   "status": "ok"
+  },
+  {
+   "i": 37,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S01",
+     "S02",
+     "S03",
+     "CC06",
+     "CC11",
+     "CC04",
+     "GU",
+     "chName",
+     "chDate",
+     "CC11W",
+     "chAmt"
+    ]
+   },
+   "t": "2026-10-30T20:28:26",
+   "values": {
+    "S01": [
+     "800,000,000",
+     "양도실가",
+     "800,000,000"
+    ],
+    "S02": [
+     "300,000,000",
+     "취득실가",
+     "300,000,000"
+    ],
+    "S03": [
+     "4,000,000",
+     "필요경비(합)",
+     "4,000,000"
+    ],
+    "CC06": [
+     "양도일자",
+     "2025년 8월 20일 수요일"
+    ],
+    "CC11": [
+     "취득일자",
+     "2023년 6월 1일 목요일"
+    ],
+    "CC04": [
+     "84",
+     "전용면적",
+     "84"
+    ],
+    "GU": [
+     "일반과세",
+     "일반과세",
+     "일반과세"
+    ],
+    "chName": [
+     "10년이내 배우자증여취득",
+     "10년이내 배우자증여취득",
+     "10년이내 배우자증여취득"
+    ],
+    "chDate": [
+     "증여취득일",
+     "2012년 3월 1일 목요일"
+    ],
+    "CC11W": [
+     "증여",
+     "증여",
+     "증여"
+    ],
+    "chAmt": [
+     "0",
+     "증여세상당액",
+     "0"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 38,
+   "action": "capture",
+   "spec": {
+    "capture": "before_calc"
+   },
+   "t": "2026-10-30T20:28:51",
+   "capture": "docs/screens/C007_38_before_calc.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 39,
+   "action": "close",
+   "spec": {
+    "close": "실지거래>아파트·연립주택",
+    "modals": {
+     "*|*저장하시겠습니까*": "아니오"
+    }
+   },
+   "t": "2026-10-30T20:28:51",
+   "modals": [
+    {
+     "key": "확인|현재정보를저장하시겠습니까?",
+     "title": "확인",
+     "msg": "현재 정보를 저장하시겠습니까?",
+     "pressed": [
+      "아니오"
+     ],
+     "handled": true
+    }
+   ],
+   "closed": true,
+   "status": "ok"
+  },
+  {
+   "i": 40,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록"
+   },
+   "t": "2026-10-30T20:28:54",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 41,
+   "action": "verify_grid",
+   "spec": {
+    "verify_grid": {
+     "id": "cxGrid1",
+     "column": "소재지",
+     "contains": "월드컵로",
+     "count": 0
+    }
+   },
+   "t": "2026-10-30T20:28:59",
+   "result": {
+    "found": true,
+    "rows": 0,
+    "matched": 0,
+    "row_values": [],
+    "column": "소재지"
+   },
+   "status": "ok"
+  }
+ ],
+ "reads": {
+  "txtResultJuso": [
+   "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+   "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+   "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)"
+  ],
+  "CC02": [
+   "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+   "소재지",
+   "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)"
+  ],
+  "chAmt": [
+   "0",
+   "증여세상당액",
+   "0"
+  ],
+  "chName": [
+   "10년이내 배우자증여취득",
+   "10년이내 배우자증여취득",
+   "10년이내 배우자증여취득"
+  ],
+  "chDate": [
+   "증여취득일",
+   "2012년 3월 1일 목요일"
+  ],
+  "CC11W": [
+   "증여",
+   "증여",
+   "증여"
+  ],
+  "ST": [
+   "300,000,000",
+   "300,000,000",
+   "300,000,000"
+  ],
+  "S41": [
+   "4,000,000",
+   "10_1",
+   "4,000,000"
+  ],
+  "S1234T": [
+   "4,000,000",
+   "4,000,000",
+   "4,000,000"
+  ],
+  "S01": [
+   "800,000,000",
+   "양도실가",
+   "800,000,000"
+  ],
+  "S02": [
+   "300,000,000",
+   "취득실가",
+   "300,000,000"
+  ],
+  "S03": [
+   "4,000,000",
+   "필요경비(합)",
+   "4,000,000"
+  ],
+  "CC06": [
+   "양도일자",
+   "2025년 8월 20일 수요일"
+  ],
+  "CC11": [
+   "취득일자",
+   "2023년 6월 1일 목요일"
+  ],
+  "CC04": [
+   "84",
+   "전용면적",
+   "84"
+  ],
+  "GU": [
+   "일반과세",
+   "일반과세",
+   "일반과세"
+  ]
+ },
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     200
+    ]
+   },
+   "data_type_changed": 0
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": false,
+  "others_only_header_tip": true
+ },
+ "abort": null,
+ "exit_code": 0,
+ "finished": "2026-10-30T20:29:03",
+ "remaining_screens": [
+  1378532,
+  3409506
+ ],
+ "remaining_modals": []
+}

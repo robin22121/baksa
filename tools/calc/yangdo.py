@@ -59,6 +59,20 @@
     acquisition_date는 상속개시일(장특 보유기간 기산, 시행령 §162①5), acquisition_price는 상속개시일
     평가액(시행령 §163⑨)을 그대로 쓴다. 상속 1세대1주택(시행령 §154⑤ 동일세대 통산·§155②)은 범위 밖.
 
+배우자·직계존비속에게서 증여받은 자산(이월과세, 소득세법 §97의2)은 다음 키를 더 받는다:
+
+          acquisition_cause: 이월과세
+          donor_relation: 배우자            # 배우자 | 직계존비속 (기록용)
+          gift_date: 2023-06-01             # 증여일 (acquisition_date도 증여일)
+          gift_value: 600000000             # 증여재산가액(미적용 시 취득가액)
+          donor_acquisition_date: 2012-03-01
+          donor_acquisition_price: 300000000
+          gift_tax_attributable: 0          # 증여세 상당액(적용 시 필요경비, §97의2①)
+    기간: 양도일부터 소급해 10년(2023-01-01 이후 증여분, 그 전 증여분 5년 — 부칙) 이내 증여면 적용 후보.
+    적용: 취득가액 = 증여자 취득가액, 장특 보유기간 증여자 취득일부터(§95④ 단서), 세율 보유기간도
+    증여자 취득일부터(§104②2). §97의2②3: 적용 결정세액 < 미적용 결정세액이면 미적용(증여가액·증여일 기준).
+    자산 1건 양도만 범위 안. 1세대1주택 비과세(§97의2②2)·사업인정 수용(②1)은 범위 밖.
+
 범위 밖 분기(입력이 요구하면 NotImplementedError):
 3주택 이상, 조정대상지역 2주택의 2022-05-10 이전 양도, 2026-05-09 이전 계약·이후 양도(보완 유예 4~6개월 —
 지역별 기간 조문 미확인, 계약금 요건 미반영), 2026-05-10 이후 양도인데 양도 계약일 없음, 중과 자산이 낀 여러 자산 양도,
@@ -105,7 +119,10 @@ GRACE_TO = _dt.date(2026, 5, 9)
 # 소득세법 §104①2·3(2020.8.18 개정) — 2021-06-01 이후 양도분 단기세율. (주택%, 그 밖%)
 SHORT_TERM_FROM = _dt.date(2021, 6, 1)
 SHORT_TERM_RATES = {1: (60, 40), 0: (70, 50)}  # 보유 만 년수 → 2호(1년 이상 2년 미만)·3호(1년 미만)
-ACQUISITION_CAUSES = ("매매", "상속")
+ACQUISITION_CAUSES = ("매매", "상속", "이월과세")
+# 소득세법 §97의2①(2022.12.31 개정) — 2023-01-01 이후 증여분 10년, 그 전 증여분 5년(부칙)
+CARRYOVER_10Y_FROM = _dt.date(2023, 1, 1)
+CARRYOVER_KEYS = ("gift_date", "gift_value", "donor_acquisition_date", "donor_acquisition_price")
 
 
 # ---------------------------------------------------------------- 공통
@@ -160,6 +177,82 @@ def _inherited(asset: dict) -> bool:
     return asset.get("acquisition_cause") == "상속"
 
 
+def _carryover(asset: dict) -> bool:
+    return asset.get("acquisition_cause") == "이월과세"
+
+
+def carryover_in_period(asset: dict) -> bool:
+    """증여일이 양도일부터 소급해 10년(2023-01-01 전 증여분 5년) 이내인가.
+
+    근거: 소득세법 §97의2①(2022.12.31 개정, 2023-01-01 이후 증여분부터 10년), 부칙(그 전 증여분 5년).
+    양도일 − n년 ≤ 증여일 이면 이내. 양도일이 2/29이고 n년 전에 그 날이 없으면 2/28로 본다(가정).
+    """
+    gift, tr = _date(asset["gift_date"]), _date(asset["transfer_date"])
+    n = 10 if gift >= CARRYOVER_10Y_FROM else 5
+    back = _add_years(tr, -n) or tr.replace(year=tr.year - n, day=28)
+    return back <= gift
+
+
+def carryover_variant(asset: dict, applied: bool) -> dict:
+    """이월과세 자산 → 매매 자산 형태로 바꾼 사본(applied: 적용 / 아니면 미적용).
+
+    적용(§97의2①): 취득가액 = 증여자 취득가액, 증여세 상당액은 필요경비(expenses에 더함),
+    취득일 = 증여자 취득일 → 장특 보유기간(§95④ 단서)·세율 보유기간(§104②2) 모두 증여자 취득일부터.
+    미적용: 취득가액 = 증여가액(시행령 §163⑨), 취득일 = 증여일.
+    """
+    v = dict(asset)
+    v["acquisition_cause"] = "매매"
+    if not applied:
+        v["acquisition_date"] = asset["gift_date"]
+        v["acquisition_price"] = asset["gift_value"]
+        return v
+    v["acquisition_date"] = asset["donor_acquisition_date"]
+    v["acquisition_price"] = asset["donor_acquisition_price"]
+    gt = int(asset.get("gift_tax_attributable") or 0)
+    exp = asset.get("expenses") or 0
+    if isinstance(exp, dict):
+        exp = dict(exp)
+        exp["gift_tax_attributable"] = int(exp.get("gift_tax_attributable") or 0) + gt
+    else:
+        exp = int(exp) + gt
+    v["expenses"] = exp
+    return v
+
+
+def _compute_carryover(inp: dict) -> dict:
+    """이월과세 자산 1건 양도 — §97의2①·②3.
+
+    기간 밖이면 미적용("out_of_period"). 기간 안이면 적용·미적용을 모두 계산해 적용 결정세액
+    (감면·세액공제 없음 → 산출세액)이 미적용보다 적으면 미적용("not_applied_lower"), 아니면 적용("applied").
+    ②3으로 배제되는 경우 수증자 양도를 증여자 양도로 보는 §101②(부당행위계산) 문제는 범위 밖(판정하지 않음).
+    """
+    assets = inp["assets"]
+    if len(assets) > 1:
+        raise NotImplementedError("이월과세 자산이 낀 여러 자산 양도(§97의2②3 비교) — 범위 밖, 자산 1건만 범위 안")
+    a = assets[0]
+
+    def run(applied: bool) -> dict:
+        return compute(dict(inp, assets=[carryover_variant(a, applied)]))
+
+    if not carryover_in_period(a):
+        res, carry = run(False), "out_of_period"
+    else:
+        app, not_app = run(True), run(False)
+        if app["amounts"]["tax"] < not_app["amounts"]["tax"]:
+            res, carry = not_app, "not_applied_lower"
+        else:
+            res, carry = app, "applied"
+        res["basis"]["tax"] += ", §97의2②3(결정세액 비교)"
+    row = res["assets"][0]
+    row["carryover"] = carry
+    row["rate_holding_years"] = row["holding_years"]  # 취득일 기준 그대로(적용 시 §104②2 증여자 취득일부터)
+    if carry == "applied":
+        res["basis"]["gain"] += ", §97의2①(증여자 취득가액, 증여세 상당액 필요경비)"
+        res["basis"]["holding_deduction"] += ", §95④ 단서(증여자 취득일부터)"
+        res["basis"]["rate"] += ", §104②2"
+    return res
+
+
 def rate_holding_years(asset: dict) -> int:
     """세율 판정 보유기간(만 년수).
 
@@ -183,7 +276,16 @@ def _check_scope(asset: dict, residency: str) -> None:
         raise NotImplementedError(f"{aid}: kind={kind!r}·house={asset.get('house')!r} 조합 — 범위 밖")
     cause = asset.get("acquisition_cause", "매매")
     if cause not in ACQUISITION_CAUSES:
-        raise NotImplementedError(f"{aid}: 취득원인 {cause!r} — 범위 밖(매매·상속만)")
+        raise NotImplementedError(f"{aid}: 취득원인 {cause!r} — 범위 밖(매매·상속·이월과세만)")
+    if _carryover(asset):
+        missing = [k for k in CARRYOVER_KEYS if asset.get(k) is None]
+        if missing:
+            raise NotImplementedError(f"{aid}: 이월과세인데 {', '.join(missing)} 없음 — §97의2 판정 불가")
+        if asset.get("acquisition_price_unknown"):
+            raise NotImplementedError(f"{aid}: 이월과세 자산 취득가액 불명 — 범위 밖")
+        if is_house and asset.get("one_house"):
+            raise NotImplementedError(
+                f"{aid}: 이월과세 + 1세대1주택 비과세(§97의2②2 적용 배제) — 범위 밖")
     if _inherited(asset):
         if asset.get("decedent_acquisition_date") is None:
             raise NotImplementedError(
@@ -529,6 +631,8 @@ def compute(inp: dict) -> dict:
         raise ValueError("input.assets가 비어 있음")
     for a in assets:
         _check_scope(a, residency)
+    if any(_carryover(a) for a in assets):
+        return _compute_carryover(inp)
 
     per_asset = []
     table2_used = False

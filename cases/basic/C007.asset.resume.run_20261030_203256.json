@@ -1,0 +1,360 @@
+{
+ "steps_file": "cases\\house\\C007.asset.resume.steps.yaml",
+ "case": "C007",
+ "started": "2026-10-30T20:32:56",
+ "window": "실지거래>아파트·연립주택",
+ "vars": {},
+ "prior_runs_same_steps": 1,
+ "hwnd": 9309846,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261030_203256",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S01",
+     "S02",
+     "S03",
+     "chName"
+    ],
+    "modals": {
+     "확인|*이월과세적용시양도소득결정세액비교*": "확인"
+    }
+   },
+   "t": "2026-10-30T20:32:57",
+   "values": {
+    "S01": [
+     "800,000,000",
+     "양도실가",
+     "800,000,000"
+    ],
+    "S02": [
+     "300,000,000",
+     "취득실가",
+     "300,000,000"
+    ],
+    "S03": [
+     "4,000,000",
+     "필요경비(합)",
+     "4,000,000"
+    ],
+    "chName": [
+     "10년이내 배우자증여취득",
+     "10년이내 배우자증여취득",
+     "10년이내 배우자증여취득"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "read",
+   "spec": {
+    "read": [
+     "CC10",
+     "CC17",
+     "CC19",
+     "CC20",
+     "CC21",
+     "CC22"
+    ]
+   },
+   "t": "2026-10-30T20:33:06",
+   "values": {
+    "CC10": [
+     "800,000,000",
+     "800,000,000",
+     "800,000,000"
+    ],
+    "CC17": [
+     "300,000,000",
+     "300,000,000",
+     "300,000,000"
+    ],
+    "CC19": [
+     "4,000,000",
+     "4,000,000",
+     "4,000,000"
+    ],
+    "CC20": [
+     "496,000,000",
+     "496,000,000",
+     "496,000,000"
+    ],
+    "CC21": [
+     "128,960,000",
+     "128,960,000",
+     "128,960,000"
+    ],
+    "CC22": [
+     "367,040,000",
+     "367,040,000",
+     "367,040,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "capture",
+   "spec": {
+    "capture": "calculated"
+   },
+   "t": "2026-10-30T20:33:20",
+   "capture": "docs/screens/C007_03_calculated.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSave",
+    "closes": "실지거래>아파트·연립주택",
+    "modals": {
+     "확인|*이월과세적용시양도소득결정세액비교*": "확인"
+    }
+   },
+   "t": "2026-10-30T20:33:21",
+   "button": {
+    "id": "btnSave",
+    "name": "저장",
+    "click_hwnd": 3344830
+   },
+   "modals": [
+    {
+     "key": "확인|[주의]이월과세적용시양도소득결정세액비교(소득세법제97조의2제2항)이월과세를적용하지않은경우와자동으로비교하는기능은지원되지않으니,이월과세를적용하지않은경우의결정세액을별도로계산한후이월과세를적용한경우의결정세액과비교하여큰금액으로신고하시기바랍니다.※자산등록화면의「자산복사본만들기」를통해해당자산을복사한후취득원인을수정하면손쉽게비교가능합니다.",
+     "title": "확인",
+     "msg": "[주의] 이월과세 적용시 양도소득 결정세액 비교 (소득세법 제97조의2제2항)\r\n\r\n 이월과세를 적용하지 않은 경우와 자동으로 비교하는 기능은 지원되지 않으니,\r\n\r\n 이월과세를 적용하지 않은 경우의 결정세액을 별도로 계산한 후\r\n\r\n 이월과세를 적용한 경우의 결정세액과 비교하여 큰 금액으로 신고하시기 바랍니다.\r\n\r\n ※ 자산등록 화면의 「자산 복사본 만들기」를 통해 해당 자산을 복사한 후 \r\n     취득원인을 수정하면 손쉽게 비교 가능합니다.",
+     "pressed": [
+      "확인"
+     ],
+     "handled": true
+    }
+   ],
+   "closes": {
+    "title": "실지거래>아파트·연립주택",
+    "gone": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "window",
+   "spec": {
+    "window": "양도소득세"
+   },
+   "t": "2026-10-30T20:33:26",
+   "hwnd": 1378532,
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록"
+   },
+   "t": "2026-10-30T20:33:26",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "verify_grid",
+   "spec": {
+    "verify_grid": {
+     "id": "cxGrid1",
+     "column": "소재지",
+     "contains": "월드컵로",
+     "count": 1
+    }
+   },
+   "t": "2026-10-30T20:33:31",
+   "result": {
+    "found": true,
+    "rows": 1,
+    "matched": 1,
+    "row_values": [
+     {
+      "계산반영": "Checked",
+      "No.": "1",
+      "세율구분": "일반세율",
+      "자산종류": "아파트",
+      "소재지": "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+      "양도일자": "20250820",
+      "취득일자": "20230601",
+      "양도가액": "800000000"
+     }
+    ],
+    "column": "소재지"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 8,
+   "action": "capture",
+   "spec": {
+    "capture": "asset_grid"
+   },
+   "t": "2026-10-30T20:33:34",
+   "capture": "docs/screens/C007_08_asset_grid.png",
+   "capture_method": "ok",
+   "status": "ok"
+  }
+ ],
+ "reads": {
+  "S01": [
+   "800,000,000",
+   "양도실가",
+   "800,000,000"
+  ],
+  "S02": [
+   "300,000,000",
+   "취득실가",
+   "300,000,000"
+  ],
+  "S03": [
+   "4,000,000",
+   "필요경비(합)",
+   "4,000,000"
+  ],
+  "chName": [
+   "10년이내 배우자증여취득",
+   "10년이내 배우자증여취득",
+   "10년이내 배우자증여취득"
+  ],
+  "CC10": [
+   "800,000,000",
+   "800,000,000",
+   "800,000,000"
+  ],
+  "CC17": [
+   "300,000,000",
+   "300,000,000",
+   "300,000,000"
+  ],
+  "CC19": [
+   "4,000,000",
+   "4,000,000",
+   "4,000,000"
+  ],
+  "CC20": [
+   "496,000,000",
+   "496,000,000",
+   "496,000,000"
+  ],
+  "CC21": [
+   "128,960,000",
+   "128,960,000",
+   "128,960,000"
+  ],
+  "CC22": [
+   "367,040,000",
+   "367,040,000",
+   "367,040,000"
+  ]
+ },
+ "fingerprint_diff": {
+  "added": [
+   "Log\\15.Log"
+  ],
+  "removed": [],
+  "content": [
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 0,
+   "by_type": {},
+   "first_pages": {},
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 9,
+   "by_type": {
+    "header": 1,
+    "PIP": 1,
+    "gen": 1,
+    "pointer": 1,
+    "TIP": 1,
+    "data": 4
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "PIP": [
+     1
+    ],
+    "gen": [
+     136
+    ],
+    "pointer": [
+     171
+    ],
+    "TIP": [
+     200
+    ],
+    "data": [
+     320,
+     321,
+     323,
+     326
+    ]
+   },
+   "data_type_changed": 5
+  }
+ },
+ "fdb_verdict": {
+  "added": [
+   "Log\\15.Log"
+  ],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 0,
+    "by_type": {},
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 9,
+    "by_type": {
+     "header": 1,
+     "PIP": 1,
+     "gen": 1,
+     "pointer": 1,
+     "TIP": 1,
+     "data": 4
+    },
+    "only_header_tip": false,
+    "data_type_changed": 5,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": true,
+  "others_only_header_tip": true
+ },
+ "abort": null,
+ "exit_code": 0,
+ "finished": "2026-10-30T20:33:36",
+ "remaining_screens": [
+  1378532,
+  3409506
+ ],
+ "remaining_modals": []
+}

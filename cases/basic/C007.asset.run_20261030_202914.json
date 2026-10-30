@@ -1,0 +1,1251 @@
+{
+ "steps_file": "cases\\house\\C007.asset.steps.yaml",
+ "case": "C007",
+ "started": "2026-10-30T20:29:14",
+ "window": "양도소득세",
+ "vars": {},
+ "prior_runs_same_steps": 0,
+ "hwnd": 1378532,
+ "backup": "C:\\Users\\USER\\w\\baksa\\data\\raw\\backup\\20261030_202915",
+ "backup_failed": [],
+ "backup_header_problems": [],
+ "results": [
+  {
+   "i": 1,
+   "action": "press",
+   "spec": {
+    "press": "2. 자 산 등 록",
+    "screens": {
+     "업데이트": "취소"
+    }
+   },
+   "t": "2026-10-30T20:29:16",
+   "how": "postmessage",
+   "status": "ok"
+  },
+  {
+   "i": 2,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnS53",
+    "opens": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-30T20:29:21",
+   "button": {
+    "id": "btnS53",
+    "name": "실지거래 > 아파트/연립",
+    "click_hwnd": 3869370
+   },
+   "opened": {
+    "title": "실지거래 > 아파트·연립주택",
+    "hwnd": 9309846,
+    "capture": "docs/screens/C007_02_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 3,
+   "action": "radio_id",
+   "spec": {
+    "radio_id": "rgCHK1"
+   },
+   "t": "2026-10-30T20:29:27",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "name": "취득실가유형A",
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 4,
+   "action": "click_id",
+   "spec": {
+    "click_id": "CC02",
+    "opens": "주소검색"
+   },
+   "t": "2026-10-30T20:29:33",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     572,
+     203,
+     1472,
+     257
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       9309846
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "opened": {
+    "title": "주소 검색",
+    "hwnd": 1445280,
+    "capture": "docs/screens/C007_04_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 5,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "emSearch",
+     "value": "월드컵로 212"
+    }
+   },
+   "t": "2026-10-30T20:29:40",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "월드컵로 212",
+       "월드컵로 212",
+       "월드컵로 212"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       1445280
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "월드컵로 212",
+     "월드컵로 212",
+     "월드컵로 212"
+    ]
+   },
+   "want": "월드컵로 212",
+   "status": "ok"
+  },
+  {
+   "i": 6,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSearch",
+    "opens": "주소검색"
+   },
+   "t": "2026-10-30T20:29:44",
+   "button": {
+    "id": "btnSearch",
+    "name": "조회",
+    "click_hwnd": 1116550
+   },
+   "opened": {
+    "title": "주소 검색",
+    "hwnd": 1576528,
+    "capture": "docs/screens/C007_06_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 7,
+   "action": "read",
+   "spec": {
+    "read": [
+     "txtResultJuso"
+    ]
+   },
+   "t": "2026-10-30T20:29:48",
+   "values": {
+    "txtResultJuso": [
+     "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+     "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+     "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 8,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOk",
+    "screens": {
+     "아파트·연립주택공동주택가격조회": "@close"
+    }
+   },
+   "t": "2026-10-30T20:29:48",
+   "button": {
+    "id": "btnOk",
+    "name": "저장",
+    "click_hwnd": 3999836
+   },
+   "status": "ok"
+  },
+  {
+   "i": 9,
+   "action": "window",
+   "spec": {
+    "window": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-30T20:29:53",
+   "hwnd": 9309846,
+   "status": "ok"
+  },
+  {
+   "i": 10,
+   "action": "read",
+   "spec": {
+    "read": [
+     "CC02"
+    ]
+   },
+   "t": "2026-10-30T20:29:53",
+   "values": {
+    "CC02": [
+     "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+     "소재지",
+     "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 11,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC06",
+     "value": "2025-08-20",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-30T20:29:55",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "양도일자",
+       "2025년 8월 20일 수요일",
+       "양도일자"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       9309846
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       9309846
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "양도일자",
+     "양도일자"
+    ],
+    "method": "type",
+    "read": [
+     "양도일자",
+     "2025년 8월 20일 수요일",
+     "양도일자"
+    ]
+   },
+   "want": "2025-08-20",
+   "status": "ok"
+  },
+  {
+   "i": 12,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC11",
+     "value": "2023-06-01",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-30T20:30:02",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "취득일자",
+       "2023년 6월 1일 목요일",
+       "취득일자"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       9309846
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       9309846
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "취득일자",
+     "0001년 1월 1일 월요일",
+     "취득일자"
+    ],
+    "method": "type",
+    "read": [
+     "취득일자",
+     "2023년 6월 1일 목요일",
+     "취득일자"
+    ]
+   },
+   "want": "2023-06-01",
+   "status": "ok"
+  },
+  {
+   "i": 13,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "CC04",
+     "value": "84"
+    }
+   },
+   "t": "2026-10-30T20:30:10",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "84",
+       "전용면적",
+       "84"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       9309846
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "전용면적"
+    ],
+    "method": "set_value",
+    "read": [
+     "84",
+     "전용면적",
+     "84"
+    ]
+   },
+   "want": "84",
+   "status": "ok"
+  },
+  {
+   "i": 14,
+   "action": "capture",
+   "spec": {
+    "capture": "basic_filled"
+   },
+   "t": "2026-10-30T20:30:16",
+   "capture": "docs/screens/C007_14_basic_filled.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 15,
+   "action": "click_id",
+   "spec": {
+    "click_id": "chName",
+    "opens": "취득원인"
+   },
+   "t": "2026-10-30T20:30:17",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     1108,
+     481,
+     1448,
+     520
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       9309846
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "opened": {
+    "title": "취득원인",
+    "hwnd": 2492574,
+    "capture": "docs/screens/C007_15_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 16,
+   "action": "radio_id",
+   "spec": {
+    "radio_id": "r3"
+   },
+   "t": "2026-10-30T20:30:23",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "name": "10년 이내 배우자 증여로 이월과세 적용 ('22년 이전 증여분은 5년 이내, 소득세법 제97조의2)",
+    "method": "select",
+    "selected": true,
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 17,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnSave",
+    "closes": "취득원인"
+   },
+   "t": "2026-10-30T20:30:27",
+   "button": {
+    "id": "btnSave",
+    "name": "저장",
+    "click_hwnd": 3082622
+   },
+   "closes": {
+    "title": "취득원인",
+    "gone": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 18,
+   "action": "window",
+   "spec": {
+    "window": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-30T20:30:31",
+   "hwnd": 9309846,
+   "status": "ok"
+  },
+  {
+   "i": 19,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "chDate",
+     "value": "2012-03-01",
+     "type": "Pane"
+    }
+   },
+   "t": "2026-10-30T20:30:32",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "type",
+      "read": [
+       "증여취득일",
+       "2012년 3월 1일 목요일",
+       "증여취득일"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       9309846
+      ]
+     },
+     {
+      "before": "type",
+      "ok": true,
+      "hwnds": [
+       9309846
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "증여취득일",
+     "0001년 1월 1일 월요일",
+     "증여취득일"
+    ],
+    "method": "type",
+    "read": [
+     "증여취득일",
+     "2012년 3월 1일 목요일",
+     "증여취득일"
+    ]
+   },
+   "want": "2012-03-01",
+   "status": "ok"
+  },
+  {
+   "i": 20,
+   "action": "read",
+   "spec": {
+    "read": [
+     "chAmt"
+    ]
+   },
+   "t": "2026-10-30T20:30:39",
+   "values": {
+    "chAmt": [
+     "증여세상당액"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 21,
+   "action": "read",
+   "spec": {
+    "read": [
+     "chName",
+     "chDate",
+     "CC11W",
+     "chAmt"
+    ]
+   },
+   "t": "2026-10-30T20:30:41",
+   "values": {
+    "chName": [
+     "10년이내 배우자증여취득",
+     "10년이내 배우자증여취득",
+     "10년이내 배우자증여취득"
+    ],
+    "chDate": [
+     "증여취득일",
+     "2012년 3월 1일 목요일"
+    ],
+    "CC11W": [
+     "증여",
+     "증여",
+     "증여"
+    ],
+    "chAmt": [
+     "증여세상당액"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 22,
+   "action": "capture",
+   "spec": {
+    "capture": "cause_set"
+   },
+   "t": "2026-10-30T20:30:50",
+   "capture": "docs/screens/C007_22_cause_set.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 23,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "S01",
+     "value": "800000000"
+    },
+    "screens": {
+     "취득실가": "@close",
+     "필요경비": "@close"
+    }
+   },
+   "t": "2026-10-30T20:30:51",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "800,000,000",
+       "양도실가",
+       "800,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       9309846
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [
+     "0",
+     "양도실가",
+     "0"
+    ],
+    "method": "set_value",
+    "read": [
+     "800,000,000",
+     "양도실가",
+     "800,000,000"
+    ]
+   },
+   "want": "800000000",
+   "handled_screens": [
+    {
+     "title": "취득실가",
+     "hwnd": 2753920,
+     "pressed": "@close",
+     "capture_method": "ok",
+     "capture": "docs/screens/C007_23_screen_1.png"
+    }
+   ],
+   "status": "ok"
+  },
+  {
+   "i": 24,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnS02",
+    "opens": "취득실가"
+   },
+   "t": "2026-10-30T20:30:58",
+   "button": {
+    "id": "btnS02",
+    "name": "수정",
+    "click_hwnd": 1378942
+   },
+   "opened": {
+    "title": "취득실가",
+    "hwnd": 2884992,
+    "capture": "docs/screens/C007_24_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 25,
+   "action": "text",
+   "spec": {
+    "text": {
+     "id": "S11",
+     "value": "300000000"
+    }
+   },
+   "t": "2026-10-30T20:31:04",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "attempts": [
+     {
+      "method": "set_value",
+      "read": [
+       "300,000,000",
+       "300,000,000",
+       "300,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "set_value",
+      "ok": true,
+      "hwnds": [
+       2884992
+      ]
+     }
+    ],
+    "ok": true,
+    "before": [],
+    "method": "set_value",
+    "read": [
+     "300,000,000",
+     "300,000,000",
+     "300,000,000"
+    ]
+   },
+   "want": "300000000",
+   "status": "ok"
+  },
+  {
+   "i": 26,
+   "action": "read",
+   "spec": {
+    "read": [
+     "ST"
+    ]
+   },
+   "t": "2026-10-30T20:31:10",
+   "values": {
+    "ST": [
+     "300,000,000",
+     "300,000,000",
+     "300,000,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 27,
+   "action": "capture",
+   "spec": {
+    "capture": "acq"
+   },
+   "t": "2026-10-30T20:31:11",
+   "capture": "docs/screens/C007_27_acq.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 28,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOK"
+   },
+   "t": "2026-10-30T20:31:11",
+   "button": {
+    "id": "btnOK",
+    "name": "저장",
+    "click_hwnd": 3606314
+   },
+   "status": "ok"
+  },
+  {
+   "i": 29,
+   "action": "window",
+   "spec": {
+    "window": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-30T20:31:16",
+   "hwnd": 9309846,
+   "status": "ok"
+  },
+  {
+   "i": 30,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnS03",
+    "opens": "필요경비"
+   },
+   "t": "2026-10-30T20:31:16",
+   "button": {
+    "id": "btnS03",
+    "name": "수정",
+    "click_hwnd": 1313874
+   },
+   "opened": {
+    "title": "필요경비",
+    "hwnd": 3016064,
+    "capture": "docs/screens/C007_30_opened.png",
+    "capture_method": "ok"
+   },
+   "status": "ok"
+  },
+  {
+   "i": 31,
+   "action": "click_id",
+   "spec": {
+    "click_id": "S41"
+   },
+   "t": "2026-10-30T20:31:23",
+   "result": {
+    "found": true,
+    "enabled": true,
+    "rect": [
+     1778,
+     345,
+     1981,
+     419
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3016064
+      ]
+     }
+    ],
+    "ok": true
+   },
+   "status": "ok"
+  },
+  {
+   "i": 32,
+   "action": "grid_cell",
+   "spec": {
+    "grid_cell": {
+     "grid": "cxGrid1",
+     "row": "지급금액",
+     "value": "4000000",
+     "record": 0
+    }
+   },
+   "t": "2026-10-30T20:31:29",
+   "result": {
+    "found": true,
+    "rows": [
+     "삭제",
+     "거래처",
+     "사업자등록번호",
+     "지급일자",
+     "지급금액",
+     "증빙종류"
+    ],
+    "attempts": [
+     {
+      "method": "set_value",
+      "already_equal": false,
+      "error": "NoPatternInterfaceError: ",
+      "match": false
+     },
+     {
+      "method": "mouse+paste",
+      "read": [
+       "4,000,000"
+      ],
+      "match": true
+     }
+    ],
+    "foreground": [
+     {
+      "before": "mouse",
+      "ok": true,
+      "hwnds": [
+       3016064
+      ]
+     },
+     {
+      "before": "input",
+      "ok": true,
+      "hwnds": [
+       3016064
+      ]
+     }
+    ],
+    "ok": true,
+    "enabled": true,
+    "before": "",
+    "method": "mouse+paste",
+    "read": [
+     "4,000,000"
+    ]
+   },
+   "want": "4000000",
+   "status": "ok"
+  },
+  {
+   "i": 33,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S41",
+     "S1234T"
+    ]
+   },
+   "t": "2026-10-30T20:31:40",
+   "values": {
+    "S41": [
+     "4,000,000",
+     "10_1",
+     "4,000,000"
+    ],
+    "S1234T": [
+     "4,000,000",
+     "4,000,000",
+     "4,000,000"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 34,
+   "action": "capture",
+   "spec": {
+    "capture": "exp"
+   },
+   "t": "2026-10-30T20:31:43",
+   "capture": "docs/screens/C007_34_exp.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 35,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnOK"
+   },
+   "t": "2026-10-30T20:31:44",
+   "button": {
+    "id": "btnOK",
+    "name": "저장",
+    "click_hwnd": 2559862
+   },
+   "status": "ok"
+  },
+  {
+   "i": 36,
+   "action": "window",
+   "spec": {
+    "window": "실지거래>아파트·연립주택"
+   },
+   "t": "2026-10-30T20:31:49",
+   "hwnd": 9309846,
+   "status": "ok"
+  },
+  {
+   "i": 37,
+   "action": "read",
+   "spec": {
+    "read": [
+     "S01",
+     "S02",
+     "S03",
+     "CC06",
+     "CC11",
+     "CC04",
+     "GU",
+     "chName",
+     "chDate",
+     "CC11W",
+     "chAmt"
+    ]
+   },
+   "t": "2026-10-30T20:31:49",
+   "values": {
+    "S01": [
+     "800,000,000",
+     "양도실가",
+     "800,000,000"
+    ],
+    "S02": [
+     "300,000,000",
+     "취득실가",
+     "300,000,000"
+    ],
+    "S03": [
+     "4,000,000",
+     "필요경비(합)",
+     "4,000,000"
+    ],
+    "CC06": [
+     "양도일자",
+     "2025년 8월 20일 수요일"
+    ],
+    "CC11": [
+     "취득일자",
+     "2023년 6월 1일 목요일"
+    ],
+    "CC04": [
+     "84",
+     "전용면적",
+     "84"
+    ],
+    "GU": [
+     "일반과세",
+     "일반과세",
+     "일반과세"
+    ],
+    "chName": [
+     "10년이내 배우자증여취득",
+     "10년이내 배우자증여취득",
+     "10년이내 배우자증여취득"
+    ],
+    "chDate": [
+     "증여취득일",
+     "2012년 3월 1일 목요일"
+    ],
+    "CC11W": [
+     "증여",
+     "증여",
+     "증여"
+    ],
+    "chAmt": [
+     "0",
+     "증여세상당액",
+     "0"
+    ]
+   },
+   "status": "ok"
+  },
+  {
+   "i": 38,
+   "action": "capture",
+   "spec": {
+    "capture": "before_calc"
+   },
+   "t": "2026-10-30T20:32:14",
+   "capture": "docs/screens/C007_38_before_calc.png",
+   "capture_method": "ok",
+   "status": "ok"
+  },
+  {
+   "i": 39,
+   "action": "press_id",
+   "spec": {
+    "press_id": "btnCal"
+   },
+   "t": "2026-10-30T20:32:14",
+   "button": {
+    "id": "btnCal",
+    "name": "계산",
+    "click_hwnd": 2034044
+   },
+   "modals": [
+    {
+     "key": "확인|[주의]이월과세적용시양도소득결정세액비교(소득세법제97조의2제2항)이월과세를적용하지않은경우와자동으로비교하는기능은지원되지않으니,이월과세를적용하지않은경우의결정세액을별도로계산한후이월과세를적용한경우의결정세액과비교하여큰금액으로신고하시기바랍니다.※자산등록화면의「자산복사본만들기」를통해해당자산을복사한후취득원인을수정하면손쉽게비교가능합니다.",
+     "title": "확인",
+     "msg": "[주의] 이월과세 적용시 양도소득 결정세액 비교 (소득세법 제97조의2제2항)\r\n\r\n 이월과세를 적용하지 않은 경우와 자동으로 비교하는 기능은 지원되지 않으니,\r\n\r\n 이월과세를 적용하지 않은 경우의 결정세액을 별도로 계산한 후\r\n\r\n 이월과세를 적용한 경우의 결정세액과 비교하여 큰 금액으로 신고하시기 바랍니다.\r\n\r\n ※ 자산등록 화면의 「자산 복사본 만들기」를 통해 해당 자산을 복사한 후 \r\n     취득원인을 수정하면 손쉽게 비교 가능합니다.",
+     "handled": false,
+     "capture": [
+      "ok",
+      "docs/screens/C007_39_modal_unknown.png"
+     ]
+    }
+   ],
+   "status": "abort",
+   "detail": "처음 보는 모달 '확인|[주의]이월과세적용시양도소득결정세액비교(소득세법제97조의2제2항)이월과세를적용하지않은경우와자동으로비교하는기능은지원되지않으니,이월과세를적용하지않은경우의결정세액을별도로계산한후이월과세를적용한경우의결정세액과비교하여큰금액으로신고하시기바랍니다.※자산등록화면의「자산복사본만들기」를통해해당자산을복사한후취득원인을수정하면손쉽게비교가능합니다.' — 아무것도 누르지 않음. 단계 파일 modals에 추가 필요"
+  }
+ ],
+ "reads": {
+  "txtResultJuso": [
+   "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+   "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+   "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)"
+  ],
+  "CC02": [
+   "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)",
+   "소재지",
+   "서울특별시 마포구 월드컵로 212 (성산동, 마포구청, 370)"
+  ],
+  "chAmt": [
+   "0",
+   "증여세상당액",
+   "0"
+  ],
+  "chName": [
+   "10년이내 배우자증여취득",
+   "10년이내 배우자증여취득",
+   "10년이내 배우자증여취득"
+  ],
+  "chDate": [
+   "증여취득일",
+   "2012년 3월 1일 목요일"
+  ],
+  "CC11W": [
+   "증여",
+   "증여",
+   "증여"
+  ],
+  "ST": [
+   "300,000,000",
+   "300,000,000",
+   "300,000,000"
+  ],
+  "S41": [
+   "4,000,000",
+   "10_1",
+   "4,000,000"
+  ],
+  "S1234T": [
+   "4,000,000",
+   "4,000,000",
+   "4,000,000"
+  ],
+  "S01": [
+   "800,000,000",
+   "양도실가",
+   "800,000,000"
+  ],
+  "S02": [
+   "300,000,000",
+   "취득실가",
+   "300,000,000"
+  ],
+  "S03": [
+   "4,000,000",
+   "필요경비(합)",
+   "4,000,000"
+  ],
+  "CC06": [
+   "양도일자",
+   "2025년 8월 20일 수요일"
+  ],
+  "CC11": [
+   "취득일자",
+   "2023년 6월 1일 목요일"
+  ],
+  "CC04": [
+   "84",
+   "전용면적",
+   "84"
+  ],
+  "GU": [
+   "일반과세",
+   "일반과세",
+   "일반과세"
+  ]
+ },
+ "fingerprint_diff": {
+  "added": [],
+  "removed": [],
+  "content": [
+   "Data\\neoPost.fdb",
+   "Data\\neoTax.fdb"
+  ],
+  "mtime_only": []
+ },
+ "fdb_pages": {
+  "Data/neoPost.fdb": {
+   "page_size": 4096,
+   "pages_old": 3553,
+   "pages_new": 3553,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     1472
+    ]
+   },
+   "data_type_changed": 0
+  },
+  "Data/neoTax.fdb": {
+   "page_size": 4096,
+   "pages_old": 1648,
+   "pages_new": 1648,
+   "size_same": true,
+   "changed_total": 2,
+   "by_type": {
+    "header": 1,
+    "TIP": 1
+   },
+   "first_pages": {
+    "header": [
+     0
+    ],
+    "TIP": [
+     200
+    ]
+   },
+   "data_type_changed": 0
+  }
+ },
+ "fdb_verdict": {
+  "added": [],
+  "removed": [],
+  "files": {
+   "Data/neoPost.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   },
+   "Data/neoTax.fdb": {
+    "changed_total": 2,
+    "by_type": {
+     "header": 1,
+     "TIP": 1
+    },
+    "only_header_tip": true,
+    "data_type_changed": 0,
+    "size_same": true
+   }
+  },
+  "neoTax_data_changed": false,
+  "others_only_header_tip": true
+ },
+ "abort": "단계 39 press_id abort: 처음 보는 모달 '확인|[주의]이월과세적용시양도소득결정세액비교(소득세법제97조의2제2항)이월과세를적용하지않은경우와자동으로비교하는기능은지원되지않으니,이월과세를적용하지않은경우의결정세액을별도로계산한후이월과세를적용한경우의결정세액과비교하여큰금액으로신고하시기바랍니다.※자산등록화면의「자산복사본만들기」를통해해당자산을복사한후취득원인을수정하면손쉽게비교가능합니다.' — 아무것도 누르지 않음. 단계 파일 modals에 추가 필요",
+ "exit_code": 2,
+ "finished": "2026-10-30T20:32:20",
+ "remaining_screens": [
+  9309846,
+  1378532,
+  3409506
+ ],
+ "remaining_modals": [
+  2034324
+ ]
+}

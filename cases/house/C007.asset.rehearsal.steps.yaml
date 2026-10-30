@@ -1,0 +1,57 @@
+# C007 자산 리허설: 실제 저장과 같은 입력, 계산 앞에서 저장 없이 닫는다(U4)
+window: 양도소득세
+steps:
+  - press: 2. 자 산 등 록
+    screens: {업데이트: 취소}
+  - press_id: btnS53                       # 아 파 트 / 연립·다세대
+    opens: 실지거래>아파트·연립주택
+  - radio_id: rgCHK1                       # 취득실가를 아는 경우
+  - click_id: CC02
+    opens: 주소검색
+  - text: {id: emSearch, value: 월드컵로 212}
+  - press_id: btnSearch
+    opens: 주소검색
+  - read: [txtResultJuso]
+  - press_id: btnOk
+    screens: {아파트·연립주택공동주택가격조회: "@close"}   # 1차(234807): 강남구청 주소 확인 뒤 자동으로 열림(C001 마포구청에서는 없음) — 닫는다
+  - window: 실지거래>아파트·연립주택
+  - read: [CC02]
+  - text: {id: CC06, value: "2025-08-20", type: Pane}   # 양도일자
+  - text: {id: CC11, value: "2023-06-01", type: Pane}   # 취득일자 = 증여일
+  - text: {id: CC04, value: "84"}                       # 전용면적(가상)
+  - capture: basic_filled
+  # 취득원인: chName "…" → 창 "취득원인" → r3 "5년 이내 배우자 증여로 이월과세 적용 (소득세법 제97조의2)" → 저장
+  - click_id: chName
+    opens: 취득원인
+  - radio_id: r3
+  - press_id: btnSave
+    closes: 취득원인
+  - window: 실지거래>아파트·연립주택
+  - text: {id: chDate, value: "2012-03-01", type: Pane}   # 증여자 취득일
+  - read: [chAmt]
+  - read: [chName, chDate, CC11W, chAmt]
+  - capture: cause_set
+  - text: {id: S01, value: "800000000"}                 # 양도실가
+    screens: {취득실가: "@close", 필요경비: "@close"}
+  - press_id: btnS02
+    opens: 취득실가
+  - text: {id: S11, value: "300000000"}   # 증여자 취득가액(이월과세 취득가액)                 # 매입가격
+  - read: [ST]
+  - capture: acq
+  - press_id: btnOK
+  - window: 실지거래>아파트·연립주택
+  - press_id: btnS03
+    opens: 필요경비
+  - click_id: S41
+  # 3차(235202): 거래처 입력 뒤 포커스가 새 행으로 넘어가 지급일자가 둘째 행에 들어감 → 세액에 필요한 지급금액만 첫 행에 넣는다(⑩ 합계로 확인)
+  - grid_cell: {grid: cxGrid1, row: 지급금액, value: "4000000", record: 0}
+  - read: [S41, S1234T]
+  - capture: exp
+  - press_id: btnOK
+  - window: 실지거래>아파트·연립주택
+  - read: [S01, S02, S03, CC06, CC11, CC04, GU, chName, chDate, CC11W, chAmt]
+  - capture: before_calc
+  - close: 실지거래>아파트·연립주택
+    modals: {"*|*저장하시겠습니까*": 아니오}
+  - press: 2. 자 산 등 록
+  - verify_grid: {id: cxGrid1, column: 소재지, contains: 월드컵로, count: 0}
